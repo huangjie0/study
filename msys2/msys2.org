@@ -1,0 +1,52 @@
+#+TITLE: MSYS2
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../style/my-org-worg.css"/>
+
+*** 安装
+
+
+**** 安装MSYS2
+#+BEGIN_EXAMPLE
+1、 官网 http://www.msys2.org/ 下载对应平台的最新安装包，msys2-x86_64-20161025.exe
+
+设置好安装路径，一路回车。安装结束后，开始菜单中会创建MSYS2 MSYS， MSYS2 MinGW 32-bit，
+
+MSYS2 MinGW 64-bit 三种快捷方式
+
+2、 配置MSYS2
+
+添加中科大镜像数据源
+C:\msys64\etc\pacman.d\mirrorlist.mingw32
+Server = http://mirrors.ustc.edu.cn/msys2/mingw/i686
+
+C:\msys64\etc\pacman.d\mirrorlist.mingw64
+Server = http://mirrors.ustc.edu.cn/msys2/mingw/x86_64
+
+C:\msys64\etc\pacman.d\mirrorlist.msys
+Server = http://mirrors.ustc.edu.cn/msys2/msys/$arch
+
+
+3、 升级系统
+pacman -Syuu  升级结束后，关闭终端，再次打开终端，再次输入
+
+pacman -Syuu 一直循环，直到再没有更新的动作了
+#+END_EXAMPLE
+
+
+**** 建立MSYS2桌面快捷方式
+#+BEGIN_EXAMPLE
+C:\msys64\usr\bin\mintty.exe 发送到桌面快捷方式
+#+END_EXAMPLE
+
+
+**** 配置 MSYS2 环境
+#+BEGIN_EXAMPLE
+C:\msys64\home\用户名 该目录可以当作类似Linux用户的主目录，环境相当独立
+
+而非采用Windows系统的 C:\Users\用户名 目录作为主目录
+#+END_EXAMPLE
+
+
+**** 卸载MSYS2
+#+BEGIN_EXAMPLE
+双击 C:\Local\msys64\maintenancetool.exe
+#+END_EXAMPLE
