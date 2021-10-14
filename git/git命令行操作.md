@@ -30,7 +30,7 @@
 - 前进后退
    - 基于索引值操作【推荐】 git reset --hard[哈希值]
    - 使用^符号 只能往后退  git reset --hard HEAD^...
-   - 使用~符号 git reset --hard HEAD~n 后退n步
+   - 使用~符号 git reset --hard HEAD~5 后退5步
 - reset命令三个参数对比
    - --soft参数
       - 在本地库移动指针
@@ -62,7 +62,12 @@
 - 推送代码地址设置 git remote add [别名] [远程仓库地址]
 - 推送 git push [别名] [分支名]
 - 查看别名以及 仓库地址 git remote -v
-- 
+- 克隆：
+   - 完整的把远程库下载到本地
+   - 创建远程地址别名
+   - 初始化本地库
+   - 命令 git clone [远程库地址]
+
 
 
 
