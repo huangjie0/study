@@ -12,7 +12,8 @@ def language():
     favorite_language = '     python        '
     favorite_language1 = favorite_language.rstrip()
     favorite_language2 = favorite_language.lstrip()
-    print(favorite_language)
+    print(favorite_language1)
+    print(favorite_language2)
 
 if __name__=='__main__':
     language()
