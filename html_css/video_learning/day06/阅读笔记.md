@@ -1,0 +1,16 @@
+# CSS
+## 1.1css整体感知
+- css是层叠式样式表的简写，css最新版本是css3，从审美角度负责页面样式。
+- 标签是style标签，放在head里面，css对换行不敏感，对空格也不敏感，但一定要有标准的语法，冒号，分号不能省略。
+## 1.2一些常见属性
+- 字符颜色：color,字号大小：font-size,背景颜色：background-color,加粗：font-weight,不加粗：font-weight:normal,斜体：font-style:italic,不斜体：font-style:normal,下划线：text-decoration:underline,没有下划线：text-decoration:none。
+# 基础选择器
+## 2.1标签选择器
+- 就是标签名字，注意所有标签都可以是选择器，比如ul,ol,li,label,dt,dl,input等
+- 选择所有标签而不是一个。
+## 2.2id选择器
+- id选择符用#表示，任何html标签都可以有id属性，表示这个标签的名字。
+- 一个html页面，不能出现相同的id.
+## 2.3类选择器
+- 类选择器用.+class属性值，同一个标签，可能同时属于多个css类，用空格隔开；
+- class可以重复，同一个页面上可能有多个标签同时属于某一类；同一标签可以携带多个类。
