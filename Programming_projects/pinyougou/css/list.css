@@ -1,0 +1,94 @@
+/*页面的样式*/
+.sk{
+    height: 32px;
+    border-left: 1px solid #c81623;
+    position: absolute;
+    top: 40px;
+    left: 185px;
+    padding:5px 0 0 15px
+}
+.sk_list li{
+    margin: 0 30px;
+    float: left;
+    line-height: 45px;
+}
+.sk_list li a{
+    font-size: 16px;
+    color: #000;
+    font-weight: 700;
+}
+.sk_list li a:hover{
+    color: #c81623;
+}
+.sk_con li {
+    float: left;
+    line-height: 45px;
+    margin: 0 20px;
+}
+.sk_con li a{
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'icomoon';
+}
+.sk_goods{
+    width: 288px;
+    height: 458px;
+    border: 1px solid #c81623;
+}
+.sk_bd{
+    margin-top: 25px;
+}
+.sk_goods_title{
+    font-size: 14px;
+    color: #666666;
+    font-weight: normal;
+    padding: 10px;
+}
+.sk_goods_price{
+    padding: 0 10px;
+}
+.sk_goods_price em{
+    color: #c81623;
+    font-size: 22px;
+}
+.sk_goods_price del{
+    font-size: 14px;
+    font-weight: 700;
+    color: #a4a4a4a4;
+}
+.sk_goods_progress{
+    padding: 0 10px;
+}
+.bar{
+    width: 130px;
+    height: 10px;
+    border: 1px solid #b1191a;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
