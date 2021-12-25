@@ -28,3 +28,18 @@
 ## 外连接的方式
 - 左外连接：select * from 表名 left join 另一张表 on 满足的条件筛选；
 - 右连接：select * from 表名 right join 另一张表 on 满足的条件筛选；
+## 更新表中的数据
+- 首先可以复制一份原先的表然后进行操作；update 表名 set + 要修改的值进行赋值 + where + 满足的条件
+## 删除表中的数据
+- 可以使用delete、drop、truncate
+- 使用delete方法删除可以进行的操作
+- 开始一个删除任务模式 START TRANSACTION;
+- 删除表中所有数据 delete from 表名;
+- 删除具体的信息
+- delete from 表名 where 条件;
+- commit;提交到数据库
+- ROLLBACK;进行回滚
+## 删除操作的区别
+- delete：1.可以回滚2.可以带条件删除3.速度慢4.删除后不会回收空间
+- TRUNCATE：1.不能回滚2.不能带条件3.速度快4.删除后可以回收空间
+- drop：1.删除表结构以及数据2.不能回滚3.速度最快4.可以回收空间
