@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #eeeeee;
+}
+.body .denglu{
+    width: 300px;
+    height: 500px;
+}
+.denglu_1{
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.denglu_2{
+    width: 300px;
+    height: 80px;
+    border-bottom: 1px solid #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.denglu_3{
+    width: 300px;
+    height: 80px;
+    border-bottom: 1px solid #efefef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.denglu_4{
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.denglu_4 p{
+    font-size: 12px;
+}
+.denglu_5{
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(to right,#08d4df,#7972ee,#a44cf4,#ec0efd); 
+    border-radius: 25px;
+    line-height: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+.denglu_6{
+    display: flex;
+}
+.denglu_6 i{
+    margin-right: 10px;
+    color: #e4e4e4;
+}
+.denglu_6 p{
+    color: #e4e4e4;
+}
+.denglu_7{
+    width: 300px;
+    height: 30px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+}
+.denglu_8{
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.weixin{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3b5998;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 10px;
+    color: white;
+
+}
+.qq{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    background-color: #1da1f2;
+    border-right: 10px;
+    color: white;
+    margin-right: 10px;
+}
+.weibo{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    background-color: #ea4335;
+    color: white;
+}
+.denglu_9{
+    width: 300px;
+    height: 20px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    margin-top: 10px;
+}

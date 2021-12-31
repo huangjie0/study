@@ -1,0 +1,18 @@
+.wxzf{
+    width: 1920px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.zfcg{
+    width: 1920px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 30px;
+}
+.kongbai{
+    width: 1920px;
+    height: 150px;
+}
