@@ -67,7 +67,9 @@
    - 创建远程地址别名
    - 初始化本地库
    - 命令 git clone [远程库地址]
-   - 
+## git统计代码量
+- find . -name "*.html" | xargs wc -l
+- find . -name "*.css" | xargs wc -l
 
 
 
