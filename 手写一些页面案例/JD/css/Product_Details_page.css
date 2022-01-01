@@ -277,6 +277,9 @@
     justify-content: space-around;
     align-items: center;
 }
+.xilie div:hover{
+    border: 2px solid red;
+}
 .xilie img{
     width: 65px;
 }

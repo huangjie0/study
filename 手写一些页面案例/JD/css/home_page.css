@@ -15,6 +15,9 @@
     font-weight: bold;
     color: #555555;
 }
+.small_list_1 p:hover{
+    color: red;
+}
 .big_list{
     width: 1920px;
     height: 900px;
@@ -31,6 +34,18 @@
     width: 400px;
     height: 900px;
     background-color: dimgrey;
+}
+.big_list_2 p{
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 1em;
+}
+.big_list_2 p:hover{
+    background-color: #948a8e;
+}
+.big_list_2 span:hover{
+    color: red;
 }
 .big_img{
     width: 1358px;
@@ -88,6 +103,18 @@
 }
 .xsms_2 img{
     height: 60px;
+    animation-name: run;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes run{
+    0%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(-20deg);
+    }
 }
 .clock{
     height: 60px;
@@ -166,14 +193,26 @@
 .nr2 img{
     width: 350px;
 }
+.nr2 img:hover{
+    transform: translateY(-5px);
+}
 .nr3 img{
     width: 350px;
+}
+.nr3 img:hover{
+    transform: translateY(-5px);
 }
 .nr4 img{
     width: 350px;
 }
+.nr4 img:hover{
+    transform: translateY(-5px);
+}
 .nr5 img{
     width: 350px;
+}
+.nr5 img:hover{
+    transform: translateY(-5px);
 }
 .nr2_1,.nr3_1,.nr4_1,.nr5_1{
     width: 350px;
@@ -263,6 +302,9 @@
     line-height: 60px;
     color: #ffffff;
 }
+.neirong_9_9 div:hover{
+    border: 2px solid white;
+}
 .neirong_9_9>div{
     width: 120px;
     height: 60px;
@@ -270,6 +312,9 @@
     text-align: center;
     line-height: 60px;
     color: #ffffff;
+}
+.neirong_9 div:hover{
+    border: 2px solid white;
 }
 .neirong10{
     width: 1920px;
@@ -312,6 +357,10 @@
 .neirong15 .neirong15_1>img{
     height: 530px;
 }
+.neirong15 .neirong15_1>img:hover{
+    transition: all 0.2s ease-in;
+    transform: translateX(-10px);
+}
 .neirong15_2{
     width: 470px;
     height: 530px;
@@ -332,7 +381,6 @@
 .neirong15_2_2{
     width: 150px;
     height: 150px;
-    background-color: violet;
 }
 .dnm{
     width: 70px;
@@ -343,6 +391,10 @@
 }
 .neirong15_2_2 img{
     height: 150px;
+}
+.neirong15_2_2 img:hover{
+    transition: all 0.2s ease-in;
+    transform: translateX(-10px);
 }
 .dnm>p{
     font-size: 25px;
