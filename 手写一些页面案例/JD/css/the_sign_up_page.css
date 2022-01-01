@@ -1,0 +1,84 @@
+.zhuce{
+    width: 1920px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+}
+.zhuce_1{
+    width: 1800px;
+    height: 600px;
+    position: relative;
+}
+.zhuce_2{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50px;
+    left: 250px;
+    border-right: 1px solid #cccccc;
+}
+.zhuce_2>div{
+    width: 500px;
+    height: 50px;
+}
+.zhuce_3{
+    width: 250px;
+    height: 40px;
+    position: absolute;
+    right: 300px;
+    top: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+.zhuce_3 p{
+    text-align: center;
+    line-height: 40px;
+}
+.zhuce_4{
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    background-color: #b1191a;
+}
+.hycc{
+    font-size: 20px;
+    text-align: center;
+}
+.zhuce_5,.zhuce_6,.zhuce_7,.zhuce_8,.zhuce_9{
+    display: flex;
+}
+.zhuce_9{
+    width: 500px;
+    height: 40px;
+    justify-content: center;
+    text-align: center;
+}
+.zhuce_5 p{
+    width: 166px;
+    height: 40px;
+    text-align: right;
+    font-size: 20px;
+}
+.zhuce_6 p{
+    width: 166px;
+    height: 40px;
+    text-align: right;
+    font-size: 20px;
+}
+.zhuce_7 p{
+    width: 166px;
+    height: 40px;
+    text-align: right;
+    font-size: 20px;
+}
+.zhuce_8 p{
+    width: 166px;
+    height: 40px;
+    text-align: right;
+    font-size: 20px;
+}
+.zhuce_5,.zhuce_6,.zhuce_7,.zhuce_8,.zhuce_9,.zhuce_10{
+    margin-top: 10px;
+}
