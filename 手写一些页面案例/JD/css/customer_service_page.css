@@ -1,0 +1,25 @@
+.service{
+    width: 1920px;
+    height:650px;
+    display: flex;
+    justify-content: center;
+}
+.service_1{
+    width: 1800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.service_1>div{
+    width: 430px;
+    height: 180px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 5px solid #cccccc;
+}
+.service_1 p{
+    font-size: 35px;
+}
