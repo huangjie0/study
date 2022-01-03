@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/common_style.css">
     <link rel="stylesheet" href="css/home_page.css">
+    <link rel="stylesheet" href="js/jquery-1.8.3.min.js">
 </head>
 <body>
     <div class="footer">
@@ -57,20 +58,116 @@
     <div class="big_list">
         <div class="big_list_1">
             <div class="big_list_2">
-                <p><span>家用电器</span></p>
-                <p><span>手机</span>/<span>运营商</span>/<span>数码</span></p>
-                <p><span>电脑</span>/<span>办公</span></p>
-                <p><span>家居</span><span>/家具</span>/<span>家装</span>/<span>厨具</span></p>
-                <p><span>男装</span>/<span>女装</span>/<span>童装</span>/<span>内衣</span></p>
-                <p><span>美妆个护</span>/<span>宠物</span></p>
-                <p><span>女鞋</span>/<span>箱包</span>/<span>钟表</span>/<span>珠宝</span></p>
-                <p><span>男鞋</span>/<span>运动</span>/<span>户外</span></p>
-                <p><span>汽车</span>/<span>汽车用品</span></p>
-                <p><span>母婴</span>/<span>玩具乐趣</span></p>
-                <p><span>食品</span>/<span>酒类</span>/<samp>生鲜</samp><span>/特产</span></p>
-                <p><span>礼品鲜花</span>/<span>农资绿值</span></p>
-                <p><span>医药保健</span>/<span>计生情趣</span></p>
-                <p><span>图书</span>/<span>音像</span>/<span>电子书</span></p>
+                <p class="block"><span>家用电器</span></p>
+                <p class="block"><span>手机</span>/<span>运营商</span>/<span>数码</span></p>
+                <p class="block"><span>电脑</span>/<span>办公</span></p>
+                <p class="block"><span>家居</span><span>/家具</span>/<span>家装</span>/<span>厨具</span></p>
+                <p class="block"><span>男装</span>/<span>女装</span>/<span>童装</span>/<span>内衣</span></p>
+                <p class="block"><span>美妆个护</span>/<span>宠物</span></p>
+                <p class="block"><span>女鞋</span>/<span>箱包</span>/<span>钟表</span>/<span>珠宝</span></p>
+                <p class="block"><span>男鞋</span>/<span>运动</span>/<span>户外</span></p>
+                <p class="block"><span>汽车</span>/<span>汽车用品</span></p>
+                <p class="block"><span>母婴</span>/<span>玩具乐趣</span></p>
+                <p class="block"><span>食品</span>/<span>酒类</span>/<samp>生鲜</samp><span>/特产</span></p>
+                <p class="block"><span>礼品鲜花</span>/<span>农资绿值</span></p>
+                <p class="block"><span>医药保健</span>/<span>计生情趣</span></p>
+                <p class="block"><span>图书</span>/<span>音像</span>/<span>电子书</span></p>
+                <div class="hidden">
+                    <div class="xijie">
+                        <div class="xijie_1">
+                            <div class="jdg">家电馆></div>
+                            <div class="jdg">家电专卖店></div>
+                            <div class="jdg">家电服务></div>
+                            <div class="jdg">企业采购></div>
+                            <div class="jdg">商品电器></div>
+                            <div class="jdg">高价回购></div>
+                        </div>
+                    </div>
+                    <div class="xijie_2">
+                       <div class="xijie_3">
+                            <div style="font-weight: bold;" class="ds">电视></div>
+                            <div class="ds">全屏电视机</div>
+                            <div class="ds">教育电视</div>
+                            <div class="ds">智慧屏</div>
+                            <div class="ds">55英寸</div>
+                            <div class="ds">65英寸</div>
+                            <div class="ds">电视配件</div>
+                            <div class="ds">4K超清屏</div>
+                       </div> 
+                    </div>
+                    <div class="xijie_2">
+                        <div class="xijie_3">
+                             <div style="font-weight: bold;" class="ds">空调></div>
+                             <div class="ds">新风空调</div>
+                             <div class="ds">以旧换新</div>
+                             <div class="ds">空调挂机</div>
+                             <div class="ds">空调柜机</div>
+                             <div class="ds">空调套餐</div>
+                             <div class="ds">中央空调</div>
+                             <div class="ds">运动空调</div>
+                        </div> 
+                     </div>
+                     <div class="xijie_2">
+                        <div class="xijie_3">
+                             <div style="font-weight: bold;" class="ds">洗衣机></div>
+                             <div class="ds">烘干机</div>
+                             <div class="ds">洗衣机配件</div>
+                             <div class="ds">迷你洗衣机</div>
+                             <div class="ds">滚筒洗衣机</div>
+                             <div class="ds">洗烘一体机</div>
+                             <div class="ds">电子洗衣机</div>
+                             <div class="ds">波轮洗衣机</div>
+                        </div> 
+                     </div>
+                     <div class="xijie_2">
+                        <div class="xijie_3">
+                             <div style="font-weight: bold;" class="ds">冰箱></div>
+                             <div class="ds">多门</div>
+                             <div class="ds">对开门</div>
+                             <div class="ds">三门</div>
+                             <div class="ds">双门</div>
+                             <div class="ds">酒柜</div>
+                             <div class="ds">冰箱配件</div>
+                             <div class="ds">冰洗套餐</div>
+                        </div> 
+                     </div>
+                     <div class="xijie_2">
+                        <div class="xijie_3">
+                             <div style="font-weight: bold;" class="ds">厨电大电></div>
+                             <div class="ds">燃气灶</div>
+                             <div class="ds">集成灶</div>
+                             <div class="ds">消毒柜</div>
+                             <div class="ds">洗碗机</div>
+                             <div class="ds">油烟机</div>
+                             <div class="ds">壁挂机</div>
+                             <div class="ds">空气热水器</div>
+                        </div> 
+                     </div>
+                     <div class="xijie_2">
+                        <div class="xijie_3">
+                             <div style="font-weight: bold;" class="ds">试听影音></div>
+                             <div class="ds">KTV影响</div>
+                             <div class="ds">DVD</div>
+                             <div class="ds">功放</div>s
+                             <div class="ds">MP3</div>
+                             <div class="ds">麦克风</div>
+                             <div class="ds">家庭影院</div>
+                             <div class="ds">回音壁</div>
+                        </div> 
+                     </div>
+                     <div class="xijie_2">
+                        <div class="xijie_3">
+                             <div style="font-weight: bold;" class="ds">个护健康></div>
+                             <div class="ds">电动牙刷</div>
+                             <div class="ds">刮胡器</div>
+                             <div class="ds">美容仪</div>
+                             <div class="ds">洁面仪</div>
+                             <div class="ds">按摩椅</div>
+                             <div class="ds">足浴盆</div>
+                             <div class="ds">牙刷</div>
+                        </div> 
+                     </div>
+                </div>
             </div>
             <div class="big_img">
                 <div class="big_img_1">
