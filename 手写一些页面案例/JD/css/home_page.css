@@ -34,6 +34,11 @@
     width: 400px;
     height: 900px;
     background-color: dimgrey;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
 }
 .big_list_2 p{
     width: 400px;
@@ -61,12 +66,6 @@
 }
 .big_img_1 img{
     width: 1358px;
-}
-.big_list_2{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
 }
 .big_list_2 p{
     font-size: 25px;
@@ -420,4 +419,59 @@
 }
 .neirong15_0 img{
     height: 190px;
+}
+.hidden{
+    position: absolute;
+    width:1000px;
+    height: 500px;
+    background-color: white;
+    left: 400px;
+    top: 0;
+    display: none;
+}
+.block:hover ~.hidden{
+    display: block;
+}
+.xijie{
+    width: 1000px;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.xijie_1{
+    width: 900px;
+    height: 50px;
+    display: flex;
+}
+.xijie_2{
+    width: 1000px;
+    height: 50px;
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+.xijie_3{
+    width: 900px;
+    height: 50px;
+    display: flex;
+}
+.xijie_1 .jdg{
+    width: 120px;
+    height: 50px;
+    background-color: #333333;
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 50px;
+}
+.xijie_3 .ds{
+    width: 120px;
+    height: 50px;
+    font-size: 20px;
+    margin-right: 10px;
+    line-height: 50px;
+    text-align: center;
+    color: #666666;
 }
