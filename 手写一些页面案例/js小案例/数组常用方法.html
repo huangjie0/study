@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组常用方法</title>
+    <script>
+        /*
+        数组常用方法
+        js提供专门操作数组的方法
+        */
+
+        //方法一：push在数组末尾追加数据
+        /**var arr=[100,200,300,400]
+        console.log("原始数组",arr);
+        var res=arr.push("新来的");
+        console.log("追加后",arr);
+        console.log("返回值",res);**/
+
+        //方法二；pop()方法在数组最后删除
+        // var arr=[100,200,300,400]
+        // console.log("原始数组",arr);
+        // var res=arr.pop();
+        // console.log("删除后",arr);
+        // console.log("返回值",res);
+        
+        //方法三：unshift()方法从数组最前面插入数据
+        // var arr=[100,200,300,400]
+        // console.log("原始数组",arr);
+        // var res=arr.unshift("新来的");
+        // console.log("数组最前面添加",arr);
+        // console.log("返回值",res);
+
+        //方法四：shift()方法删除数组最前面的数据
+        // var arr=[100,200,300,400]
+        // console.log("原始数组",arr);
+        // var res=arr.shift();
+        // console.log("数组最前面删除",arr);
+        // console.log("返回值",res);
+
+        //方法五：reserve()方法反转数组
+        //    var arr=['你好','世界','hello world']
+        //    console.log("原始数组",arr);
+        //    var res=arr.reverse();
+        //    console.log("反转后",arr);
+        //    console.log("返回值",res);
+
+        //方法六：sort()排序将数字一位一位看待排序
+        // var arr=[1,12,56,13,11,10]
+        // console.log("原始数组",arr);
+        // var res=arr.sort();
+        // console.log("排序后",arr);
+        //排序升序
+        // var arr=[1,12,56,13,11,10]
+        // console.log("原始数组",arr);
+        // var res=arr.sort(function(a,b){return a-b});
+        // console.log("排序后",arr);
+        //排序降序(回调函数)
+        // var arr=[1,12,56,13,11,10]
+        // console.log("原始数组",arr);
+        // var res=arr.sort(function(a,b){return b-a});
+        // console.log("排序后",arr);
+
+        //方法七：splice()截取数组并选择型插入内容
+        var arr=[1,12,56,13,11,10]
+        console.log("原始数组",arr);
+
+        // var res=arr.splice(1,2);
+        // console.log("截取后",arr);
+        // console.log(res);
+        //语法二
+        var res=arr.splice(1,0,"新来的","新来的2");
+        console.log("截取后",arr);
+        console.log(res);
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
