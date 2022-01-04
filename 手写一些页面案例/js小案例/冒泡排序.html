@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>冒泡排序</title>
+    <script>
+        /*
+        冒泡排序：将无序的数组排列成有序的数组
+        原理：等一个数字和第二个数字比较，如果比第二个大调换位置，以此类推，遍历完毕，最大在后面。
+        */
+        var arr=[9,3,6,2,4,1,8,5,7]
+        //利用临时变量实现交换位置
+        for(var j=0;j<arr.length-1;j++){
+            for(var i=0;i<arr.length-1-j;i++){
+            if(arr[i]>arr[i+1]){
+                var tmp=arr[i]
+                arr[i]=arr[i+1]
+                arr[i+1]=tmp;
+            }
+        }
+        }
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
