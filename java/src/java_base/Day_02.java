@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Day_02 {
     // static int c;
-    // public static void main(String[]arg){
+    public static void main(String[]arg){
 //      int a;//没有缺省值
 //         System.out.println(c);
 //         {
@@ -317,27 +317,27 @@ public class Day_02 {
             //     b=c;
             //     count++;
         //      }
-        //     for(int l=2;l<=1000;l++){
-        //         for(int v=2;v<=l;v++){
-        //             if(0 == l%v){
-        //                 if(l!=v){
-        //                     break;
-        //                 }else{
-        //                     System.out.println(l);
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-        public static long jc(long i){
-            if(i==1){
-                return 1;
-            }else{
-                return i*jc(i-1);
+            for(int l=2;l<=1000;l++){
+                for(int v=2;v<=l;v++){
+                    if(0 == l%v){
+                        if(l!=v){
+                            break;
+                        }else{
+                            System.out.println(l);
+                        }
+                    }
+                }
             }
         }
-        public static void main(String[] args) {
-            long r= jc(3);
-            System.out.println(r);
-        }
+        
+        // public static long jc(long i){
+        //     if(i==1){
+        //         return 1;
+        //     }else{
+        //         return i*jc(i-1);
+        //     }
+        // }
+        // public static void main(String[] args) {
+        //     long r= jc(3);
+        //     System.out.println(r);
 }
