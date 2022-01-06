@@ -12,71 +12,130 @@
         */
 
         //方法一：push在数组末尾追加数据
-        /**var arr=[100,200,300,400]
+        var arr=[100,200,300,400]
         console.log("原始数组",arr);
         var res=arr.push("新来的");
         console.log("追加后",arr);
-        console.log("返回值",res);**/
+        console.log("返回值",res);
 
         //方法二；pop()方法在数组最后删除
-        // var arr=[100,200,300,400]
-        // console.log("原始数组",arr);
-        // var res=arr.pop();
-        // console.log("删除后",arr);
-        // console.log("返回值",res);
+        var arr=[100,200,300,400]
+        console.log("原始数组",arr);
+        var res=arr.pop();
+        console.log("删除后",arr);
+        console.log("返回值",res);
         
         //方法三：unshift()方法从数组最前面插入数据
-        // var arr=[100,200,300,400]
-        // console.log("原始数组",arr);
-        // var res=arr.unshift("新来的");
-        // console.log("数组最前面添加",arr);
-        // console.log("返回值",res);
+        var arr=[100,200,300,400]
+        console.log("原始数组",arr);
+        var res=arr.unshift("新来的");
+        console.log("数组最前面添加",arr);
+        console.log("返回值",res);
 
         //方法四：shift()方法删除数组最前面的数据
-        // var arr=[100,200,300,400]
-        // console.log("原始数组",arr);
-        // var res=arr.shift();
-        // console.log("数组最前面删除",arr);
-        // console.log("返回值",res);
+        var arr=[100,200,300,400]
+        console.log("原始数组",arr);
+        var res=arr.shift();
+        console.log("数组最前面删除",arr);
+        console.log("返回值",res);
 
         //方法五：reserve()方法反转数组
-        //    var arr=['你好','世界','hello world']
-        //    console.log("原始数组",arr);
-        //    var res=arr.reverse();
-        //    console.log("反转后",arr);
-        //    console.log("返回值",res);
+           var arr=['你好','世界','hello world']
+           console.log("原始数组",arr);
+           var res=arr.reverse();
+           console.log("反转后",arr);
+           console.log("返回值",res);
 
         //方法六：sort()排序将数字一位一位看待排序
-        // var arr=[1,12,56,13,11,10]
-        // console.log("原始数组",arr);
-        // var res=arr.sort();
-        // console.log("排序后",arr);
+        var arr=[1,12,56,13,11,10]
+        console.log("原始数组",arr);
+        var res=arr.sort();
+        console.log("排序后",arr);
         //排序升序
-        // var arr=[1,12,56,13,11,10]
-        // console.log("原始数组",arr);
-        // var res=arr.sort(function(a,b){return a-b});
-        // console.log("排序后",arr);
+        var arr=[1,12,56,13,11,10]
+        console.log("原始数组",arr);
+        var res=arr.sort(function(a,b){return a-b});
+        console.log("排序后",arr);
         //排序降序(回调函数)
-        // var arr=[1,12,56,13,11,10]
-        // console.log("原始数组",arr);
-        // var res=arr.sort(function(a,b){return b-a});
-        // console.log("排序后",arr);
+        var arr=[1,12,56,13,11,10]
+        console.log("原始数组",arr);
+        var res=arr.sort(function(a,b){return b-a});
+        console.log("排序后",arr);
 
         //方法七：splice()截取数组并选择型插入内容
         var arr=[1,12,56,13,11,10]
         console.log("原始数组",arr);
 
-        // var res=arr.splice(1,2);
-        // console.log("截取后",arr);
-        // console.log(res);
+        var res=arr.splice(1,2);
+        console.log("截取后",arr);
+        console.log(res);
         //语法二
         var res=arr.splice(1,0,"新来的","新来的2");
         console.log("截取后",arr);
         console.log(res);
 
+        //方法八：join()方法将数组用连接符连接成一个字符串
+        var arr=[100,200,300,400]
+        console.log(arr);
+        var res= arr.join('-');
+        console.log(arr);
+        console.log(res);
 
+        //方法九：concat()方法将其他数组和原始数组拼接在一起，合并一个数组
+        var arr=[100,200,300,400]
+        console.log(arr);
+        var res=arr.concat([1,2,8,99])
+        console.log(res);
+        
+        //方法十：slice()方法截取数组，返回值以新数组形式返回
+        var arr=[100,200,300,400]
+        var res=arr.slice(1,3)//从1开始截取到末尾,左闭右开特点
+        console.log(res);
 
+        //方法十一：indexOf()方法，查找给数据在索引中的位置，没有就是-1
+        var arr=[100,200,300,400]
+        var res=arr.indexOf(600);//查找300在数据中出现的索引
+        console.log(res);
 
+        //方法十二：forEach()方法传入函数作为参数,遍历数组
+        var arr=[100,200,300,400]
+        arr.forEach( function (item,index,arr) {
+            console.log(item);
+            console.log("---------")
+            console.log(index);
+            console.log("------------")
+            console.log(arr);
+        } )
+
+        //方法十三：map()映射数组
+        var arr=[100,200,300,400]
+        console.log(arr)
+        var res= arr.map(function(item,index,arr){
+            return item*10;//将数组中每一个数字放大十倍
+        })
+        console.log(res);
+
+        //方法十四：filter()方法，过滤数组
+        var arr=[100,200,300,400]
+        var res = arr.filter(function(item,index,arr){
+            return item>200;
+        })
+        console.log(res);
+        console.log(typeof res);
+
+        // 方法十五：every()判断数组是不是每一项都是满足条件
+        var arr=[100,200,300,400]
+        var res= arr.every(function (item,index,arr){
+            return item>50;
+        })
+        console.log(res);
+
+        // 方法十六：some()方法,判断数组中是不是有某一项满足条件,返回值是一个布尔值
+        var arr=[100,200,300,400]
+        var res =  arr.some(function (item,index,arr) {
+            return item > 50;
+        })
+        console.log(res);
     </script>
 </head>
 <body>
