@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象数据类型</title>
+    <script>
+        //对对象的操作：增删改查
+        // var obj={
+        //     a:100,
+        //     b:200,
+        //     c:true,
+        //     g:"复活复活"
+        // }
+        // console.log(obj);
+        var obj={}
+        console.log(obj);
+        obj.name="小灰狼"
+        obj['age']=18
+        obj.gender="难"
+        console.log(obj);//增加对象
+        //删除对象
+        delete obj.name;
+        console.log(obj);
+        //修改对象
+        obj['age']=20;
+        console.log(obj);
+        //查对象
+        console.log(obj.gender);
+        console.log(obj["age"]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

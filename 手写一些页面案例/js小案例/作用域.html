@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域</title>
+    <script>
+        /*
+        作用域范围：全局作用域，私有作用域(只有函数)
+        作用域的使用：定义，访问,赋值
+        */
+    //    var n=100;//全局变量
+       function a(){
+        //    var n=200;//作用域a里面的变量
+           function b(){
+              var n=300;//作用域b里面的变量
+           }
+           function c(){
+                // var n=400;//作用c里面的变量
+                n=42256;
+            }
+            c();
+       }
+       a();
+       //四层作用域上面函数
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
