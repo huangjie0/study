@@ -222,17 +222,14 @@ public class Day_03 {
         int j = zs();
         System.out.println(j);
         int[]dd={2,5,4,6,8,7,10,12};
-         Isarr(dd,true);
-         System.out.println(Arrays.toString(dd));;
+        Isarr(dd,true);
+        System.out.println(Arrays.toString(dd));;
         int[]qq = CJ(10);
         System.out.println(Arrays.toString(qq));
-        int[]arr_1=new int[8];
-        LJ(arr_1, 7);
+        int[]arr_1=new int[10];
+        LJ(arr_1, 10);
         System.out.println(Arrays.toString(arr_1));
         }
-
-
-
       }
 
 

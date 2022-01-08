@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+    <script>
+        //定时器的返回值不区分定时器的种类，表示当前第几个定时器
+        //间隔定时器
+        // setInterval(function(){
+        //     alert("你好")
+        // },1000)
+        //延时定时器
+        // setTimeout(
+        //     function(){
+        //         alert("炸弹过了5s中爆炸！")
+        //     },2000
+        // )
+        //关闭定时器，clearInterval和clearTimeout(要关闭的定时器返回值)，不区分定时器种类！！！！
+        // var res=setInterval(
+        //     function(){
+
+        //     },1000
+        // )
+        // var res_1=setTimeout(
+        //     function(){},1000
+        // )
+        // alert(res);//返回第一个定时器
+        // alert(res_1);//第二个定时器
+        var time_1 = setInterval(function(){
+            console,console.log("间隔定时器");
+        },1000);
+        var time_2 = setTimeout(
+        function(){
+            console.log("延时定时器");
+        } 
+        ,3000)
+    </script>
+</head>
+<body>
+    <button id="close">
+        关闭定时器
+    </button>
+</body>
+<script>
+    var res= document.getElementById("close");
+    res.onclick=function(){
+        clearTimeout(time_2);
+    }
+</script>
+</html>

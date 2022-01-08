@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js中的BOM对象</title>
+    <script>
+        //浏览器对象模型
+        //1、获取浏览器窗口尺寸
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        alert(width);
+        alert(height);
+        //2、获取浏览器的弹出层
+        window.alert("你好");//警示框
+        var res = window.confirm("你爱我么？");//询问框
+        console.log(res);
+        var res_1 = window.prompt("你的银行密码是多少？");//提示用户输入框
+        console.log(res_1);
+        //3、开启和关闭标签页
+        //开启window.open("url");
+        //关闭window.close();关闭当前页面
+        //4、浏览器常见事件
+        //资源网页加载完毕：window.onload=function(){}
+        //可视尺寸改变：window.onresize=function(){}
+        //滚动条位置改变的事件：window.onscroll=function(){}
+        //浏览器的历史操作：window.history.back();回退页面
+        //window.history.forward();页面前进
+        //浏览器卷去的尺寸；非常重要
+        //document.documentElement.scrollTop/document.body.scrollTop卷去的高度
+        //document.documentElement.scrollLeft/document.body.scrollLeft卷去的宽度
+        //浏览器滚动到，设置浏览器的滚动尺寸：window.scrollTo(left,top)方法
+
+
+        
+    </script>
+    <style>
+        body{
+            width: 3000px;
+            height: 3000px;
+        }
+        #go{
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="on">开启</button>
+    <button id="off">关闭</button>
+    <img src="../JD/upload/222.jpg">
+    <button id="go">走你</button>    
+</body>
+<script>
+        on.onclick=function(){
+            window.open("https://www.baidu.com");
+        }
+        off.onclick=function(){
+            window.close()
+        }
+        window.onload=function(){
+            console.log("资源我已经加载完毕")
+        }
+        window.onreset=function(){
+            console.log("窗口尺寸发生了变化")
+        }
+        window.onscroll=function(){
+            console.log("滚动了位置发生了改变");
+        }
+        // window.onscroll=function(){
+        //     var height_1=document.documentElement.scrollTop || document.body.scrollTop
+        //     console.log(height_1);
+        // }
+        window.onscroll=function(){
+            var weight=document.documentElement.scrollLeft || document.body.scrollLeft
+            console.log(weight);
+        }
+        // go.onclick=function(){
+        //     window.scrollTo(300,400);
+        // }
+        go.onclick=function(){
+            window.scrollTo({
+                left:300,
+                top:400,
+                behavior:"smooth"//平滑滚动
+            })
+        }
+</script>
+</html>

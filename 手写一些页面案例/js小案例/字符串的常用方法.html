@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串的操作方法</title>
+    <script>
+        var message="  GGG-j-hg-HH-JK "
+        //方法一：charAt()方法，获取对应索引位置的字符，返回值是对应索引的字符
+        var res = message.charAt(1);
+        alert(res);//获取"好"
+        alert(message.toLowerCase());//将字符串全部小写
+        alert(message.toUpperCase());//将字符串全部大写
+        alert(message.replace("GGG","黄杰"));//替换字符串
+        alert(message.trim());//去除首位空格
+        alert(message.split("-"));//按照指定字符进行分割
+        alert(message.substr(1,5));//开始索引，多少个
+        alert(message.substring(1,4));//截取字符串
+        alert(message.slice(1,4));//截取字符串，左闭右开
+        alert(message.indexOf("K"));//返回指定字符的索引位置
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var time=new Date();
+        console.log(time);
+        var time_1=new Date(2002,1,23,11,22,18);
+        alert(time_1);
+        //时间常用方法
+        alert(time.getFullYear());//输出年份信息
+        alert(time.getMonth());//获取月份信息0就是一月份
+        alert(time_1.getDate());//获取日期信息
+        alert(time.getHours());//获取小时信息
+        alert(time.getMinutes());//获取分钟信息
+        alert(time.getSeconds());//获取秒钟信息
+        alert(time.getDay());//获取当前星期几
+        alert(time.getTime());//获取时间戳信息从1970年1月1日开始计算
+        //设置常用方法，将get换成set即可，不能设置星期!!!!!!!!
+        time.setTime(15156444894461)
+        alert(time);
+        //时间案例:
+        //准备两个时间节点
+        var time_2=new Date(2021,1,23,11,22,18)
+        var time_3=new Date(2021,1,25,3,45,36)
+        //获取到两个时间节点的时间戳
+        var ms1=time_2.getTime();
+        var ms2=time_3.getTime();
+        var sub = Math.ceil((ms2-ms1)/1000);//向上取整
+        //换算天
+        var day=Math.floor(sub/(24*60*60));//向下取整获取天数
+        //换算小时
+        var hour=Math.floor((sub%(24*60*60))/(60*60));
+        //换算分钟
+        var min=Math.floor(sub%(60*60)/60);
+        //换算秒数
+        var second=Math.floor(sub%60);
+        console.log(day,hour,min,second);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM对象</title>
+</head>
+<body>
+    <div>一号</div>
+    <div class="box">二号</div>
+    <div class="box content">三号</div>
+    <div class="box" id="container">四号</div>
+</body>
+<script>
+    //修改样式，修改属性，修改位置和添加事件等等，是一个伪数组
+    //根据id获取元素document.getElementById("id名称")
+    var res = document.getElementById("abc");
+    console.log(res);
+    var res_1 = document.getElementsByClassName("abc");
+    alert(res_1)
+    var eles= document.getElementsByTagName("div");
+    alert(eles);
+    var res_3 = document.querySelector('.box');//获取满足条件第一个,方法接选择器
+    console.log(res_3);
+    var res_4 = document.querySelectorAll('.box');//获取满足条件的所有元素，方法是选择器
+    console.log(res_4);
+</script>
+</html>
