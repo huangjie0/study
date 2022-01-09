@@ -7,6 +7,37 @@
     <title>练习</title>
 </head>
 <body>
-    
+    <button>操作属性</button>
+    <div id="box2" hello="world" class="content">div标签</div>   
+    <div id="box">div标签</div>
+    <input type="password">
 </body>
+<script>
+    //操作元素属性
+    //原生属性和自定义属性
+    // var div_1 = document.querySelector('div');
+    // var inp=document.querySelector('input');
+    // var btn = document.querySelector('button');
+
+    //获取元素属性
+    // console.log(div_1.id);
+    // console.log(inp.type);    
+    //绑定点击事件
+    // btn.onclick=function(){
+    //     //修改属性
+    //     div_1.id='content'
+    //     inp.type='button'
+    // }
+    var box2 = document.querySelector('div');
+    var butt = document.querySelector('button');
+    console.log(box2.className);
+    // var res = box2.getAttribute('hello');
+    // console.log(res);
+    // butt.onclick=function(){
+    //     box2.removeAttribute('hello','新来的')
+    // }
+    butt.onclick=function(){
+        box2.className='box3'
+    }
+</script>
 </html>
