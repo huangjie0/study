@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery的选择器</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li class="a">2</li>
+        <li>3</li>
+        <li class="b">4</li>
+        <li>5</li>
+        <li class="a">6</li>
+        <li>7</li>
+        <li id="box">8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <script src="./jquery-1.8.3.min.js"></script>
+    <script>
+        //id选择器
+        console.log($('#box'));
+        //类名选择器
+        console.log($('.a'));
+        //标签名选择器
+        console.log($('li'));
+        //结构选择器
+        console.log($('li:nth-child(odd)'))
+        console.log($('li:nth-child(even)'));
+    </script>
+</body>
+</html>
