@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Day_02 {
     // static int c;
     public static void main(String[]arg){
+        // Day_03.isOdd(4);
 //      int a;//没有缺省值
 //         System.out.println(c);
 //         {

@@ -1,7 +1,7 @@
 package java_base;
 
 import java.sql.Array;
-import java.util.Arrays;
+import java.util.*;
 
 public class Day_03 {
     // public static void main(String[] args) {
@@ -135,13 +135,13 @@ public class Day_03 {
       //     return r;
       //   }
         //求任意数量的最小值
-        public static int min(int a,int b,int... args){
-          if( a > b){
-            return b;
-          } else{
-            b=a;
-            return b; 
-          }
+        // public static int min(int a,int b,int... args){
+        //   if( a > b){
+        //     return b;
+        //   } else{
+        //     b=a;
+        //     return b; 
+        //   }
           // if(args!=null){
           //  for(int c:args){
           //     if(c<b){
@@ -152,85 +152,147 @@ public class Day_03 {
           //  }
           // }
 
-        }
+        // }
         //返回阶乘
-        public static long JC(long a){
-          if(a==1){
-            return 1;
-          }else{
-            return a*JC(a-1);
-          }
-        }
+        // public static long JC(long a){
+        //   if(a==1){
+        //     return 1;
+        //   }else{
+        //     return a*JC(a-1);
+        //   }
+        // }
         //随机整数
-        public static int zs(){
-          int z = (int)Math.round( Math.random()*10);
-          return z;
-        }
+        // public static int zs(){
+        //   int z = (int)Math.round( Math.random()*10);
+        //   return z;
+        // }
         //判断是否为奇数
-        public static boolean isOdd(int a){
-          if(a%2==0){
-            return false;
-          }else{
-            return true;
-          }
-        }
+        // public static boolean isOdd(int a){
+        //   if(a%2==0){
+        //     return false;
+        //   }else{
+        //     return true;
+        //   }
+        // }
         //定义一个方法。该方法返回一个数组（int型）。该方法根据指定参数n，创建n长度的数组并返回。
-        public static int[] CJ(int n){
-          int[]arr=new int[n];
-          return arr;
-        }
+        // public static int[] CJ(int n){
+        //   int[]arr=new int[n];
+        //   return arr;
+        // }
 
         //定义一个方法，该方法有两个参数，第一个参数是数组，第二个参数是用来填充数组中所有元素的值。
-        public static int[] LJ(int[]arr_1,int a){
-          for(int i=0;i<arr_1.length;i++){
-            arr_1[i]=a;
-          }
-          return arr_1;
-        }
+        // public static int[] LJ(int[]arr_1,int a){
+        //   for(int i=0;i<arr_1.length;i++){
+        //     arr_1[i]=a;
+        //   }
+        //   return arr_1;
+        // }
         //定义函数实现冒泡排序...
-        public static int[] Isarr(int[]arr,boolean asc){
-          if(true==asc){
-            for(int i=0;i<arr.length-1;i++){
-              for(int j=0;j<arr.length-1-i;j++){
-                  if(arr[j]>arr[j+1]){
-                    int tmp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=tmp;
-                  }
-              }
-            } return arr;
-          }else{
-            for(int i=0;i<arr.length-1;i++){
-              for(int j=0;j<arr.length-1-i;j++){
-                  if(arr[j]<arr[j+1]){
-                    int tmp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=tmp;
-                  }
-              }
-            } return arr;
-          }
-        }
+        // public static int[] Isarr(int[]arr,boolean asc){
+        //   if(true==asc){
+        //     for(int i=0;i<arr.length-1;i++){
+        //       for(int j=0;j<arr.length-1-i;j++){
+        //           if(arr[j]>arr[j+1]){
+        //             int tmp=arr[j];
+        //             arr[j]=arr[j+1];
+        //             arr[j+1]=tmp;
+        //           }
+        //       }
+        //     } return arr;
+        //   }else{
+        //     for(int i=0;i<arr.length-1;i++){
+        //       for(int j=0;j<arr.length-1-i;j++){
+        //           if(arr[j]<arr[j+1]){
+        //             int tmp=arr[j];
+        //             arr[j]=arr[j+1];
+        //             arr[j+1]=tmp;
+        //           }
+        //       }
+        //     } return arr;
+        //   }
+        // }
+        // 手动输入一个2到100数字,判断是否是一个素数
+        // public static Boolean SR(){
+        //     Scanner input =  new Scanner(System.in);
+        //     System.out.println("请输入一个数字哦?");
+        //     int i=input.nextInt();
+        //     if(i>=2 && i<=100){
+        //       for(int j=2;j<i;j++){
+        //         if(j%i == 0){
+        //           return false;
+        //         }
+        //         return true;
+        //       }
+        //     }else{
+        //       System.out.println("输入有误");
+        //       return false;
+        //     }
+        // }
+
+
+        //需求1
+        // public static int[] arr_2(){
+        //   Scanner input = new Scanner(System.in);
+        //   int[] arr3 = new int[5];
+        //   for(int b=0;b<arr3.length;b++){
+        //   System.out.println("请输入5个数字");
+        //   int i=input.nextInt();
+        //   arr3[b]=i;  
+        //   }
+        //   return arr3;
+        // }
+        // 需求2,查找数组中最小值,返回最小值
+        // public static int min(int[]arr4){
+        //    int min=arr4[0];
+        //    for(int i=1;i<arr4.length;i++){
+        //      if(arr4[i]<min){
+        //        min=arr4[i];
+        //      }
+        //    }return min;
+        // }
+        //需求3,冒泡排序
+        // public static int[] mP(int[]arr5){
+        //   for(int i=0;i<arr5.length-1;i++){
+        //     for(int j=0;j<arr5.length-1-i;j++){
+        //       if(arr5[j]>arr5[j+1]){
+        //         int tmp = arr5[j];
+        //         arr5[j]=arr5[j+1];
+        //         arr5[j+1]=tmp;
+        //       }
+        //     } 
+        //   }return arr5;
+        // }
+
         //调用函数阶段
-        public static void main(String[] args) {
-        long y= min(2,5,6);
-        System.out.println(y);  
-        boolean r= isOdd(7);
-        System.out.println(r);
-        long v = JC(10);
-        System.out.println(v);
-        int j = zs();
-        System.out.println(j);
-        int[]dd={2,5,4,6,8,7,10,12};
-        Isarr(dd,true);
-        System.out.println(Arrays.toString(dd));;
-        int[]qq = CJ(10);
-        System.out.println(Arrays.toString(qq));
-        int[]arr_1=new int[10];
-        LJ(arr_1, 10);
-        System.out.println(Arrays.toString(arr_1));
-        }
-      }
+        // public static void main(String[] args) {
+        // long y= min(2,5,6);
+        // System.out.println(y);  
+        // boolean r= isOdd(7);
+        // System.out.println(r);
+        // long v = JC(10);
+        // System.out.println(v);
+        // int j = zs();
+        // System.out.println(j);
+        // int[]dd={2,5,4,6,8,7,10,12};
+        // Isarr(dd,true);
+        // System.out.println(Arrays.toString(dd));;
+        // int[]qq = CJ(10);
+        // System.out.println(Arrays.toString(qq));
+        // int[]arr_1=new int[12];
+        // LJ(arr_1, 5);
+        // System.out.println(Arrays.toString(arr_1));
+
+        // System.out.println(Arrays.toString(arr_2()));
+        // System.out.println(min(arr_2()));
+      //   System.out.println(Arrays.toString(mP(arr_2())));
+      // }
+      // String sname;
+      // int age=18;
+      // String sex;
+      // String sid;
+      // public void study(){
+      // System.out.println("学生在学习.....");}
+    }
 
 
     

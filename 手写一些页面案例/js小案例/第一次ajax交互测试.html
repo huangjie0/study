@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax交互测试</title>
+    <script>
+        //标准步骤
+        //创建ajax对象
+        //var xhr=new XMLHttpRequest();
+        //配置请求信息
+        //xhr.open(请求方式,请求地址,是否异步);
+        //注册请求完成事件
+        //xhr.onload=function(){}
+        //将请求发送给后端
+        //xhr.send();
+        var xhr=new XMLHttpRequest();
+        //按照接口文档书写
+        xhr.open('GET','http://localhost:8888/test/first',true);
+        //配置请求后触发的事件
+        xhr.onload=function(){
+            //拿到后端返回的信息
+            console.log(xhr.responseText);
+        }
+        //发送请求
+        xhr.send();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
