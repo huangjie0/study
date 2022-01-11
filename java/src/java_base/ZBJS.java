@@ -13,10 +13,10 @@ public class ZBJS {
 
         YDZB c = new YDZB();
         c.x_x=0;
-        c.y_y=100;
+        c.y_y=0;
         c.r=1;
         YDZB c1 = new YDZB();
-        c1.x_x=2;
+        c1.x_x=2000;
         c1.y_y=1000;
         c.r=1;
         if((c.r+c1.r)==YDZBYS.Ydzbys(c.x_x,c1.x_x,c.y_y,c1.y_y)){
