@@ -8,5 +8,4 @@ public class YDZBYS {
         double x_y_r=Math.hypot(x_r, y_r);
         return x_y_r;
     }
-    
 }
