@@ -5,7 +5,13 @@ public class Car {
         this.color=clolor;
         this.pp=pp;
         this.sd=sd;
-    }
+    }    
+    public Car(String color){
+        this.color=color;
+    }  //构造方法重载
+    public Car(double sd){
+        this.sd=sd;
+    } //构造方法重载
     private String color;
     public void setcolor(String color){
         this.color=color;
