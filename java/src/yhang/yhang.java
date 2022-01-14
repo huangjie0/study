@@ -2,9 +2,9 @@ package yhang;
 
 public abstract class yhang {
     double money,lixi;
-    public double getLixilixi(){
-        lixi=money*lilv();
+    public abstract double lv();
+    public double getlixi(){
+        lixi=money*lv();
         return lixi;
     }
-    public abstract double lilv();
 }

@@ -9,4 +9,7 @@ public class gezi extends bird implements fxjk {
     public void fei(){
         System.out.println("它会飞哦");
     }
+//    public void eat(){
+//        System.out.println("鸽子会吃菜");
+//    }
 }

@@ -1,8 +1,8 @@
 package yhang;
 
-public class ABC extends yhang {
+public class ABC extends yhang{
     @Override
-    public  double lilv(){
+    public double lv(){
         return 0.1;
     }
     public ABC(double money){
