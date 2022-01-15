@@ -107,7 +107,10 @@
 - 八种简单类型引用类型
 ## 类部类
 ## 普通内部类、静态内部类、匿名内部类、局部内部类
-
+## 枚举
+## 常用类
+- Math,Random,Date,DateFormat,String(可变字符号系列)
+- Math类 abs(),ceil()向上取整,floor()向下取整
 
 
 
