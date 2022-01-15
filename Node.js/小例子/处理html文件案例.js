@@ -25,7 +25,7 @@ function resolveScrip(htmlStr){
             if(err){
                 return console.log("文件写入失败"+err.message);
             }
-            console.log("写入成功");
+            console.log("写入成功"+dataStr);
     })
 }
 //处理html文件方法
