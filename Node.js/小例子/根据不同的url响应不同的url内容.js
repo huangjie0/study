@@ -4,9 +4,9 @@ server.on('request',function(req,res){
     let content='<h1>404 Not found</h1>';
     const url=req.url;
     if(url==='/'||url==='/小例子/home_page.html'){
-        content='<h1>首页</h1>'
+        content='/小例子/home_page.html'
     }else if(url==='/小例子/home.html'){
-        content='<h1>home页面</h1>'
+        content='/小例子/home.html'
     }
     res.setHeader('Content-Type','text/html;charset=utf-8')
     res.end(content);
