@@ -111,6 +111,19 @@
 ## 常用类
 - Math,Random,Date,DateFormat,String(可变字符号系列)
 - Math类 abs(),ceil()向上取整,floor()向下取整
+## java集合（容器）集合和数组
+- collection:存放单列数据集合，值为一个一个对象
+- list:存放有序可重复集合，底层实现通过object[]elementDate
+- LinkedList:对元素进行增删查改频率高，链表集合
+- Vector线程安全，效率低
+- set:存放无序元素不可重复
+- HashSet:存放无序元素不可重复
+- TreeSet
+- Map:存放双列数据集合，职位，key-value(键值对)
+- HashMap:
+- TreeMap:
+- properties:
+
 
 
 

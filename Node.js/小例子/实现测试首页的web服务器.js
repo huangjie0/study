@@ -12,7 +12,7 @@ server.on('request',function(req,res){
     //获取客户端的url地址
     const url = req.url;
     //把本地请求的url地址映射到本地存放路径
-    const fpath=path.join(__dirname,url);
+    const fpath = path.join(__dirname,url);
     //根据映射来读取文件
     fs.readFile(fpath,'utf-8',function(err,dataStr){
         if(err){
