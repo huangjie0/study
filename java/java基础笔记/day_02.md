@@ -123,6 +123,19 @@
 - HashMap:
 - TreeMap:
 - properties:
+## 泛型：参数化类型，把java中类型参数化，相当于方法中的形参，但实际使用时传入一个类型时候才确定类型。
+- 泛型类：访问修饰符 
+## LinkedList集合
+- 有序可重复集合
+- 底层使用双向链表实现（java对象）
+## Vector集合
+- 有序可重复
+- 线程安全集合，效率低
+## set集合：元素无序，不重复集合
+- 线程安全，效率高
+- HashSet
+- LinkedHashSet
+- TreeSet
 
 
 
