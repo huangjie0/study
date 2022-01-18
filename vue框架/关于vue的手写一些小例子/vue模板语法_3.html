@@ -8,6 +8,39 @@
     <script src="../vue框架/vue.js"></script>
 </head>
 <body>
-    
+    <div id="box">
+        <input type="text" v-model="mytext">
+        <button @click="handleAdd">add</button>
+        <ul v-show="datalist.length">
+            <li v-for="(data,index) in datalist">
+                {{data}}
+                <button @click="handleDel(index)">del</button>
+            </li>
+        </ul>
+        <div v-show="!datalist.length">
+            待办事项空空如也
+        </div>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:"#box",
+            data:{
+                datalist:["111","222","333","4444","5555","66666","7777","88888"],
+                mytext:"bbbb"
+            },
+            methods:{
+                handleAdd(){
+                    // console.log("获取value",this.mytext);
+                    this.datalist.push(this.mytext);
+                    this.mytext="";
+                },
+                handleDel(index){
+                    console.log("del",index);
+                    this.datalist.splice(index,1);
+                }
+            }
+            
+        })
+    </script>
 </body>
 </html>
