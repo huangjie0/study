@@ -136,6 +136,13 @@
 - HashSet
 - LinkedHashSet
 - TreeSet
+## Map集合：双列集合
+- 实现类：HashMap:线程不安全，执行效率高，支持储存null的key和value
+- 线程安全，执行效率低，不支持储存null的key和value,key不能重复，value可以重复，是无序的
+- TreeMap:按照顺序遍历集合，可以对对象集合中的元素进行排序的
+- properties:常用于配置文件，db.properties,注意key和value都是string类型
+- 
+
 
 
 
