@@ -141,7 +141,14 @@
 - 线程安全，执行效率低，不支持储存null的key和value,key不能重复，value可以重复，是无序的
 - TreeMap:按照顺序遍历集合，可以对对象集合中的元素进行排序的
 - properties:常用于配置文件，db.properties,注意key和value都是string类型
-- 
+## 异常
+- 表示在程序执行的过程中所出现的非正常情况称为异常。
+- erro(错误)：程序无法处理异常，内存溢出，等等
+- Exception,程序可以处理的异常
+- java中所有的异常和错误的父类throwable
+## 处理异常
+- try,catch,finally
+- 语法
 
 
 

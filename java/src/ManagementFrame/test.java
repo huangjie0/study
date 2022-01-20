@@ -54,14 +54,14 @@ public class test {
         }
     }
     //添加商品的页面方法
-    public static void addproduct(){
+    public static void addproduct() throws MyExption{
         boolean isloop =true;
         while (isloop){
             System.out.println("请输入商品的编号");
             //获取用户的编号信息
             String id = scan.next();
-            boolean flag = isID(id);
-            if (flag==false){
+            try {
+                isID(id);
                 System.out.println("请输入你的名称：");
                 String ProductName =scan.next();
                 //判断用户的名称是否重复
@@ -82,20 +82,19 @@ public class test {
                 }else {
                     System.out.println("商品重复，请重新输入");
                 }
-            }else {
-                System.out.println("ID重复，请重新输入！！！！");
+            }catch(MyExption e){
+                System.out.println(e.getMessage());
             }
         }
     }
     //判断id是否重复
-    public static boolean isID(String id){
+    public static void isID(String id) throws MyExption{
         List<product> plist =db.getPlist();
         for (product p:plist){
             if (p.getId().equals(id)){
-                return true;
+                throw new MyExption("此id已被占用，请重新输入....");
             }
         }
-        return false;
     }
     //判断用户名称是否重复
     public static boolean checkProductName(String ProdectName){
@@ -203,5 +202,4 @@ public class test {
             System.out.println("删除失败！！！！！！");
         }
     }
-
 }
