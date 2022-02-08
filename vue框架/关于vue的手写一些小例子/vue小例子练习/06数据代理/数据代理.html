@@ -11,14 +11,25 @@
 </head>
 <body>
     <div id="root">
-
+        <h2>学校名称:{{name}}</h2>
+        <h2>学校地址:{{address}}</h2>
     </div>
 </body>
 <script>
+    /*
+    1、vue中的数据代理
+    通过vm对象来代理data对象中属性的操作（读/写）
+    2、vue中数据代理好处
+    更加方便操作data里面的数据
+    3、基本原理：
+    通过object.defineProperty()把data里面的所有属性添加到vm身上，为每一个添加到vm上的属性，都指定一个getter和setter
+    在getter和setter方法去操作data中对应的属性
+    */
     var vm = new Vue({
         el:'#root',
         data:{
-            
+            name:'尚硅谷',
+            address:'南京'
         }
     })
 </script>
