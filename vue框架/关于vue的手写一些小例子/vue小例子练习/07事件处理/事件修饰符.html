@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <script src="../../../vue框架/vue.js"></script>
+    <style>
+        *{
+            margin-top: 10px;
+        }
+        .demo1{
+            height: 50px;
+            background-color: aqua;
+        }
+        .box1{
+            height: 100px;
+            background-color: blueviolet;
+        }
+        .box2{
+            height: 30px;
+            background-color: aqua;
+        }
+        .list{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <h2>欢迎来到{{name}}学习</h2>
+        <!-- 阻止默认事件 -->
+        <a href="http://www.baidu.com" @click.prevent='showInfo'>点我提示信息</a>
+        <!-- 阻止冒泡 -->
+        <div class="demo1" @click='showInfo'>
+            <a href="http://www.baidu.com" @click.stop.prevent='showInfo'>点我提示信息</a>
+            <!-- <button @click.stop='showInfo'>点我提示信息</button> -->
+        </div>
+        <!-- 事件触发一次 -->
+        <button @click.once='showInfo'>点我提示信息</button>
+        <!-- 使用事件捕获模式 -->
+        <div @click.capture='showMsg(1)' class="box1">
+            div1
+            <div @click='showMsg(2)' class="box2">
+                div2
+            </div>
+        </div>
+        <!-- self事件 -->
+        <div class="demo1" @click.self='showInfo'>
+            <button @click='showInfo'>点我提示信息</button>
+        </div>
+        <!-- passive -->
+        <ul @scroll.passive='demo' class="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+</body>
+<script>
+    /*
+    vue中的事件修饰符
+        1、prevent：阻止默认事件
+        2、stop:阻止冒泡行为
+        3、once:事件只触发一次
+        4、capture:使用事件捕获行为
+        5、self:只有event.target是当前操作的元素才会触发事件
+        6、passive:事件的默认行为立即执行，无需等待事件回调执行完毕
+    */
+    var vm = new Vue({
+        el:'#root',
+        data:{
+            name:'淮师',
+        },
+        methods:{
+            showInfo(e){
+                alert('你好')
+                // console.log(e.target)
+            },
+            showMsg(number){
+                console.log(number);
+            },
+            demo(){
+            for(let i=0;i<10000;i++){
+                console.log("#")
+            }
+            console.log("累坏了")
+            }
+        },
+
+    })
+</script>
+</html>
