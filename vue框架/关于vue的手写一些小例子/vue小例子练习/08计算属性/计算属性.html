@@ -34,17 +34,22 @@
             lastName:"杰"
         },
         computed:{
-            fullName:{
-                //初次读取时，get()会被调用
-                get(){
-                return this.firstName + this.lastName
-                },
-                //set当被修改时被调用
-                set(value){
-                    const arr = value.split('')
-                    this.firstName=arr[0]
-                    this.lastName=arr[1]
-                }
+            // fullName:{
+            //     //完整写法
+            //     //初次读取时，get()会被调用
+            //     get(){
+            //     return this.firstName + this.lastName
+            //     },
+            //     //set当被修改时被调用
+            //     set(value){
+            //         const arr = value.split('')
+            //         this.firstName=arr[0]
+            //         this.lastName=arr[1]
+            //     }
+            // }
+            // 简写：只考虑读取不考虑修改时候
+            fullName(){
+                return this.firstName + this.lastName 
             }
         }
     })

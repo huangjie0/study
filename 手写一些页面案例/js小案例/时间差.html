@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间差</title>
+</head>
+<body>
+    <script>
+        var time=new Date()
+        var target=new Date(2022,1,8,23,00,00)
+        //拿到时间戳
+        var time1=time.getTime();
+        var time2=target.getTime();
+        //转换为秒
+        var diffMs=Math.ceil((time2-time1)/1000);
+        //换算成天 时 分 秒
+        var day=Math.floor(diffMs/(60*60*24))
+        var hour=Math.floor(diffMs%(60*60*24)/3600)
+        var minutes=Math.floor(diffMs%3600/60)
+        var seconds=diffMs%60;  
+    </script>
+</body>
+</html>

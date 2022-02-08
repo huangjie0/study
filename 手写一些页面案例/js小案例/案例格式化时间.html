@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function dateFormat(){
+             //获取当前时间
+        var time = new Date()
+        //获取年
+        var year=time.getFullYear()
+        //获取月份
+        var month=time.getMonth()
+        //获取日期
+        var data=time.getDate()
+        //获取小时
+        var hours=time.getHours()
+        //获取分钟
+        var minutes=time.getMinutes()
+        //获取秒数
+        var seconds=time.getSeconds()
+        //获取星期几
+        var day=time.getDay()
+        //调整月份信息
+        month+=1;
+        //调整星期相关信息
+        var s='日一二三四五六'
+        var str=s[day]
+        var h = hours>13?'下午':'上午'
+        hours%=12;
+        //格式化时间模板
+        var dateFormat=year+'年'+month+'月'+data+'日'+h+hours+'时'+minutes+'分'+seconds+'秒'+'星期'+str;
+        return dateFormat;
+        }
+        alert(dateFormat())
+    </script>
+    
+</body>
+</html>
