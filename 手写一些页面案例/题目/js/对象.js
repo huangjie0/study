@@ -47,7 +47,37 @@ console.log(getResult(1,2))
 
 
 // 字符串首字母大写。
-const str='jsdfhdfhjfrjhrjf'
+const str='a'
 function capital(str){
-    str.toUpperCase()
+    return str.substring(0,1).toUpperCase()+str.substr(1).toLowerCase()
 }
+console.log(capital(str))
+
+//把下面数组的首尾两个元素互换
+var arr = ["鹿晗","王俊凯","蔡徐坤","彭于晏","周杰伦","刘德华","赵本山"];
+var temp = arr.pop()
+var temp_1 = arr.shift()
+arr.push(temp_1)
+arr.unshift(temp)
+console.log(arr)
+
+//计算今日离你出生日期经过了多久，精确到分钟(Date)。
+var myBirthday=new Date(1996,9,12)
+var newTime=new Date()
+var diff = newTime.getTime() - myBirthday.getTime()
+var year = Math.ceil(diff/1000/60/60/24/360)
+var day=Math.floor(diff/(60*60*24))
+var hour=Math.floor(diff%(60*60*24)/3600)
+var minutes=Math.floor(diff%3600/60)
+var object={year:year,day:day,hour:hour,minutes:minutes}
+console.log(object)
+
+// 使用Math对象完成一个函数，要求输入start与end两个参数，最终随机获取两个数字之间的随机值
+function getRandom(start,end){
+    return Math.floor(Math.random()*(end-start+1))+start
+}
+console.log(getRandom(1,3));
+
+
+
+

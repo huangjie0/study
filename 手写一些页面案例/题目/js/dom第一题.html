@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钟表</title>
+    <style>
+        #box{
+            font-size: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+    </div>
+</body>
+<script>
+    //补零操作
+    function zero(i){
+        if(i<10){
+            i ='0'+i
+        }
+        return i
+    }
+    function time_2(){
+        const time=new Date();
+        const year=time.getFullYear();
+        const month=time.getMonth()+1;
+        const day=time.getDate()
+        const hour=zero(time.getHours())
+        const minutes=zero(time.getMinutes())
+        const seconds=zero(time.getSeconds())
+        const weeks='天一二三四五六'
+        const week=time.getDay()
+        const week_1=weeks[week];
+        return year+'年'+month+'月'+day+'日'+'星期'+week_1+hour+'时'+minutes+'分'+seconds+'秒'
+    }
+    var box = document.getElementById('box')
+    setInterval(
+        function(){
+            box.innerHTML=time_2()
+        },1000)
+</script>
+</html>
