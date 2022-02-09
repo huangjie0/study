@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bom基础</title>
+</head>
+<body>
+    <button id="btn">点我一下跳走</button><br>
+    <button id='dian'>点我一下重新加载</button>
+    <script>
+        // 浏览器窗口大小
+        console.log(window.innerWidth);
+        console.log(window.innerHeight);
+        // 浏览器的弹出层
+        window.alert("你好")
+        //有返回值是true和false
+        window.confirm('吃饭了没？')
+        //返回值是内容，有就是内容，没有就是null,字符串类型
+        window.prompt('今年多大了？')
+        //浏览器的地址栏
+        console.log(window.location.href)
+        // 将当前地址栏修改
+        btn.onclick=function(){
+            window.location.href='https://www.baidu.com'
+        }
+        dian.onclick=function(){
+            window.location.reload()
+        }
+    </script>
+</body>
+</html>

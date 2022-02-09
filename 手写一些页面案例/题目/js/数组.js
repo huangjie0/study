@@ -11,7 +11,31 @@ for(var i=0;i<arr.length;i++){
     newarr.push(arr[i]);
 }
 
-console.log(newarr);
+// 反转任意数组 (不使用reverse)
+var newarr = []
+var arr=[1,5,6,4,2,7,9]
+for(var i=0;i<arr.length;i++){
+    newarr.unshift(arr[i])
+}
+console.log(newarr)
+
+// 求数组中的最大值（假设全部是数字的数组）
+var arr=[2,5,4,1,400,520,100,20]
+var newar = arr.sort(function(a,b){return b-a})[0]
+console.log(newar)
+
+// 找到数组中每一个符合要求的数组下标（不使用indexOf）
+var array = [1,2,3,4,1,1];
+var target = 2;
+function main(array,target){
+    for(var i=0;i<array.length;i++){
+        if(target===array[i]){
+            console.log(i)
+            continue;
+        }
+    }
+}
+main(array,target)
 
 
 
