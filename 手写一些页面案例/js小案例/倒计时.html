@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <script src="./时间差.js"></script>
+    <script>
+        //确定目标时间
+        var target=new Date(2022,1,9,21,30,00)
+        setInterval(function(){
+            var current=new Date()
+            var diff=dateformat(current,target)
+            day.innerText=diff.day
+            hour.innerText=diff.hour
+            minutes.innerText=diff.minutes
+            seconds.innerText=diff.seconds
+        },1000)
+
+    </script>
+</head>
+<body>
+    <div>
+        距离出去玩还有
+        <span id='day'></span>天
+        <span id="hour"></span>时
+        <span id="minutes"></span>分
+        <span id="seconds"></span>秒
+    </div>
+    
+</body>
+</html>

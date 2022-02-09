@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钟表案例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #showTime{
+            background:linear-gradient(to right,#d3959b,#bfe6ba);
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="showTime"></div>
+</body>
+<script>
+    var zero = function(i){
+        if(i<10){
+            i='0'+i;
+        }
+        return i;
+    }
+    function time_1(){
+        var time = new Date();
+        var year = time.getFullYear();
+        var month=time.getMonth()
+        month+=1
+        var day=time.getDate()
+        var hour=zero(time.getHours())
+        var minutes=zero(time.getMinutes())
+        var seconds=zero(time.getSeconds())
+        var weeks=time.getDay()
+        var str='天一二三四五六'
+        var week=str[weeks]
+        return year+'年'+month+'月'+day+'日'+'星期'+week+''+hour+':'+minutes+':'+seconds
+    }
+    var div=document.getElementById('showTime');
+    setInterval(function(){
+        div.innerHTML=time_1();
+    },1000)
+</script>
+</html>
