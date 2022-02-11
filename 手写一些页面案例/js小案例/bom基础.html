@@ -38,7 +38,20 @@
         window.onload=function(){}//页面全部资源加载完毕后的操作
         window.onscroll=function(){}//滚动条滚动时所执行的操作
         window.onresize=function(){}//页面窗口发生改变了所执行的操作
-        
+        //浏览器卷去的尺寸
+        document.documentElement.scrollTop
+        document.documentElement.scrollLeft
+        document.body.scrollTop
+        document.body.scrollLeft
+        //为了兼容document.documentElement.scrollTop || document.body.scrollTop
+        //浏览器滚动到
+        window.scrollTo(x,y)
+        //对象写法
+        window.scrollTo({
+            top:300,
+            left:300,
+            behavior:"smooth"//平滑滚动
+        })
     </script>
 </body>
 </html>
