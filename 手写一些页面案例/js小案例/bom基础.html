@@ -7,6 +7,8 @@
     <title>bom基础</title>
 </head>
 <body>
+    <button id="btn">点我跳走</button>
+    <button id="btn1">点我刷新</button>
     <script>
         // 获取浏览器窗口大小
         console.log(window.innerWidth);
@@ -17,7 +19,17 @@
         window.prompt('感觉怎么样？')//返回值是内容，没有则是null
         //浏览器的地址栏
         console.log(window.location.href)
-
+        var btn = document.getElementById('btn')
+        btn.onclick=function(){
+            window.location.href='https:www.baidu.com'
+        }
+        //浏览器地址的刷新
+        btn1.onclick=function(){
+            window.location.reload()
+        }
+        //浏览器的历史记录
+        window.history.back()
+        window.history.forward()
     </script>
 </body>
 </html>
