@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" hello="world" data-world="hello" data-a="bbb">
+
+    </div>
+</body>
+<script>
+    //原生属性
+    var div = document.querySelector('div')
+    console.log(div.id)//获取原生属性的值
+    div.id=''//设置原生属性
+    //自定义属性
+    console.log(div.getAttribute('hello'))//获取自定义属性
+    div.setAttribute('hello','ajax')//设置自定义属性的值
+    div.removeAttribute('hello')//删除自定义属性
+    // 操作h5自定义属性,得到的是对象
+    console.log(div.dataset.world)
+    div.dataset.world='200'
+</script>
+</html>
