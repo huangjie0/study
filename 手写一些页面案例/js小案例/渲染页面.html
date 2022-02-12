@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header,.footer{
+            width: 1920px;
+            height: 100px;
+            background-color: aquamarine;
+            color: white;
+            font-size: 50px;
+            line-height: 100px;
+            text-align: center;
+        }
+        .neirong{
+            margin-top: 10px;
+            width: 1920px;
+        }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+        }
+        img{
+            width: 400px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">网页头部</div>
+    <div class="neirong">
+        <ul>
+        </ul>
+    </div>
+    <div class="footer">底部</div>
+</body>
+<script>
+    var arr=[
+    {name:'2020宿州国际音乐节',city:'宿州',price:150,time:'2020.01.24',address:'https://img1.baidu.com/it/u=436907149,1086251211&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=775'},
+    {name:'2020南京国际音乐节',city:'南京',price:150,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F010e735dbea026a801209e1f17a3f9.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=755ae4419bbe140978c844f34114dc70'},
+    {name:'2020澳门国际音乐节',city:'澳门',price:150,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fq_70%2Fimages03%2F20210715%2F0fc7dda433ce4b30ac2bd42050f9b8af.jpeg&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241552&t=c3738f72fb5a8e6499560ba28577bb4b'},
+    {name:'2020香港国际音乐节',city:'香港',price:150,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.5tu.cn%2Fattachments%2Fimage_files%2Fmonth_1908%2F201907272208394797.jpg&refer=http%3A%2F%2Fimg.5tu.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=02515e3fd438998e2f11fd7554d8bd65'},
+    {name:'2020芜湖国际音乐节',city:'芜湖',price:150,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fbackgd%2Fcover%2F00%2F20%2F00%2F5b96151272466.jpg%21%2Ffw%2F780%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=172cf09834f1e4c6b67fc8d3b794c833'},
+    {name:'2020合肥国际音乐节',city:'合肥',price:150,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp3.itc.cn%2Fimages01%2F20210407%2F646467ae7a0946e98c71c8efd1b7dad4.jpeg&refer=http%3A%2F%2Fp3.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=9712446a25be3a20f5b7532a440393f0'},
+    {name:'2020马鞍山国际音乐节',city:'马鞍山',price:150,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fci.xiaohongshu.com%2Ff017c7aa-122b-dbec-f2aa-93de172a3686%3FimageView2%2F2%2Fw%2F1080%2Fformat%2Fjpg&refer=http%3A%2F%2Fci.xiaohongshu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=1aad006d3e0ffe035127c2dae920bc2d'},
+    {name:'2020西湖国际音乐节',city:'杭州',price:150,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.sccnn.com%2Fbimg%2F341%2F20567.jpg&refer=http%3A%2F%2Fimg.sccnn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241068&t=37adab7ba55b6efb865a281428ea2cee'}
+    ]
+    var ul = document.querySelector('ul')
+    var str = ''
+    arr.forEach(function(item){
+        str+=`
+        <li>
+            <img src="${item.address}" alt="">
+            <p>${item.name}</p>
+            <p>城市:${item.city}</p>
+            <p>价格：${item.price}</p>
+            <p>时间：${item.time}</p>
+        </li>
+        `
+    })
+    ul.innerHTML=str
+</script>
+</html>
