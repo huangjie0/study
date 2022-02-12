@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px" style="text-align: center;" align="center">
+       
+    </table>
+</body>
+<script>
+    var arr = [
+        {id:'id',name:'name',age:'age'},
+        {id:1,name:'黄杰',age:25},
+        {id:2,name:'张三',age:23},
+        {id:3,name:'李四',age:18},
+        {id:4,name:'李玲',age:47}
+    ]
+    var table = document.querySelector('table')
+    var str = ''
+    arr.forEach(function(item){
+        str+=`
+        <tr>
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>${item.age}</td>
+        </tr>
+        `
+    })
+    table.innerHTML=str
+</script>
+</html>
