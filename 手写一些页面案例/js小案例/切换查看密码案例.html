@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="password">
+    <button>点我查看密码</button>
+</body>
+<script>
+    var input = document.querySelector('input')
+    var btn = document.querySelector('button')
+    btn.onclick=function(){
+        if(input.type=='password'){
+            input.type='text'
+        }else{
+            input.type='password'
+        }
+    }
+</script>
+</html>
