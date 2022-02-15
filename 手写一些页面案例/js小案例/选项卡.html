@@ -34,29 +34,49 @@
         ol>li{
             width: 600px;
             height: 370px;
-            background-color: bisque;
             position: absolute;
             top: 0;
             left: 0;
             text-align: center;
             line-height: 370px;
             font-size:30px;
+            display: none;
         }
-
+        .box>ul>li.active{
+            background-color: orange;
+        }
+        .box>ol>li.active{
+            background-color: green;
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="box">
         <ul>
-            <li>1</li>
+            <li class="active">1</li>
             <li>2</li>
             <li>3</li>
         </ul>
         <ol>
-            <li>1</li>
+            <li class="active">1</li>
             <li>2</li>
             <li>3</li>
         </ol>
     </div>
 </body>
+<script>
+    var btns = document.querySelectorAll('ul>li');
+    var boxs = document.querySelectorAll('ol>li');
+    btns.forEach(function(item,index){
+    item.onclick=function(){
+      for(var i=0;i<btns.length;i++){
+          btns[i].classList.remove('active')
+          boxs[i].classList.remove('active')
+      } 
+      btns[index].classList.add('active')    
+      boxs[index].classList.add('active')    
+    }
+ })
+</script>
 </html>
