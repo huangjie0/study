@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box1 box2"></div>
+</body>
+<script>
+    var box = document.querySelector('div')
+    // console.log(box.className)
+    box.className='container'
+    //追加类名
+    box.className+=' div'
+    //类名列表
+    var classList = box.classList
+    classList.add('a')//添加类名
+    classList.remove('container')//删除类名
+    classList.toggle('b')//切换类名，有就删除，没有就添加
+</script>
+</html>

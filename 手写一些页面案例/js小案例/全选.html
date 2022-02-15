@@ -8,17 +8,18 @@
 </head>
 <body>
     <div class="box">
-        <input type="checkbox">全选<hr>
-        <input type="checkbox" class="item">选项一<br>
-        <input type="checkbox" class="item">选项二<br>
-        <input type="checkbox" class="item">选项三<br>
-        <input type="checkbox" class="item">选项四
+        <input type="checkbox">全选
+        <hr>
+        <input type="checkbox" class="item"/>选项一<br>
+        <input type="checkbox" class="item"/>选项二<br>
+        <input type="checkbox" class="item"/>选项三<br>
+        <input type="checkbox" class="item"/>选项四<br>
     </div>
-    
 </body>
 <script>
-    var input =  document.querySelector('input')
+    var input=document.querySelector('input')
     var input_1=document.querySelectorAll('.item')
+    console.log(input_1)
     input.onclick=function(){
         var c = input.checked
         input_1.forEach(function(item){
@@ -30,8 +31,8 @@
         item.onclick=function(){
             input_1.forEach(function(t){
                 if(t.onclick)count++
-            })
-            console.log(count)
+            })   
+            input.checked=count==input_1.length 
         }
     })
 </script>

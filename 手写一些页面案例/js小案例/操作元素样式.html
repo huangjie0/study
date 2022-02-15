@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100px;background-color: red;">
+        你好世界
+    </div>
+    
+</body>
+<script>
+    var box = document.getElementsByTagName('div')[0]
+    box.style.color='blue'//设置行内样式字体颜色
+    box.style.opacity=0.5//设置行内样式的透明度
+    //获取非行内样式语法
+    var res = window.getComputedStyle(box).height//标准浏览器
+    var res_1=box.currentStyle.height//IE低版本浏览器
+</script>
+</html>

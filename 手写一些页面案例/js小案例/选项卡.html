@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border: 2px solid pink;
+        }
+        .box>ul{
+            width: 600px;
+            height: 30px;
+            display: flex;
+            list-style: none;
+            text-align: center;
+        }
+        .box>ul>li{
+            width: 200px;
+            background-color: aqua;
+        }
+        ol{
+            list-style: none;
+            position: relative;
+        }
+        ol>li{
+            width: 600px;
+            height: 370px;
+            background-color: bisque;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 370px;
+            font-size:30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+    </div>
+</body>
+</html>
