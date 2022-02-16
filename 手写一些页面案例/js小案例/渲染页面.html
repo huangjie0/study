@@ -36,11 +36,38 @@
         ul>li{
             border: 1px solid black;
         }
+        .filter{
+            height: 50px;
+            width: 1200px;
+            display: flex;
+            font-size: 15px;
+            align-items: center;
+        }
+        .filter>p{
+            padding: 5px 20px;
+            margin: 0 10px;
+            background-color: skyblue;
+            cursor: pointer;
+        }
+        .filter>p.disable{
+            background: #ccc;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
     <div class="header">网页头部</div>
-
+    <div class="filter">
+        <p class="disable">&lt;</p>
+        <span>1/1</span>
+        <p>&gt;</p>
+        <select>
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+            <option value="12">12</option>
+        </select>
+    </div>
     <div class="neirong">
         <ul>
         </ul>
