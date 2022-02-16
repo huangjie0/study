@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box_1{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            margin: 100px;
+            padding: 50px;
+            border: 30px solid black;
+            background-clip: content-box;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: bisque;
+            /* position: absolute; */
+        }
+        .box > p{
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box_1">
+    </div>
+    <div class="box">
+        <p></p>
+    </div>
+    
+</body>
+<script>
+    //一个元素在文档流占多少位置,offsetWeight,offsetHeight,内容padding和border
+    //不管盒子模型什么状态，都是这样
+    var div = document.querySelector('div')
+    // console.log(div.offsetWidth)
+    // console.log(div.offsetHeight)
+    //当元素被display:none获取不了尺寸,不占位置的
+    console.log(div.clientHeight)
+    console.log(div.clientWidth)
+    //没有边框距离
+    //获取元素的偏移量
+    var p = document.querySelector('p')
+    //结构父级和定位父级
+    console.log(p.offsetLeft)
+    console.log(p.offsetTop)
+
+</script>
+</html>

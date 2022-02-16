@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom对象操作</title>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    //创建节点,创建规范标签和自定义标签
+    var div_1 = document.querySelector('div')
+    var res = document.createElement('span')
+    res.innerHTML='我是创建出来的节点'
+    //创建文本节点
+    // document.createTextNode('我是一个节点')
+    //插入节点方法一：
+    div_1.appendChild(res);
+    //插入节点方法二：
+    var span_1 = document.createElement('span')
+    span_1.innerHTML='最后插入的内容'
+    div_1.insertBefore(span_1,res)    
+</script>
+</html>
