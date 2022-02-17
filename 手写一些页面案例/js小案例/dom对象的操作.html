@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-
+        <p>我是div内本身存在的节点</p>
     </div>
 </body>
 <script>
@@ -23,6 +23,18 @@
     //插入节点方法二：
     var span_1 = document.createElement('span')
     span_1.innerHTML='最后插入的内容'
-    div_1.insertBefore(span_1,res)    
+    div_1.insertBefore(span_1,res)  
+    //删除节点
+    // div_1.removeChild(span_1)
+    //删除节点二  
+    span_1.remove()
+    //替换节点
+    var p_1 = document.createElement('p')
+    p_1.innerHTML='我是即将要换上的节点'
+    var p = document.querySelector('p')
+    div_1.replaceChild(p_1,p)
+    //克隆节点
+    div_1.cloneNode()
+
 </script>
 </html>
