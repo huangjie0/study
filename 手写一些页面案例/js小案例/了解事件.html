@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>了解事件</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    
+</body>
+<script>
+    //事件：事件源，事件类型，事件处理函数
+    //事件绑定，事件绑定点击事件
+    var div = document.querySelector('div')
+    div.onclick=function(){
+        console.log('我被点击了')
+    }
+    //事件监听器，标准浏览器，可以给同一个事件源绑定多个事件处理函数
+    div.addEventListener('click',function(){
+        console.log('我后被绑定')
+    })
+    //IE低版本
+    div.attachEvent('click',function(){
+        console.log('id低版本')
+    })
+
+
+
+
+
+</script>
+</html>
