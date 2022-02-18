@@ -20,8 +20,10 @@
         <input type="submit">
     </form>
     <div>
-
     </div>
+    <p>
+        ghdghfgfrgf
+    </p>
 </body>
 <script>
     //键盘事件
@@ -75,8 +77,12 @@
         console.log("我移动了")
     }
     //触摸结束，适用于移动端
-    div_1.ontouchend=function(){
+    div_1.ontouchend = function(){
         console.log("触摸结束")
+    }
+    //其他的事件,当框选页面的时候触发此函数
+    document.onselectstart=function(){
+        console.log('我被触发了')
     }
 </script>
 </html>
