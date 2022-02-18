@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text">
+        <input type="reset">
+        <input type="submit">
+    </form>
+    <div>
+
+    </div>
+</body>
+<script>
+    //键盘事件
+    //onkeydown键盘按下触发事件
+    var inp = document.querySelector('input')
+    var form = document.querySelector('form')
+    var div_1 = document.querySelector('div')
+    //获取事件对象
+    inp.onkeydown=function(){
+        console.log('键盘按下了')
+    }
+    //onkeyup键盘抬起来触发的事件
+    inp.onkeyup=function(){
+        console.log("键盘抬起来")
+    }
+    //onkeypress:键盘键入事件，只有键入内容才会触发函数
+    inp.onkeypress=function(){
+        console.log('键盘键入事件')
+    }
+    //表单事件，专门给表单事件绑定
+    //focus聚焦事件
+    inp.onfocus=function(){
+        console.log("聚焦,获取焦点")
+    }
+    //blur失去焦点
+    inp.blur=function(){
+        console.log('失去焦点')
+    }
+    //change事件，改变事件
+    inp.onchange=function(){
+        console.log("改变事件，触发了")
+    }
+    //input事件
+    inp.oninput=function(){
+        console.log('你输入了事件')
+    }
+    //reset事件
+    form.reset=function(){
+        console.log('数据重置了')
+    }
+    //submit事件提交事件
+    form.onsubmit=function(){
+        console.log('数据提交了')
+    }
+    //触摸事件touchstart，适用于移动端上运行触摸，支持多点触碰
+    div_1.ontouchstart=function(){
+        console.log("我被触摸了")
+    }
+    //触摸移动标签，适用于移动端
+    div_1.ontouchmove=function(){
+        console.log("我移动了")
+    }
+    //触摸结束，适用于移动端
+    div_1.ontouchend=function(){
+        console.log("触摸结束")
+    }
+</script>
+</html>
