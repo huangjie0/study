@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        body{
+            width: 2000px;
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>
+    //事件对象，鼠标事件，坐标点，
+    var div = document.querySelector('div')
+    div.onclick=function(event){
+        //兼容事件对象
+        event = event || window.event
+        //获取鼠标坐标
+        console.log('clienX', event.clientX)
+        console.log('clienX', event.clientY)
+        //相对文档流大小
+        // console.log(event.pageX)
+        // console.log(event.pageY)
+        //相对与事件的坐标点
+        console.log(event.offsetX)
+        console.log(event.offsetY)
+    }
+    
+
+</script>
+</html>
