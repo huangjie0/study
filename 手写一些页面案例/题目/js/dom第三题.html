@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三题</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 1000px;
+            height: 600px;
+            margin: 0 auto;
+            background-color: #f7f7f7;
+            border: 2px solid #e5e5e5;
+        }
+        .box1{
+            width: 1000px;
+            height: 120px;
+            border-bottom: 2px solid #e5e5e5;
+        }
+        .box1>h1{
+            color:#888888;
+            font-size: 50px;
+            margin-top: 30px;
+            margin-left: 100px;
+        }
+        form{
+            width: 1000px;
+            height: 317px;
+            margin-top: 65px;
+            position: absolute;
+        }
+        form>input{
+            display: block;
+            position: relative;
+            width: 717px;
+            height: 74px;
+            left: 150px;
+            border: 2px solid #e5e5e5;
+            outline: none;
+        }
+        form>button{
+            width: 161px;
+            height: 69px;
+            bottom: -29px;
+            left: 150px;
+            background-color: #d47b78;
+            border-radius: 10px;
+            border: 0;
+            font-size: 20px;
+            color: white;
+            position: relative;
+        }
+        .span1{
+            width: 145px;
+            height: 30px;
+            display: block;
+            font-size: 20px;
+            color: #a5a5a5;
+            position: relative;
+            top: 179px;
+            left: 35px;
+
+        }
+        .span2{
+            width: 145px;
+            height: 25px;
+            display: block;
+            font-size: 20px;
+            color: #a5a5a5;
+            position: relative;
+            top: -76px;
+
+        }
+        .input_1::-webkit-input-placeholder {
+        color: #a5aba5;
+        font-size: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            <h1>表单</h1>
+        </div>
+        <form action="#">
+            <span class="span1">Your name:</span><input type="text" class="input_1" placeholder="Your Full Name"><br>
+            <span class="span2">Your password: </span><input type="password" class="input_2">
+            <button>Send</button>
+        </form>
+    </div>   
+</body>
+</html>
