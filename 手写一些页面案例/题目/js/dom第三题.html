@@ -63,7 +63,7 @@
             font-size: 20px;
             color: #a5a5a5;
             position: relative;
-            top: 179px;
+            top: 50px;
             left: 35px;
 
         }
@@ -74,7 +74,7 @@
             font-size: 20px;
             color: #a5a5a5;
             position: relative;
-            top: -76px;
+            top: 50px;
 
         }
         .input_1::-webkit-input-placeholder {
@@ -88,11 +88,42 @@
         <div class="box1">
             <h1>表单</h1>
         </div>
-        <form action="#">
-            <span class="span1">Your name:</span><input type="text" class="input_1" placeholder="Your Full Name"><br>
-            <span class="span2">Your password: </span><input type="password" class="input_2">
+        <form action="#" name="fm">
+            <span class="span1">Your Name:</span><input type="text" class="input_1" placeholder="Your Full Name"><br>
+            <span class="span2">Your Password: </span><input type="password" class="input_2">
             <button>Send</button>
         </form>
     </div>   
 </body>
+<script>
+     //封装用户名正则函数
+     function reg_name(text){
+    //字母数字下划线减号
+        var reg_name=/^[0-9a-zA-Z_-]{4,16}$/
+        return reg_name.test(text)
+    }
+    //封装密码正则函数
+    function reg_password(text1){
+    //8到15位，字母，数字或下划线字符
+        var reg_password=/^[a-zA-Z(0-9)|_]{8,15}$/
+        return reg_password.test(text1)
+    }
+
+    var button=document.querySelector('button');
+    button.onclick=function(){
+    //获取第一个用户输入的标签
+        var input = document.querySelector('input');
+        var input_1 = document.getElementsByClassName('input_2');
+    //获取标签的值
+        var input_value = input.value
+        var inout1_value = input_1.value
+        if(reg_name(input_value)==false){
+            alert('您输入的用户名不正确请重新输入')
+
+        }
+        if(reg_password(inout1_value)==false){
+            alert("您输入的密码不符合要求,请重新输入")
+        }
+        }    
+</script>
 </html>
