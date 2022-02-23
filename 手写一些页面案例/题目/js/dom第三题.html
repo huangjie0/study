@@ -113,15 +113,15 @@
     button.onclick=function(){
     //获取第一个用户输入的标签
         var input = document.querySelector('input');
-        var input_1 = document.getElementsByClassName('input_2');
+        var input_1 = document.getElementsByClassName('input_2')[0];
     //获取标签的值
         var input_value = input.value
-        var inout1_value = input_1.value
+        var input1_value = input_1.value
         if(reg_name(input_value)==false){
             alert('您输入的用户名不正确请重新输入')
 
         }
-        if(reg_password(inout1_value)==false){
+        if(reg_password(input1_value)==false){
             alert("您输入的密码不符合要求,请重新输入")
         }
         }    
