@@ -30,7 +30,8 @@
         var count=0
         item.onclick=function(){
             input_1.forEach(function(t){
-                if(t.onclick)count++
+                console.log(t.onclick)
+                if(t.checked)count++
             })   
             input.checked=count==input_1.length 
         }
