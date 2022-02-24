@@ -80,7 +80,15 @@
         .input_1::-webkit-input-placeholder {
         color: #a5aba5;
         font-size: 20px;
-}
+        }
+        form>p{
+            color: red;
+            width: 500px;
+            height: 30px;
+            font-size: 20px;
+            margin-left: 150px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -90,6 +98,7 @@
         </div>
         <form action="#" name="fm">
             <span class="span1">Your Name:</span><input type="text" class="input_1" placeholder="Your Full Name"><br>
+            <p class="p1">您输入的用户名不符合要求，请重新输入</p>
             <span class="span2">Your Password: </span><input type="password" class="input_2">
             <button>Send</button>
         </form>
@@ -117,15 +126,15 @@
     //获取标签的值
         var input_value = input.value
         var input1_value = input_1.value
-        console.log(input1_value)
-        console.log(input_value)
-        if(reg_name(input_value)==false){
-            alert('您输入的用户名不正确请重新输入')
+        var p1 = document.getElementsByClassName('p1')[0]
+        console.log(p1)
+        // if(reg_name(input_value)==false){
+        //     alert('您输入的用户名不正确请重新输入')
 
-        }
-        if(reg_password(input1_value)==false){
-            alert("您输入的密码不符合要求,请重新输入")
-        }
+        // }
+        // if(reg_password(input1_value)==false){
+        //     alert("您输入的密码不符合要求,请重新输入")
+        // }
         }    
 </script>
 </html>
