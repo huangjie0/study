@@ -47,7 +47,7 @@
         form>button{
             width: 161px;
             height: 69px;
-            bottom: -29px;
+            bottom: -10px;
             left: 150px;
             background-color: #d47b78;
             border-radius: 10px;
@@ -79,8 +79,8 @@
 
         }
         .input_1::-webkit-input-placeholder {
-        color: #a5aba5;
-        font-size: 20px;
+            color: #a5aba5;
+            font-size: 20px;
         }
         form>p{
             color: red;
@@ -97,11 +97,11 @@
         <div class="box1">
             <h1>表单</h1>
         </div>
-        <form action="#" >
+        <form action="https://www.baidu.com" >
             <span class="span1">Your Name:</span><input type="text" class="input_1" placeholder="Your Full Name"><br>
-            <p class="p1">您输入的用户名不符合要求，请重新输入</p>
+            <p class="p1">您输入的用户名不符合要求，请重新输入!</p>
             <span class="span2">Your Password: </span><input type="password" class="input_2">
-            <p class="p2">您输入的密码不正确或者不满足要求，请重新输入</p>
+            <p class="p2">您输入的密码不正确或者不满足要求，请重新输入!</p>
             <button>Send</button>
         </form>
     </div>   
@@ -121,7 +121,8 @@
     }
 
     var button=document.querySelector('button');
-    button.onclick=function(){
+    button.onclick=function(e){
+        e.preventDefault();
     //获取第一个用户输入的标签
         var input = document.querySelector('input');
         var input_1 = document.getElementsByClassName('input_2')[0];
@@ -130,7 +131,7 @@
         var input1_value = input_1.value
         var p1 = document.querySelector('.p1')
         var p2 = document.querySelector('.p2')
-        if(reg_name(input_value)){
+        if(reg_name(input_value)&&input_value.length!=0){
             p1.style.display='none'
         }else{
             p1.style.display='block'
