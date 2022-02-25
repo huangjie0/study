@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dom第四题</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <style>
         *{
             margin: 0;
@@ -61,8 +62,23 @@
             font-size: 17px;
             color: #9c9c9c;
         }
+        .box2{
+            width: 800px;
+            height: 35px;
+            background-color: white;
+            margin: 0 auto;
+            line-height: 35px;
+            color: #9c9c9c;
+            display: none;
+        }
         .box2:hover{
-            background-color: #9c9c9c;
+            background-color: #cfcfcf;
+            color: white;
+        }
+        .box3{
+            width: 60px;
+            height: 35px;
+            background-color: #f4674c;
         }
     </style>
 </head>
@@ -75,17 +91,20 @@
         </div>
     </div>
     <div class="box2">
-      
+        <div class="box3">
+
+        </div>
     </div>
 </body>
 <script>
-    var input = document.querySelector('input')
+    var input = document.querySelector('input');
     input.oninput=function(){
         var input_value = input.value
         var arr = input_value.split('')
         var button = document.querySelector('button');
         button.onclick=function(){
             var box2 = document.querySelector('.box2');
+            box2.style.display='block'
             var str=''
             for(var i=0 ;i<arr.length;i++){
                 str+=arr[i]
@@ -93,8 +112,7 @@
             box2.innerHTML=`
             <div>${str}</div>
             ` 
-        } 
-            
+        }   
     }   
 </script>
 </html>
