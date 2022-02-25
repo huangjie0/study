@@ -110,7 +110,7 @@
             <p class="p1">您输入的用户名不符合要求，请重新输入!</p>
             <span class="span2">Your Password: </span><input type="password" class="input_2" placeholder="密码要求，8到15位，字母，数字或下划线字符">
             <p class="p2">您输入的密码不正确或者不满足要求，请重新输入!</p>
-            <button>Send</button>
+            <button disabled>Send</button>
         </form>
     </div>   
 </body>
@@ -133,7 +133,7 @@
     //给第一个标签绑定事件，验证用户名对不对
     input.oninput=function(){
         var input_value = input.value
-        var p1 = document.querySelector('.p1')
+        var p1 = document.querySelector('.p1');
         p1.style.display=reg_name(input_value) ? 'none' : 'block'
         if(input_value.length==0){
             p1.style.display='none'
@@ -150,11 +150,14 @@
     }
 
     //给button绑定事件
-    var button = document.querySelector('button')
-    button.onclick=function(){
-        if(input_value&&input1_value){
-            
-        }
-    }
+    // var button = document.querySelector('button')
+    // button.onclick=function(){
+    //     if(reg_name(input_value) && reg_password(input1_value)){
+    //         window.open('https://www.baidu.com');
+    //     }
+    // }
+    var button = document.querySelector('button');
+    
+
 </script>
 </html
