@@ -61,6 +61,9 @@
             font-size: 17px;
             color: #9c9c9c;
         }
+        .box2:hover{
+            background-color: #9c9c9c;
+        }
     </style>
 </head>
 <body>
@@ -71,5 +74,27 @@
             <button>Add</button>
         </div>
     </div>
+    <div class="box2">
+      
+    </div>
 </body>
+<script>
+    var input = document.querySelector('input')
+    input.oninput=function(){
+        var input_value = input.value
+        var arr = input_value.split('')
+        var button = document.querySelector('button');
+        button.onclick=function(){
+            var box2 = document.querySelector('.box2');
+            var str=''
+            for(var i=0 ;i<arr.length;i++){
+                str+=arr[i]
+            } 
+            box2.innerHTML=`
+            <div>${str}</div>
+            ` 
+        } 
+            
+    }   
+</script>
 </html>

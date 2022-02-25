@@ -121,6 +121,8 @@
         var reg_name=/^[0-9a-zA-Z_-]{4,16}$/
         return reg_name.test(text)
     }
+
+
     //封装密码正则函数
     function reg_password(text1){
     //8到15位，字母，数字或下划线字符
@@ -128,7 +130,7 @@
         return reg_password.test(text1)
     }
 
-    
+
     //给第一个标签绑定事件，验证用户名对不对
     var input = document.querySelector('.input_1')
     input.oninput=function(){
@@ -147,6 +149,7 @@
             button.style.backgroundColor='#a5aba5'
         }
     }
+
     //给第二个input绑定事件并且验证密码对不对
     var input_1 = document.querySelector('.input_2')
     input_1.oninput=function(){
@@ -166,6 +169,5 @@
             button.style.backgroundColor='#a5aba5'
         }
     }
-    
 </script>
 </html
