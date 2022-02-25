@@ -44,18 +44,18 @@
             border: 2px solid #e5e5e5;
             outline: none;
         }
-        form>button{
+        #submit{
             width: 161px;
             height: 69px;
             bottom: -10px;
             left: 150px;
-            background-color: #d47b78;
+            background-color: rgb(180, 180, 180);
             border-radius: 10px;
             border: 0;
             font-size: 20px;
             color: white;
             position: relative;
-            cursor: pointer;
+            cursor: not-allowed;
         }
         .span1{
             width: 145px;
@@ -105,12 +105,12 @@
         <div class="box1">
             <h1>表单</h1>
         </div>
-        <form>
+        <form action="../../JD/home_page.html">
             <span class="span1">Your Name:</span><input type="text" class="input_1" placeholder="姓名要求，4到16位，字母，数字，下划线，减号"><br>
             <p class="p1">您输入的用户名不符合要求，请重新输入!</p>
             <span class="span2">Your Password: </span><input type="password" class="input_2" placeholder="密码要求，8到15位，字母，数字或下划线字符">
             <p class="p2">您输入的密码不正确或者不满足要求，请重新输入!</p>
-            <button disabled>Send</button>
+            <input type="submit" id="submit" disabled>
         </form>
     </div>   
 </body>
@@ -128,36 +128,44 @@
         return reg_password.test(text1)
     }
 
-    var input = document.querySelector('.input_1')
-    var input_1 = document.querySelector('.input_2')
+    
     //给第一个标签绑定事件，验证用户名对不对
+    var input = document.querySelector('.input_1')
     input.oninput=function(){
         var input_value = input.value
         var p1 = document.querySelector('.p1');
+        var button = document.getElementById('submit');
         p1.style.display=reg_name(input_value) ? 'none' : 'block'
         if(input_value.length==0){
             p1.style.display='none'
        }
+        if(reg_name(input_value)){
+            button.style.cursor='pointer'
+            button.style.backgroundColor='#d47b78'
+        }else{
+            button.style.cursor='not-allowed'
+            button.style.backgroundColor='#a5aba5'
+        }
     }
     //给第二个input绑定事件并且验证密码对不对
+    var input_1 = document.querySelector('.input_2')
     input_1.oninput=function(){
-       var input1_value = input_1.value
-       var p2 = document.querySelector('.p2')
-       p2.style.display=reg_password(input1_value) ? 'none' : 'block'
-       if(input1_value.length==0){
+        var input1_value = input_1.value
+        var button = document.getElementById('submit')
+        var p2 = document.querySelector('.p2')
+        p2.style.display=reg_password(input1_value) ? 'none' : 'block'
+            if(input1_value.length==0){
             p2.style.display='none'
-       }
+        }
+        if(reg_password(input1_value)){
+            button.style.cursor='pointer'
+            button.style.backgroundColor='#d47b78'
+            submit.disabled=''
+        }else{
+            button.style.cursor='not-allowed'
+            button.style.backgroundColor='#a5aba5'
+        }
     }
-
-    //给button绑定事件
-    // var button = document.querySelector('button')
-    // button.onclick=function(){
-    //     if(reg_name(input_value) && reg_password(input1_value)){
-    //         window.open('https://www.baidu.com');
-    //     }
-    // }
-    var button = document.querySelector('button');
     
-
 </script>
 </html
