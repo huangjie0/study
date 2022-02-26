@@ -44,7 +44,7 @@
             border: 2px solid #e5e5e5;
             outline: none;
         }
-        #submit{
+        button{
             width: 161px;
             height: 69px;
             bottom: -10px;
@@ -106,11 +106,11 @@
             <h1>表单</h1>
         </div>
         <form action="../../JD/home_page.html">
-            <span class="span1">Your Name:</span><input type="text" class="input_1" placeholder="姓名要求，4到16位，字母，数字，下划线，减号"><br>
+            <span class="span1">Your Name:</span><input type="text" class="input_1" placeholder="姓名要求，4到16位，字母，数字，下划线，减号" oninput="a()"><br>
             <p class="p1">您输入的用户名不符合要求，请重新输入!</p>
-            <span class="span2">Your Password: </span><input type="password" class="input_2" placeholder="密码要求，8到15位，字母，数字或下划线字符">
+            <span class="span2">Your Password: </span><input type="password" class="input_2" placeholder="密码要求，8到15位，字母，数字或下划线字符" oninput="b()">
             <p class="p2">您输入的密码不正确或者不满足要求，请重新输入!</p>
-            <input type="submit" id="submit" disabled>
+            <button>提交</button>
         </form>
     </div>   
 </body>
@@ -122,7 +122,6 @@
         return reg_name.test(text)
     }
 
-
     //封装密码正则函数
     function reg_password(text1){
     //8到15位，字母，数字或下划线字符
@@ -130,13 +129,12 @@
         return reg_password.test(text1)
     }
 
-
     //给第一个标签绑定事件，验证用户名对不对
     var input = document.querySelector('.input_1')
-    input.oninput=function(){
+    function a (){
         var input_value = input.value
         var p1 = document.querySelector('.p1');
-        var button = document.getElementById('submit');
+        var button = document.querySelector('button')
         p1.style.display=reg_name(input_value) ? 'none' : 'block'
         if(input_value.length==0){
             p1.style.display='none'
@@ -144,17 +142,19 @@
         if(reg_name(input_value)){
             button.style.cursor='pointer'
             button.style.backgroundColor='#d47b78'
+
         }else{
             button.style.cursor='not-allowed'
             button.style.backgroundColor='#a5aba5'
         }
+        return input_value
     }
 
     //给第二个input绑定事件并且验证密码对不对
     var input_1 = document.querySelector('.input_2')
-    input_1.oninput=function(){
+    function b(){
         var input1_value = input_1.value
-        var button = document.getElementById('submit')
+        var button = document.querySelector('button')
         var p2 = document.querySelector('.p2')
         p2.style.display=reg_password(input1_value) ? 'none' : 'block'
             if(input1_value.length==0){
@@ -163,11 +163,21 @@
         if(reg_password(input1_value)){
             button.style.cursor='pointer'
             button.style.backgroundColor='#d47b78'
-            submit.disabled=''
         }else{
             button.style.cursor='not-allowed'
             button.style.backgroundColor='#a5aba5'
         }
+        return input1_value
+    }
+
+    //判断是否可以跳转
+    var btn = document.querySelector('button');
+    btn.onclick=function(e){
+        if(reg_name(a())&&reg_password(b())){
+            window.event.returnValue == false;
+        }else{
+            e.preventDefault();
+        }   
     }
 </script>
 </html

@@ -18,7 +18,7 @@
             background-color: #f4674c;
             position: relative;
         }
-        p{
+        .box > p{
             width: 800px;
             height: 40px;
             font-size: 20px;
@@ -45,6 +45,9 @@
             background-color: #e2e2e2;
             color: #9c9c9c;
         }
+        button:hover{
+            cursor: pointer;
+        }
         .box1{
             width: 600px;
             height: 30px;
@@ -62,24 +65,40 @@
             font-size: 17px;
             color: #9c9c9c;
         }
-        .box2{
+        ul>li{
             width: 800px;
-            height: 35px;
-            background-color: white;
+            height: 30px;
             margin: 0 auto;
-            line-height: 35px;
+            line-height: 30px;
+            list-style: none;
+            background-color:#f3f3f3;
             color: #9c9c9c;
-            display: none;
         }
-        .box2:hover{
-            background-color: #cfcfcf;
+        li>.fa-check{
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            
+        }
+        li>.fa-remove{
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            float: right;
+        }
+        li>.fa-remove:hover{
+            background-color: #f4674c;
             color: white;
         }
-        .box3{
-            width: 60px;
-            height: 35px;
-            background-color: #f4674c;
+        ul>div{
+            width: 800px;
+            height: 30px;
         }
+
     </style>
 </head>
 <body>
@@ -90,29 +109,45 @@
             <button>Add</button>
         </div>
     </div>
-    <div class="box2">
-        <div class="box3">
-
-        </div>
-    </div>
+    <ul>
+    </ul>
 </body>
 <script>
+    var btn = document.querySelector('button');
     var input = document.querySelector('input');
     input.oninput=function(){
-        var input_value = input.value
-        var arr = input_value.split('')
-        var button = document.querySelector('button');
-        button.onclick=function(){
-            var box2 = document.querySelector('.box2');
-            box2.style.display='block'
-            var str=''
-            for(var i=0 ;i<arr.length;i++){
-                str+=arr[i]
-            } 
-            box2.innerHTML=`
-            <div>${str}</div>
-            ` 
-        }   
-    }   
+        btn.onclick=function(){
+        var ul = document.querySelector('ul');
+        var li = document.createElement('li');
+        var i = document.createElement('i');
+        var i1=document.createElement('i');
+        i.setAttribute("class","fa fa-check");
+        i1.setAttribute("class","fa fa-remove")
+        li.innerText=input.value
+        ul.appendChild(li);
+        li.appendChild(i);
+        li.append(i1);
+        i1.onclick=function(){
+            ul.removeChild(li);
+        }
+        //定义开关控制里面样式
+        var flag=false;
+        li.onclick=function(){
+            flag=!flag
+            if(flag){
+                li.style.background='#9c9c9c'
+                li.style.color='white'
+            }else{
+                flag=!flag
+                li.style.background='white'
+                li.style.color='f3f3f3'
+            }
+
+        
+        }
+        }  
+    }
+   
+
 </script>
 </html>
