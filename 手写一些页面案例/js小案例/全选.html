@@ -19,7 +19,6 @@
 <script>
     var input=document.querySelector('input')
     var input_1=document.querySelectorAll('.item')
-    console.log(input_1)
     input.onclick=function(){
         var c = input.checked
         input_1.forEach(function(item){
@@ -30,7 +29,6 @@
         var count=0
         item.onclick=function(){
             input_1.forEach(function(t){
-                console.log(t.onclick)
                 if(t.checked)count++
             })   
             input.checked=count==input_1.length 

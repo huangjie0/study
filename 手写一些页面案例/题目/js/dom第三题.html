@@ -175,6 +175,8 @@
     btn.onclick=function(e){
         if(reg_name(a())&&reg_password(b())){
             window.event.returnValue == false;
+            console.log(a())
+            console.log(b())
         }else{
             e.preventDefault();
         }   
