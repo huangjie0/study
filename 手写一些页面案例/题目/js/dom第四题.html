@@ -80,6 +80,7 @@
             font-size: 20px;
             line-height: 30px;
             text-align: center;
+            float: left;
             
         }
         li>.fa-remove{
@@ -99,7 +100,9 @@
             width: 800px;
             height: 30px;
         }
-
+        .hidden{
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -140,15 +143,15 @@
                 li.style.background='#9c9c9c'
                 li.style.color='#f3f3f3'
                 li.style.textDecoration='line-through'
+                i.style.display='block'
             }else{
                 li.style.background='#f3f3f3'
                 li.style.color='#9c9c9c'
                 li.style.textDecoration='none'
+                i.style.display='none'
             }
         }
         }  
     }
-    
-
 </script>
 </html>
