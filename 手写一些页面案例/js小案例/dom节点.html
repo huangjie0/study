@@ -7,12 +7,16 @@
     <title>dom节点</title>
 </head>
 <body>
+    <p>我是div前面的一个标签</p>
     <div>
         hello
         <span>你好</span>
         <span>世界</span>
         world
     </div>    
+    <div>
+        我是div下面的节点
+    </div>
 </body>
 <script>
     //获取节点
@@ -30,5 +34,17 @@
     console.log(box.lastChild)
     //lastElementChild,得到父节点下最后一个元素节点
     console.log(box.lastElementChild)
+    //previousSibling，获取上一个节点
+    console.log(box.previousSibling)
+    //previousElementSibling,获取上一个元素节点
+    console.log(box.previousElementSibling)
+    //nextSibling,获取元素下一个节点
+    console.log(box.nextSibling)
+    //获取元素下一个元素节点
+    console.log(box.nextElementSibling)
+    //获取该节点的父节点
+    console.log(box.parentNode.parentNode.parentNode)
+    //获取该节点的父元素节点
+    console.log(box.parentElement)
 </script>
 </html>
