@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 1920px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box>ul{
+            width: 700px;
+            height: 50px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul>li{
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .box>ol{
+            width: 650px;
+            height: 50px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        ol>li{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        .li{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .liang{
+            display: block;
+            width: 50px;
+            height: 30px;
+            background-color: #82c91e;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 20px;
+            color: white;
+        }
+        .fa-cloud{
+            color: rgb(156, 156, 156);
+        }
+        .fa-mortar-board{
+            font-size: 30px;
+        }
+        .baidu{
+            margin-top: 50px;
+            width: 1920px;
+            height: 258px;
+        }
+        .baidu_1{
+            margin: 0 auto;
+            width: 540px;
+            height: 258px;
+        }
+        .button{
+            margin-top: 40px;
+            width: 1920px;
+            height: 50px;
+            display: flex;
+            justify-content: center
+        }
+        .button_1{
+            width: 800px;
+            height: 50px;
+            display: flex;
+        }
+        .button_1>.text{
+            width: 650px;
+            height: 46px;
+            outline: none;
+            border: 2px solid #4e6ef2;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .button_1>button{
+            width: 150px;
+            height: 50px;
+            background-color:#4e6ef2;
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            border: 0;
+            outline: none;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+<body>
+    <div class="box">
+        <ul>
+            <li>新闻</li>
+            <li>hao123</li>
+            <li>地图</li>
+            <li>贴吧</li>
+            <li>视频</li>
+            <li>图片</li>
+            <li>网盘</li>
+            <li>更多</li>
+        </ul>
+        <ol>
+            <li>南京</li>
+            <li>
+                <i class="fa fa-cloud"></i>
+                <span>19度</span>
+            </li>
+            <li class="li">
+                <i class="liang">良</i>
+            </li>
+            <li>
+                设置
+            </li>
+            <li>
+                <i class="fa fa-mortar-board"></i>
+            </li>
+            <li>
+                非常如此如此
+            </li>
+        </ol>
+    </div>
+    <div class="baidu">
+        <div class="baidu_1">
+            <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt="图正在加载">
+        </div>
+    </div>
+    <div class="button">
+        <div class="button_1">
+            <input type="text" class="text">
+            <button>百度一下</button>
+        </div>
+    </div>
+</body>
+</html>
