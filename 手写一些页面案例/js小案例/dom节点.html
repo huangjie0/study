@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>我是div前面的一个标签</p>
-    <div>
+    <div class="box" id="box1">
         hello
         <span>你好</span>
         <span>世界</span>
@@ -46,5 +46,7 @@
     console.log(box.parentNode.parentNode.parentNode)
     //获取该节点的父元素节点
     console.log(box.parentElement)
+    //获取属性节点
+    console.log(box.attributes)
 </script>
 </html>
