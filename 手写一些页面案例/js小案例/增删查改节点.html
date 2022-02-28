@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>创建节点</title>
+    <title>增删查改节点</title>
 </head>
 <body>
     <div>
@@ -13,8 +13,14 @@
 </body>
 <script>
     var div = document.createElement('div');
+    var span = document.createElement('span')
+    span.innerText='我是span标签'
     div.innerText='我是创建出来的节点'
     var div_1 = document.querySelector('div');
-    div_1.appendChild(div)
+    //追加节点放在最后面
+    div_1.appendChild(div);
+    div_1.insertBefore(span,div)
+    //创建文本节点
+    var text = document.createTextNode('我是一个文本节点');
 </script>
 </html>
