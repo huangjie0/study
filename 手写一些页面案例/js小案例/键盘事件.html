@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+</head>
+<body>
+    <input type="text">
+</body>
+<script>
+    var inp = document.querySelector('input');
+    inp.onkeydown=function(e){
+        //兼容
+        e=e||window.event
+        //keycode键盘编码
+        if(e.keyCode==17){
+            console.log('你按下的是ctrl键');
+        }
+        //组合按键shiftKey,ctrlKey,altKey,metaKey
+        // console.log(e)
+        if(e.keyCode === 65 && e.shiftKey===true){
+            console.log('你按下的是shift + a')
+        }
+    }
+</script>
+</html>
