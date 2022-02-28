@@ -8,7 +8,9 @@
 </head>
 <body>
     <div>
-
+        <div class='box_2'>
+            我是原生元素
+        </div>
     </div>
 </body>
 <script>
@@ -22,5 +24,17 @@
     div_1.insertBefore(span,div)
     //创建文本节点
     var text = document.createTextNode('我是一个文本节点');
+    var box_3 = document.querySelector(".box_2")
+    //删除节点
+    // div_1.removeChild(box_3);
+    //自杀节点
+    // box_3.remove();
+    //替换节点，replaceChild(换上节点，换下节点)
+    var hj = document.createElement('span')
+    hj.innerText='我是黄杰';
+    div_1.replaceChild(hj,box_3)
+    //克隆节点
+    var clone = box_3.cloneNode(true);
+    div_1.appendChild(clone)
 </script>
 </html>
