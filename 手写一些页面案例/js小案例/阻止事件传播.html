@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阻止事件传播</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+        </div>
+    </div>
+</body>
+<script>
+    var box = document.querySelector('.box')
+    var box1 = document.querySelector('.box1')
+    box.addEventListener('click',function(){
+        console.log("box被点击了")
+    })
+    box1.onclick=function(e){
+        e=e||window.event
+        //标准浏览器事件传播
+        e.stopPropagation();
+        console.log('box1被点击了')
+    }
+</script>
+</html>

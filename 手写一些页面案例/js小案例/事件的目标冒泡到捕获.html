@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        我是第一个div
+    </div>
+    <div>
+        我是第二个div
+        <p>我是p标签</p>
+    </div>
+</body>
+<script>
+    var div = document.getElementsByTagName('div')[0]
+    var p = document.getElementsByTagName('p')[0]
+    div.onclick=function(e){
+        e=e||window.event
+        //事件目标
+        // console.log(e.target);
+        // console.log(e.srcElement)
+        var target = e.target||e.srcElement
+        console.log(target)
+    }
+    //false是事件冒泡阶段，true是事件捕获
+    p.addEventListener('click',function(){
+        console.log(p)
+    },false)
+    div.addEventListener('click',function(){
+        console.log(div)
+    },false)
+    document.body.addEventListener('click',function(){
+        console.log('body')
+    },false)
+    document.documentElement.addEventListener('click',function(){
+        console.log('html')
+    },false)
+</script>
+
+</html>
