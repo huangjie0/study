@@ -33,8 +33,16 @@
     box1.onclick=function(e){
         e=e||window.event
         //标准浏览器事件传播
-        e.stopPropagation();
-        console.log('box1被点击了')
+        e.stopPropagation()
+        //IE低版本的浏览器实现
+        e.cancelBubble=true
+        try{
+            e.stopPropagation();
+            console.log('box1被点击了')
+        }catch{
+            e.cancelBubble=true;
+            console.log('box1被点击了')
+        }
     }
 </script>
 </html>
