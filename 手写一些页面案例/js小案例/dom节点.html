@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom节点</title>
+</head>
+<body>
+    <div>
+        hello
+        <span>你好</span>
+        <span>世界</span>
+        world
+    </div>    
+</body>
+<script>
+    //获取节点
+    //非常规标签，常规标签
+    var box = document.querySelector('div')
+    //获取所有节点
+    console.log(box.childNodes)
+    //获取元素节点
+    console.log(box.children)
+    //firstChild,得到父节点下的第一个节点
+    console.log(box.firstChild)
+    //firstElementChild,得到父节点下第一个子元素节点
+    console.log(box.firstElementChild)
+    //lastChild,得到父节点下最后一个节点
+    console.log(box.lastChild)
+    //lastElementChild,得到父节点下最后一个元素节点
+    console.log(box.lastElementChild)
+</script>
+</html>
