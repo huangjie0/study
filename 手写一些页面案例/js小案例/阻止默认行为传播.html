@@ -8,12 +8,21 @@
 </head>
 <body>
     <a href="https://www.baidu.com">点我一下</a>
+    <form action="https://www.baidu.com">
+        <button>点我提交信息</button>
+    </form>
 </body>
 <script>
     var a = document.querySelector('a')
     a.onclick =  function(e){
         e=e||window.event
         e.preventDefault();
+    }
+    var btn = document.querySelector('button');
+    btn.onclick=function(e){
+        e=e||window.event
+        //标准浏览器
+        e.preventDefault()
     }
 </script>
 </html>
