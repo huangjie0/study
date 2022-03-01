@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        ul{
+            width: 600px;
+            height: 400px;
+            background-color: pink;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <button>点我添加元素</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>    
+</body>
+<script>
+    // var btn = document.querySelector('button')
+    // var lis = document.querySelectorAll('li');
+    // var ul = document.querySelector('ul')
+    // lis.forEach(function(item){
+    //     item.onclick=function(){
+    //         console.log("我被点击了")
+    //     }
+    // })
+    // btn.onclick=function(){
+    //     var li = document.createElement('li')
+    //     li.innerText='我是后来的'
+    //     ul.appendChild(li)
+    // }
+    //事件委托
+    var ul =document.querySelector('ul');
+    ul.onclick=function(e){
+        e=e||window.event
+        var target = e.target ||e.srcElement
+        if(target.nodeName==='LI'){
+            console.log('你点击的是li')
+        }
+        var button = document.querySelector('button')
+        button.onclick=function(){
+            var li=document.createElement('li')
+            li.innerText='新来的li'
+            ul.appendChild(li);
+        }
+    }
+</script>
+</html>

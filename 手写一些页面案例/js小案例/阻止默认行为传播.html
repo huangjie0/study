@@ -20,9 +20,17 @@
     }
     var btn = document.querySelector('button');
     btn.onclick=function(e){
+        //浏览器事件兼容
         e=e||window.event
         //标准浏览器
-        e.preventDefault()
+        // e.preventDefault();
+        // //IE低版本浏览器
+        // e.returnValue = false;
+        try{
+            e.preventDefault();
+        }catch{
+            e.returnValue=false
+        }
     }
 </script>
 </html>
