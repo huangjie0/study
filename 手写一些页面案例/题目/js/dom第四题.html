@@ -136,23 +136,23 @@
                 i1.onclick=function(){
                 ul.removeChild(li);
                 }
-            } 
-            //定义开关控制里面样式
-            var flag=false;
-            li.onclick=function(){
-                flag=!flag
-                if(flag){
-                    li.style.background='#9c9c9c'
-                    li.style.color='#f3f3f3'
-                    li.style.textDecoration='line-through'
-                    i.style.display='block'
-                }else{
-                    li.style.background='#f3f3f3'
-                    li.style.color='#9c9c9c'
-                    li.style.textDecoration='none'
-                    i.style.display='none'
+                //定义开关控制里面样式
+                var flag=false;
+                li.onclick=function(){
+                    flag=!flag
+                    if(flag){
+                        li.style.background='#9c9c9c'
+                        li.style.color='#f3f3f3'
+                        li.style.textDecoration='line-through'
+                        i.style.display='block'
+                    }else{
+                        li.style.background='#f3f3f3'
+                        li.style.color='#9c9c9c'
+                        li.style.textDecoration='none'
+                        i.style.display='none'
+                    }
                 }
-            }
+            }    
         }  
     }
 </script>

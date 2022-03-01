@@ -26,11 +26,13 @@
         })
     }
     input_1.forEach(function(item){
-        var count=0
+       
         item.onclick=function(){
+            var count=0
             input_1.forEach(function(t){
                 if(t.checked)count++
             })   
+            console.log(count)
             input.checked=count==input_1.length 
         }
     })
