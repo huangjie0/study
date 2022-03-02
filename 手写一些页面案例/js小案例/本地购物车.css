@@ -93,4 +93,35 @@
     margin-right: 200px;
     text-align: center;
     line-height: 50px;
+    font-size: 20px;
+
 }
+.zjg{
+    text-align: center;
+    line-height: 60px;
+    margin-right: 10px;
+}
+.qian{
+    text-align: center;
+    line-height: 60px;
+    color: red;
+    font-size: 20px;
+}
+ul{
+    width: 180px;
+}
+ul>li{
+    width: 1920px;
+    /* height: 100px; */
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+li>img{
+    width: 120px;
+    height: 60px;
+}
+

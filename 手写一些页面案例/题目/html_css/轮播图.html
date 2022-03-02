@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮换</title>
+    <style type="text/css">
+        div,img{
+            margin: 0;
+            padding: 0;
+        }
+        .div_first{
+            width: 790px;
+            height: 340px;
+            margin-top: 100px;
+            margin-left: 250px;
+            /* overflow: hidden; */
+        }
+        .div_second{
+            width: 3950px;
+            height: 340px;
+            position: relative;
+            animation: move 12s linear infinite normal; 
+        }
+        .div_second>img{
+            width: 790px;
+            height: 340px;
+        }
+        @keyframes move{
+            0%{
+                left: 0;
+            }
+            5%{
+                left: 0;
+            }
+
+            30%{
+                left: -790px;
+            }
+            35%{
+                left: -790px;
+            }
+
+            60%{
+                left: -1580px;
+            }
+            65%{
+                left: -1580px;
+            }
+
+            95%{
+                left: -2370px;
+            }
+            100%{
+                left: -2370px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="div_first">
+        <div class="div_second">
+            <img src="../../JD/upload/111.jpg" alt="">
+            <img src="../../JD/upload/222.jpg" alt="">
+            <img src="../../JD/upload/333.jpg" alt="">
+            <img src="../../JD/upload/111.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
