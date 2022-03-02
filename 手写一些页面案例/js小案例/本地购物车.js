@@ -19,14 +19,14 @@ function bindHtml(){
     })
     var str = `
     <div class="center_top">
-            <input type="checkbox" ${selectNum>=arr.length ? "checked":''} id="input_1">全选
+            <input type="checkbox" ${selectNum>=arr.length ? "checked":''} class='selectAll' id="input_1">全选
         </div>
         <ul> 
     `
     arr.forEach(function(item){
         str+=`
         <li>
-                <input type="checkbox" ${item.select ? 'checked':''} style="width: 20px;height: 20px;" id="input_2">
+                <input type="checkbox" ${item.select ? 'checked':''} style="width: 20px;height: 20px;" id="input_2" class='list'>
                 <img src="${item.address}" alt="">
                 <div>
                     ${item.name}
@@ -39,7 +39,7 @@ function bindHtml(){
                 <div>
                     ￥${(item.price*item.buy_num).toFixed(2)}
                 </div>
-                <input type="button" value="删除" style="width: 40px;height: 30px;font-size: 15px;background-color: red;color: white;border: none;cursor: pointer;">
+                <input type="button" value="删除" style="width: 40px;height: 30px;font-size: 15px;background-color: red;color: white;border: none;cursor: pointer;" class='del'>
             </li>
         `
     })
@@ -56,4 +56,30 @@ function bindHtml(){
         </di
     `
     content.innerHTML=str; 
+
+    content.addEventListener('click',function(e){
+        e=e||window.event
+        var target = e.target || e.srcElement
+        if(target.className==='selectAll'){
+            console.log("你点击的是全选按钮")
+        }
+        if(target.className==='list'){
+            console.log('你点击的是列表页')
+        }
+        if(target.className==='del'){
+            console.log('你点击的是删除列表页')
+        }
+        if(target.className==='qjs'){
+            console.log('你点击的是去结算')
+        }
+        if(target.className==='qkgwc'){
+            console.log('你点击的是清空购物车')
+        }
+        if(target.className==='scxz'){
+            console.log('删除所有已选中')
+        }
+        if(target.className==='fhlb'){
+            console.log('返回列表页')
+        }
+    })
 }
