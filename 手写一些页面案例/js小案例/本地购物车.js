@@ -1,8 +1,8 @@
 var arr=[
     {id:001,buy_num:1,number:15,select:true,name:'2020宿州国际音乐节',city:'宿州',price:150,time:'2020.01.24',address:'https://img1.baidu.com/it/u=436907149,1086251211&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=775'},
-    {id:002,buy_num:2,number:15,select:false,name:'2020南京国际音乐节',city:'南京',price:200,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F010e735dbea026a801209e1f17a3f9.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=755ae4419bbe140978c844f34114dc70'},
-    {id:003,buy_num:1,number:15,select:true,name:'2020澳门国际音乐节',city:'澳门',price:130,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fq_70%2Fimages03%2F20210715%2F0fc7dda433ce4b30ac2bd42050f9b8af.jpeg&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241552&t=c3738f72fb5a8e6499560ba28577bb4b'},
-    {id:004,buy_num:2,number:15,select:true,name:'2020香港国际音乐节',city:'香港',price:125,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.5tu.cn%2Fattachments%2Fimage_files%2Fmonth_1908%2F201907272208394797.jpg&refer=http%3A%2F%2Fimg.5tu.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=02515e3fd438998e2f11fd7554d8bd65'},
+    {id:002,buy_num:1,number:15,select:false,name:'2020南京国际音乐节',city:'南京',price:200,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F010e735dbea026a801209e1f17a3f9.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=755ae4419bbe140978c844f34114dc70'},
+    {id:003,buy_num:5,number:15,select:true,name:'2020澳门国际音乐节',city:'澳门',price:130,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp9.itc.cn%2Fq_70%2Fimages03%2F20210715%2F0fc7dda433ce4b30ac2bd42050f9b8af.jpeg&refer=http%3A%2F%2Fp9.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241552&t=c3738f72fb5a8e6499560ba28577bb4b'},
+    {id:004,buy_num:1,number:15,select:true,name:'2020香港国际音乐节',city:'香港',price:125,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.5tu.cn%2Fattachments%2Fimage_files%2Fmonth_1908%2F201907272208394797.jpg&refer=http%3A%2F%2Fimg.5tu.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=02515e3fd438998e2f11fd7554d8bd65'},
     {id:005,buy_num:1,number:15,select:true,name:'2020芜湖国际音乐节',city:'芜湖',price:136,time:'2020.01.24',address:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fbackgd%2Fcover%2F00%2F20%2F00%2F5b96151272466.jpg%21%2Ffw%2F780%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1647241660&t=172cf09834f1e4c6b67fc8d3b794c833'},
     ]
 var content = document.querySelector('.content');
@@ -26,7 +26,7 @@ function bindHtml(){
     arr.forEach(function(item){
         str+=`
         <li>
-                <input type="checkbox" ${item.select ? 'checked':''} style="width: 20px;height: 20px;" id="input_2" class='list'>
+                <input type="checkbox" ${item.select ? 'checked':''} style="width: 20px;height: 20px;" id="input_2" class='list' data-id="${item.id}">
                 <img src="${item.address}" alt="">
                 <div>
                     ${item.name}
@@ -34,12 +34,12 @@ function bindHtml(){
                 <div>
                     ￥${(item.price-0).toFixed(2)}
                 </div>
-                <input type="button" value="-" style="width: 30px;height: 30px;font-size: 15px;">${item.buy_num}
-                <input type="button" value="+" style="width: 30px;height: 30px;font-size: 15px;">
+                <input type="button" value="-" style="width: 30px;height: 30px;font-size: 15px;"class="sub" data-id="${item.id}">${item.buy_num}
+                <input type="button" value="+" style="width: 30px;height: 30px;font-size: 15px;"class="add" data-id="${item.id}">
                 <div>
                     ￥${(item.price*item.buy_num).toFixed(2)}
                 </div>
-                <input type="button" value="删除" style="width: 40px;height: 30px;font-size: 15px;background-color: red;color: white;border: none;cursor: pointer;" class='del'>
+                <input type="button" value="删除" style="width: 40px;height: 30px;font-size: 15px;background-color: red;color: white;border: none;cursor: pointer;" class='del' data-id="${item.id}">
             </li>
         `
     })
@@ -61,25 +61,57 @@ function bindHtml(){
         e=e||window.event
         var target = e.target || e.srcElement
         if(target.className==='selectAll'){
-            console.log("你点击的是全选按钮")
+            var target_checked = target.checked
+            arr.forEach(function(item){
+                item.select=target_checked
+            })
+            bindHtml()
         }
         if(target.className==='list'){
-            console.log('你点击的是列表页')
+            var id = target.dataset.id-0
+            var goods = arr.find(function(item){
+                return item.id===id
+            })
+            goods.select=!goods.select
+            bindHtml()
+        }
+        if(target.className==='sub'){
+            var id = target.dataset.id-0
+            var goods = arr.find(function(item){
+                return item.id===id
+            })
+            if(goods.buy_num<=1)return
+            goods.buy_num--
+            bindHtml()
+        }
+        if(target.className==='add'){
+            var id = target.dataset.id-0
+            var goods = arr.find(function(item){
+                return item.id==id
+            })
+            if(goods.buy_num>=goods.number)return
+            goods.buy_num++
+            bindHtml()
         }
         if(target.className==='del'){
-            console.log('你点击的是删除列表页')
-        }
-        if(target.className==='qjs'){
-            console.log('你点击的是去结算')
+            var id =target.dataset.id-0
+            arr=arr.filter(function(item){
+                return item.id!==id
+            })
+            bindHtml()
         }
         if(target.className==='qkgwc'){
-            console.log('你点击的是清空购物车')
+           arr=[]
+           bindHtml()
         }
         if(target.className==='scxz'){
-            console.log('删除所有已选中')
+            arr=arr.filter(function(item){
+                return item.select===false
+            })
+            bindHtml()
         }
         if(target.className==='fhlb'){
-            console.log('返回列表页')
+           window.location.href='https://www.jd.com'
         }
     })
 }
