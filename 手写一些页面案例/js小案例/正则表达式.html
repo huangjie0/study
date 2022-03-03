@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式式</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 正则表达式匹配字符串
+    //内置构造函数
+    var reg = new RegExp('abcd')
+    //字面量创建
+    var reg_1 = /abcd/
+    console.log(reg===reg_1)
+    //常用方法
+    var r = reg.test('abcdjjabcdfgjkfhgj')
+    console.log(r)
+    //元字符包含所有文本内容 /d表示一位数字
+    var reg = /\d/
+    console.log(reg.test('1'));
+    var reg = /\D/
+    //包含一位非数字
+    console.log(reg.test('111245'))
+    var reg = /\s/
+    console.log(reg.test('  '));
+    //表示非空白内容
+    var reg = /\S/
+    console.log(reg.test('fdgfgdfghjdgfrg'))
+    //\w表示一位数字字母下滑线
+    var reg = /\w/
+    console.log(reg.test('+'));
+    //\W表示非数字字母下滑线
+    var reg = /\W/
+    console.log(reg.test('——'))
+    
+
+
+
+
+</script>
+</html>

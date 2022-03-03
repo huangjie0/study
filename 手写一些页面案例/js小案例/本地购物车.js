@@ -57,7 +57,6 @@ function bindHtml(){
     content.innerHTML=str; 
 }
 content.addEventListener('click',function(e){
-    console.log(111)
     e=e||window.event
     var target = e.target || e.srcElement
     if(target.className==='selectAll'){
@@ -90,7 +89,6 @@ content.addEventListener('click',function(e){
             return item.id==id
         })
         if(goods.buy_num>=goods.number)return
-        console.log(goods)
         goods.buy_num++
         bindHtml()
     }
