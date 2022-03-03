@@ -26,21 +26,21 @@ function bindHtml(){
     arr.forEach(function(item){
         str+=`
         <li>
-                <input type="checkbox" ${item.select ? 'checked':''} style="width: 20px;height: 20px;" id="input_2" class='list' data-id="${item.id}">
-                <img src="${item.address}" alt="">
-                <div>
-                    ${item.name}
-                </div>
-                <div>
-                    ￥${(item.price-0).toFixed(2)}
-                </div>
-                <input type="button" value="-" style="width: 30px;height: 30px;font-size: 15px;"class="sub" data-id="${item.id}">${item.buy_num}
-                <input type="button" value="+" style="width: 30px;height: 30px;font-size: 15px;"class="add" data-id="${item.id}">
-                <div>
-                    ￥${(item.price*item.buy_num).toFixed(2)}
-                </div>
-                <input type="button" value="删除" style="width: 40px;height: 30px;font-size: 15px;background-color: red;color: white;border: none;cursor: pointer;" class='del' data-id="${item.id}">
-            </li>
+            <input type="checkbox" ${item.select ? 'checked':''} style="width: 20px;height: 20px;" id="input_2" class='list' data-id="${item.id}">
+            <img src="${item.address}" alt="">
+            <div>
+                ${item.name}
+            </div>
+            <div>
+                ￥${(item.price-0).toFixed(2)}
+            </div>
+            <input type="button" value="-" style="width: 30px;height: 30px;font-size: 15px;"class="sub" data-id="${item.id}">${item.buy_num}
+            <input type="button" value="+" style="width: 30px;height: 30px;font-size: 15px;"class="add" data-id="${item.id}">
+            <div>
+                ￥${(item.price*item.buy_num).toFixed(2)}
+            </div>
+            <input type="button" value="删除" style="width: 40px;height: 30px;font-size: 15px;background-color: red;color: white;border: none;cursor: pointer;" class='del' data-id="${item.id}">
+        </li>
         `
     })
     str += `
