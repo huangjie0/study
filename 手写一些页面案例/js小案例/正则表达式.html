@@ -34,10 +34,36 @@
     //\W表示非数字字母下滑线
     var reg = /\W/
     console.log(reg.test('——'))
+    //表示字符串中至少有一个非换行内容
+    var reg = /./
+    console.log(reg.test(' \n'));
+    //\表示转义字符
+    var reg = /\./
+    console.log(reg.test('1.5'))
+    //边界符号,^,必须以数字开头，$,表示字符串结尾
+    var reg = /^\d/
+    console.log(reg.test('1fdjkfhhj1121'))
+    var reg = /\d$/
+    console.log(reg.test("65165d211ghjcdghgghgh"));
+    var reg = /^\d$/
+    console.log(reg.test('2'));
+    //限定符,至少0到多次*
+    var reg = /^\d*$/
+    console.log(reg.test('a'));
+    //+表示出现1到多次
+    var reg=/^\d+$/
+    console.log(reg.test('25515645'))
+    //{n},表示从开头到结尾指定次数
+    var reg = /^\d{2}$/
+    console.log(reg.test('2554'))
+    //{n,}至少出现n次
+    var reg = /^\d{3,}$/
+    //{n,m}出现n到m次
+    var reg = /^\d{3,5}$/
+    console.log(reg.test('12444'))
+    //特殊符号
+    var reg = /^(ab|cd)$/
+    console.log(reg.test('abhfjhfcd'));
     
-
-
-
-
 </script>
 </html>
