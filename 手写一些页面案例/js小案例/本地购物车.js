@@ -8,7 +8,7 @@ var arr=[
 var content = document.querySelector('.content');
 bindHtml()
 function bindHtml(){
-    var totalPrice = 0,totalNum=0,selectNum=0
+    var totalPrice = 0,totalNum=0,selectNum=-1
     arr.forEach(function(item){
         if(item.select==true){
             totalPrice += item.price*item.buy_num
