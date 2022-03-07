@@ -40,12 +40,12 @@
         var x = e.clientX-150
         var y = e.clientY-150
 
-        if(x<=50)x = 0
-        if(y<=50)y = 0
-        if(x >= document.documentElement.clientWidth-div.offsetWidth-50){
+        if(x<=0)x = 0
+        if(y<=0)y = 0
+        if(x >= document.documentElement.clientWidth-div.offsetWidth){
             x=document.documentElement.clientWidth-div.offsetWidth
         }
-        if(y>=document.documentElement.clientHeight-div.offsetHeight-50){
+        if(y>=document.documentElement.clientHeight-div.offsetHeight){
             y=document.documentElement.clientHeight-div.offsetHeight
         }
         div.style.left= x +'px'
