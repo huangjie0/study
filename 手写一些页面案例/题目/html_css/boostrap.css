@@ -108,6 +108,12 @@
     align-items: center;
     margin-top: 20px;
 }
+.box5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 .container{
     width: 80%;
     height: 100%;
@@ -118,4 +124,23 @@
 *{
     margin: 0;
     padding: 0;
+}
+.box4{
+    height: 40px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 40px;
+    font-size: 25px;
+    color: #66696c;
+}
+.box5{
+    margin-top: 10px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #66696c;
 }
