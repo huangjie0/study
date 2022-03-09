@@ -26,21 +26,26 @@ left.onclick = function(){
 //1秒钟定期更换图片
 var i = 0;
 var move = setInterval(function(){
-var ul = document.querySelector('.ul');
-ul.style.transform = "translateX(" + (i*-600) + "px)";
-i++;
-if(i===6) {
+    var ul = document.querySelector('.ul');
+    ul.style.transform = "translateX(" + (i*-600) + "px)";
+    i++;
+    if(i===6) {
     ul.style.transform = "translateX(" + (-600) + "px)";
-    i=1;
-}
-},2000);
-
-
+    i=1;}
+},1000);
 //鼠标悬停到图片图片停止
-box.onmousemove=function(){
-    clearInterval(move);
-}
-// box.onmouseleave = function(){
-
+// box.onmouseover=function(){
+//     clearInterval(move);
+// }
+// box.onmouseout = function(){
+//     setInterval(function(){
+//         var ul = document.querySelector('.ul');
+//         ul.style.transform = "translateX(" + (i*-600) + "px)";
+//         i++;
+//         if(i===6) {
+//         ul.style.transform = "translateX(" + (-600) + "px)";
+//         i=1;}
+//     },1000);
+   
 // }
 
