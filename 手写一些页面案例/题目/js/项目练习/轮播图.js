@@ -6,12 +6,22 @@ var box = document.querySelector('.box');
 //每一张距离：600px
 //给左右标签绑定事件
 right.onclick=function(){
+    i++;
     var ul = document.querySelector('.ul');
     ul.style.transform = "translateX(" + (-600*i) + "px)";
-    i++;
+    if(i===5){
+        ul.style.transform = "translateX(" + (-600) + "px)";
+        i=1;
+    }
 }
 left.onclick = function(){
-    console.log('你点击了我')
+    i--;
+    var ul = document.querySelector('.ul');
+    ul.style.transform = "translateX(" + (-600*i) + "px)";
+    if(i==1){
+        ul.style.transform = "translateX(" + (-600) + "px)";
+        i=5;
+    }
 }
 //1秒钟定期更换图片
 var i = 0;
@@ -30,7 +40,7 @@ if(i===6) {
 box.onmousemove=function(){
     clearInterval(move);
 }
-box.onmouseleave = function(){
-    
-}
+// box.onmouseleave = function(){
+
+// }
 
