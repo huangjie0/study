@@ -12,12 +12,14 @@ ol,ul,li{
     margin: 30px auto;
     /* overflow: hidden; */
     position: relative;
+    cursor: pointer;
 }
 .box > .ul{
    width: 500%;
    height: 100%;
    /* background-color: pink; */
    display: flex;
+   transform: translateX(0px);
 }
 .box>.ul>li{
     flex: 1;
