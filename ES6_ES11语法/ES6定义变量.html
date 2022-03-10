@@ -7,7 +7,6 @@
     <title>基本变量定义</title>
 </head>
 <body>
-    
 </body>
 <script>
     var a = 100;
@@ -23,5 +22,18 @@
     console.log(d);
     //变量重名。var可以重名，const,let不能重名；
     // let b = 300;
+    //var没有块级作用域，而const,let有块级作用域
+    // 块级作用域
+    if(true){
+        var n = 100;
+        console.log(n)
+    }
+    console.log(n);
+    if(true){
+        const p = 2;
+        console.log(p);
+    }
+    //const有块级作用域，外部访问不了内部；
+    // console.log(p);
 </script>
 </html>
