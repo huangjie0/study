@@ -10,7 +10,7 @@ ol,ul,li{
     height: 400px;
     border: 1px solid black;
     margin: 30px auto;
-    /* overflow: hidden; */
+    overflow: hidden;
     position: relative;
     cursor: pointer;
 }

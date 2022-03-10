@@ -42,6 +42,10 @@ box.addEventListener('click',function(e){
             i=4;
             ul.style.transform = "translateX(" + (-2400) + "px)";
         }
+        for(var j=0;j<ol.children.length;j++){
+            ol.children[j].classList.remove('active')
+        }
+        ol.children[i-1].classList.add('active');
     }
 })
 box.addEventListener('click',function(e){
@@ -54,11 +58,12 @@ box.addEventListener('click',function(e){
             i=1;
             ul.style.transform = "translateX(" + (-600*(i-1)) + "px)";
         }
+        for(var j=0;j<ol.children.length;j++){
+            ol.children[j].classList.remove('active')
+        }
+        ol.children[i-2].classList.add('active');
     }
 })
-
-
-
 
 
 
