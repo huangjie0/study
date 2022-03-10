@@ -1,51 +1,43 @@
 //获取左右按钮标签
 var left = document.querySelector('.left');
 var right = document.querySelector('.right');
-var box = document.querySelector('.box');
+var ul = document.querySelector('.ul');
+var ol =document.querySelector('ol');
+var box = document.querySelector('.box')
+//自动轮播
+function move(){
+    var i = 1;
+    setInterval(function(){
+        i++;
+        ul.style.transform = "translateX(" + (-600*(i-1)) + "px)";
+        if(i===5){
+            i=1;
+            ul.style.transform = "translateX(" + (600*(i-1)) + "px)";  
+        }
+        for(var j=0;j<ol.children.length;j++){
+            ol.children[j].classList.remove('active');
+        }
+        ol.children[i-1].classList.add('active');
+    },2000)
+    box.addEventListener('click',function(e){
+        e=e||window.event;
+        var target = e.target||e.srcElement
+        if(target.className=='left'){
+            console.log("-------------")
+        }
+    })
+    box.addEventListener('click',function(e){
+        e=e||window.event;
+        var target = e.target||e.srcElement
+        if(target.className=='right'){
+            console.log('-------------')
+            
+        }
+    })
+}
+move();
 
-//每一张距离：600px
-//给左右标签绑定事件
-right.onclick=function(){
-    i++;
-    var ul = document.querySelector('.ul');
-    ul.style.transform = "translateX(" + (-600*i) + "px)";
-    if(i===5){
-        ul.style.transform = "translateX(" + (-600) + "px)";
-        i=1;
-    }
-}
-left.onclick = function(){
-    i--;
-    var ul = document.querySelector('.ul');
-    ul.style.transform = "translateX(" + (-600*i) + "px)";
-    if(i==1){
-        ul.style.transform = "translateX(" + (-600) + "px)";
-        i=5;
-    }
-}
-//1秒钟定期更换图片
-var i = 0;
-var move = setInterval(function(){
-    var ul = document.querySelector('.ul');
-    ul.style.transform = "translateX(" + (i*-600) + "px)";
-    i++;
-    if(i===6) {
-    ul.style.transform = "translateX(" + (-600) + "px)";
-    i=1;}
-},1000);
-//鼠标悬停到图片图片停止
-// box.onmouseover=function(){
-//     clearInterval(move);
-// }
-// box.onmouseout = function(){
-//     setInterval(function(){
-//         var ul = document.querySelector('.ul');
-//         ul.style.transform = "translateX(" + (i*-600) + "px)";
-//         i++;
-//         if(i===6) {
-//         ul.style.transform = "translateX(" + (-600) + "px)";
-//         i=1;}
-//     },1000);
-   
-// }
+
+
+
 
