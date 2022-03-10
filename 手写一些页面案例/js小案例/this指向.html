@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this指向</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    
+</body>
+<script>
+    //this指向
+    //全局指向
+    console.log(this);
+    console.log(window);
+    console.log(this===window);
+    //函数内的this，概念和函数如何定义没有关系，只看函数是如何被调用，箭头函数除外
+    //几种调用方式,普通调用，对象调用，1、对象名.函数名2、数组调用，数组[索引](),this指向的是点前面的内容，对象或者是数组
+    //定时器处理函数,事件处理函数,自执行函数
+    function fn(){
+        console.log('我是全局fn函数');
+        console.log(this)
+        console.log('---------------------------')
+    }
+    fn()
+
+    //对象调用
+    var obj = {
+        fun:fn
+    }
+    //调用全局fn函数
+    obj.fun()
+    // setInterval(fn,1000);
+    //事件处理函数
+    var div = document.querySelector('div');
+    div.onclick=fn;
+    (function(){
+        console.log(this);
+    })();
+    
+</script>
+</html>

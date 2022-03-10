@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自执行函数</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //自执行函数
+    //利用函数私有作用域保护变量，保护变量私有化
+    (function(){
+        console.log('你好 世界')
+    })()
+    ~function(){
+        console.log('ni hao!')
+    }();
+</script>
+</html>
