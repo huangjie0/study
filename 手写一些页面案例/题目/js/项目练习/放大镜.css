@@ -25,7 +25,7 @@
     width: 300px;
     height: 300px;
     border: 1px solid black;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-top: 20px;
     margin: 20px auto;
     position: relative;
