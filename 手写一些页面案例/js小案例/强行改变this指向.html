@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强行改变this指向</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    
+</body>
+<script>
+    //call,apply,bind
+    //修改函数内的this指向
+    //立即调用函数
+    function fn(a,b){
+        console.log('fn函数内的打印');
+        console.log('this',this)
+        console.log('a:',a)
+        console.log('b',b);
+    }
+    var obj={
+        name:'我是obj对象'
+    }
+    fn(1,2);
+    //call
+    fn.call(obj,100,200);
+    var arr = [100,200,300,400]
+    fn.call(arr,100,200);
+    //apply,函数名.apply(),立即调用函数
+    fn.apply(fn,[100,200]);
+    //特殊作用
+    // Math.max(数字1，数字2，数字3)
+    var a = [500,100,300,400]
+    var max = Math.max.apply(null,a);
+    console.log(max);
+    //bind,不会立即调用,改变this指向的函数
+    console.log('--------------------------')
+    var res = fn.bind(obj,100,200);
+    console.log(res);
+    console.log(obj);
+//------------------------------------------
+    setTimeout(fn.call(obj,100,200),1000);
+    //call立即调用
+    //bind不会立即调用，只是锁定this指向
+    setTimeout(fn.bind(obj,100,200),1000);
+    
+</script>
+</html>
