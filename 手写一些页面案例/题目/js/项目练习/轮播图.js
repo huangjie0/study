@@ -70,41 +70,26 @@ ol.addEventListener('click',function(e){
     if(target.className='one'){
         var one = target.getAttribute('data-num');
         ul.style.transform = "translateX(" + (-600*(one-0)+1) + "px)"; 
-        i=2;
-        for(var j=0;j<ol.children.length;j++){
-            ol.children[j].classList.remove('active')
-        }
-        ol.children[i-2].classList.add('active');
-
     }
     if(target.className=='two'){
         var two = target.getAttribute('data-num');
         ul.style.transform = "translateX(" + (-600*(two-0)+1) + "px)";
-        console.log('---------------------------') 
-        console.log(i)
-        for(var j=0;j<ol.children.length;j++){
-            ol.children[j].classList.remove('active')
-        }
-        ol.children[i-2].classList.add('active');
+
 
     }
     if(target.className=='three'){
         var three = target.getAttribute('data-num');
         ul.style.transform = "translateX(" + (-600*(three-0)+2) + "px)"; 
-        // i=0;
-        for(var j=0;j<ol.children.length;j++){
-            ol.children[j].classList.remove('active')
-        }
+
     }
     if(target.className=='four'){
         var four = target.getAttribute('four');
         ul.style.transform = "translateX(" + (-600*(four-0)+3) + "px)"; 
-        // i=6;
-        for(var j=0;j<ol.children.length;j++){
-            ol.children[j].classList.remove('active')
-        }
+
     }
+  
 })
+
 
 
 
