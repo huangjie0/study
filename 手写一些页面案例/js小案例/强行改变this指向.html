@@ -54,6 +54,11 @@
     //call立即调用
     //bind不会立即调用，只是锁定this指向
     setTimeout(fn.bind(obj,100,200),1000);
-    
+
+    var div = document.querySelector('div');
+    div.onclick=fn;
+    div.onclick=fn.call(obj,100,200);
+    //不会立即调用，当点击div时候会调用；
+    div.onclick=fn.bind(obj,100,200);
 </script>
 </html>
