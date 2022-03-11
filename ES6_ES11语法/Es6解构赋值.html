@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const obj={
+        name:'huangjie',
+        age:18,
+        gender:'男'
+    }
+    // const a = obj.name,b=obj.age,c=obj.gender
+    // 解构赋值，数组和对象,中括号
+    // var [a,b,c,d]=[1,2,3,4]
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    // console.log(d);
+
+    // var arr = [1,2,3,[1,2,3,[1,2,3,[0]]]]
+    // const [a,b,c,[d,e,f,[g,h,j,[l]]]]=arr
+    // console.log(l);
+
+    //解构对象
+    var {name:a,age:b,gender:c} = obj;
+    console.log(a)
+    console.log(b)
+    console.log(c)
+
+
+
+
+</script>
+</html>
