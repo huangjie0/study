@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拓展运算符</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    
+</body>
+<script>
+    //展开对象，展开对象，展开数组
+    // const a1 =[100,200,300,400]
+    // // console.log(100,200,300,400);
+    // console.log(...a1);
+    // const a2 = [...a1,500,600,700]
+    // console.log(a2);
+    // const res = Math.max(...a2);
+    // console.log(res);
+    var li = document.querySelectorAll('li');
+    var li = [...li];
+    li.push(1);
+    console.log(li);
+    var res = li.filter(function(item){
+        return item.innerText%2
+    })
+    console.log(res);
+</script>
+</html>
