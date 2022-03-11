@@ -70,24 +70,38 @@ ol.addEventListener('click',function(e){
     if(target.className='one'){
         var one = target.getAttribute('data-num');
         ul.style.transform = "translateX(" + (-600*(one-0)+1) + "px)"; 
+        for(var j=0;j<ol.children.length;j++){
+            ol.children[j].classList.remove('active')
+        }
+        ol.children[one-1].classList.add('active');
     }
     if(target.className=='two'){
         var two = target.getAttribute('data-num');
         ul.style.transform = "translateX(" + (-600*(two-0)+1) + "px)";
+        for(var j=0;j<ol.children.length;j++){
+            ol.children[j].classList.remove('active')
+        }
+        ol.children[two-1].classList.add('active');
 
 
     }
     if(target.className=='three'){
         var three = target.getAttribute('data-num');
         ul.style.transform = "translateX(" + (-600*(three-0)+2) + "px)"; 
+        for(var j=0;j<ol.children.length;j++){
+            ol.children[j].classList.remove('active')
+        }
+        ol.children[three-1].classList.add('active');
 
     }
     if(target.className=='four'){
         var four = target.getAttribute('four');
         ul.style.transform = "translateX(" + (-600*(four-0)+3) + "px)"; 
-
+        for(var j=0;j<ol.children.length;j++){
+            ol.children[j].classList.remove('active')
+        }
+        ol.children[four-1].classList.add('active');
     }
-  
 })
 
 

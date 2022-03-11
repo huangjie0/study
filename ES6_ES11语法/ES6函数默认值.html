@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数默认值</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //给函数的形参传递默认值，当没有传递实参的时候，使用默认值
+    function fn(a=10,b=20){
+        console.log('a:',a);
+        console.log('b:',b);
+    }
+    fn(100,200);
+    fn(null,100);
+    fn();
+    //箭头函数也可以设置默认值
+    const f1 =(a=20,b=30)=>{
+        console.log('a:',a)
+        console.log('b:',b);
+    }
+    f1(null,100);
+    
+</script>
+</html>
