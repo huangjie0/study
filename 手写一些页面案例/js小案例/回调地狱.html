@@ -9,6 +9,7 @@
 <body>
 </body>
 <script>
+    //为了解决回调地狱的问题出现了promise语法进行封装，不在使用回调函数进行封装。
     var xml = new XMLHttpRequest()
     xml.open('GET','http://localhost:8888/test/first')
     xml.onload=function(){
@@ -22,17 +23,17 @@
             var xml = new XMLHttpRequest()
                 xml.open('GET','http://localhost:8888/test/three');
                 xml.onload=function(){
-                    console.log('第二次请求的结果')
+                    console.log('第三次请求的结果')
                     console.log(xml.responseText);
                         var xml = new XMLHttpRequest()
                         xml.open('GET','http://localhost:8888/test/four')
                         xml.onload=function(){
-                            console.log('第二次请求的结果')
+                            console.log('第四次请求的结果')
                             console.log(xml.responseText);
                             var xml = new XMLHttpRequest()
                             xml.open('GET','http://localhost:8888/test/five')
                             xml.onload=function(){
-                                console.log('第二次请求的结果')
+                                console.log('第五次请求的结果')
                                 console.log(xml.responseText);
                             }
                             xml.send();

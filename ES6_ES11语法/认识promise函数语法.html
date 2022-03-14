@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise函数</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //承诺状态
+    // 继续，成功，失败
+    //promise接受两个方法，一个是p.then(function(){}),p.catch(function(){})
+    const p = new Promise(function(resolve,reject){
+        //书写异步代码
+        var time = 1000*Math.round(Math.random()*5+1)
+        console.log('在路上');
+        setTimeout(()=>{
+            if(time>=3000){
+                console.log('外卖小哥去救人了');
+                reject();
+
+            }else{
+                console.log('外卖到了')
+                resolve();
+            }
+        },time)
+    });
+    p.then(function a (){
+        console.log('你的外卖已到，请用餐');
+    })
+    p.catch(function b (){
+        console.log('外卖小哥去别的地方有事了');
+})
+
+</script>
+</html>
