@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //浏览器给的请求方案
+    // 当发送请求的时候，域名和端口号有任意一个不一样，就会触发浏览器的同源策略，浏览器不允许获得数据
+    //请求非同源服务器，跨域请求。
+    //src是w3c外部引入的内容
+    const xhr = new XMLHttpRequest()
+    xhr.open('get','https://baidu.com')
+    xhr.onload=function(){
+        console.log(xhr.responseText);
+    }
+    xhr.send();
+    //解决跨域问题，jsonp,跨域代理,cors处理
+    //src属性引进路径；利用script标签引入其他内容,必须是合法的标签
+</script>
+<script src="./test1.txt"></script>
+
+</html>

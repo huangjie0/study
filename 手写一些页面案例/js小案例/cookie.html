@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kookie</title>
+    <script src="./cookie.js"></script>
 </head>
 <body>
     
@@ -28,21 +29,9 @@
     //设置带有时效性的cookie
     // var time = new Date('2022-3-14 14:43:30')
     // console.log(time);
-    
-   function setCookie(key,value,expires){
-    //    expires表示过期时间
-    if(!expires){
-        document.cookie=`${key}=${value}`
-        return
-    }
-    const time = new Date();
-    const t = time.getTime()-1000*60*60*8+1000*expires;
-    time.setTime(t);
-    document.cookie=`${key}=${value};expires=${time}`
-   }
-   setCookie('a',100,5);
-   setCookie('b',200,8);
-   setCookie('c',300,10);
-   setCookie('d',500);
+    setCookie('a',100,5);
+    setCookie('b',200,8);
+    setCookie('c',300,10);
+    setCookie('d',500);
 </script>
 </html>
