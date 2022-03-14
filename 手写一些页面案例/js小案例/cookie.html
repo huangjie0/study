@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kookie</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //kookie,客户端存储
+    //kookie的时效性存储格式，key=value; key1=value1; key2=value; .......
+    //储存大小，4kb左右，50条左右
+    //请求自动携带，当有数据的时候，在当前域名发起任何请求，在请求头中自动携带
+    //前端通过js来操作cookie读取
+    //本地存储（重点）
+    // 出现时间，一直有的，localStorage/sessionStorage是H5标准下才有的
+    // 存储大小，cookie大概是4kb左右，localStorage和sessionStorage大概是40MB左右
+    //cookie可以手动设置比较灵活，而localStorage是永久存储的
+    // cookie自动携带请求头
+    // kookie可以前后端操作，而localStorage/sessionStorage只能前端操作的
+    // 服务器存储空间——>session
+    document.cookie='a=5'
+    document.cookie='b=6'
+    //不能设置分号,设置cookie是会话级别，关闭浏览器，就没有了
+    //设置带有时效性的cookie
+    // var time = new Date('2022-3-14 14:43:30')
+    // console.log(time);
+    
+   function setCookie(key,value,expires){
+    //    expires表示过期时间
+    if(!expires){
+        document.cookie=`${key}=${value}`
+        return
+    }
+    const time = new Date();
+    const t = time.getTime()-1000*60*60*8+1000*expires;
+    time.setTime(t);
+    document.cookie=`${key}=${value};expires=${time}`
+   }
+   setCookie('a',100,5);
+   setCookie('b',200,8);
+   setCookie('c',300,10);
+   setCookie('d',500);
+</script>
+</html>

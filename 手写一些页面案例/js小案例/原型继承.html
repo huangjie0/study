@@ -18,29 +18,29 @@
         console.log('hello world');
     }
     //原型继承
-    // function Student(gender){
-    //     this.gender=gender;
-    // }
-    // Student.prototype.play=function(){
-    //     console.log('play');
-    // }
+    function Student(gender){
+        this.gender=gender;
+    }
+    Student.prototype.play=function(){
+        console.log('play');
+    }
     //实现原型继承，子类的prototype指向父类的实例
-    // Student.prototype=new Person('黄杰',20);
-    // const s = new Student('男');
-    // console.log(s);
-    // console.log(s.name);
-    // console.log(s.age);
+    Student.prototype=new Person('黄杰',20);
+    const s = new Student('男');
+    console.log(s);
+    console.log(s.name);
+    console.log(s.age);
     //利用call继承
-    // function Student(gender,name,age){
-    //     this.gender=gender;
-    //     Person.call(this,name,age);
-    // }
-    // var s = new Student('男','黄杰',12);
-    // console.log(s);
-    // console.log(s.gender);
-    // console.log(s.sayHi())
-    // console.log(s.age)
-    // console.log(s.name);
+    function Student(gender,name,age){
+        this.gender=gender;
+        Person.call(this,name,age);
+    }
+    var s = new Student('男','黄杰',12);
+    console.log(s);
+    console.log(s.gender);
+    console.log(s.sayHi())
+    console.log(s.age)
+    console.log(s.name);
     //组合继承
     function Student(gender,name,age){
         this.gender=gender;
