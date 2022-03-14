@@ -6,7 +6,7 @@
  * @param {Number} expires 你要设置时间的值
  */
 function setCookie(key,value,expires){
-    //    expires表示过期时间
+    //expires表示过期时间
     if(!expires){
         document.cookie=`${key}=${value}`
         return
