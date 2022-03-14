@@ -29,6 +29,10 @@ ol,ul,li{
     font-size: 100px;
     color: white;
 }
+.ul>li>img{
+    width: 600px;
+    height: 400px;
+}
 .box > ol{
     width: 200px;
     height: 20px;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    //提出了关键字进行继承,extends相当于继承；
+    // class Person{
+    //     constructor(name,age){
+    //         this.age=age;
+    //         this.name=name;
+    //     }
+    //     hello(){
+    //         console.log('你好世界');
+    //     }
+    // }
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype.hello=function(){
+        console.log('你好');
+    }
+    //子类必须要用class用法
+    class Student extends Person{
+        constructor(gender,name,age){
+            super(name,age)
+            this.gender=gender
+        }
+    }
+    var s = new Student('男','黄杰',20);
+    console.log(s.age)
+    console.log(s.name)
+    console.log(s.gender)
+    s.hello()
+</script>
+</html>

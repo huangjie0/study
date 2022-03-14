@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回调函数</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //回调函数，封装代码手段callback,当封装代码的时候，并且代码内有异步时候，并且在异步的末尾做一些事情。
+    function a(){
+        console.log('我是a函数')
+    }
+    function b(a){
+        console.log('我是b函数');
+        a();
+    }
+    b(a);
+    
+</script>
+</html>
