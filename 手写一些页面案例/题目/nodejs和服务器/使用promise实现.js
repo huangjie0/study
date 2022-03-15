@@ -30,12 +30,20 @@ write_Promise().then(()=>{
     console.log('写入失败'+err);
 })
 
-
-
 //使用promise实现读并且重新写入文件
-function readFile(){
+function read_1(){
     return new Promise((resolve,reject)=>{
-        fs.readFile('./File/4.txt','utf-8',(err,dataStr1)=>{
+        fs.readFile('./File/4.txt','utf-8',(err,dataStr)=>{
+            if(err){
+                reject(err)
+            }
+            resolve(dataStr);
+        })
+    })
+}
+function read_2(){
+    return new Promise((resolve,reject)=>{
+        fs.readFile('./File/5.txt','utf-8',(err,dataStr1)=>{
             if(err){
                 reject(err)
             }
@@ -43,21 +51,13 @@ function readFile(){
         })
     })
 }
-readFile().then((dataStr1)=>{
-    console.log('读取成功'+dataStr1);
+let str = ``
+read_1().then((dataStr)=>{
+    str+=dataStr;
+    return read_2()
+}).then((dataStr1)=>{
+    str=str+'\n'+dataStr1;
     return new Promise((resolve,reject)=>{
-        fs.readFile('./File/5.txt','utf-8',(err,dataStr2)=>{
-            if(err){
-                reject(err)
-            }
-            resolve(dataStr2)
-        })
-    })
-}).then((dataStr2)=>{
-    console.log('读取成功'+dataStr2);
-    return new Promise((resolve,reject)=>{
-        let str = `${this.dataStr1}
-${dataStr2}`
         fs.writeFile('./File/6.txt',str.toString(),(err)=>{
             if(err){
                 reject(err)
@@ -68,8 +68,5 @@ ${dataStr2}`
 }).then(()=>{
     console.log('success')
 }).catch((err)=>{
-    console.log('读写失败'+err)
+    console.log('写入失败'+err);
 })
-
-
-
