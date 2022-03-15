@@ -48,7 +48,7 @@ readFile().then((dataStr1)=>{
     return new Promise((resolve,reject)=>{
         fs.readFile('./File/5.txt','utf-8',(err,dataStr2)=>{
             if(err){
-                reject()
+                reject(err)
             }
             resolve(dataStr2)
         })
@@ -56,7 +56,7 @@ readFile().then((dataStr1)=>{
 }).then((dataStr2)=>{
     console.log('读取成功'+dataStr2);
     return new Promise((resolve,reject)=>{
-        let str = `${dataStr1}
+        let str = `${this.dataStr1}
 ${dataStr2}`
         fs.writeFile('./File/6.txt',str.toString(),(err)=>{
             if(err){
