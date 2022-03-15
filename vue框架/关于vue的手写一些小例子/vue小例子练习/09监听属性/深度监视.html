@@ -14,6 +14,10 @@
         <hr/>
         <h3>a的值是{{numbers.a}}</h3>
         <button @click='numbers.a++'>点我a+1</button>
+
+        <input type="text" v-model='v'>
+        <input type="text" @input='change' :value='v'>
+
     </div>
 </body>
 <script>
@@ -41,7 +45,8 @@
                 c:{
                     d:5
                 }
-            }
+            },
+            v:''
         },
         computed:{
             info(){
@@ -51,6 +56,9 @@
         methods: {
             changeWeather(){
                 this.isHot= !this.isHot
+            },
+            change(v){
+                this.v = v;
             }
         },
         watch:{
