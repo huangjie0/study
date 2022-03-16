@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 100px;
+            height: 30px;
+            background-color: blueviolet;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            outline: none;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<h2>Promise初体验</h2>
+<hr>
+<button>点击抽奖</button>    
+</body>
+<script>
+    function rand(m,n){
+        return Math.ceil(Math.random()*(n-m+1))+m-1;
+    }
+    var btn = document.querySelector('button');
+    btn.addEventListener('click',function(){
+         //promise进行封装
+        const p = new Promise((resolve,reject)=>{
+             // let n = rand(1,100);
+            setTimeout(()=>{
+                let n = rand(1,100);
+                if(n<30){
+                    resolve();
+                }else{
+                    reject();
+                }
+            },1000);
+            })
+            p.then(()=>{
+                alert('你中奖了!!!')
+            },()=>{
+                alert('不好意思你没中奖');
+            })
+    })
+</script>
+</html>
