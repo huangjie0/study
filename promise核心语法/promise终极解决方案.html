@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // async function main(){
+    //     //如果是非promise类型对象
+    //     return new Promise((resolve,reject)=>{
+    //         // resolve('ok');
+    //         // reject('失败');
+    //         throw '异常';
+    //     })
+    // }
+    // const m = main();
+    // console.log(m);
+    async function main(){
+        let p = new Promise((resolve,reject)=>{
+            reject('失败了');
+        })
+        try{
+            let res = await p;
+        }catch(e){
+            console.log(e)
+        };
+    }
+    console.log(main());
+</script>
+</html>
