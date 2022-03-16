@@ -7,7 +7,6 @@ const myUtil = util_1.promisify(fs.readFile);
 
 async function main(){
     try{
-        
         console.log(await (await myUtil('./1.txt')).toString())
     }catch(e){
         console.log(e);
