@@ -4,19 +4,24 @@ const fs = require('fs');
 //封装返回是promise函数
 function readFile(){
     return new Promise((resolve,reject)=>{
-        fs.readFile('./File/4.txt','utf-8',(err,dataStr)=>{
+        fs.readFile('./File/1.txt','utf8',(err,data)=>{
             if(err){
                 reject(err);
             }
-            resolve(dataStr);
+            resolve(data);
         })
     })
 }
 async function main(){
-    await readFile();
+    await readFile()
 }
-main().then((dataStr)=>{
-    console.log('读取成功'+dataStr);
+main().then((data)=>{
+    console.log(data);
 }).catch((err)=>{
-    console.log('读取失败'+err);
+    console.log("读取失败"+err);
 })
+
+
+
+
+

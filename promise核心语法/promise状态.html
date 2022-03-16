@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+    <style>
+        button{
+            width: 100px;
+            height: 30px;
+            background-color: blueviolet;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            outline: none;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<h2>Promise初体验</h2>
+<hr>
+<button>点击抽奖</button>    
+</body>
+<script>
+    function rand(m,n){
+        return Math.ceil(Math.random()*(n-m+1))+m-1;
+    }
+    var btn = document.querySelector('button');
+    btn.addEventListener('click',function(){
+         //promise进行封装
+        const p = new Promise((resolve,reject)=>{
+             // let n = rand(1,100);
+            setTimeout(()=>{
+                let n = rand(1,100);
+                if(n<30){
+                    resolve(n);
+                }else{
+                    reject(n);
+                }
+            },1000);
+        })
+        p.then((n)=>{
+            console.log('恭喜你中奖了',n);
+        })
+        p.catch((n)=>{
+            console.log('不好意思你没中奖',n);
+        })
+        console.log(p);
+    })
+    //promise的状态值，一个是pending,resolve,reject=====>pending
+    //由pending变为成功和失败，成功不能和失败互相转换
+</script>
+</html>
