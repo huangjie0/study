@@ -1,7 +1,5 @@
 //导入fs模块
 const fs = require('fs');
-//导入路径模块
-const pat = require('path');
 
 function minReadFile(path){
     return new Promise((resolve,reject)=>{
