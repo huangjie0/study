@@ -13,7 +13,7 @@ server.on('request',(req,res)=>{
     const fpath=path.join(__dirname,url);
     fs.readFile(fpath,'utf-8',(err,dataStr)=>{
         if(err) return res.end('读取失败'+err)
-        res.end('读取成功'+dataStr);
+        res.end(dataStr);
     })
     res.setHeader('Content-Type','text/html;charset=utf-8');
 })

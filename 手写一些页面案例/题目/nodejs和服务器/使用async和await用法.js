@@ -1,27 +1,32 @@
-//使用async和await实现
 //导入fs模块
 const fs = require('fs');
-//封装返回是promise函数
-function readFile(){
+//封装promise对象
+function read_file(){
     return new Promise((resolve,reject)=>{
-        fs.readFile('./File/1.txt','utf8',(err,data)=>{
+        fs.readFile('./File/5.txt','utf-8',(err,dataStr1)=>{
             if(err){
-                reject(err);
+                reject(err)
+            }else{
+                resolve(dataStr1);
             }
-            resolve(data);
+           
         })
     })
 }
+//封装第二个对象
+// function read2_file(){
+//     return new Promise((resolve,reject)=>{
+//         fs.readFile('./File/6.txt','utf-8',(err,dataStr2)=>{
+//             if(err){
+//                 reject(err)
+//             }
+//             resolve(dataStr2);
+//         })
+//     })
+// }
 async function main(){
-    await readFile()
+    await read_file()
 }
 main().then((data)=>{
-    console.log(data);
-}).catch((err)=>{
-    console.log("读取失败"+err);
+    console.log(data)
 })
-
-
-
-
-
