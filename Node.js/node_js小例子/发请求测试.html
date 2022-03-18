@@ -176,6 +176,23 @@
         e = e||window.event
         if(reg_name(a())&&reg_password(b())){
             window.event.returnValue == false;
+            //创建ajax对象
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET','http://127.0.0.1:8000/测试发请求');
+            xhr.send()
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4){
+                    if(xhr.status>=200&&xhr.status<300){
+                        //处理结果 行，头，空行，体
+                        console.log(xhr.status);//状态码
+                        console.log(xhr.statusText);//状态字符串
+                        console.log(xhr.getAllResponseHeaders());//响应头
+                        console.log(xhr.response);
+                    }else{
+
+                    }
+                }
+            }
         }else{
             e.preventDefault();
         }   
