@@ -7,6 +7,6 @@ const test = require('../HJTest/index');
 // const result = test.htmlEscape(htmlStr);
 // console.log(result);
 //测试转义html
-const Str = '&lt;h1&gt;首页&lt;h1&gt;'
+const Str = '&lt;h1&gt;首页&lt;/h1&gt;'
 const str = test.StrEscape(Str);
 console.log(str);

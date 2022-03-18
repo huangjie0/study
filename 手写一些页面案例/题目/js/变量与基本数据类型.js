@@ -8,11 +8,11 @@
 // var cssname = 'box'
 // var num = 1
 // var html = '<div class="box">这里是box1</div>'
-var cssname='box';
-var num=1;
+// var cssname='box';
+// var num=1;
 
-var html = '<div class="'+cssname +'"'+'>这里是box'+num+'</div>'
-alert(html);
+// var html = '<div class="'+cssname +'"'+'>这里是box'+num+'</div>'
+// alert(html);
 //第四题
 // Number(null)
 // isNaN(null)
@@ -21,11 +21,11 @@ alert(html);
 // isNaN(Number(!!Number(parseInt("0.8"))))
 // typeof !parseInt(null) + !isNaN(null);
 
-//Number(null):0
-//isNaN(null):false
+// Number(null):0
+// isNaN(null):false
 // parseFloat('1.6px')+parseInt('1.2px') + typeof parseInt(null):2.6number
-//typeof !parseInt(null) + !isNaN(null):booleantrue
-//isNaN(Number(!!Number(parseInt("0.8")))):false
+// typeof !parseInt(null) + !isNaN(null):booleantrue
+// isNaN(Number(!!Number(parseInt("0.8")))):false
 
 
 
