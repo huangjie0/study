@@ -105,7 +105,7 @@
         <div class="box1">
             <h1>表单</h1>
         </div>
-        <form method="get">
+        <form>
             <span class="span1">Your Name:</span><input type="text" class="input_1" placeholder="姓名要求，4到16位，字母，数字，下划线，减号" oninput="a()"><br>
             <p class="p1">您输入的用户名不符合要求，请重新输入!</p>
             <span class="span2">Your Password: </span><input type="password" class="input_2" placeholder="密码要求，8到15位，字母，数字或下划线字符" oninput="b()">
@@ -116,7 +116,7 @@
 </body>
 <script>
      //封装用户名正则函数
- function reg_name(text){
+    function reg_name(text){
     //字母数字下划线减号
         var reg_name=/^[0-9a-zA-Z_-]{4,16}$/
         return reg_name.test(text)
@@ -178,7 +178,7 @@
             window.event.returnValue == false;
             //创建ajax对象
             const xhr = new XMLHttpRequest();
-            xhr.open('GET','http://127.0.0.1:8000/测试发请求');
+            xhr.open('GET','http://127.0.0.1:8000/testget');
             xhr.send()
             xhr.onreadystatechange=function(){
                 if(xhr.readyState===4){
