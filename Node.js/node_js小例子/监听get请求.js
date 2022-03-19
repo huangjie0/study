@@ -13,6 +13,7 @@ app.post('/user',function(req,res){
 app.get('/',(req,res)=>{
     //通过req.query方法可以获取到客户端发送过来的查询参数
     //默认是空对象
+    console.log(req.query);
     res.send(req.query);
 })
 app.get('/user/:id',(req,res)=>{
