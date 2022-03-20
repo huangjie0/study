@@ -6,5 +6,5 @@ const app = express();
 app.use(express.static('./File'));
 //启动服务器
 app.listen(80,()=>{
-    console.log('服务器启动成功!,端口号是http://127.0.0.1')
+    console.log('服务器启动成功啦,端口号是http://127.0.0.1')
 })
