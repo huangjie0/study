@@ -17,7 +17,6 @@ app.use((req,res,next)=>{
 });
 //创建路由
 app.get('/testget',(req,res)=>{
-    console.log('in')
     //设置响应体
     res.send('Hello ajax');
 })

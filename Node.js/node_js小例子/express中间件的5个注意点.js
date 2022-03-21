@@ -43,26 +43,45 @@
 
 // 错误级别的中间件,定义错误级别的中间,防止程序在崩溃时的中间件(err,req,res.next)
 //导入模块
+// const express = require('express');
+// //创建实例对象
+// const app = express();
+// //人为抛出错误
+// app.get('/',(req,res)=>{
+//     throw new Error('我是人为制造的错误');
+//     //由于人为制作的错误,后面的代码就不会执行;
+//     res.send('人为制造的错误');
+// });
+// //定义错误级别的中间件
+// app.use(function(err,req,res,next){
+//     //打印错误信息
+//     console.log('发生了错误'+err.message);
+//     // 向客户端响应错误对象
+//     res.send('Error!'+ err.message);
+// });
+// //启动服务器
+// app.listen(80,()=>{
+//     console.log('http://127.0.0.1');
+// });
+
+//内置中间件,内置中间件,express.static快速托管静态资源内置中间件,express.json中间件解析json格式请求数据,有兼容性
+//express.urlencoded解析url-encoded格式的请求体数据
+//导入模块
 const express = require('express');
-//创建实例对象
+//创建实例化对象
 const app = express();
-//人为抛出错误
-app.get('/',(req,res)=>{
-    throw new Error('我是人为制造的错误');
-    res.send('人为制造的错误');
+//配置json中间件解析json表单数据
+app.use(express.json());
+//解析url-encoded格式的数据
+app.use(express.urlencoded({extended:false}));
+//get请求
+app.post('/user',(req,res)=>{
+    //打印body里面的参数
+    //默认情况不配置解析表单数据中间件,等于undefined;
+    console.log(req.body);
+    res.send('ok');
 });
-//定义错误级别的中间件
-app.use(function(err,req,res,next){
-    //打印错误信息
-    console.log('发生了错误'+err.Error);
-    // 向客户端响应错误对象
-    res.send('Error!'+ err.Error);
-})
-//启动服务器
+//开启服务器
 app.listen(80,()=>{
-    console.log('http://127.0.0.1');
-})
-
-
-
-
+    console.log('http://127.0.0.1')
+});
