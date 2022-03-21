@@ -9,20 +9,39 @@
 //应用级别中间件,路由中间件,错误级别的中间件,express内置的中间件,第三方的中间件
 //应用级别的中间件
 //导入模块
-const express = require('express');
-//创建实例对象
-const app = express();
-//应用级别中间件
-app.get('/',(req,res)=>{
-    console.log('get/')
-    res.send('hello world');
-})
-app.post('/user',(req,res)=>{
-    console.log('post/');
-    res.send('你好世界');
-})
-//开启服务器
-app.listen(80,()=>{
-    console.log('http://127.0.0.1')
-})
+// const express = require('express');
+// //创建实例对象
+// const app = express();
+// //应用级别中间件
+// app.get('/',(req,res)=>{
+//     console.log('get/')
+//     res.send('hello world');
+// })
+// app.post('/user',(req,res)=>{
+//     console.log('post/');
+//     res.send('你好世界');
+// });
+// //开启服务器
+// app.listen(80,()=>{
+//     console.log('http://127.0.0.1');
+// })
+
+// //路由中间件,绑定在router实例上
+// //导入模块
+// const express = require('express')
+// //创建实例对象
+// const app = express()
+// //创建路由对象
+// const router = express.Router()
+// //路由的中间件
+// router.use(function(req,res,next){
+//     console.log('time',Date.now())
+//     next();
+// })
+// //使用app注册路由中间件
+// app.use('/',router);
+
+// 错误级别的中间件,定义错误级别的中间,防止程序在崩溃时的中间件
+
+
 
