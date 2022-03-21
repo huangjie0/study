@@ -7,4 +7,22 @@
 // 5.连续调用多个中间件时,多个中间件,共享req和res对象
 //中间件的分类--------------------------------------------
 //应用级别中间件,路由中间件,错误级别的中间件,express内置的中间件,第三方的中间件
+//应用级别的中间件
+//导入模块
+const express = require('express');
+//创建实例对象
+const app = express();
+//应用级别中间件
+app.get('/',(req,res)=>{
+    console.log('get/')
+    res.send('hello world');
+})
+app.post('/user',(req,res)=>{
+    console.log('post/');
+    res.send('你好世界');
+})
+//开启服务器
+app.listen(80,()=>{
+    console.log('http://127.0.0.1')
+})
 
