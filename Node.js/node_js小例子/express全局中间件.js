@@ -15,7 +15,7 @@ app.use(function(req,res,next){
     console.log('这是第二个中间件');
     //再次流转到下一个中间件
     next();
-})
+});
 //定义第三个中间件全局中间件
 app.use(function(req,res,next){
     console.log('这是第三个中间件');
