@@ -12,5 +12,13 @@ router.get('/',(req,res)=>{
         data:query
     })
 });
+router.post('/',(req,res)=>{
+    const body = req.body;
+    res.send({
+        status:0,
+        msg:'Post请求成功',
+        data:body
+    })
+})
 //将路由模块导出
 module.exports=router;
