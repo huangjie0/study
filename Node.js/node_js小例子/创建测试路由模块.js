@@ -4,10 +4,13 @@ const express = require('express');
 const router = express.Router()
 //执行路由中的模块.....
 router.get('/',(req,res)=>{
-    console.log('get/');
-    res.send('ok!');
+    const query = req.query;
+    //调用res,send（）方法，把数据响应给客户
+    res.send({
+        status:0,//0表示处理成功，1处理失败
+        msg:'Get请求成功',
+        data:query
+    })
 });
 //将路由模块导出
-module.exports={
-    router
-}
+module.exports=router;
