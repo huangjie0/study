@@ -4,7 +4,8 @@ const express = require('express');
 const app = express();
 //创建注册中间件
 app.use(function(req,res,next){
-    console.log('这是一个中间件')
+    //获取到服务器到达的时间
+    const time = Date.now();
     next();
 })
 app.get('/',(req,res)=>{
