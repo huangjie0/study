@@ -23,7 +23,7 @@ app.get('/',[mw1,mw2],(req,res)=>{
 app.get('/user',(req,res)=>{
     console.log('get/');
     res.send('hello world');
-})
+});
 //开启服务器··
 app.listen(80,()=>{
     console.log('http://127.0.0.1')
