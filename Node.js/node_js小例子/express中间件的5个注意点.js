@@ -41,7 +41,27 @@
 // //使用app注册路由中间件
 // app.use('/',router);
 
-// 错误级别的中间件,定义错误级别的中间,防止程序在崩溃时的中间件
+// 错误级别的中间件,定义错误级别的中间,防止程序在崩溃时的中间件(err,req,res.next)
+//导入模块
+const express = require('express');
+//创建实例对象
+const app = express();
+//人为抛出错误
+app.get('/',(req,res)=>{
+    throw new Error('我是人为制造的错误');
+    res.send('人为制造的错误');
+});
+//定义错误级别的中间件
+app.use(function(err,req,res,next){
+    //打印错误信息
+    console.log('发生了错误'+err.Error);
+    // 向客户端响应错误对象
+    res.send('Error!'+ err.Error);
+})
+//启动服务器
+app.listen(80,()=>{
+    console.log('http://127.0.0.1');
+})
 
 
 
