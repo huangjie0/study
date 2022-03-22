@@ -1,6 +1,8 @@
 //导入模块
 const express = require('express');
 const cors = require('cors'); 
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
 //创建服务器对象
 const app = express();
 var corsOptions = {
@@ -13,12 +15,35 @@ app.use((req,res,next)=>{
     res.header('Access-Control-Allow-Headers', 'Authorization,X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method' )
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, PUT, DELETE')
     res.header('Allow', 'GET, POST, PATCH, OPTIONS, PUT, DELETE')
-    next();
+    next()
 });
+//parser配置
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+//创建数据库
+//建立mysql与项目之间的联系
+const db = mysql.createPool({
+    host:'127.0.0.1',
+    user:'root',
+    password:'123456',
+    database:'test'
+});
+//定义sql语句
+const sql = 'select username,password from users'
+db.query(sql,(err,result)=>{
+    if(err)return console.log(err.message);
+    result.forEach((item)=>{
+        //.........
+    })
+})
 //创建路由
-app.get('/testget',(req,res)=>{
-    //设置响应体
-    res.send('Hello ajax');
+app.post('/testget',(req,res)=>{
+    var query = req.query
+    var userName = query.userName
+    var userPwd = query.userPwd
+
+
+
 })
 //开启服务器
 app.listen(8000,()=>{
