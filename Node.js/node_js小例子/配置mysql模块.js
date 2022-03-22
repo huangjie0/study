@@ -28,6 +28,19 @@ const db = mysql.createPool({
 //         console.log('插入成功');
 //     }
 // })
+//插入多条数据写法
+const user={username:'ll',password:'44444',
+            username:'pp',password:'99999',
+            username:'gg',password:'10121212',status:1,
+            username:'www',password:'886666'
+            }
+const sql = 'insert into users set ?'
+db.query(sql,user,(err,result)=>{
+    if(err)return console.log(err.message);
+    if(result.affectRows===1){
+        console.log('插入成功');
+    }
+})
 //删除数据
 // const sql = "DELETE FROM users WHERE username = 'xiaoming'"
 // db.query(sql,(err,result)=>{
