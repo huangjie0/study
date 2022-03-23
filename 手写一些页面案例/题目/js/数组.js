@@ -35,7 +35,7 @@ function main(array,target){
         }
     }
 }
-main(array,target)
+main(array,target);
 
 
 

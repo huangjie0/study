@@ -110,7 +110,7 @@
             <p class="p1">您输入的用户名不符合要求，请重新输入!</p>
             <span class="span2">Your Password: </span><input type="password" id="userPwd" name="userPwd" class="input_2" placeholder="密码要求，8到15位，字母，数字或下划线字符" oninput="b()">
             <p class="p2">您输入的密码不正确或者不满足要求，请重新输入!</p>
-            <button disabled='disabled'>提交</button>
+            <button>提交</button>
         </form>
     </div>   
 </body>
@@ -183,11 +183,13 @@
                 if(xhr.readyState===4){
                     if(xhr.status>=200&&xhr.status<300){
                         var response = JSON.parse(xhr.response);
-                        console.log(response.status);
+                        console.log(response);
                         if(response.status==0){
-                            console.log('密码输入成功');
+                            btn.disabled=''
+                            console.log('登录成功')
                         }else{
-                            console.log('密码或者用户名输入不正确');
+                            e.
+                            alert('用户名输入不正确,请重新输入');
                         }
                     }else{
                         console.log('请求失败!');
@@ -195,7 +197,7 @@
                 }
             }
         }else{
-            btn.disabled='disabled';
+            e.stopPropagation();
         } 
     }
 </script>
