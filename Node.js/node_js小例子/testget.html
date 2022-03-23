@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第三题</title>
+    <title>ajax模块</title>
     <style>
         *{
             margin: 0;
@@ -105,7 +105,7 @@
         <div class="box1">
             <h1>表单</h1>
         </div>
-        <form action="../../手写一些页面案例/JD/home_page.html">
+        <form>
             <span class="span1">Your Name:</span><input type="text" id="userName" name="userName" class="input_1" placeholder="姓名要求，4到16位，字母，数字，下划线，减号" oninput="a()"><br>
             <p class="p1">您输入的用户名不符合要求，请重新输入!</p>
             <span class="span2">Your Password: </span><input type="password" id="userPwd" name="userPwd" class="input_2" placeholder="密码要求，8到15位，字母，数字或下划线字符" oninput="b()">
@@ -174,20 +174,18 @@
     var btn = document.querySelector('button');
     btn.onclick=function(e){
         e = e||window.event
-        e.preventDefault();
         if(reg_name(a())&&reg_password(b())){
             //创建ajax对象
             const xhr = new XMLHttpRequest();
             xhr.open('POST',`http://127.0.0.1:8000/testget/?userName=${a()}&userPwd=${b()}`);
-            xhr.send()
+            xhr.send();
+            e.preventDefault();
             xhr.onreadystatechange=function(){
                 if(xhr.readyState===4){
                     if(xhr.status>=200&&xhr.status<300){
                         var response = JSON.parse(xhr.response);
-                        console.log(response);
                         if(response.status==0){
-                            return e.returnValue=false;
-                            console.log('登录成功')
+                            window.location.href='../../手写一些页面案例/JD/home_page.html'
                         }else{
                             e.preventDefault();
                             alert('用户名输入不正确,请重新输入');

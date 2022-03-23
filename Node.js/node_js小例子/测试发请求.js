@@ -33,7 +33,7 @@ const sql = 'select username,password from users'
 db.query(sql,(err,result)=>{
     if(err)return console.log(err.message);
     result.forEach((item)=>{
-
+        console.log(item);
     })
 })
 //创建路由
