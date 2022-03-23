@@ -172,7 +172,8 @@
 
     //判断是否可以跳转
     var btn = document.querySelector('button');
-    btn.onclick=function(){
+    btn.onclick=function(e){
+        e = e||window.event
         if(reg_name(a())&&reg_password(b())){
             //创建ajax对象
             const xhr = new XMLHttpRequest();
@@ -181,11 +182,13 @@
             xhr.onreadystatechange=function(){
                 if(xhr.readyState===4){
                     if(xhr.status>=200&&xhr.status<300){
-                       if(req.status==0){
-                           btn.disabled=''
-                       }else{
-                           btn.disabled='disabled'
-                       }
+                        var response = JSON.parse(xhr.response);
+                        console.log(response.status);
+                        if(response.status==0){
+                            console.log('密码输入成功');
+                        }else{
+                            console.log('密码或者用户名输入不正确');
+                        }
                     }else{
                         console.log('请求失败!');
                     }
