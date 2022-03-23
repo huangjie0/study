@@ -2,6 +2,8 @@
 const express = require('express');
 const cors = require('cors'); 
 const bodyParser = require('body-parser');
+const Jwt = require('jsonwebtoken');
+const session = require('express-session');
 const mysql = require('mysql');
 //创建服务器对象
 const app = express();
@@ -36,13 +38,34 @@ db.query(sql,(err,result)=>{
         console.log(item);
     })
 })
+//指定加密的密钥
+const secretKey = 'huangjiehh';
+//注册将jwt字符串解析还原成json对象中间件
+app.use(session({secret:secretKey}));
+//注册使用全局错误处理的中间件，捕获jwt失败的错误
+app.use((err,req,res,next)=>{
+    if(err.name=='UnauthorizeError'){
+        return res.send({
+            status:401,
+            message:'无效的token'
+        })
+    }
+    res.send({
+        status:500,
+        message:'未知的错误'
+    })
+})
 //创建路由
 app.post('/testget',(req,res)=>{
     var query = req.query
     var userName = query.userName
     var userPwd = query.userPwd
     if(userName=='huangjie'&&userPwd=='12345678'){ 
-        res.send({status:0,msg:'登录成功'});
+        //在登录成功之后，调用jwt.sign（）方法生成jwt字符串，并通过token属性发送客户端
+        const tokenStr = Jwt.sign({
+            username:userName,
+        },secretKey,{expiresIn:'30s'})
+        res.send({status:0,msg:'登录成功',token:tokenStr});
     }else{
         res.send({status:1,msg:'登录失败'});
     };
