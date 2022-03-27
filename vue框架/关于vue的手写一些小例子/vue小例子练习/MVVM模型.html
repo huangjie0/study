@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue框架/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>我的姓名是：{{name}}</h1>
+        <h1>我的年龄是：{{age}}</h1>
+        <h1>我的年龄是：{{$options}}</h1>
+        <h1>我的年龄是：{{_c}}</h1>
+    </div>
+</body>
+<script>
+    //mvvm模型：
+    // 1、m:模型model:data里面的数据
+    //2、v:视图：模板代码
+    //3、vm:视图模型，vue实例
+    //观察发现：data里面所有属性，最后都出现在vm上
+    //vm身上所有属性及vue原型上所有属性，在vue模板总都可以直接使用
+    Vue.config.productionTip = false
+    const vm = new Vue({
+        el:'#root',
+        data() {
+            return {
+                name:'黄杰',
+                age:18
+            }
+        },
+    })
+</script>
+
+</html>

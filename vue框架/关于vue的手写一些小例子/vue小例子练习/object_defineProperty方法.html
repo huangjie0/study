@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let student = {
+        name:'黄杰',
+        age:18
+    }
+    Object.defineProperty(student,'gender',{
+        value:"男",
+        enumerable:true,//控制属性是否被枚举遍历
+        writable:true,//控制属性是否可以被修改，默认值是false
+        configurable:true,//控制属性是否可以被删除
+    })
+    console.log(student);
+</script>
+</html>

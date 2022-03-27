@@ -13,12 +13,19 @@
     </div>
 </body>
 <script>
+    //由vue管理的函数不要使用箭头函数
     Vue.config.productionTip = false
     const vm = new Vue({
         // el:'#root',第一种写法
-        data:{
-            name:'黄杰'
-        }
+        // data:{
+        //     name:'黄杰'
+        // }
+        data() {
+            console.log(this);
+            return {
+                name:'黄杰'
+            }
+        },
     })
     // vm.$mount("#root");
     setTimeout(()=>{
