@@ -1,5 +1,5 @@
 // 检查字符串是否含有大写字母，小写字母以及_,$,如果有缺少，则返回时缺少了哪些字符。
-var str = '123aA_$';
+var str = '123A_$';
 function character(str){
     for(var i=0;i<str.length;i++){
         if( str.charCodeAt(i)>=65 && str.charCodeAt(i)<=90){

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function add(){
+        console.log(arguments);
+    }
+    add('红花','绿叶')
+    //rest参数使用
+    function data(...args){
+        console.log(args);
+    }
+    data('黄杰','绿色');
+    function fn(a,b,c,...args){
+        console.log(a)
+        console.log(b)
+        console.log(c)
+        console.log(args)
+    }
+    fn(1,2,3,4,5,6);
+</script>
+</html>
