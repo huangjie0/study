@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Person{
+        static [Symbol.hasInstance](param){
+            console.log(param);
+            console.log('我被用来检测类型了')
+            //自己控制类型检测
+            return true;
+        }
+    }
+    let o = {};
+    console.log(o instanceof Person);
+</script>
+</html>
