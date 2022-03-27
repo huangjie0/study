@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //声明一个对象
+    const banji={
+        name:'终极一班',
+        stus:[
+            '黄杰',
+            '小红',
+            '小寒',
+            '小虎'
+        ],
+        [Symbol.iterator](){
+            let index = 0;
+            return {
+                next:()=>{
+                    if(index<this.stus.length){
+                        index++
+                        return {value:this.stus[index],done:false}
+                    }else{
+                        return {value:undefined,done:true}
+                    }
+                }
+            }
+        }
+    }
+    //遍历对象
+    for(let v of banji){
+        console.log(v);
+    }
+</script>
+</html>
