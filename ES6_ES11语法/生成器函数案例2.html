@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //获取用户数据，订单数据，商品数据
+    function gerUser(){
+        setTimeout(()=>{
+            let data = '用户数据'
+            console.log(data);
+            iterator.next()
+        },1000)
+    }
+    function getOrders(){
+        setTimeout(() => {
+            let data = '订单数据'
+            console.log(data);
+            iterator.next()
+        }, 1000);
+    }
+    function getGoods(){
+        setTimeout(() => {
+            let data = '商品数据'
+            console.log(data);
+            iterator.next()
+        }, 1000);
+    }
+    function * gen(){
+        yield gerUser();
+        yield getOrders();
+        yield getGoods();
+    }
+    let iterator = gen();
+    iterator.next()
+</script>
+</html>
