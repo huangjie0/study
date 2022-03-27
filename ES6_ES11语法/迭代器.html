@@ -17,5 +17,15 @@
         console.log(v)
     }
     console.log(arr);
+    //迭代器工作原理
+    //1.创建一个指针对象，指向当前数据结构的起始位置
+    //2.第一次调用next方法，指针自动指向数据结构的第一个成员
+    //3.接下来不断调用next方法，指针一直往后移动，直到指向最后一个成员
+    //4.每次调用next方法返回一个包含value和done属性对象
+    const iterator = arr[Symbol.iterator]();
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
 </script>
 </html>
