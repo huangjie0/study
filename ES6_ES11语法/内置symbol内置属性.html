@@ -20,5 +20,11 @@
     }
     let o = {};
     console.log(o instanceof Person);
+    //控制值是否可以展开
+    const arr = [1,2,3]
+    const arr2 = [4,5,6]
+    console.log(arr2.concat(arr));
+    arr2[Symbol.isConcatSpreadable]=false;
+    console.log(arr.concat(arr2));
 </script>
 </html>
