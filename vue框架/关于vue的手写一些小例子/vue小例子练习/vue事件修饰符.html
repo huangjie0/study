@@ -21,6 +21,16 @@
             height: 50px;
             background-color: pink;
         }
+        .list{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+         
+        }
     </style>
 </head>
 <body>
@@ -39,6 +49,17 @@
                 div2
             </div>
         </div>
+        <!-- self只有操作当前的元素才会触发事件 -->
+        <div class="demo1" @click.self='showInfo'>
+            <button @click='showInfo'>点我提示信息</button>
+        </div>
+        <!-- passive案例 -->
+        <ul class="list" @wheel.passive='demo'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
     </div>
 </body>
 <script>
@@ -63,6 +84,13 @@
             },
             showMes2(msg){
                 console.log(msg);
+            },
+            demo(){
+               for(var i=0;i<10000;i++){
+                   console.log(i)
+                  
+               }
+               console.log('累坏了')
             }
         },
     })
