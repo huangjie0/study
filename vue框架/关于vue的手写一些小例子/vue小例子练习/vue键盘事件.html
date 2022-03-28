@@ -10,11 +10,13 @@
 <body>
     <div id="root">
         <h2>欢迎来到{{name}}学习</h2>
-        <input type="text" placeholder="按下回车提示输入" @keyup.delete='showInfo'>
+        <input type="text" placeholder="按下回车提示输入" @keyup.huiche='showInfo'>
     </div>
 </body>
 <script>
     Vue.config.productionTip = false//阻止vue提示
+    //手动定义一个别名
+    Vue.config.keyCodes.huiche = 13
     const vm = new Vue({
         el:'#root',
         data() {
@@ -24,7 +26,10 @@
         },
         methods:{
             showInfo(e){
+                // console.log(e.key);
                 //通过判定按键的编码来判定按下的是哪个键
+                // console.log(e.keyCode)
+                console.log(e.target.value)
                 console.log(e.keyCode)
             }
         },
