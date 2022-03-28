@@ -13,10 +13,16 @@
         <br>
         <!-- <button v-on:click='showInfo'>点我提示信息</button> -->
         <button @click='showInfo'>点我提示信息1</button>
-        <button @click='showInfo2'>点我提示信息2</button>
+        <button @click='showInfo2($event,66)'>点我提示信息2</button>
     </div>
 </body>
 <script>
+    //事件的基本使用
+    //1、使用v-on:xxx或者@xxx绑定事件，其实xxx就是事件名
+    //2、事件的回调配置需要在methods对象中，最终会在vm上
+    //3、methods中配置的函数，不要使用箭头函数，否则this就不是vm了
+    //4、methods中配置的函数，都是被vue所管理的，this指向都是vm上或者组件实例对象
+    //5、@click='demo'和@click='demo($event)'效果一样，但是后者可以传参；
     Vue.config.productionTip = false
     const vm = new Vue({
         el:'#root',
@@ -32,13 +38,13 @@
                 console.log(this===vm)
                 alert('同学你好');
             },
-            showInfo2(e){
-                console.log(e.target.innerText);
+            showInfo2(e,number){
+                // console.log(e.target.innerText);
+                console.log(e,number);//传参
                 // console.log(this);此处的this是vm,vue实例对象
                 console.log(this===vm)
                 alert('同学你好1');
             },
-
         },
     })
 </script>
