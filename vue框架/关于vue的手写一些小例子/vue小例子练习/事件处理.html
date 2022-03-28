@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue框架/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>欢迎来到{{school}}学习</h2>
+        <br>
+        <button v-on:click='showInfo'>点我提示信息</button>
+    </div>
+    
+</body>
+<script>
+    Vue.config.productionTip = false
+    const vm = new Vue({
+        el:'#root',
+        data() {
+            return {
+                school:'淮师',
+                showInfo(){
+                    
+                }
+            }
+        },
+    })
+</script>
+
+</html>

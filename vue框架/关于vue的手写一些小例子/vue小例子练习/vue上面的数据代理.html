@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../../vue框架/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
     <div id="root">
@@ -14,6 +14,11 @@
     </div>
 </body>
 <script>
+    //vue中的数据代理:通过vm对象来代理data对象里面的属性操作（读/写）;
+    //vue中的数据代理的好处
+    //方便操作data数据的好处
+    //基本原理
+    //通过代理方法把data里面的数据放在vm身上，为每一个添加到vm身上都指定getter/setter,通过getter和setter来操作读和写
     Vue.config.productionTip = false
     const vm = new Vue({
         el:'#root',
