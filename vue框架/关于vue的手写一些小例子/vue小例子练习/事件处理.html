@@ -11,21 +11,34 @@
     <div id="root">
         <h2>欢迎来到{{school}}学习</h2>
         <br>
-        <button v-on:click='showInfo'>点我提示信息</button>
+        <!-- <button v-on:click='showInfo'>点我提示信息</button> -->
+        <button @click='showInfo'>点我提示信息1</button>
+        <button @click='showInfo2'>点我提示信息2</button>
     </div>
-    
 </body>
 <script>
     Vue.config.productionTip = false
     const vm = new Vue({
         el:'#root',
-        data() {
+        data(){
             return {
-                school:'淮师',
-                showInfo(){
-                    
-                }
+                school:'淮师'
             }
+        },
+        methods: {
+            showInfo(e){
+                console.log(e.target.innerText);
+                // console.log(this);此处的this是vm,vue实例对象
+                console.log(this===vm)
+                alert('同学你好');
+            },
+            showInfo2(e){
+                console.log(e.target.innerText);
+                // console.log(this);此处的this是vm,vue实例对象
+                console.log(this===vm)
+                alert('同学你好1');
+            },
+
         },
     })
 </script>
