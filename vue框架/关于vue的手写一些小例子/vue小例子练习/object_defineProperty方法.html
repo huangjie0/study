@@ -10,15 +10,21 @@
     
 </body>
 <script>
+    let gender='男'
     let student = {
         name:'黄杰',
         age:18
     }
-    Object.defineProperty(student,'gender',{
-        value:"男",
-        enumerable:true,//控制属性是否被枚举遍历
-        writable:true,//控制属性是否可以被修改，默认值是false
-        configurable:true,//控制属性是否可以被删除
+    Object.defineProperty(student,'xingbie',{
+        // value:"男",
+        // enumerable:true,//控制属性是否被枚举遍历
+        // writable:true,//控制属性是否可以被修改，默认值是false
+        // configurable:true,//控制属性是否可以被删除
+        //当有人读取对象属性的时候，get(getter)函数就会被调用，且返回值就是写入的值
+        get:function(){
+            console.log('有人读取了')
+            return gender;
+        }
     })
     console.log(student);
 </script>
