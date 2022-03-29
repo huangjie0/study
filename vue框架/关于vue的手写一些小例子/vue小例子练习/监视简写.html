@@ -12,6 +12,9 @@
         <h1>今天天气很{{info}},{{x}}</h1>
         <!-- 绑定事件时可以写一些简单的案例 -->
         <button @click='changeweather'>切换天气</button>
+        <hr>
+        <h3>a的值是{{number.a}}</h3>
+        <button @click='add'>点我+1</button>
     </div>
 </body>
 <script>
@@ -21,7 +24,12 @@
         data() {
             return {
                 isHot:true,
-                x:1
+                x:1,
+                number:{
+                    a:1,
+                    b:2,
+                    c:3
+                }
             }
         },
         computed:{
@@ -33,18 +41,14 @@
             changeweather(){
                 this.isHot=!this.isHot
                 this.x++
+            },
+            add(){
+                this.number.a++
             }
         },
         watch:{
-            isHot:{
-                immediate:true,//初始化时让函数调用一下
-                // immediate:false,//初始化时让函数调用一下
-                //handler什么时候调用呢，当isHot发生改变时会被调用
-                handler(newValue,oldValue){
-                    console.log(newValue);
-                    console.log('我被修改了，isHot被修改了');
-                    console.log(oldValue);
-                }
+            isHot(){
+                console.log('改变了');
             }
         }
     })

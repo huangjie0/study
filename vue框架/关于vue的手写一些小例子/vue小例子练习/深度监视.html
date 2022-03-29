@@ -18,6 +18,9 @@
     </div>
 </body>
 <script>
+    //vue中的watch不监视对象内部的改变
+    //配置deep:true可以监测对象内的值改变
+    // 备注：vue自身可以检测对象的值改变，默认的watch不可以，使用深度检测数据具体的结构，决定是否采用深度检测
     Vue.config.productionTip = false
     const vm = new Vue({
         el:'#root',

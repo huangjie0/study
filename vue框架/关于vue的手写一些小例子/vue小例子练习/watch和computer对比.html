@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue框架/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        姓:<input type="text" v-model="firstName"><br>
+        名:<input type="text" v-model="lastName"><br>
+        全名: <span>{{fullName}}</span>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip = false
+    const vm = new Vue({
+        el:"#root",
+        data:{
+            firstName:'黄',
+            lastName:'杰',
+            fullName:'黄杰'
+        },
+        // computed:{
+        // fullName(){
+        // return this.firstName+'-'+this.lastName
+        // }
+        // }
+        watch:{
+            firstName(newValue){
+                //一定要写成箭头函数，指向vm,如果是普通函数指向是window就不行了，拿不到vm里面的值了
+                //使用watch可以执行异步操作
+                setTimeout(()=>{
+                    this.fullName=newValue +this.lastName
+                },1000)
+             
+            },
+            lastName(newValue){
+                this.fullName=this.firstName+newValue
+            }
+        }     
+    })
+</script>
+</html>
