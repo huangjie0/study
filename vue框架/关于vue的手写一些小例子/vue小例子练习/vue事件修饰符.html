@@ -60,6 +60,10 @@
             <li>3</li>
             <li>4</li>
         </ul>
+        <!-- 既能阻止默认行为又能阻止冒泡 ，修饰符可以连续写-->
+        <div class="div1" @click='showInfo'>
+            <a href="http://www.baidu.com" @click.stop.prevent='showInfo'>点我跳转到百度</a>
+        </div>
     </div>
 </body>
 <script>
@@ -87,8 +91,7 @@
             },
             demo(){
                for(var i=0;i<10000;i++){
-                   console.log(i)
-                  
+                   console.log(i)          
                }
                console.log('累坏了')
             }
