@@ -37,6 +37,8 @@
         },
         watch:{
             isHot:{
+                immediate:true,//初始化时让函数调用一下
+                // immediate:false,//初始化时让函数调用一下
                 //handler什么时候调用呢，当isHot发生改变时会被调用
                 handler(newValue,oldValue){
                     console.log(newValue);
