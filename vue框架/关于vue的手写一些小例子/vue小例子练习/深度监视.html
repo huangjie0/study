@@ -47,14 +47,14 @@
             }
         },
         watch:{
-            'info':{
-                immediate:true,//初始化时让函数调用一下
+            number:{
+                deep:true,
+                // immediate:true,//初始化时让函数调用一下
                 // immediate:false,//初始化时让函数调用一下
                 //handler什么时候调用呢，当isHot发生改变时会被调用
-                handler(newValue,oldValue){
-                    console.log(newValue);
-                    console.log('我被修改了，isHot被修改了');
-                    console.log(oldValue);
+                handler(){
+                    console.log('number值被改变了')
+                    
                 }
             }
         }
