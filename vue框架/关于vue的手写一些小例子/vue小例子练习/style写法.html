@@ -41,7 +41,7 @@
     <div id="root">
         <!-- 绑定class样式，适用于样式类名不确定，需要动态决定 -->
         <!-- <div class="basic" :class="mood" @click='changeMood()'>{{name}}</div> -->
-        <div class="basic" :class="obj" @click='changeMood()'>{{name}}</div>
+        <div class="basic" :class="obj" @click='changeMood()' :style="obj2">{{name}}</div>
     </div>
 </body>
 <script>
@@ -55,16 +55,13 @@
                     sad:true,
                     round:false,
                     big:true
+                },
+                obj2:{
+                    fontWeight:'500',
+                    color:'red'
                 }
             }
         },
-        // methods: {
-        //     changeMood(){
-        //         const random=['sad','happy','normal']
-        //         const num = Math.floor(Math.random()*3);
-        //         const mood =random[num]  
-        //     }
-        // },
     })
 </script>
 </html>

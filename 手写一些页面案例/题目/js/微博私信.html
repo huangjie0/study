@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box>div{
+            width: 100px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .box>div:hover{
+            background-color: rgb(97, 97, 97);
+            color: white;
+        }
+        .box1{
+            width: 500px;
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item2{
+            width: 100px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">微博</div>
+        <div class="item">微博</div>
+        <div class="item">微博</div>
+        <div class="item">微博</div>
+    </div>
+    <div class="box1">
+        <div class="item2">可以</div>
+        <div class="item2">可以</div>
+        <div class="item2">可以</div>
+        <div class="item2">可以</div>
+    </div>
+</body>
+<script>
+ var item = document.querySelectorAll('.item')
+ var item1=document.querySelectorAll('.item2')
+
+ item.forEach(function(item,index){
+     item.onmouseover=function(){
+        item1[index].style.visibility='visible'
+     }
+ })
+ item.forEach(function(item,index){
+     item.onmouseout=function(){
+        item1[index].style.visibility='hidden'
+     }
+ })
+</script>
+</html>
