@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue框架/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <ul v-for='p,index of persons' :key='p.id'>
+            <li>姓名:{{p.name}}年龄:{{p.age}}
+                <input type="text">
+            </li>
+        </ul>
+        <button @click.once='add'>点我添加人名</button>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data() {
+            return {
+                persons:[
+                    {id:'001',name:'黄杰',age:12},
+                    {id:'002',name:'朱友',age:20},
+                    {id:'002',name:'艾蓬',age:20}
+                ]
+            }
+        },
+        methods: {
+            add(){
+                const obj = {id:'003',name:'生鲜',age:50}
+                this.persons.unshift(obj);
+            }
+        },
+    })
+</script>
+
+</html>

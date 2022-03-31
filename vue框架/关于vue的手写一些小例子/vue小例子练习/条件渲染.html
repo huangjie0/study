@@ -10,12 +10,16 @@
 <body>
     <div id="root">
         <!-- <h1 v-if='false'>欢迎来到{{name}}学习</h1> -->
+        <!-- template模板 -->
+        <!-- template模板与v-if使用 -->
         <h2>当前的n值是:{{n}}</h2>
         <button @click='changeNumber'>点我n++</button>
-        <div v-if='n===1'>Angular</div>
-        <div v-else-if='n===2'>React</div>
-        <div v-else-if='n===3'>Vue</div>
-        <div v-else='n===4'>哈哈</div>
+        <template v-if='n===1'>
+            <div>Angular</div>
+            <div>React</div>
+            <div>Vue</div>
+            <div>哈哈</div>
+        </template>
     </div>
 </body>
 <script>
