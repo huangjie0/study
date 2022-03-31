@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue框架/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <input type="text" v-model='value' placeholder="点我搜索人名">
+        <ul v-for='p in filter' :key='p.id'>
+            <li>
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data(){
+            return {
+                value:'',
+                persons:[
+                    {id:'001',name:'黄杰',age:10},
+                    {id:'002',name:'黄化',age:20},
+                    {id:'003',name:'惶急',age:45},
+                    {id:'004',name:'哈哈',age:10},
+                    {id:'005',name:'呵呵',age:20},
+                    {id:'006',name:'即可',age:45}
+                ],
+                filter:[]
+            }
+        },
+        computed:{
+            filter(){
+                return this.filter = this.persons.filter((item)=>{
+                    return value!==this.persons.name
+                })
+            }
+        }
+    })
+</script>
+
+</html>
