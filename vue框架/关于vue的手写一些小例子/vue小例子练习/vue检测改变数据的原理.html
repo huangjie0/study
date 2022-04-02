@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue框架/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>人员列表</h1>
+        <button @click='changeName'>点我更改黄杰</button>
+        <ul>
+            <li v-for='p in persons' :key='p.id'>
+                {{p.name}}-{{p.age}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    const vm = new Vue({
+        el:'#root',
+        data(){
+            return {
+                persons:[
+                    {id:'001',name:'黄杰',age:10},
+                    {id:'002',name:'黄几',age:20},
+                    {id:'003',name:'惶急',age:45},
+                    {id:'004',name:'黄杰',age:10},
+                    {id:'005',name:'黄化',age:20},
+                ],
+            }
+        },
+        methods: {
+            changeName(){
+                this.persons[0].name='黄小明'
+                this.persons[0].age=12
+            }
+        },
+    })
+</script>
+</html>

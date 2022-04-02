@@ -10,9 +10,9 @@
 <body>
     <div id="root">
         <input type="text" v-model='value' placeholder="点我搜索人名">
-        <button>年龄升序</button>
-        <button>年龄降序</button>
-        <button>年龄原顺序</button>
+        <button @click='sortType=2'>年龄升序</button>
+        <button @click='sortType=1'>年龄降序</button>
+        <button @click='sortType=0'>年龄原顺序</button>
         <ul>
             <li v-for='p in filter' :key='p.id'>
                 {{p.name}}-{{p.age}}
@@ -37,6 +37,7 @@
                     {id:'008',name:'黄化',age:20},
                     {id:'009',name:'惶急',age:45},
                 ],
+                sortType:0,//0代表原顺序，1是降序，2是升序
             }
         },
         // watch:{
@@ -51,9 +52,16 @@
         // }
         computed: {
             filter(){
-                return this.persons.filter((p)=>{
+                const arr = this.persons.filter((p)=>{
                     return p.name.indexOf(this.value)!==-1
                 })
+                //判断一下是否需要排序
+                if(this.sortType){
+                    arr.sort((p1,p2)=>{
+                        return this.sortType===1 ? p2.age-p1.age : p1.age-p2.age
+                    })
+                }
+                return arr
             }
         }
     })
