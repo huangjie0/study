@@ -64,6 +64,22 @@
             width: 50px;
             height: 50px;
         }
+        .img{
+            position: absolute;
+            top: 115px;
+            left: 10px;
+        }
+        .img1{
+            position: absolute;
+            top: 220px;
+            left: 10px;
+        }
+        .img2{
+            position: absolute;
+            top: 330px;
+            left: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -79,7 +95,6 @@
                 <div class="img2">
                     <img src="./img/111.jpg" alt="图片加载">
                 </div>
-
             </div>
             <div class="box2">
                 <ul class="ul1">
@@ -112,9 +127,7 @@
                 </ul>
             </div>
         </div>
-
     </div>
-    
 </body>
 <script>
     const vm = new Vue({
@@ -165,6 +178,7 @@
   ]
             }
         },
+        //解决方案用方法1
         // methods: {
         //     full(index){
         //         let sum = 0 ;
