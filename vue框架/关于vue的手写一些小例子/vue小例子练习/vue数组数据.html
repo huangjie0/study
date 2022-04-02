@@ -16,6 +16,9 @@
         <div>
           朋友姓名:{{friends.name}}-朋友年龄:{{friends.age}}-朋友学校:{{friends.school}}-朋友性别:{{friends.sex}}
         </div>
+        <ul>
+            <li v-for='item,index in friends.hobby' :key="index">{{item}}</li>
+        </ul>
     </div>
 </body>
 <script>
@@ -30,7 +33,9 @@
                  name:'张三',
                  age:25,
                  school:'徐州大学',
-             }   
+                 hobby:['抽烟','喝酒','烫头'] //调用vue提供的方法：pop,unshift,shift,push,splice,sort,reverse
+             },
+           
             }
         },
     })
