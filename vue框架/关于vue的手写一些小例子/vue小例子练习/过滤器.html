@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../../vue框架/vue.js"></script>
     <script src="../../vue框架/dayjs.min.js"></script>
@@ -11,10 +9,21 @@
 <body>
     <div id="root">
         <h2>显示格式化后的时间</h2>
-        <h3>现在是:{{fmtTime}}</h3>
+        <!-- 计算属性实现 -->
+        <!-- <h3>现在是:{{fmtTime}}</h3> -->
+        <!-- <h3>现在是:{{getFmtTime()}}</h3> -->
+        <h3>现在是:{{time | formatTime('YYYY-MM-DD HH:mm:ss') | mySlice}}</h3>
     </div> 
+    <div id="root1">
+        <h1>{{msg | mySlice}}</h1>
+    </div>
 </body>
 <script>
+    //对特定显示的数据进行格式化再显示，适用于简单的处理
+    Vue.filter('mySlice',function(value){
+        return value.slice(0,4)
+    })
+
     new Vue({
         el:'#root',
         data() {
@@ -22,11 +31,32 @@
                 time:1648950301607  
             }
         },
-        computed:{
-            fmtTime(){
-                return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+        // computed:{
+        //     fmtTime(){
+        //         return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+        //     }
+        // }
+        // methods: {
+        //     getFmtTime(){
+        //         return  dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+        //     }
+        // },
+        filters:{
+            formatTime(time,str){
+                return dayjs(time).format(str)
+            },
+            mySlice(value){
+                return value.slice(0,4)
             }
         }
+    })
+    new Vue({
+        el:'#root1',
+        data() {
+            return {
+                msg:'hello!'
+            }
+        },
     })
 </script>
 </html>
