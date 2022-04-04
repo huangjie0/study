@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../../vue框架/vue.js"></script>
 </head>
 <body>
     <div id="root">
-        <h1>{{msg}}</h1>
-        <hr>
+        <hello></hello><hr>
+        <h1>{{msg}}</h1><hr>
         <!-- 编写组件标签 -->
         <school></school>
         <hr>
         <student></student>
+    </div>
+    <div id="root1">
+        <hello></hello>
     </div>
 </body>
 <script>
@@ -39,6 +40,19 @@
             }
         },
     })
+    //创建hello组件
+    const hello = Vue.extend({
+        template:`
+        <div>
+            <h2>你好啊{{name}}</h2>    
+        </div>
+        `,
+        data() {
+            return {
+                name:'黄杰'
+            }
+        }
+    })
     //创建学生组件
     const student = Vue.extend({
         template:`
@@ -54,6 +68,8 @@
             }
         },
     })
+    //全局注册组件
+    Vue.component('hello',hello)
     const vm = new Vue({
         el:'#root',
         data() {
@@ -66,6 +82,11 @@
             school:school,
             student:student
         }
+    })
+
+  
+    const vm1=new Vue({
+        el:'#root1'
     })
 </script>
 </html>
