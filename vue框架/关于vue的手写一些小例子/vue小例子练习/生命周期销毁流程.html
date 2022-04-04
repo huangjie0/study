@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../vue框架/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h1>n的值是:{{n}}</h1>
+        <button @click='add()'>点我n++</button>
+        <button @click='bye'>点我销毁vm</button>
+    </div>
+    
+</body>
+<script>
+    new Vue({
+        el:'#root',
+        // template:`<div>
+        //     <h1>n的值是:{{n}}</h1>
+        //     <button @click='n++'>点我n++</button>
+        //     </div> `,
+        data() {
+            return {
+                n:1
+            }
+        },
+        methods: {
+            bye(){
+                console.log('bye')
+                this.$destroy()
+            },
+            add(){
+                this.n++
+            }
+        },
+        //无法通过vm访问data里面的数据和方法
+        beforeCreate() {
+            console.log('beforeCreate')
+        },
+        created() {
+            console.log('created')
+            // debugger
+        },
+        beforeMount() {
+            console.log('beforeMount')
+            // debugger
+        },
+        mounted() {
+            console.log('mounted')
+            // const h1 = document.querySelector('h1')
+            // h1.innerText='哈哈'
+        },
+        //页面与数据尚未保持一致
+        beforeUpdate() {
+            console.log(this.n)
+            // debugger
+        },
+        //页面与数据保持一致，同步
+        updated() {
+            console.log(this.n)
+        },
+        beforeDestroy() {
+            console.log('beforeDestroy')
+            this.add()
+        },
+        destroyed() {
+            console.log('destroy')
+        }
+    })
+</script>
+</html>
