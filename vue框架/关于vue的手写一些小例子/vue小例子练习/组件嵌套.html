@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="root">
-        <school></school>
+        
     </div>
 </body>
 <script>
@@ -44,7 +44,6 @@
             <h2>学校姓名:{{schoolName}}</h2>
             <h2>学校地址:{{schoolAddress}}</h2>
             <student></student>
-            <hello></hello>
         <div>
         `,
         data() {
@@ -55,14 +54,31 @@
         },
         components:{
             student:student,
-            hello:hello
         }   
     })
+    //定义app组件
+    const app = Vue.extend({
+        template:`
+        <div>
+            <school></school>
+            <hello></hello>    
+        </div>
+        `,
+        components:{
+            school,
+            hello
+        }
+    })
     const vm = new Vue({
+        template:`
+        <div>
+            <app></app>  
+        </div>
+        `,
         el:'#root',
         //注册组件
         components:{
-            school:school
+            app:app
         }
     })
 </script>
