@@ -2,25 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="../../../vue框架/vue.js"></script>
+    <title>dom第四题</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./dom第四题.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="root">
-        <div>
-            
+        <div class="box">
+            <p>To Do List</p>
+            <div class="box1">
+                <input type="text" class="input" placeholder="请输入任务" v-model="inputValue">
+                <button @click='add()'>Add</button>
+            </div>
         </div>
+        <ul>
+            <li v-for='item of arrList' :key='item.id' @click='changeColor(item)' :class='{gray:item.checked}'>{{item.val}}</li>
+        </ul>
     </div>
-    
 </body>
 <script>
     const vm = new Vue({
-        el:'root',
+        el:'#root',
         data() {
             return {
-                
+                arrList:[],
+                inputValue:'',
+            }
+        },
+        methods: {
+            add(){
+                this.arrList.push({
+                    val : this.inputValue,
+                    checked:false,
+                    id:Math.random()
+                })
+            },
+            changeColor(item){
+                this.arrList[item.id].checked = !this.arrList[item.id].checked
             }
         },
     })
