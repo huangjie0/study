@@ -18,7 +18,7 @@
         </div>
         <ul>
             <li v-for='item of arrList' :key='item.id' @click='changeColor(item)' :class='{gray:item.checked,fontcolor:item.checked}'>
-                <i class="fa fa-check"></i><i class="fa fa-close" @click='removeEle()'></i>{{item.val}}
+                <i class="fa fa-check"></i><i class="fa fa-close" @click='removeEle(item)'></i>{{item.val}}
             </li>
         </ul>
     </div>
@@ -50,7 +50,13 @@
                 this.arrList[index].checked=!this.arrList[index].checked
             },
             removeEle(item){
-                
+                var index;
+                this.arrList.forEach((ele,i)=>{
+                    if(ele.id === item.id){
+                        index = i
+                    }
+                })
+                this.arrList.splice(index, 1);
             }
 
         },
