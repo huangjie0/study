@@ -28,17 +28,28 @@
             line-height: 50px;
             font-size: 20px;
         }
+        .box{
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .box>img{
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
     <div id="root">
         <ul class="ul">
-            <li @click=''>鸭</li>
-            <li>花</li>
-            <li>恐龙</li>
+            <li @click='duck()'>风景一</li>
+            <li @click='flower()'>风景二</li>
+            <li @click='dinosaur()'>风景三</li>
         </ul>
-        <div>
-            <img :src="flag">
+        <div class="box">
+            <img :src="imgarr[index]" v-show="index==0">
+            <img :src="imgarr[index]" v-show="index==1">
+            <img :src="imgarr[index]"v-show="index==2">
         </div>
     </div>
 </body>
@@ -47,10 +58,22 @@
         el:'#root',
         data() {
             return {
-                list:['../vue项目/img/1.jpeg','../vue项目/img/2.jpeg','../vue项目/img/3.jpeg'],
-                flag:false
+                imgarr:['./img/1.jpeg','./img/2.jpeg','./img/3.jpeg'],
+                index:0
             }
         },
+        methods: {
+            duck(){
+                this.index=0
+            },
+            flower(){
+                this.index=1
+            },
+            dinosaur(){
+                this.index=2
+            }
+
+        }
     })
 </script>
 </html>

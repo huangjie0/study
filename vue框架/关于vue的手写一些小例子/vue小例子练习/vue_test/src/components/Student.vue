@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-    name:'Student',
+    name:'studentView',
     data() {
         return {
             StudentName:'黄杰',
