@@ -65,6 +65,14 @@ ul>li{
     background-color:#f3f3f3;
     color: #9c9c9c;
 }
+ul>li>.wrong{
+    width: 50px;
+    height: 30px;
+    float: right;
+    color: #9c9c9c;
+    text-align: center;
+    line-height: 30px;
+}
 li>.fa-check{
     width: 30px;
     height: 30px;
@@ -96,4 +104,7 @@ ul>div{
 }
 .gray{
     background-color: #9c9c9c;
+}
+.fontcolor{
+    color: white;
 }

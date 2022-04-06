@@ -17,7 +17,9 @@
             </div>
         </div>
         <ul>
-            <li v-for='item of arrList' :key='item.id' @click='changeColor(item)' :class='{gray:item.checked}'>{{item.val}}</li>
+            <li v-for='item of arrList' :key='item.id' @click='changeColor(item)' :class='{gray:item.checked,fontcolor:item.checked}'>
+                <i class="wrong fa fa-close" :class="{fontcolor:item.checked}" @click='remove(item)'></i>{{item.val}}
+            </li>
         </ul>
     </div>
 </body>
@@ -35,12 +37,22 @@
                 this.arrList.push({
                     val : this.inputValue,
                     checked:false,
-                    id:Math.random()
+                    id:Math.floor(Math.random()*1000)
                 })
             },
             changeColor(item){
-                this.arrList[item.id].checked = !this.arrList[item.id].checked
+                let index = 0;
+                this.arrList.forEach((ele,i)=>{
+                    if(ele.id === item.id){
+                        index = i
+                    }
+                })
+                this.arrList[index].checked=!this.arrList[index].checked
+            },
+            remove(item){
+                
             }
+
         },
     })
 </script>
