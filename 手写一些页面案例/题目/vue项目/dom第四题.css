@@ -65,39 +65,24 @@ ul>li{
     background-color:#f3f3f3;
     color: #9c9c9c;
 }
-ul>li>.wrong{
+ul{
+    width: 800px;
+    height: 30px;
+    margin: 0 auto;
+}
+li>i{
     width: 50px;
     height: 30px;
     float: right;
-    color: #9c9c9c;
     text-align: center;
     line-height: 30px;
 }
-li>.fa-check{
-    width: 30px;
+.fa-check{
+    width: 50px;
     height: 30px;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
     float: left;
-    
-}
-li>.fa-remove{
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    line-height: 30px;
     text-align: center;
-    float: right;
-}
-
-li>.fa-remove:hover{
-    background-color: #f4674c;
-    color: white;
-}
-ul>div{
-    width: 800px;
-    height: 30px;
+    line-height: 30px;
 }
 .hidden{
     display: none;
