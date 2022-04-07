@@ -1,17 +1,17 @@
 <template>
-    <div>
-        <School></School>
-        <Student></Student>
-    </div>
+  <div>
+      <Student name='黄杰' sex='男' :age='18'/>
+      <Student name='皇子' sex='女' :age='20'/>
+  </div>
 </template>
+
 <script>
-    import Student from '../src/components/School.vue'
-    import School  from '../src/components/Student.vue'
-    export default {
-        name:'App',
-        components:{
-            School,
-            Student
-        }
+//引入组件
+import Student from './components/Student.vue'
+export default {
+    name:'App',
+    components:{
+        Student
     }
+}
 </script>
