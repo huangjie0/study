@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 ul{
     width: 800px;
     height: 30px;

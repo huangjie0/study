@@ -20,7 +20,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .fa-check{
     width: 50px;
     height: 30px;
