@@ -21,4 +21,13 @@ ul{
     height: 30px;
     margin: 0 auto;
 }
+.hidden{
+    display: none;
+}
+.gray{
+    background-color: #9c9c9c;
+}
+.fontcolor{
+    color: white;
+}
 </style>

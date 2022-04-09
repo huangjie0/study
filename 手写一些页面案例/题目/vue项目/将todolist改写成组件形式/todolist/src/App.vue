@@ -47,12 +47,10 @@ export default {
             },
 
     },
-    
-
 }
 </script>
 
-<style>
+<style scoped>
 *{
     margin: 0;
     padding: 0;
@@ -75,13 +73,5 @@ export default {
     color: white;
     text-shadow: 2px 1px #cfcfcf;
 }
-.hidden{
-    display: none;
-}
-.gray{
-    background-color: #9c9c9c;
-}
-.fontcolor{
-    color: white;
-}
+
 </style>
