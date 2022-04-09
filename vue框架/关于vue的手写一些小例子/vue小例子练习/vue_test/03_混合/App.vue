@@ -1,7 +1,7 @@
 <template>
     <div>
-        <School></School>
         <Student></Student>
+        <School></School>
     </div>
 </template>
 <script>
