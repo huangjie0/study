@@ -1,7 +1,9 @@
 <template>
 <div>
       <button @click='isShow=!isShow'>显示与隐藏</button>
-      <h1 v-show='isShow' class="go">你好啊！</h1>
+      <transition name='hello' appear>
+          <h1 v-show='isShow' class="go">你好啊！</h1>
+      </transition>
 </div>
 
 </template>
@@ -20,10 +22,10 @@ export default {
 h1{
     background-color: orange;
 }
-.come{
+.hello-enter-active{
     animation: huangjie 1s;
 }
-.go{
+.hello-leave-active{
     animation: huangjie 1s reverse;
 }
 @keyframes huangjie {
