@@ -1,28 +1,16 @@
 <template>
-    <div class="app">
-        <h1>{{msg}}</h1>
-        <School></School>
-        <Student></Student>
+    <div>
+        <Test/>
     </div>
 </template>
 <script>
-    import Student from '../src/components/Student.vue'
-    import School  from '../src/components/School.vue'
+    import Test from '../src/components/Test.vue'
     export default {
         name:'App',
         components:{
-            School,
-            Student
-        },
-        data() {
-            return {
-                msg:'你好啊！',
-            }
+            Test
         }
     }
 </script>
 <style scoped>
-.app{
-    background-color: gray;
-}
 </style>
