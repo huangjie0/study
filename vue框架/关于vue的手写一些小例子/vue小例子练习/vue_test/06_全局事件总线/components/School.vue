@@ -12,15 +12,7 @@ export default {
             SchoolName:'淮南师范学院',
             address:'安徽淮南'
         }
-    },
-    methods: {
-        hello(msg){
-            console.log('我是School组件我收到了数据:',msg)
-        }
-    },
-    mounted() {
-        this.$bus.$on('hello',this.hello)
-    },
+    }
 }
 </script>
 <style scoped>

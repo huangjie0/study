@@ -2,6 +2,7 @@
     <div class="div1">
         <h2>学生姓名:{{StudentName}}</h2>
         <h2 @click='add()'>学生年龄:{{Age}}</h2>
+        <button @click='sendName'>把学生名给school组件</button>
     </div>
 </template>
 <script>
@@ -16,6 +17,9 @@ export default {
     methods: {
         add(){
             this.Age++
+        },
+        sendName(){
+            this.$bus.$emit('hello',this.StudentName)
         }
     },   
 }

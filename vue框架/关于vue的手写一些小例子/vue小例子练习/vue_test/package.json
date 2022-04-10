@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "pubsub-js": "^1.9.4",
     "vue": "^2.6.14"
   },
   "devDependencies": {
@@ -34,7 +35,9 @@
       "parser": "@babel/eslint-parser"
     },
     "rules": {
-      "vue/multi-word-component-names":["off"]
+      "vue/multi-word-component-names": [
+        "off"
+      ]
     }
   },
   "browserslist": [
