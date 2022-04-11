@@ -14,5 +14,5 @@ app.get('/student',(req,res)=>{
     res.send(student)
 })
 app.listen(5000,(err)=>{
-    if(!err)console.log('服务器1启动成功，请求学生信息地址为:http://localhost:5000')
+    if(!err)console.log('服务器1启动成功，请求学生信息地址为:http://localhost:5000/student')
 })

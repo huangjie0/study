@@ -1,18 +1,22 @@
 <template>
     <div>
-        <Test/>
-        <Test2/>
+        <button @click='getStudents'>获取学生信息</button>
     </div>
 </template>
 <script>
-    import Test from '../src/components/Test.vue'
-    import Test2 from '../src/components/Test2.vue'
+    import axios from 'axios'
     export default {
         name:'App',
-        components:{
-            Test,
-            Test2
-        }
+        methods: {
+            getStudents(){
+                axios.get('http://localhost:8080/api/student').then(
+                    response=>{
+                        console.log('请求成功',response.data)
+                    },
+                    error=>{console.log('失败',error.message)}
+                )
+            }
+        },
     }
 </script>
 <style scoped>
