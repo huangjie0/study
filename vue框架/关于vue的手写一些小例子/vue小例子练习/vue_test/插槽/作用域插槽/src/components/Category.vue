@@ -15,7 +15,6 @@ export default {
             games:['qq飞车','lol','cf','超级玛丽']
         }
     },
-
 }
 </script>
 
