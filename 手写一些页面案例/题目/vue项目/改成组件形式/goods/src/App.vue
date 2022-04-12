@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   *{
       margin: 0;
       padding: 0;
@@ -104,5 +104,4 @@ export default {
   .fa-thumbs-o-up{
     color: red;
   }
- 
 </style>
