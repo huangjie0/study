@@ -7,12 +7,16 @@ import Vue from 'vue'
 Vue.use(Vuex)
 //准备actions用于相应组件中的动作
 const actions={
-    jia(context,value){
-       context.commit('jia',value)
+    incrementOdd(context,value){
+        if(context.state.sum%2){
+            context.commit('jia',value) 
+        }
     },
-    jian(context,value){
-        context.commit('jian',value)
-     }
+    incrementWait(context,value){
+        setTimeout(()=>{
+            context.commit('jia',value)
+        },500)
+    }
 }
 //准备mutations,用于加工操作数据
 const mutations={
@@ -25,11 +29,20 @@ const mutations={
 }
 //准备state,存储数据
 const state={
-    sum:0
+    sum:0,
+    school:'淮南师范学院',
+    subject:'前端'
+}
+//准备getters用于将state数据进行加工
+const getters={
+    bigSum(state){
+        return state.sum*10
+    }
 }
 //导出store
 export default new Vuex.Store({
     actions,
     mutations,
-    state
+    state,
+    getters
 })

@@ -1,6 +1,8 @@
 <template>
 <div>
     <h1>当前求和为：{{$store.state.sum}}</h1>
+    <h3>当前求和放大10倍后为：{{$store.getters.bigSum}}</h3>
+    <h3>我在{{$store.state.school}},学习{{$store.state.subject}}</h3>
     <select v-model.number="n">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -24,25 +26,16 @@ export default {
     },
     methods: {
         increment(){
-            this.$store.dispatch('jia',this.n)
+            this.$store.commit('jia',this.n)
         },
         decrement(){
-            this.$store.dispatch('jian',this.n)
-
-
+            this.$store.commit('jian',this.n)
         },
         incrementOdd(){
-            if(this.$store.state.sum%2){
-                this.$store.dispatch('jia',this.n)
-            }
-        
-
+            this.$store.dispatch('incrementOdd',this.n)
         },
         incrementWait(){
-            setTimeout(()=>{
-            this.$store.dispatch('jia',this.n)
-            },500)
-
+            this.$store.dispatch('incrementWait',this.n)
         }
     },
 }
