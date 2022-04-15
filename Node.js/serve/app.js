@@ -41,16 +41,7 @@ app.use(async (ctx, next) => {
   const ms = new Date() - start
   console.log(`${ctx.method} ${ctx.url} - $ms`)
 })
-
-router.get('/', async (ctx, next) => {
-  // console.log(ctx.request.query);
-  // ctx.body = 'Hello World'
-  ctx.state = {
-    title: 'Koa2'
-  }
-  await ctx.render('index', ctx.state)
-})
-router.get('/user', async (ctx, next) => {
+router.get('/test', async (ctx, next) => {
   // console.log(ctx.request.query);
   // ctx.body = 'Hello World'
   ctx.state = {
@@ -58,32 +49,17 @@ router.get('/user', async (ctx, next) => {
   }
   await ctx.render('index', ctx.state)
   //收到query参数，将对象解构
-  // const {username}=ctx.request.query
-  // console.log(username)
-  console.log(ctx.request.query)
-  const{username}=ctx.request.query
-  console.log(username)
-})
-router.post('/user', async (ctx, next) => {
-  // console.log(ctx.request.query);
-  // ctx.body = 'Hello World'
-  ctx.state = {
-    title: 'Koa2'
+  const {username,password}=ctx.request.query
+  if(username==='huangjie'&&password==='123456'){
+    ctx.response.body={
+      message:'注册成功'
+    }
+  }else{
+    ctx.response.body={
+      message:'注册失败'
+    }
   }
-  await ctx.render('index', ctx.state)
-  //收到query参数，将对象解构
-  // const {username}=ctx.request.query
-  // console.log(username)
-  // console.log(ctx.request.query)
-  // const{username}=ctx.request.body
-  // console.log(username)
-  ctx.response.body={}
 })
-
-
-
-
-
 routes(router)
 app.on('error', function(err, ctx) {
   console.log(err)
