@@ -1,10 +1,9 @@
 <template>
 <div>
   <Header></Header>
-  <span>我是根组件</span>
-  <Footer></Footer>
+  <router-view></router-view>
+  <Footer v-show="$route.meta.show"></Footer>
 </div>
-
 </template>
 
 <script>
