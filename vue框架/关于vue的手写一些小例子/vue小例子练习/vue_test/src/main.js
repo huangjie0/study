@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import App from './App.vue';
+import VueRouter from 'vue-router'
+import router from './router/index'
 
 Vue.config.productionTip = false
-//引入store
-import store from './store/index'
+//使用路由
+Vue.use(VueRouter)
 
 const vm = new Vue({
   render: h => h(App),
-  store
+  router:router
 }).$mount('#app')
