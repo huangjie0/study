@@ -6,7 +6,16 @@ import Home from '@/pages/Home'
 import Search from '@/pages/Search'
 import Login from '@/pages/Login'
 import Register from '@/pages/Register'
-
+//重写push方法
+let originPush = VueRouter.prototype.push
+//告诉往哪里跳，传递哪些参数
+VueRouter.prototype.push = function(location,resolve,reject){
+    if(resolve&&reject){
+        originPush.call(this,location,resolve,reject)
+    }else{
+        originPush.call(this,location,()=>{},()=>{})
+    }
+}
 export default new VueRouter({
     //配置路由
     routes:[
@@ -18,7 +27,7 @@ export default new VueRouter({
             }
         },
         {
-            path:'/search/:keyword',
+            path:'/search/:keyword?',
             component:Search,
             meta:{
                 show:true
