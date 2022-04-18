@@ -1,0 +1,20 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+ul{
+  width: 200px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+li{
+  list-style: none;
+  width: 200px;
+  height: 100px;
+  background-color: rgb(1, 255, 255);
+  text-align: center;
+  line-height: 100px;
+  font-size: 20px;
+}

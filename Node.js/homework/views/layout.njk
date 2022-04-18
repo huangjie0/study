@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name='viewport' content='width=device-width'>
+    <title>{{ title }}</title>
+    <link rel='stylesheet', href='/css/style.css'>
+</head>
+<body>
+{% block content %}
+{% endblock %}
+<ul>
+{% for item in foods %}
+    <li>
+    {% if item.available %}
+    可以点购:{{item.name}}
+    {% else %}
+    不可以点购:{{item.name}}
+    {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
