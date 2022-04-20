@@ -13,20 +13,20 @@
         <a href="###">秒杀</a>
       </nav>
       <div class="sort">
-        <div class="all-sort-list2">
+        <div class="all-sort-list2" @click="goSearch">
           <div class="item" v-for="(c1,index) in categoryList" :key="c1.categoryId" :class="{cur:currentIndex==index}">
             <h3 @mouseenter="changeIndex(index)" @mouseleave="leaveIndex">
-              <a href="">{{c1.categoryName}}</a>
+              <a>{{c1.categoryName}}</a>
             </h3>
             <div class="item-list clearfix">
               <div class="subitem" v-for="(c2,index) in c1.categoryChild" :key="c2.categoryId">
                 <dl class="fore">
                   <dt>
-                    <a href="">{{c2.categoryName}}</a>
+                    <a>{{c2.categoryName}}</a>
                   </dt>
                   <dd>
                     <em v-for="(c3,index) in c2.categoryChild" :key="c3.categoryId">
-                      <a href="">{{c3.categoryName}}</a>
+                      <a>{{c3.categoryName}}</a>
                     </em>
                   </dd>
                 </dl>
@@ -55,6 +55,9 @@ export default {
     },50),
     leaveIndex(){
       this.currentIndex=-1
+    },
+    goSearch(){
+      this.$router.push('/search')
     }
   },
   mounted() {
