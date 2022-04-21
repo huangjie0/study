@@ -12,21 +12,21 @@
         <a href="###">有趣</a>
         <a href="###">秒杀</a>
       </nav>
-      <div class="sort">
+      <div class="sort" v-show="show">
         <div class="all-sort-list2" @click="goSearch">
           <div class="item" v-for="(c1,index) in categoryList" :key="c1.categoryId" :class="{cur:currentIndex==index}">
             <h3 @mouseenter="changeIndex(index)" @mouseleave="leaveIndex">
-              <a>{{c1.categoryName}}</a>
+              <a :data-categoryName="c1.categoryName" :data-category1Id="c1.categoryId">{{c1.categoryName}}</a>
             </h3>
             <div class="item-list clearfix">
               <div class="subitem" v-for="(c2,index) in c1.categoryChild" :key="c2.categoryId">
                 <dl class="fore">
                   <dt>
-                    <a>{{c2.categoryName}}</a>
+                    <a :data-categoryName="c2.categoryName" :data-category2Id="c2.categoryId">{{c2.categoryName}}</a>
                   </dt>
                   <dd>
                     <em v-for="(c3,index) in c2.categoryChild" :key="c3.categoryId">
-                      <a>{{c3.categoryName}}</a>
+                      <a :data-categoryName="c3.categoryName" :data-category3Id="c3.categoryId">{{c3.categoryName}}</a>
                     </em>
                   </dd>
                 </dl>
@@ -46,7 +46,8 @@ export default {
   name: "TypeNav",
   data() {
     return {
-      currentIndex : -1
+      currentIndex : -1,
+      show:true
     }
   },
   methods: {
@@ -56,13 +57,34 @@ export default {
     leaveIndex(){
       this.currentIndex=-1
     },
-    goSearch(){
-      this.$router.push('/search')
+    goSearch(e){
+      let element = e.target;
+      let {categoryname,category1id,category2id,category3id}=element.dataset
+      if(categoryname){
+        //区分二级三级分类
+        //整理路由跳转参数
+        let location = {name:'search'};
+        let query = {categoryName:categoryname}
+        if(category1id){
+          query.category1Id=category1id
+        }else if(category2id){
+          query.category2Id=category2id
+
+        }else{
+          query.category3Id=category3id
+        }
+        location.query=query
+        this.$router.push(location)
+      }
     }
   },
   mounted() {
     // 通知vuex发请求存储仓库当中
     this.$store.dispatch('categoryList');
+    //如果不是home组件将其隐藏
+    if(this.$route.path!='/home'){
+      this.show=false
+    }
   },
   computed:{
     ...mapState({

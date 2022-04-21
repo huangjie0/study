@@ -87,15 +87,6 @@ router.get('/userinfo',async(ctx)=>{
   ctx.state=data
 await ctx.render('index',ctx.state)
 })
-
-
-
-
-
-
-
-
-
 // * 用户名检测
 router.get('/checkName',(ctx)=>{
   const { username } = ctx.request.query;
