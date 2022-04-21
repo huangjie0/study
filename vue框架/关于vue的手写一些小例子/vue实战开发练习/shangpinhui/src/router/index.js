@@ -17,6 +17,7 @@ VueRouter.prototype.push = function(location,resolve,reject){
     }
 }
 export default new VueRouter({
+    mode: 'history',
     //配置路由
     routes:[
         {
@@ -27,7 +28,7 @@ export default new VueRouter({
             }
         },
         {
-            path:'/search',
+            path:'/search/:keyword',
             component:Search,
             meta:{
                 show:true

@@ -14,10 +14,13 @@ export default {
   components:{
     Header,
     Footer
-  }
+  },
+  mounted() {
+        // 通知vuex发请求存储仓库当中
+    this.$store.dispatch('categoryList');
+  },
 }
 </script>
 
 <style>
-
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="type-nav">
-    <div class="container">
+    <div class="container" @mouseenter="enterShow" @mouseleave="leaveShow">
       <h2 class="all">全部商品分类</h2>
       <nav class="nav">
         <a href="###">服装城</a>
@@ -12,29 +12,31 @@
         <a href="###">有趣</a>
         <a href="###">秒杀</a>
       </nav>
-      <div class="sort" v-show="show">
-        <div class="all-sort-list2" @click="goSearch">
-          <div class="item" v-for="(c1,index) in categoryList" :key="c1.categoryId" :class="{cur:currentIndex==index}">
-            <h3 @mouseenter="changeIndex(index)" @mouseleave="leaveIndex">
-              <a :data-categoryName="c1.categoryName" :data-category1Id="c1.categoryId">{{c1.categoryName}}</a>
-            </h3>
-            <div class="item-list clearfix">
-              <div class="subitem" v-for="(c2,index) in c1.categoryChild" :key="c2.categoryId">
-                <dl class="fore">
-                  <dt>
-                    <a :data-categoryName="c2.categoryName" :data-category2Id="c2.categoryId">{{c2.categoryName}}</a>
-                  </dt>
-                  <dd>
-                    <em v-for="(c3,index) in c2.categoryChild" :key="c3.categoryId">
-                      <a :data-categoryName="c3.categoryName" :data-category3Id="c3.categoryId">{{c3.categoryName}}</a>
-                    </em>
-                  </dd>
-                </dl>
+      <transition name="sort">
+        <div class="sort" v-show="show">
+          <div class="all-sort-list2" @click="goSearch">
+            <div class="item" v-for="(c1,index) in categoryList" :key="c1.categoryId" :class="{cur:currentIndex==index}">
+              <h3 @mouseenter="changeIndex(index)" @mouseleave="leaveIndex">
+                <a :data-categoryName="c1.categoryName" :data-category1Id="c1.categoryId">{{c1.categoryName}}</a>
+              </h3>
+              <div class="item-list clearfix">
+                <div class="subitem" v-for="(c2,index) in c1.categoryChild" :key="c2.categoryId">
+                  <dl class="fore">
+                    <dt>
+                      <a :data-categoryName="c2.categoryName" :data-category2Id="c2.categoryId">{{c2.categoryName}}</a>
+                    </dt>
+                    <dd>
+                      <em v-for="(c3,index) in c2.categoryChild" :key="c3.categoryId">
+                        <a :data-categoryName="c3.categoryName" :data-category3Id="c3.categoryId">{{c3.categoryName}}</a>
+                      </em>
+                    </dd>
+                  </dl>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -51,6 +53,14 @@ export default {
     }
   },
   methods: {
+    enterShow(){
+      this.show=true
+    },
+    leaveShow(){
+      if(this.$route.path!='/home'){
+          this.show=false
+      }
+    },
     changeIndex:throttle(function(index){
       this.currentIndex = index
     },50),
@@ -73,14 +83,16 @@ export default {
         }else{
           query.category3Id=category3id
         }
-        location.query=query
-        this.$router.push(location)
+        //如果有params参数，也要传递过去
+        if(this.$route.params){
+          location.params=this.$route.params
+          location.query=query
+          this.$router.push(location)
+        }
       }
     }
   },
   mounted() {
-    // 通知vuex发请求存储仓库当中
-    this.$store.dispatch('categoryList');
     //如果不是home组件将其隐藏
     if(this.$route.path!='/home'){
       this.show=false
@@ -214,6 +226,17 @@ export default {
           background: skyblue;
         }
       }
+    }
+    //过度动画的样式
+    .sort-enter{
+      height: 0;
+    }
+    //结束状态
+    .sort-enter-to{
+      height: 461px;
+    }
+    .sort-enter-active{
+      transition: all 0.5s linear;
     }
   }
 }

@@ -14,6 +14,7 @@ const actions={
     //通过api里面的接口函数调用向服务器发请求
     async categoryList({commit}){
         let result = await reqCategoryList()
+        console.log('result: ', result);
         if(result.code==200){
             commit("CATEGORYLIST",result.data)
         }
