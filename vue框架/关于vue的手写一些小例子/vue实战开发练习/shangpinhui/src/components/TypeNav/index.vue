@@ -85,7 +85,7 @@ export default {
         }
         //如果有params参数，也要传递过去
         if(this.$route.params){
-          location.params=this.$route.params
+          location.params= { keyword : category3id }
           location.query=query
           this.$router.push(location)
         }

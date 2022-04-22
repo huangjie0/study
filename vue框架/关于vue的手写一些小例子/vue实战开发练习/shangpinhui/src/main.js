@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from '@/router/index'
 import TypeNav from '@/components/TypeNav'
-import {reqCategoryList} from '@/api'
 import store from '@/store/index'
 
 Vue.component(TypeNav.name,TypeNav);
