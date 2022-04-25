@@ -17,10 +17,8 @@
             <li class="with-x">OPPO<i>×</i></li>
           </ul>
         </div>
-
         <!--selector-->
         <SearchSelector />
-
         <!--details-->
         <div class="details clearfix">
           <div class="sui-navbar">
@@ -327,12 +325,20 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
   import SearchSelector from './SearchSelector/SearchSelector'
   export default {
     name: 'Search',
-
+    mounted(){
+      this.$store.dispatch('getSearchList');
+    },
     components: {
       SearchSelector
+    },
+    computed:{
+      ...mapState({
+        searchlist:state=>state.search.searchlist
+      })
     }
   }
 </script>

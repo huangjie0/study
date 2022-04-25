@@ -4,8 +4,9 @@ import mockRequire from './mockAjax'
 //三级联动接口
 // /api/product/getBaseCategoryList  get请求   无参数
 export const reqCategoryList = ()=>requests({url:'/product/getBaseCategoryList',method:'get'});
+//获取search模块数据
+export const reqSearchList = ()=>requests({url:'/list',method:'post',params:[]});
 //获取banner数据
 export const reqGetbannerList=()=>mockRequire.get('/banner');
 //获取floor数据
-export const reqGetfloorList=()=>mockRequire.get('/floor')
-
+export const reqGetfloorList=()=>mockRequire.get('/floor');
