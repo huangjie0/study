@@ -10,7 +10,7 @@ const mutations={
     }
 };
 const getters={
-    
+
 };
 const actions={
     async getSearchList({commit},params={}){
