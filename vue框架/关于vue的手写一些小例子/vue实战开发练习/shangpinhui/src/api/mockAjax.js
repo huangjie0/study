@@ -9,7 +9,7 @@ import "nprogress/nprogress.css"
 const requests = axios.create({
     //配置对象
     //接口中，路径都带有api不用手写了
-    baseURL:"/api",
+    baseURL:"/mock",
     //代表请求超时时间
     timeout:5000
 })

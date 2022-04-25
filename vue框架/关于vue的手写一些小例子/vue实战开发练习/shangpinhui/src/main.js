@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from '@/router/index'
 import TypeNav from '@/components/TypeNav'
 import store from '@/store/index'
-
+import '@/mock/mockServer'
 Vue.component(TypeNav.name,TypeNav);
 Vue.config.productionTip = false
 new Vue({

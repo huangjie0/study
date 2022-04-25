@@ -7,6 +7,8 @@ module.exports = defineConfig({
     proxy: {
       '/api': {
         target: 'http://39.98.123.211',
+        //配置是否可以跨域
+        changeOrigin:true
       }
     }
   }
