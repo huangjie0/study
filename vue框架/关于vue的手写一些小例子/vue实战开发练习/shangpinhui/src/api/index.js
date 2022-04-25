@@ -5,7 +5,7 @@ import mockRequire from './mockAjax'
 // /api/product/getBaseCategoryList  get请求   无参数
 export const reqCategoryList = ()=>requests({url:'/product/getBaseCategoryList',method:'get'});
 //获取search模块数据
-export const reqSearchList = ()=>requests({url:'/list',method:'post',params:[]});
+export const reqSearchList = (params)=>requests({url:'/list',method:'post',data:params});
 //获取banner数据
 export const reqGetbannerList=()=>mockRequire.get('/banner');
 //获取floor数据
