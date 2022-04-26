@@ -11,10 +11,7 @@
             </li>
           </ul>
           <ul class="fl sui-tag">
-            <li class="with-x">手机</li>
-            <li class="with-x">iphone<i>×</i></li>
-            <li class="with-x">华为<i>×</i></li>
-            <li class="with-x">OPPO<i>×</i></li>
+            <li class="with-x" v-if="searchParams.categoryName">{{searchParams.categoryName}}<i @click="removeCategoryName">×</i></li>
           </ul>
         </div>
         <!--selector-->
@@ -154,6 +151,10 @@
       //向服务器发请求获取不同的参数
       getData(){
           this.$store.dispatch('getSearchList');
+      },
+        removeCategoryName(){
+          //清空里面的参数，让v-for变为false不展示
+          searchParams.categoryName=''
       }
     },
     //监听组件身上值发生变化
@@ -165,6 +166,10 @@
         Object.assign(this.searchParams,this.$route.query,this.$route.params)
         //再次发起ajax请求
         this.getData();
+        //每一次请求完毕应该清楚完毕，置空数据，接受下一次数据
+        this.searchParams.category1Id='',
+        this.searchParams.category2Id='',
+        this.searchParams.category3Id=''
       }
     }
   }
