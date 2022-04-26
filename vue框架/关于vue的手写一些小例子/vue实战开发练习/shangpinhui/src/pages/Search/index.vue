@@ -152,9 +152,14 @@
       getData(){
           this.$store.dispatch('getSearchList');
       },
-        removeCategoryName(){
-          //清空里面的参数，让v-for变为false不展示
-          searchParams.categoryName=''
+      removeCategoryName(){
+        //清空里面的参数，让v-for变为false不展示
+        this.searchParams.categoryName=undefined;
+        //重新发请求
+        this.searchParams.category1Id=undefined,
+        this.searchParams.category2Id=undefined,
+        this.searchParams.category3Id=undefined,
+        this.getData();
       }
     },
     //监听组件身上值发生变化
@@ -167,9 +172,9 @@
         //再次发起ajax请求
         this.getData();
         //每一次请求完毕应该清楚完毕，置空数据，接受下一次数据
-        this.searchParams.category1Id='',
-        this.searchParams.category2Id='',
-        this.searchParams.category3Id=''
+        this.searchParams.category1Id=undefined,
+        this.searchParams.category2Id=undefined,
+        this.searchParams.category3Id=undefined
       }
     }
   }
