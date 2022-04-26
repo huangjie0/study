@@ -153,9 +153,20 @@
     methods: {
       //向服务器发请求获取不同的参数
       getData(){
-          this.$store.dispatch('getSearchList',);
+          this.$store.dispatch('getSearchList');
       }
     },
+    //监听组件身上值发生变化
+    watch:{
+      //监听属性,监听路由的信息
+      $route(newval,oldval){
+        //再次发请求之前整理服务器的参数
+        //进行合并参数
+        Object.assign(this.searchParams,this.$route.query,this.$route.params)
+        //再次发起ajax请求
+        this.getData();
+      }
+    }
   }
 </script>
 
