@@ -55,12 +55,11 @@
                   <div class="price">
                     <strong>
                       <em>¥</em>
-                      <i>6088.00</i>
+                      <i>{{goods.price}}.00</i>
                     </strong>
                   </div>
                   <div class="attr">
-                    <a target="_blank" href="item.html" title="促销信息，下单即赠送三个月CIBN视频会员卡！【小米电视新品4A 58 火爆预约中】">Apple苹果iPhone
-                      6s (A1699)Apple苹果iPhone 6s (A1699)Apple苹果iPhone 6s (A1699)Apple苹果iPhone 6s (A1699)</a>
+                    <a target="_blank" href="item.html" title="促销信息，下单即赠送三个月CIBN视频会员卡！【小米电视新品4A 58 火爆预约中】">{{goods.title}}</a>
                   </div>
                   <div class="commit">
                     <i class="command">已有<span>2000</span>人评价</i>
@@ -113,8 +112,35 @@
   import SearchSelector from './SearchSelector/SearchSelector'
   export default {
     name: 'Search',
+    data() {
+      return {
+        searchParams:{
+          "category1Id": "",
+          "category2Id": "",
+          "category3Id": "",
+          "categoryName": "",
+          "keyword": "",
+          "order": "",
+          "pageNo": 1,
+          "pageSize": 3,
+          "props": [],
+          "trademark": ""
+        }
+      }
+    },
+    //组件挂在完毕执行一次
+    beforeMount (){
+      //复杂写法
+      // this.searchParams.category1Id=this.$route.query.category1Id
+      // this.searchParams.category2Id=this.$route.query.category2Id
+      // this.searchParams.category3Id=this.$route.query.category3Id
+      // this.searchParams.categoryName=this.$route.query.categoryName
+      // this.searchParams.keyword=this.$route.query.keyword
+      Object.assign(this.searchParams,this.$route.query,this.$route.params)
+    },
     mounted(){
-      this.$store.dispatch('getSearchList');
+      //发请求之前带参数发给服务器
+      this.getData()
     },
     components: {
       SearchSelector
@@ -123,7 +149,13 @@
       ...mapState({
         goodslist:state=>state.search.searchlist.goodsList
       })
-    }
+    },
+    methods: {
+      //向服务器发请求获取不同的参数
+      getData(){
+          this.$store.dispatch('getSearchList',);
+      }
+    },
   }
 </script>
 
