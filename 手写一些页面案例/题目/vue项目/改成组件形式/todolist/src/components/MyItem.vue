@@ -15,7 +15,6 @@ export default {
         change(){
             this.changeColor(this.id)
         }
-
     },
 }
 </script>

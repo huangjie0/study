@@ -20,11 +20,10 @@ export default {
             //将用户的输入包装成一个对象
             const arrList = {id:nanoid(),val:this.inputValue,checked:false}
             this.addTodo(arrList)
-            this.inputValue=''
+            this.inputValue='';
         }
     },
     props:['addTodo']
-
 }
 </script>
 

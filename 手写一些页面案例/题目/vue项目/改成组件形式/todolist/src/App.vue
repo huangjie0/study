@@ -14,18 +14,18 @@ import MyList from './components/MyList.vue'
 export default {
     name:'App',
     components:{MyHeader,MyList},
-   data () {
+    data () {
         return {
-            arrList:[
-                {id:'001',val:'吃饭',checked:false},
-                {id:'002',val:'敲代码',checked:false},
-                {id:'003',val:'睡觉',checked:false},
-            ]
+            arrList:[]
         }
+    },
+    mounted(){
+        this.arrList = JSON.parse(localStorage.getItem('value')) || []
     },
     methods: {
         addTodo(todoObj){
             this.arrList.push(todoObj)
+            localStorage.setItem('value',JSON.stringify(this.arrList));
         },
         remove(id){
             var index
@@ -45,7 +45,6 @@ export default {
                 })
                 this.arrList[index].checked=!this.arrList[index].checked
             },
-
     },
 }
 </script>
