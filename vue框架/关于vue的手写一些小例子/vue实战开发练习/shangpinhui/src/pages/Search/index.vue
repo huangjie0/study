@@ -128,11 +128,6 @@
     //组件挂在完毕执行一次
     beforeMount (){
       //复杂写法
-      // this.searchParams.category1Id=this.$route.query.category1Id
-      // this.searchParams.category2Id=this.$route.query.category2Id
-      // this.searchParams.category3Id=this.$route.query.category3Id
-      // this.searchParams.categoryName=this.$route.query.categoryName
-      // this.searchParams.keyword=this.$route.query.keyword
       Object.assign(this.searchParams,this.$route.query,this.$route.params)
     },
     mounted(){
