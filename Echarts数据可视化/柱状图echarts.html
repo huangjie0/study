@@ -5,8 +5,8 @@
     <title>Document</title>
     <style>
         div{
-            width: 800px;
-            height: 400px;
+            width: 1000px;
+            height:500px;
             margin: 0 auto;
         }
         
@@ -27,7 +27,10 @@
     var mCharts = echarts.init(document.querySelector('div'));
     //配置对象
     var xDataArr=['小明','小红','小李','茅台','大强','黄杰','猪油'];
+    //语文成绩
     var yDataArr=[10,20,50,40,80,70,80];
+    //数学成绩
+    var yDataArr1=[80,50,70,30,50,60,70];
     //配置对象
     var option = {
         //标题配置
@@ -113,6 +116,38 @@
                 },
                 //宽度
                 barWidth:'50%'
+            },
+            {
+                name:'数学',
+                type:'bar',
+                data:yDataArr1,
+                //标记语言
+                markPoint:{
+                    data:[
+                        {
+                            type:'max',
+                            name:'最大值'
+                        },{
+                            type:'min',
+                            name:'最小值'
+                        }
+                    ]
+                },
+                markLine:{
+                    data:[{
+                        type:'average',
+                        name:'平均值'
+                    }]
+                },
+                //在图上显示数据
+                label:{
+                    show:true,
+                    //旋转
+                    rotate:-30,
+                    position:'inside'
+                },
+                //宽度
+                barWidth:'30%'
             }
         ]
     }
