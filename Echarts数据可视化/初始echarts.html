@@ -9,6 +9,7 @@
             height: 400px;
             margin: 0 auto;
         }
+        
     </style>
     <script src="./echarts.min.js"></script>
         <!-- 引入文件
@@ -18,8 +19,7 @@
         将配置对象给实例化对象 -->
 </head>
 <body>
-    <div>
-    </div>
+    <div></div>
 </body>
 <script>
     //参数dom元素
@@ -30,6 +30,50 @@
     var yDataArr=[10,20,50,40,80,70,80];
     //配置对象
     var option = {
+        //标题配置
+        title:{
+            //文本内容
+            text:"成绩",
+            //边框宽度
+            borderWidth:5,
+            textStyle:{
+                color:'blue'
+            },
+            borderColor:'green',
+            borderRadius:5,
+            left:50,
+            top:10
+        },
+        //鼠标滑过提示
+        tooltip:{
+            show:true,
+            // trigger:'item',
+            trigger:'axis',
+            position: function(p) { //其中p为当前鼠标的位置
+                return [p[0] + 10, p[1]];
+            },
+            extraCssText: 'width:160px;height:50px;',
+            formatter: "{a} <br/>{b}:{c}", 
+            triggerOn:'click',
+            //格式化内容
+            // formatter:'{b}的成绩是{c}'
+            formatter:function(arg){
+                //靠返回值提示
+                return arg[0].name + '的分数是:'+arg[0].data 
+            }
+        },
+        toolbox:{
+            //导出图片
+            feature:{
+                saveAsImage:{},//导出图片功能
+                dataView:{},//数据视图
+                restore:{},//开启重置的功能
+                dataZoom:{},//区域缩放
+                magicType:{
+                    type:['bar','line']//动态图标切换
+                }
+            }
+        },
         xAxis:{
             type:'category',
             data:xDataArr
@@ -42,6 +86,7 @@
                 name:'语文',
                 type:'bar',
                 data:yDataArr,
+                //标记语言
                 markPoint:{
                     data:[
                         {
@@ -52,7 +97,22 @@
                             name:'最小值'
                         }
                     ]
-                }
+                },
+                markLine:{
+                    data:[{
+                        type:'average',
+                        name:'平均值'
+                    }]
+                },
+                //在图上显示数据
+                label:{
+                    show:true,
+                    //旋转
+                    rotate:-30,
+                    position:'inside'
+                },
+                //宽度
+                barWidth:'50%'
             }
         ]
     }
