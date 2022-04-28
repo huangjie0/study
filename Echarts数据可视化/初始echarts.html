@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 800px;
+            height: 400px;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="./echarts.min.js"></script>
+        <!-- 引入文件
+        准备盒子
+        初始化实例化对象
+        准备配置项
+        将配置对象给实例化对象 -->
+</head>
+<body>
+    <div>
+    </div>
+</body>
+<script>
+    //参数dom元素
+    //初始化实例对象
+    var mCharts = echarts.init(document.querySelector('div'));
+    //配置对象
+    var xDataArr=['小明','小红','小李','茅台','大强','黄杰','猪油'];
+    var yDataArr=[10,20,50,40,80,70,80];
+    //配置对象
+    var option = {
+        xAxis:{
+            type:'category',
+            data:xDataArr
+        },
+        yAxis:{
+            type:'value',
+        },
+        series:[
+            {
+                name:'语文',
+                type:'bar',
+                data:yDataArr,
+                markPoint:{
+                    data:[
+                        {
+                            type:'max',
+                            name:'最大值'
+                        },{
+                            type:'min',
+                            name:'最小值'
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    //设置配置对象
+    mCharts.setOption(option)
+</script>
+</html>
