@@ -4,6 +4,7 @@ import TodoList from '../views/TodoList.vue'
 import Unfinished from '../views/Unfinished.vue'
 import Finished from '../views/Finished.vue'
 import All from '../views/All.vue'
+import Login from '../views/Login.vue'
 Vue.use(VueRouter);
 
 //重写底层代码
@@ -12,12 +13,17 @@ VueRouter.prototype.push = function push(location){
 return originalPush.call(this, location).catch(err => err)
 }
 
-export default new VueRouter({
+const routers = new VueRouter({
     mode:'history',
     routes:[
         {
             path:'/',
-            component:TodoList
+            component:Login
+        },
+        {
+            path:'/login',
+            component:Login,
+            name:'login'
         },
         {
             path:'/todolist',
@@ -43,3 +49,18 @@ export default new VueRouter({
         }
     ]
 })
+routers.beforeEach((to,from,next)=>{
+    if(to.path!=='/login'){
+        const user = window.localStorage.getItem('user')
+        if(user){
+            next()
+        }else{
+            next('/login')
+        }
+    }else{
+        next()
+    }
+})
+
+
+export default routers

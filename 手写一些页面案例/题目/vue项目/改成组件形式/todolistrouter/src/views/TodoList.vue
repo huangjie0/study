@@ -9,13 +9,13 @@
         <div class="common_4">
             <div class="common_5">
                 <div class="unfinished" @click="unfinished()" :class="[index==0 ? 'active':'']">
-                    未完成任务()
+                    未完成任务({{unfinished_1}})
                 </div>
                 <div class="finished" @click="finished()" :class="[index==1 ? 'active' :'']">
-                     已完成任务()
+                     已完成任务({{finished_1}})
                 </div>
                 <div class="all" @click="all()" :class="[index==2 ? 'active' :'']">
-                     全部任务()
+                     全部任务({{arrList.length}})
                 </div>
             </div>
             <div class="common_6">
@@ -35,6 +35,18 @@ export default {
     components:{
         Common
     },
+    computed:{
+        finished_1(){
+            return this.arrList.filter(item=>{
+                if(item.status) return item
+            }).length
+        },
+        unfinished_1(){
+             return this.arrList.filter(item=>{
+                if(!item.status) return item
+            }).length
+        }
+    },
     data() {
         return {
             content:'',
@@ -44,12 +56,14 @@ export default {
     },
     methods: {
         add(){
-            const obj={}
-            obj.name = this.content
-            obj.id = nanoid()
-            obj.status = false
-            this.arrList.push(obj)
-            this.content=''
+            if(this.content){
+                const obj={}
+                obj.name = this.content
+                obj.id = nanoid()
+                obj.status = false
+                this.arrList.push(obj)
+                this.content=''
+            }
         },
         unfinished(){
             this.index = 0

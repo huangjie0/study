@@ -1,9 +1,10 @@
 <template>
   <div>
       <ul class="ul">
-            <li v-for="(item,index) in arrList" :key="item.id" class="li" @click="change(item.id)"> 
-                <input type="checkbox"> <div>{{item.name}}</div> 
-            </li>
+        <li v-for="(item) in arrList" :key="item.id" class="li" 
+        @click="change(item)" :class="[item.status ? 'active': '']"> 
+            <input type="checkbox" :checked='item.status'><div>{{item.name}}</div> 
+        </li>
       </ul>
   </div>
 </template>
@@ -15,14 +16,9 @@ export default {
         arrList:Array,
         required:true
     },
-    data() {
-        return {
-            
-        }
-    },
     methods: {
-        change(i){
-            
+        change(item){
+            item.status = !item.status
         }
     },
 }
@@ -41,7 +37,6 @@ export default {
     display: flex;
     justify-content:space-between;
     align-items: center;
+    color: rgb(133, 133, 133);
 }
-
-
 </style>
