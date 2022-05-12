@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="common_6">
-                <router-view></router-view>
+                <router-view :arrList='arrList'></router-view>
             </div>
         </div>
     </div>
@@ -29,6 +29,7 @@
 
 <script>
 import Common from '../components/Common.vue'
+import {nanoid} from 'nanoid'
 export default {
     name:'TodoList',
     components:{
@@ -38,18 +39,17 @@ export default {
         return {
             content:'',
             index:0,
-            arrList:[
-                {
-                    name:'黄杰',
-                    id:'001',
-                    status:'false'
-                }
-            ],
+            arrList:[],
         }
     },
     methods: {
         add(){
-            console.log('1111');
+            const obj={}
+            obj.name = this.content
+            obj.id = nanoid()
+            obj.status = false
+            this.arrList.push(obj)
+            this.content=''
         },
         unfinished(){
             this.index = 0
@@ -104,7 +104,6 @@ export default {
     width: 200px;
     min-height:500px ;
 }
-
 .common_4{
     width: 1000px;
     min-height: 500px;
