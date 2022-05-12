@@ -37,14 +37,14 @@ export default {
             this.arrList.splice(index,1)  
         },
         changeColor(id){
-                var index;
-                this.arrList.forEach((ele,i)=>{
-                    if(ele.id === id){
-                        index = i
-                    }
-                })
-                this.arrList[index].checked=!this.arrList[index].checked
-            },
+            var index;
+            this.arrList.forEach((ele,i)=>{
+                if(ele.id === id){
+                    index = i
+                }
+            })
+            this.arrList[index].checked=!this.arrList[index].checked
+        },
     },
 }
 </script>

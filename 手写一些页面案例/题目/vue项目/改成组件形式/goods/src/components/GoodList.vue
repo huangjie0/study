@@ -1,7 +1,7 @@
 <template>
 <li>
     <div class="box2">{{item.name}}</div>
-    <slot name="putao"></slot>
+    <slot></slot>
     <div class="box3">
         <div class="box4">￥:{{item.price}}</div>
         <div class="box5">

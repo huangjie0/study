@@ -13,16 +13,14 @@
     </style>
 </head>
 <body>
-    <div>
-
-    </div>
+    <div></div>
 </body>
 <script>
     //选取容器
     var my = echarts.init(document.querySelector('div'));
     var xData=['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
     var yData=[3000,2800,900,1000,800,700,1400,1300,900,1000,800,600]
-    var yData1=[3000,2800,1900,1300,800,1200,1300,1200,900,500,600,800]
+    // var yData1=[3000,2800,1900,1300,800,1200,1300,1200,900,500,600,800]
     var option ={
         title:{
             text:'康师傅方便面销量如下:'
@@ -34,52 +32,52 @@
         },
         yAxis:{
             type:'value',
-            scale:true
+            // scale:true
         },
         series:[{
             name:'康师傅销量',
-            type:'line',
+            type:'pie',
             data:yData,
-            markPoint:{
-                data:[
-                    {
-                        type:'max'
-                    },
-                    {
-                        type:'min'
-                    }
-                ]
-            },
+            // markPoint:{
+            //     data:[
+            //         {
+            //             type:'max'
+            //         },
+            //         {
+            //             type:'min'
+            //         }
+            //     ]
+            // },
             //平均值
-            markLine:{
-                data:[
-                    {type:'average'}
-                ]
-            },
+            // markLine:{
+            //     data:[
+            //         {type:'average'}
+            //     ]
+            // },
             //标注区间
-            markArea:{
-                data:[
-                    [{xAxis:'1月'},{xAxis:'2月'}],[{xAxis:'7月'},{xAxis:'8月'}],[{xAxis:'9月'},{xAxis:'10月'}]
-                ]
-            },
+            // markArea:{
+            //     data:[
+            //         [{xAxis:'1月'},{xAxis:'2月'}],[{xAxis:'7月'},{xAxis:'8月'}],[{xAxis:'9月'},{xAxis:'10月'}]
+            //     ]
+            // },
             //线条平滑
             // smooth:true,
-            lineStyle:{
-                color:'green',
-                // type:'dashed'
-            },
-            areaStyle:{
-                color:'pink'
-            },
-            stack:'all',
-            areaStyle:{}
+            // lineStyle:{
+            //     color:'green',
+            //     // type:'dashed'
+            // },
+            // areaStyle:{
+            //     color:'pink'
+            // },
+            // stack:'all',
+            // areaStyle:{}
         },
-        {
-            type:'line',
-            data:yData1,
-            stack:'all',
-            areaStyle:{}
-        }
+        // {
+        //     type:'line',
+        //     data:yData1,
+        //     stack:'all',
+        //     areaStyle:{}
+        // }
     ]
     }
     // //将配置放入配置容器中

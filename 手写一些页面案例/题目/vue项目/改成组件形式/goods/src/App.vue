@@ -2,7 +2,7 @@
 <div class="box">
         <ul class="box1">
             <GoodList v-for="(item,index) of list" :key='item.id' :index='index' :item='item' @reduce='reduce' @add='add'>
-            <i class="fa fa-thumbs-o-up" :slot="item.id=='001'||item.id=='003'?'putao':''"></i>
+                <i class="fa fa-thumbs-o-up" v-if="item.discount"></i>
             </GoodList>
         </ul>
         <div class="div">
@@ -25,11 +25,11 @@ export default {
     data() {
       return {
         list:[
-              {id:'001',name:'葡萄',price:10,count:1},
-              {id:'002',name:'苹果',price:15,count:1},
-              {id:'003',name:'桃子',price:20,count:1},
-              {id:'004',name:'梨子',price:15,count:1},
-              ],
+              {id:'001',name:'葡萄',price:10,count:1,discount:true},
+              {id:'002',name:'苹果',price:15,count:1,discount:true},
+              {id:'003',name:'桃子',price:20,count:1,discount:false},
+              {id:'004',name:'梨子',price:15,count:1,discount:true},
+        ],
       }
     },
     computed:{

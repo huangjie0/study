@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过ajax获取数据并且展示出来</title>
+    <script src="./echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+    <style>
+        #div1 {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button>点我一下获取饼图数据</button>
+    </div>
+    <div id="div1">
+
+    </div>
+</body>
+<script>
+    //通过ajax获取数据
+    var btn = document.querySelector('button');
+    var timeArr = [];
+    btn.onclick = function () {
+        $.ajax({
+            url: 'http://49.235.98.65:8889/order?start=2021-11-19T16:00:00.000Z&end=2021-11-26T16:00:00.000Z',
+            type: 'get',
+            success: (data) => {
+                data.forEach(item => {
+                    timeArr.push(moment(item.createdAt).format('YYYY-MM-DD'))
+                });
+                //获取用户当前输入的时间
+                var time = moment(new Date()).format('YYYY-MM-DD')
+                //初始化实例对象
+                var mCharts = echarts.init(document.getElementById('div1'));
+                //配置对象
+                option = {
+                    title: {
+                        text: '获取指定时间的定餐销量',
+                        subtext: time,
+                        left: 'center'
+                    },
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left'
+                    },
+                    series: [{
+                        name: '定餐销量',
+                        type: 'pie',
+                        radius: '50%',
+                        data: [{
+                                value: 1048,
+                                name: timeArr[0]
+                            },
+                            {
+                                value: 735,
+                                name: timeArr[1]
+                            },
+                            {
+                                value: 580,
+                                name: timeArr[2]
+                            },
+                            {
+                                value: 484,
+                                name: timeArr[3]
+                            },
+                            {
+                                value: 300,
+                                name: timeArr[4]
+                            },
+                            {
+                                value: 300,
+                                name: timeArr[5]
+                            },
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }]
+                };
+                mCharts.setOption(option)
+            }
+        })
+    }
+</script>
+
+</html>

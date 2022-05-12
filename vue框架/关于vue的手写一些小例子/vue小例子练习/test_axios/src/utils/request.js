@@ -30,12 +30,7 @@ instance.interceptors.response.use(function (response) {
     // 对响应错误做点什么
     return Promise.reject(error);
   });
-
-
-
-
-
-
+  
 export function get(url,params){
     return instance.get(url,{
         params
@@ -45,3 +40,5 @@ export function get(url,params){
 export function post(url,data){
     return instance.post(url,data)
 }
+
+
