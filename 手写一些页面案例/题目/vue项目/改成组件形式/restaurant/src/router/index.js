@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Login from '@/views/Login/Login.vue'
 import Main from '@/components/main/Main.vue'
 import Restaurant from '@/views/restaurant/Restaurant.vue'
+import Menus from '@/views/menus/Menus.vue'
 
 Vue.use(VueRouter)
 const routers = new VueRouter({
@@ -27,6 +28,11 @@ const routers = new VueRouter({
                     path:'restaurant',
                     name:'restaurant',
                     component:Restaurant
+                },
+                {
+                    path:'menus/:id',
+                    name:'menus',
+                    component:Menus
                 }
             ]
         },

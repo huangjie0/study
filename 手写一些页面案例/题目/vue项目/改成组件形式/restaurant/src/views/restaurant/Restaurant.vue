@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div v-for="item in arrList" :key="item._id">
+      <div v-for="item in arrList" :key="item._id" @click="change(item)">
           {{item.name['zh-CN']}} 
       </div>
   </div>
@@ -15,6 +15,11 @@ export default {
             arrList:[]
         }
     },
+    methods: {
+        change(item){
+            this.$router.push(`/main/menus/${item._id}`)
+        }
+    },
     created() {
         mainget('/restaurant/location/-74.0059413,40.7127837').then(res=>{
            const {data} = res
@@ -27,5 +32,4 @@ export default {
 </script>
 
 <style lang='less' scoped>
-
 </style>
