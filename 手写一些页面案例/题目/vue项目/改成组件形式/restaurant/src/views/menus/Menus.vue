@@ -19,7 +19,7 @@ export default {
     created() {
       const {id} = this.$route.params
       getmenus(`menu/restaurantId/${id}`).then(res=>{
-        const foods = res.data.foods
+        const foods = res.data.foods 
         this.foods = foods
       }).catch(err=>{
         console.log(err)

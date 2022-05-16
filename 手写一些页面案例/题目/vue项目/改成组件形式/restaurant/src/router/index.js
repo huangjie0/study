@@ -35,9 +35,10 @@ const routers = new VueRouter({
                     component:Menus
                 }
             ]
-        },
+        }
     ]
 })
+//路由守卫，如果不满足登录则重定向到login页面
 routers.beforeEach((to,from,next)=>{
     if(to.path!=='/login'){
         const users = window.localStorage.getItem('users');
