@@ -18,13 +18,14 @@ export default {
     },
     methods:{
       ...mapMutations('mask',['showLoading','hideLoading']),
-      ...mapMutations('requireerr',['showErring']),
+      ...mapMutations('requireerr',['showErring','hideErring']),
       ...mapMutations('header',['headerhiding'])
     },
     name:'Menus',
     created() {
       const {id} = this.$route.params
       this.showLoading()
+      this.hideErring()
       getmenus(`menu/restaurantId/${id}`).then(res=>{
         const foods = res.data.foods 
         this.foods = foods

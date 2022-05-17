@@ -15,9 +15,6 @@
 import {mapMutations} from 'vuex'
 export default {
     name:'Req',
-    mounted() {
-        this.addListen()
-    },
     methods: {
         ...mapMutations('requireerr',['hideErring']),
         ...mapMutations('header',['headerhiding']),
