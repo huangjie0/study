@@ -2,7 +2,7 @@
 <div>
     <Loading v-if="isShow"/>
     <Req  v-if="isErr"/>
-    <Header/>
+    <Header v-if="headerShow"/>
     <router-view></router-view>
 </div>
 
@@ -23,6 +23,7 @@ export default {
     computed:{
         ...mapState('mask',['isShow']),
         ...mapState('requireerr',['isErr']),
+        ...mapState('header',['headerShow'])
     }
 }
 </script>

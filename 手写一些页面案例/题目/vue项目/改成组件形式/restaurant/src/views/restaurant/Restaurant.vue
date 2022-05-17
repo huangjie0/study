@@ -21,16 +21,18 @@ export default {
             this.$router.push(`/main/menus/${item._id}`)
         },
         ...mapMutations('mask',['showLoading','hideLoading']),
-        ...mapMutations('requireerr',['showErring','hideErring'])
+        ...mapMutations('requireerr',['showErring','hideErring']),
+        ...mapMutations('header',['headerhiding'])
     },
     created() {
         this.hideErring()
-        mainget('/restaurant/locatio/-74.0059413,40.7127837').then((res)=>{
+        mainget('/restaurant/location/-74.0059413,40.7127837').then((res)=>{
             const {data} = res
             this.arrList = data
-             this.showLoading()
+            this.showLoading()
         }).catch((err)=>{
             this.showErring()
+            this.headerhiding()
             console.log(err)
         }).finally(()=>{
             this.hideLoading()

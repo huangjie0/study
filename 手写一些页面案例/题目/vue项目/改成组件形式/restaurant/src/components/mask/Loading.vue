@@ -19,9 +19,12 @@ export default {
     top: 0;
     left: 0;
     .img{
-        width: 100%;
-        height: 100%;
+        width: 800px;
+        height: 400px;
         opacity: 0.7;
+        position: fixed;
+        top: 25%;
+        left: 25%;
     }
 }
 

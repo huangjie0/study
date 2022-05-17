@@ -18,7 +18,8 @@ export default {
     },
     methods:{
       ...mapMutations('mask',['showLoading','hideLoading']),
-      ...mapMutations('requireerr',['showErring'])
+      ...mapMutations('requireerr',['showErring']),
+      ...mapMutations('header',['headerhiding'])
     },
     name:'Menus',
     created() {
@@ -29,6 +30,7 @@ export default {
         this.foods = foods
       }).catch(err=>{
         this.showErring()
+        this.headerhiding()
         console.log(err)
       }).finally(()=>{
         this.hideLoading()
@@ -38,5 +40,4 @@ export default {
 </script>
 
 <style lang='less' scoped>
-
 </style>

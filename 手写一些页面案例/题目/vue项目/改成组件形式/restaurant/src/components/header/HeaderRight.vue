@@ -13,9 +13,9 @@ export default {
 <style scoped lang="less">
 .headerright{
     width: 300px;
-    height: 100px;
-    background-color: burlywood;
-    line-height: 100px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
+    background-color: blueviolet;
 }
 </style>

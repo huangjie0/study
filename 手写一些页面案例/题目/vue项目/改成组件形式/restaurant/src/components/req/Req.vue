@@ -1,6 +1,6 @@
 <template>
   <div class="err">
-      <div class="err_1" ref="err" @click="change">
+      <div class="err_1">
           <div>
               请求失败，请重试！！！！！
           </div>
@@ -15,13 +15,15 @@
 import {mapMutations} from 'vuex'
 export default {
     name:'Req',
+    mounted() {
+        this.addListen()
+    },
     methods: {
         ...mapMutations('requireerr',['hideErring']),
+        ...mapMutations('header',['headerhiding']),
         cancel(){
             this.hideErring();
-        },
-        change(){
-            console.log(this.$refs.err)
+            this.headerhiding();
         }
     },
 }

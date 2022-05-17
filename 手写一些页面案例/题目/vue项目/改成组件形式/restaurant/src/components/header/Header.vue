@@ -20,11 +20,10 @@ export default {
 <style scoped lang="less">
 .header{
     width: 100%;
-    height: 100px;
-    background-color: aquamarine;
+    height: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    background-color: brown;
 }
 </style>
