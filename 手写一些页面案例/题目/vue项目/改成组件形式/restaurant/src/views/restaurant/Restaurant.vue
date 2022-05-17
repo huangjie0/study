@@ -8,6 +8,7 @@
 
 <script>
 import  mainget  from '@/api/main/index.js'
+import {mapMutations} from 'vuex'
 export default {
     name:'Restaurant',
     data() {
@@ -18,16 +19,20 @@ export default {
     methods: {
         change(item){
             this.$router.push(`/main/menus/${item._id}`)
-        }
+        },
+        ...mapMutations('mask',['showLoading','hideLoading'])
     },
     created() {
-        mainget('/restaurant/location/-74.0059413,40.7127837').then(res=>{
-           const {data} = res
-           this.arrList = data
-        }).catch(err=>{
-            console.log(err);
+        mainget('/restaurant/location/-74.0059413,40.7127837').then((res)=>{
+            const {data} = res
+            this.arrList = data
+             this.showLoading()
+        }).catch((err)=>{
+            console.log(err)
+        }).finally(()=>{
+            this.hideLoading()
         })
-    },
+    }
 }
 </script>
 

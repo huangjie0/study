@@ -9,20 +9,27 @@
 
 <script>
 import getmenus from '@/api/menus/index.js'
+import {mapMutations} from 'vuex'
 export default {
     data () {
       return {
         foods:[]
       }
     },
+    methods:{
+      ...mapMutations('mask',['showLoading','hideLoading'])
+    },
     name:'Menus',
     created() {
       const {id} = this.$route.params
+      this.showLoading()
       getmenus(`menu/restaurantId/${id}`).then(res=>{
         const foods = res.data.foods 
         this.foods = foods
       }).catch(err=>{
         console.log(err)
+      }).finally(()=>{
+        this.hideLoading()
       })
     },
 }
