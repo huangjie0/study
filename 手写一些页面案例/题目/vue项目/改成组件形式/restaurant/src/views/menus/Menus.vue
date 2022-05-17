@@ -17,7 +17,8 @@ export default {
       }
     },
     methods:{
-      ...mapMutations('mask',['showLoading','hideLoading'])
+      ...mapMutations('mask',['showLoading','hideLoading']),
+      ...mapMutations('requireerr',['showErring'])
     },
     name:'Menus',
     created() {
@@ -27,6 +28,7 @@ export default {
         const foods = res.data.foods 
         this.foods = foods
       }).catch(err=>{
+        this.showErring()
         console.log(err)
       }).finally(()=>{
         this.hideLoading()
