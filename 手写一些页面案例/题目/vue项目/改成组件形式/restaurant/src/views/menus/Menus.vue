@@ -4,7 +4,6 @@
     {{item.name['zh-CN']}}
   </div>
 </div>
-  
 </template>
 
 <script>
