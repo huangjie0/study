@@ -1,6 +1,12 @@
 <template>
   <div>
-      我是主页面
+   <el-container class="container_1">
+      <el-aside width="200px">Aside</el-aside>
+      <el-container>
+        <el-header>Header</el-header>
+        <el-main>Main</el-main>
+      </el-container>
+  </el-container>
   </div>
 </template>
 
@@ -12,5 +18,8 @@ export default {
 </script>
 
 <style scoped lang='less'>
-
+/deep/ .el-aside{
+  min-height: 845px !important;
+  background-color: blueviolet;
+}
 </style>

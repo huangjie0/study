@@ -5,6 +5,8 @@ import Register from '@/components/Register.vue'
 import Integral from '@/views/Integral.vue'
 import Personal from '@/views/Personal.vue'
 import Main from '@/components/Main.vue'
+import PersonalMessage from '@/views/PersonalMessage.vue'
+import Record from '@/views/Record.vue'
 Vue.use(VueRouter);
 const routers = new VueRouter({
     mode:'history',
@@ -36,7 +38,19 @@ const routers = new VueRouter({
                 {
                     path:'personal',
                     component:Personal,
-                    name:'personal'
+                    name:'personal',
+                    children:[
+                        {
+                            path:'personalmessage',
+                            name:'personalmessage',
+                            component:PersonalMessage
+                        },
+                        {
+                            path:'record',
+                            name:'record',
+                            component:Record
+                        }
+                    ]
                 }
             ]
         }

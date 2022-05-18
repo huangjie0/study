@@ -8,9 +8,9 @@
             注册新用户
         </div>
         <div class="input_1">
-            <el-form label-width="100px">
+            <el-form label-width="120px">
                 <el-form-item label="用户名:">
-                    <el-input placeholder="请输入您的用户名"></el-input>
+                    <el-input placeholder="用户名:6位以上数字和字母组成"></el-input>
                 </el-form-item>
                 <el-form-item label="密码:">
                     <el-input placeholder="请输入您的密码"></el-input>
@@ -35,7 +35,7 @@
                     <span class="register_4" @click="tologin()">去登录</span>
                 </div>
                 <el-form-item>
-                    <el-button  type="primary" class="button_1">注册</el-button>
+                    <el-button  type="primary" class="button_1" @click="successregister()">注册</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -50,12 +50,25 @@ export default {
     methods: {
         tologin(){
             this.$router.push('/login')
+        },
+        successregister(){
+            this.$message({
+                message:'恭喜您，注册成功!',
+                type:'success',
+                 center: true
+            })
+            this.$router.push('/login')
         }
     },
 }
 </script>
 
 <style scoped lang='less'>
+/deep/.el-button--primary{
+    width: 700px;
+    height: 50px;
+}
+
 .button_1{
     width: 600px;
     height:50px;

@@ -19,8 +19,8 @@
               <span>还没有账号？</span>
               <span class="register_1" @click="newRegister()">新用户注册</span>
           </div>
-           <el-form-item>
-             <el-button  type="primary" class="button" @click="tomain">登录</el-button>
+           <el-form-item style="margin-left='0'">
+             <el-button  type="primary" @click="tomain()">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -50,11 +50,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.button{
-  width: 400px;
-  height:50px;
-  font-size: 15px;
-  margin-top: 10px;
+/deep/.el-button{
+width: 500px;
+height:50px;
+font-size: 15px;
 }
 .register_1{
   color: #6b7bf7;
@@ -96,5 +95,4 @@ export default {
     height: 100%;
   }
 }
-
 </style>
