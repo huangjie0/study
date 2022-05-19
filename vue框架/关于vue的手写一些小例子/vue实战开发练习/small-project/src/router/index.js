@@ -5,6 +5,7 @@ import Register from '@/components/Register.vue'
 import Integral from '@/views/Integral.vue'
 import Personal from '@/views/Personal.vue'
 import Main from '@/components/Main.vue'
+import {localStorageGet} from '@/common/tool'
 Vue.use(VueRouter);
 //改写底层代码
 const VueRouterPush = VueRouter.prototype.push
@@ -22,12 +23,18 @@ const routers = new VueRouter({
         {
             path:'/login',
             component:Login,
-            name:'login'
+            name:'login',
+            meta:{
+                requireAuth: false
+            }
         },
         {
             path:'/register',
             component:Register,
-            name:'register'
+            name:'register',
+            meta:{
+                requireAuth: false
+            }
         },
         {
             path:'/main',
@@ -44,9 +51,24 @@ const routers = new VueRouter({
                     path:'personal',
                     component:Personal,
                     name:'personal',
+                    meta:{
+                        requireAuth: true
+                    },
                 }
             ]
         }
     ]
+})
+routers.beforeEach((to,from,next)=>{
+    if(to.meta.requireAuth){
+        const user = localStorageGet('user');
+        if(user){
+            next()
+        }else{
+            next('/login')
+        }
+    }else{
+        next()
+    }
 })
 export default routers

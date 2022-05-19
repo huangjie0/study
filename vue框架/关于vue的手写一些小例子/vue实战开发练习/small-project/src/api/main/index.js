@@ -25,6 +25,10 @@ instance.interceptors.response.use(function (response) {
     return Promise.reject(error);
 });
 //暴露发请求函数
-export default function loginpost(url,data){
-  return instance.post(url,data)
+export function userget(url,params){
+  return instance.get(url,params)
+}
+//暴露修改密码请求
+export function userput(url,data){
+  return instance.put(url,data)
 }

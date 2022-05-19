@@ -4,7 +4,7 @@ import router from '@/router/index'
 import store from '@/store/index'
 import '@/assets/common.css'
 import { Form,FormItem,Input,Button,Select,Option,Message,Container,Header,Aside,Main,
-Tabs,TabPane
+Tabs,TabPane,Dialog
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -22,6 +22,7 @@ Vue.use(Aside)
 Vue.use(Main)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Dialog)
 
 Vue.prototype.$message=Message
 

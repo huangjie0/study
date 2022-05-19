@@ -13,7 +13,7 @@
             <el-input placeholder="请输入您的用户名" v-model="login_ruleForm.name"></el-input>
           </el-form-item>
            <el-form-item label="密码:" prop="password">
-            <el-input placeholder="请输入您的密码" v-model="login_ruleForm.password"></el-input>
+            <el-input type="password" placeholder="请输入您的密码" v-model="login_ruleForm.password"></el-input>
           </el-form-item>
           <div class="register">
               <span>还没有账号？</span>
@@ -30,6 +30,8 @@
 
 <script>
 import loginpost from '@/api/login/index.js'
+import {mapMutations} from 'vuex'
+import {localStorageSet} from '@/common/tool'
 export default {
     name:'Login',
     data() {
@@ -61,35 +63,31 @@ export default {
       }
     },
     methods: {
+      ...mapMutations(['saveUser']),
       newRegister(){
         this.$router.push('/register')
       },
       tomain(formName){
           this.$refs[formName].validate((valid) => {
           if (valid) {
-
-
-
-            
             // 登录请求开始
             loginpost('/api/user/login',{
               username:this.login_ruleForm.name,
               password:this.login_ruleForm.password
             }).then(res=>{
               console.log(res)
+              //将用户信息存入本地存储
+              localStorageSet('user',res.data.user)
+              //将用户信息存入vuex中
+              this.saveUser(res.data.user)
+              this.$message.success('登录成功')
+              this.$router.push('/main')
+            }).catch(err=>{
+              console.log(err)
+              this.$message.error('用户输入登录失败,请重新登录!')
             })
-            // 登录请求结束
-
-
-
-
-
-
-            //成功后路由跳转到主页面中
-            this.$router.push('/main')
-            this.$message.success('登录成功')
           } else {
-            this.$message.error('用户登录失败，请重新登录!');
+            this.$message.error('用户输入有误,请重新输入!');
             return false;
           }
           });

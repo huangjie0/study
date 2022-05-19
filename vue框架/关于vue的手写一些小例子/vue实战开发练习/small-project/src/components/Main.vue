@@ -3,7 +3,7 @@
    <el-container>
       <el-aside width="350px">
         <div class="aside">
-          <img class="img" src="@/assets/user.png">
+          <img class="img" :src="user.avatar">
         </div>
         <div class="nicheng">
           昵称
@@ -26,9 +26,19 @@
 </template>
 
 <script>
+import {localStorageSet} from '@/common/tool'
+import {mapMutations,mapState} from 'vuex'
 export default {
     name:'Main',
+    computed:{
+      ...mapState({
+         user:(state)=>{
+        return state.user.user
+      }
+      })
+    },
     methods: {
+      ...mapMutations(['saveUser']),
       topersoncenter(){
         this.$router.push('/main/personal')
       },
@@ -36,13 +46,17 @@ export default {
         this.$router.push('/main/personal')
       },
       tologin(){
+         //当用户退出时，将用户信息清空
+        localStorageSet('user',null)
+        //将vuex里面数据清空
+        this.saveUser({user:null})
+        //退出主页面
         this.$router.push('/login')
       },
       tomall(){
         this.$router.push('/main/integral')
       }
     },
-
 }
 </script>
 

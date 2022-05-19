@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-  
+
 </template>
 
 <script>
@@ -109,17 +109,11 @@ export default {
                     age:this.register_ruleForm.age,
                     gender:this.register_ruleForm.gender
                 }).then(res=>{
-                    console.log(res)
+                    this.$message.success('注册成功');
+                    this.$router.push('/login');
+                }).catch(err=>{
+                    this.$message.error('用户注册失败,请重新检查用户名是否正确!')
                 })
-
-
-
-
-
-
-            //成功后路由跳转到主页面中
-            // this.$router.push('/login')
-            // this.$message.success('注册成功')
           } else {
             this.$message.error('用户注册失败，请重新注册!');
             return false;
