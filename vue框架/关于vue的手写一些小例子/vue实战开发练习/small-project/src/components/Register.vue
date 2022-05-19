@@ -101,7 +101,7 @@ export default {
         successregister(formName){
             this.$refs[formName].validate((valid) => {
             if (valid) {
-                register('/api/user/regist',{
+                register('/user/regist',{
                     username:this.register_ruleForm.name,
                     password:this.register_ruleForm.password,
                     school:this.register_ruleForm.school,

@@ -1,5 +1,4 @@
 import axios from "axios";
-import {localStorageGet} from '@/common/tool'
 const instance = axios.create({
     baseURL:'http://49.235.98.65:3000',
     timeout:5000
@@ -7,11 +6,7 @@ const instance = axios.create({
 // 添加请求拦截器
 instance.interceptors.request.use(function (config) {
     // 在发送请求之前做些什么
-    const user = localStorageGet('user')
-    if(user){
-      config.headers.id = user._id
-    }
-    return config
+    return config;
   }, function (error) {
     // 对请求错误做些什么
     return Promise.reject(error);
@@ -26,6 +21,9 @@ instance.interceptors.response.use(function (response) {
     return Promise.reject(error);
 });
 //暴露发请求函数
-export default function loginpost(url,data){
-  return instance.post(url,data)
+export function getshop(url,params){
+    return instance.get(url,params)
+}
+export function putshop(url,data){
+    return instance.put(url,data)
 }

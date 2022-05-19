@@ -8,13 +8,13 @@
         <div class="nicheng">
           昵称
         </div>
-        <div class="personcenter" @click="topersoncenter()">
+        <div class="personcenter" :class="[index==0?'active':'']" @click="topersoncenter()">
             个人中心
         </div>
-        <div class="integral" @click="tomall()">
+        <div class="integral" :class="[index==1?'active':'']" @click="tomall()">
             积分商场
         </div>
-        <div class="out" @click="tologin()">
+        <div class="out" :class="[index==2?'active':'']" @click="tologin()">
             退出
         </div>
       </el-aside>
@@ -30,6 +30,11 @@ import {localStorageSet} from '@/common/tool'
 import {mapMutations,mapState} from 'vuex'
 export default {
     name:'Main',
+    data() {
+      return {
+        index:0
+      }
+    },
     computed:{
       ...mapState({
          user:(state)=>{
@@ -40,12 +45,14 @@ export default {
     methods: {
       ...mapMutations(['saveUser']),
       topersoncenter(){
+        this.index = 0
         this.$router.push('/main/personal')
       },
       topersonal(){
         this.$router.push('/main/personal')
       },
       tologin(){
+        this.index = 2
          //当用户退出时，将用户信息清空
         localStorageSet('user',null)
         //将vuex里面数据清空
@@ -54,6 +61,7 @@ export default {
         this.$router.push('/login')
       },
       tomall(){
+        this.index = 1
         this.$router.push('/main/integral')
       }
     },
@@ -81,6 +89,9 @@ export default {
   top: 390px;
   font-size: 18px;
 }
+.active{
+  background-color: rgb(95, 46, 93);
+}
 .personcenter{
   position: absolute;
   top: 310px;
@@ -90,7 +101,7 @@ export default {
   font-size: 18px;
   text-align: center;
   line-height:  80px;
-  background-color: rgb(95, 46, 93);
+
 }
 .nicheng{
   position: absolute;

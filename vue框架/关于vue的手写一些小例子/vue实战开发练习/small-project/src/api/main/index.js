@@ -1,15 +1,10 @@
 import axios from "axios";
-import {localStorageGet} from '@/common/tool'
 const instance = axios.create({
+    baseURL:'http://49.235.98.65:3000',
     timeout:5000
 })
 // 添加请求拦截器
 instance.interceptors.request.use(function (config) {
-    // 在发送请求之前做些什么
-    const user = localStorageGet('user')
-    if(user){
-      config.headers.id = user._id
-    }
     return config
   }, function (error) {
     // 对请求错误做些什么

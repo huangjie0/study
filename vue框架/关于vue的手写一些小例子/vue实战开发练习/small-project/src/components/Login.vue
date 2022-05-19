@@ -71,7 +71,7 @@ export default {
           this.$refs[formName].validate((valid) => {
           if (valid) {
             // 登录请求开始
-            loginpost('/api/user/login',{
+            loginpost('/user/login',{
               username:this.login_ruleForm.name,
               password:this.login_ruleForm.password
             }).then(res=>{

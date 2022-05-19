@@ -21,13 +21,22 @@
             <div class="imgright_2">
               <div class="imgright_3">
                 <div>学校:{{user.school}}</div>
-                <div>性别:{{user.gender===0 ? '男' :'女'}}</div>
+                <div>性别:{{user.gender===0 ? '男':'女'}}</div>
               </div>
             </div>
           </div>
         </div>
       </el-tab-pane>
-      <el-tab-pane label="兑换记录">兑换记录</el-tab-pane>
+      <el-tab-pane label="兑换记录">
+        <div class="div">
+            <div class="userColor">
+                {{user.username}}
+            </div>
+            <div class="timeColor">
+                {{user.createdAt | formatTime}}
+            </div>
+        </div>
+      </el-tab-pane>
       <el-dialog
       title="提示"
       :visible.sync="dialogVisible"
@@ -58,8 +67,14 @@
 <script>
 import {mapState} from 'vuex'
 import {userput} from '@/api/main/index.js'
+import moment from 'moment'
 export default {
     name:'Personal',
+    filters: {
+    formatTime(v) {
+      return moment(v).format('YYYY-MM-DD HH:mm:ss');
+    },
+  },
     data() {
       return {
         dialogVisible: false,
@@ -69,7 +84,7 @@ export default {
           again_password:''
         },
         personal_rules:{
-            password:[
+          password:[
             { required: true, message: '请输入旧密码', trigger: 'blur' },
             { min: 3, message: '长度在 3 以上', trigger: 'blur' }
           ],
@@ -90,31 +105,25 @@ export default {
       },
       confirm(formName){
           this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
+            //判断是否成功
+            if (valid) {
+              //当用户验证成功后所执行的地方
+              //向服务器发请求获得数据
+              userput('/user/changePassword',{
+                oldPassword:this.personal_ruleForm.password,
+                newPassword:this.personal_ruleForm.new_password
+              }).then(res=>{
+                console.log(res)
+                this.$message.success('修改密码成功!')
+              }).catch(err=>{
+                console.log(err)
+                this.$message.error('修改密码失败!')
+              })
           } else {
             console.log('error submit!!');
             return false;
           }
-        });
-
-
-
-
-
-
-
-
-        // userput('api/user/changePassword',{
-        //   oldPassword:this.personal_ruleForm.password,
-        //   newPassword:this.personal_ruleForm.new_password
-        // }).then(res=>{
-        //   console.log(res)
-        //   this.$message.success('修改密码成功!')
-        // }).catch(err=>{
-        //   console.log(err)
-        //   this.$message.error('修改密码失败!')
-        // })
+        });      
       }
     },
     computed:{
@@ -136,6 +145,17 @@ export default {
 </script>
 
 <style scoped lang='less'>
+.userColor{
+  color:rgb(173, 170, 170);
+}
+.timeColor{
+  color: red;
+}
+.div{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 .span{
   color:blue;
   cursor: pointer;
