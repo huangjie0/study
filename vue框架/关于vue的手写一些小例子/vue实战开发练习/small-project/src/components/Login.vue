@@ -65,10 +65,8 @@ export default {
         this.$router.push('/register')
       },
       tomain(formName){
-        if(this.login_ruleForm.name && this.login_ruleForm.password){
           this.$refs[formName].validate((valid) => {
           if (valid) {
-
 
 
 
@@ -87,8 +85,6 @@ export default {
 
 
 
-
-
             //成功后路由跳转到主页面中
             this.$router.push('/main')
             this.$message.success('登录成功')
@@ -99,7 +95,6 @@ export default {
           });
         }
       }
-    },
 }
 </script>
 

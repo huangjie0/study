@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-    // baseURL:'http://49.235.98.65:3000',
+    baseURL:'http://49.235.98.65:3000',
     timeout:5000
 })
 // 添加请求拦截器
@@ -21,6 +21,6 @@ instance.interceptors.response.use(function (response) {
     return Promise.reject(error);
 });
 //暴露发请求函数
-export default function loginpost(url,data){
+export default function registerpost(url,data){
   return instance.post(url,data)
 }
