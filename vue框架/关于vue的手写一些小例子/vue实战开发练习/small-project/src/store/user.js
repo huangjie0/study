@@ -6,7 +6,6 @@ export default {
   mutations: {       
     saveUser(state,user) {
       state.user = user;
-      console.log('state: ', state);
     },
   },
   actions: {},

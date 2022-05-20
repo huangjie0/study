@@ -109,14 +109,17 @@ export default {
             if (valid) {
               //当用户验证成功后所执行的地方
               //向服务器发请求获得数据
-              userput('/user/changePassword',{
+              userput('/api/user/changePassword',{
                 oldPassword:this.personal_ruleForm.password,
                 newPassword:this.personal_ruleForm.new_password
               }).then(res=>{
-                console.log(res)
                 this.$message.success('修改密码成功!')
+                //确定取消弹框
+                this.dialogVisible = false
+                // 将数据清空
+                this.personal_ruleForm = {}
+
               }).catch(err=>{
-                console.log(err)
                 this.$message.error('修改密码失败!')
               })
           } else {
@@ -145,16 +148,30 @@ export default {
 </script>
 
 <style scoped lang='less'>
+@personal:rgb(173, 170, 170);
+@width:200px;
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+};
+.flex_around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+ .border-radius{
+   border-radius: 50%;
+ }
+
 .userColor{
-  color:rgb(173, 170, 170);
+  color:@personal;
 }
 .timeColor{
   color: red;
 }
 .div{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+ .flex_around()
 }
 .span{
   color:blue;
@@ -163,48 +180,38 @@ export default {
 .imgright_1{
   width: 450px;
   height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ .flex();
   .imgright_2{
     width: 450px;
-    height: 300px;
-    display: flex;
+    height: @width+100px;
+    .flex_around();
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    color: rgb(110, 110, 110);
+    color: @personal;
   }
 }
 .imgright_2{
   width: 450px;
   height: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .flex();
   .imgright_3{
     width: 450px;
     height: 300px;
-    display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    color: rgb(110, 110, 110);
+    .flex_around();
+    color: @personal;
   }
 }
 .imgleft{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .flex()
 }
 .img_1{
-  width: 200px;
-  height: 200px;
-   border-radius: 50%;
+  width: @width;
+  height: @width;
+   .border-radius();
   .img_2{
-    border-radius: 50%;
-    width: 200px;
-    width: 200px;
+     .border-radius();
+    width: @width;
+    width: @width;
   }
 }
 .el-tabs{
@@ -223,9 +230,7 @@ export default {
   .imgright{
     width: 900px;
     height: 600px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    .flex_around();
     }
 }
 </style>

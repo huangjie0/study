@@ -69,23 +69,26 @@ export default {
 </script>
 
 <style scoped lang='less'>
+@color:white;
+@line-height:80px;
+@width:150px;
 .out{
-  height: 80px;
+  height: @line-height;
   width: 350px;
   position: absolute;
   top: 470px;
-  line-height: 80px;
+  line-height: @line-height;
   text-align: center;
-  color: white;
+  color: @color;
   font-size: 18px;
 }
 .integral{
-  height: 80px;
+  height:@line-height;
   width: 350px;
-  color: white;
+  color: @color;
   position: absolute;
   text-align: center;
-  line-height: 80px;
+  line-height: @line-height;
   top: 390px;
   font-size: 18px;
 }
@@ -95,18 +98,18 @@ export default {
 .personcenter{
   position: absolute;
   top: 310px;
-  height: 80px;
+  height: @line-height;
   width:350px;
-  color: white;
+  color: @color;
   font-size: 18px;
   text-align: center;
-  line-height:  80px;
+  line-height: @line-height;
 
 }
 .nicheng{
   position: absolute;
   top: 250px;
-  color: white;
+  color: @color;
   font-size: 20px;
   height: 30px;
   text-align: center;
@@ -123,12 +126,12 @@ export default {
   position: absolute;
   top: 70px;
   left: 100px;
-  width: 150px;
-  height: 150px;
+  width:@width;
+  height: @width;
   border-radius: 50%;
   .img{
-    width: 150px;
-    height: 150px;
+    width: @width;
+    height: @width;
     border-radius: 50%;
   }
 }

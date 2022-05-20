@@ -71,11 +71,10 @@ export default {
           this.$refs[formName].validate((valid) => {
           if (valid) {
             // 登录请求开始
-            loginpost('/user/login',{
+            loginpost('/api/user/login',{
               username:this.login_ruleForm.name,
               password:this.login_ruleForm.password
             }).then(res=>{
-              console.log(res)
               //将用户信息存入本地存储
               localStorageSet('user',res.data.user)
               //将用户信息存入vuex中
@@ -83,7 +82,6 @@ export default {
               this.$message.success('登录成功')
               this.$router.push('/main')
             }).catch(err=>{
-              console.log(err)
               this.$message.error('用户输入登录失败,请重新登录!')
             })
           } else {
@@ -97,12 +95,16 @@ export default {
 </script>
 
 <style scoped lang='less'>
-.register{
-  width: 100%;
-  height: 50px;
+@width:100%;
+.flex{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.register{
+  width: @width;
+  height: 50px;
+  .flex();
 }
 /deep/.el-button{
 width: 500px;
@@ -115,15 +117,13 @@ font-size: 15px;
 }
 .input{
   margin-top: 30px;
-  width: 100%;
+  width: @width;
   height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .flex();
 }
 .login_1{
   margin-top: 120px;
-  width: 100%;
+  width: @width;
   height: 50px;
   text-align: center;
   line-height: 50px;
@@ -131,22 +131,22 @@ font-size: 15px;
   font-weight: 400px;
 }
 .img{
-  width: 100%;
-  height: 100%;
+  width: @width;
+  height:@width;
 }
 .login{
-  width: 100%;
-  height: 100%;
+  width:@width;
+  height: @width;
   display: flex;
   justify-content: space-between;
   align-items: center;
   .login_left{
     width: 50%;
-    height: 100%;
+    height: @width;
   }
   .login_right{
     width: 50%;
-    height: 100%;
+    height:@width;
   }
 }
 </style>

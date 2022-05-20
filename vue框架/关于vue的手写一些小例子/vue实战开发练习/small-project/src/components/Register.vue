@@ -101,7 +101,7 @@ export default {
         successregister(formName){
             this.$refs[formName].validate((valid) => {
             if (valid) {
-                register('/user/regist',{
+                register('/api/user/regist',{
                     username:this.register_ruleForm.name,
                     password:this.register_ruleForm.password,
                     school:this.register_ruleForm.school,
@@ -125,6 +125,7 @@ export default {
 </script>
 
 <style scoped lang='less'>
+@width:100%;
 /deep/.el-button--primary{
     width: 700px;
     height: 50px;
@@ -137,7 +138,7 @@ export default {
     margin-top: 10px;
 }
 .register_3{
-    width: 100%;
+    width: @width;
     height: 50px;
     display: flex;
     justify-content: center;
@@ -149,7 +150,7 @@ export default {
 }
 .register_person{
     margin-top: 120px;
-    width: 100%;
+    width: @width;
     height: 50px;
     text-align: center;
     line-height: 50px;
@@ -157,23 +158,22 @@ export default {
     font-weight: 400px;
 }
 .register_2{
-    width: 100%;
-    height: 100%;
+    width: @width;
+    height: @width;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .register_left{
     width: 50%;
-    height: 100%;
+    height: @width;
     }
     .register_right{
         width: 50%;
-        height: 100%;
+        height: @width;
     }
 }
 .img{
-  width: 100%;
-  height: 100%;
+  width: @width;
+  height: @width;
 }
-
 </style>
