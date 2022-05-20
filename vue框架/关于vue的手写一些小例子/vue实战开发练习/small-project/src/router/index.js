@@ -1,10 +1,11 @@
 import Vue from "vue";
 import VueRouter from 'vue-router'
-import Login from '@/components/Login.vue'
-import Register from '@/components/Register.vue'
-import Integral from '@/views/Integral.vue'
-import Personal from '@/views/Personal.vue'
-import Main from '@/components/Main.vue'
+//实现路由懒加载
+const Integral = () =>import ('@/views/Integral.vue');
+const Personal = () =>import ('@/views/Personal.vue');
+const Login = () =>import ('@/components/Login.vue');
+const Main = () =>import ('@/components/Main.vue');
+const Register = () =>import ('@/components/Register.vue');
 import {localStorageGet} from '@/common/tool'
 Vue.use(VueRouter);
 //改写底层代码
