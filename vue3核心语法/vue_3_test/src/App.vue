@@ -32,7 +32,6 @@ export default {
       age,
       changeUserinfo
     }
-
     //返回是一个渲染函数
     // return ()=>{
     //   return h('h1','黄石')
