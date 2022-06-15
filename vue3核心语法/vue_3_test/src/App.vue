@@ -4,27 +4,39 @@
   <h1>一个人的信息</h1>
   <h2>姓名:{{name}}</h2>
   <h2>年龄:{{age}}</h2>
+  <button @click="changeUserinfo()">修改人物信息</button>
 </div>
-  
 </template>
 
 <script>
-
+//引入ref函数
+import {ref} from 'vue'
 export default {
   name: 'App',
   //配置数据
   setup() {
-    let name='张三'
-    let age=18
+    //变成响应式
+    let  name=ref('张三')
+    let age= ref(18)
     //配置一个方法
-    function sayHello(){
-      alert(`我加${name},我是${age}岁了!`)
+    // function sayHello(){
+    //   alert(`我加${name},我是${age}岁了!`)
+    // }
+    function changeUserinfo(){
+      console.log(name.value)
+      console.log(age.value)
     }
+    //函数靠一个返回值
     return {
       name,
       age,
-      sayHello
+      changeUserinfo
     }
+
+    //返回是一个渲染函数
+    // return ()=>{
+    //   return h('h1','黄石')
+    // }
   }
 }
 </script>
