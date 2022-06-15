@@ -56,7 +56,7 @@
         </el-form>
       </span>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button @click="cancel()">取 消</el-button>
         <el-button type="primary" @click="confirm('personal_ruleForm')">确 定</el-button>
       </span>
     </el-dialog>
@@ -102,6 +102,10 @@ export default {
     methods: {
       change(){
         this.dialogVisible = true
+      },
+      cancel(){
+        this.dialogVisible=false
+        this.personal_ruleForm={}
       },
       confirm(formName){
           this.$refs[formName].validate((valid) => {

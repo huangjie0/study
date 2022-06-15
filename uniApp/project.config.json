@@ -1,7 +1,7 @@
 {
   "appid": "wxd8100cb210e17f05",
   "projectname": "uniApp",
-  "compileType": "miniprogram",
+  "compileType": "plugin",
   "libVersion": "2.24.2",
   "packOptions": {
     "ignore": [],

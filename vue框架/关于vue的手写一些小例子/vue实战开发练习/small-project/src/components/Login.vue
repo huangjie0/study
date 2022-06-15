@@ -20,7 +20,8 @@
               <span class="register_1" @click="newRegister()">新用户注册</span>
           </div>
            <el-form-item style="margin-left='0'">
-             <el-button  type="primary" @click="tomain('login_ruleForm')">登录</el-button>
+             <el-button  type="primary" @click="tomain('login_ruleForm')" 
+              v-loading.fullscreen.lock="fullscreenLoading">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -46,6 +47,7 @@ export default {
         }
       };
       return {
+        fullscreenLoading: false,
         login_ruleForm:{
           name:'',
           password:''
@@ -70,6 +72,7 @@ export default {
       tomain(formName){
           this.$refs[formName].validate((valid) => {
           if (valid) {
+            this.fullscreenLoading = true;
             // 登录请求开始
             loginpost('/api/user/login',{
               username:this.login_ruleForm.name,
@@ -80,10 +83,14 @@ export default {
               //将用户信息存入vuex中
               this.saveUser(res.data.user)
               this.$message.success('登录成功')
-              this.$router.push('/main')
+              this.$router.push('/main');
             }).catch(err=>{
               this.$message.error('用户输入登录失败,请重新登录!')
-            })
+            }).finally(
+              setTimeout(() => {
+                this.fullscreenLoading = false;
+              }, 2000)
+            )
           } else {
             this.$message.error('用户输入有误,请重新输入!');
             return false;

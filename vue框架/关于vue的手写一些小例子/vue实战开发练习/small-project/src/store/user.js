@@ -8,5 +8,6 @@ export default {
       state.user = user;
     },
   },
-  actions: {},
+  actions: {
+  },
 };

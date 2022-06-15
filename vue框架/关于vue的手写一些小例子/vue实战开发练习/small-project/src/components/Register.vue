@@ -35,7 +35,8 @@
                     <span class="register_4" @click="tologin()">去登录</span>
                 </div>
                 <el-form-item>
-                    <el-button  type="primary" class="button_1" @click="successregister('register_ruleForm')">注册</el-button>
+                    <el-button  type="primary" class="button_1" @click="successregister('register_ruleForm')"
+                     v-loading.fullscreen.lock="fullscreenLoading">注册</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -60,6 +61,7 @@ export default {
         }
         };
         return {
+            fullscreenLoading:false,
             register_ruleForm:{
                 name:'',
                 password:'',
@@ -99,6 +101,7 @@ export default {
             this.$router.push('/login')
         },
         successregister(formName){
+            this.fullscreenLoading = true;
             this.$refs[formName].validate((valid) => {
             if (valid) {
                 register('/api/user/regist',{
@@ -113,7 +116,11 @@ export default {
                     this.$router.push('/login');
                 }).catch(err=>{
                     this.$message.error('用户注册失败,请重新检查用户名是否正确!')
-                })
+                }).finally(
+                     setTimeout(() => {
+                        this.fullscreenLoading = false;
+                    }, 2000)
+                )
           } else {
             this.$message.error('用户注册失败，请重新注册!');
             return false;
