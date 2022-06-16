@@ -12,7 +12,7 @@
 
 <script>
 //引入ref函数
-import {ref} from 'vue'
+import {reactive, ref} from 'vue'
 export default {
   name: 'App',
   //配置数据
@@ -20,7 +20,7 @@ export default {
     //变成响应式
     let name=ref('张三')
     let age= ref(18)
-    let job = ref({
+    let job = reactive({
       type:'前端工程师',
       salary:'30k'
     })
@@ -32,7 +32,7 @@ export default {
       console.log(name.value)
       console.log(age.value)
       // job.value.type='ui设计师'
-      console.log(job.value)
+      console.log(job)
     }
     //函数靠一个返回值
     return {
