@@ -33,24 +33,28 @@
         // })
         //#endregion
         //使用window里面的代理进行对源数据进行监测
-        const p1 = new Proxy(person,{
-            //有人读取get方法
-            get(target,propName){
-                console.log('有人读取p身上某个属性')
-                // console.log(a,b)
-                return target[propName]
-            },
-            //有人修改set值
-            set(target,propName,value){
-                // console.log(target,propName,value)
-             target[propName]=value
-            },
-            //删除属性所调用的函数
-            deleteProperty(target,propName){
-                console.log('有人删除了这个属性')
-                return  delete target[propName]
-            }
-        })
+        // const p1 = new Proxy(person,{
+        //     //有人读取get方法
+        //     get(target,propName){
+        //         console.log('有人读取p身上某个属性')
+        //         // console.log(a,b)
+        //         return target[propName]
+        //     },
+        //     //有人修改set值
+        //     set(target,propName,value){
+        //         // console.log(target,propName,value)
+        //      target[propName]=value
+        //     },
+        //     //删除属性所调用的函数
+        //     deleteProperty(target,propName){
+        //         console.log('有人删除了这个属性')
+        //         return  delete target[propName]
+        //     }
+        // })
+        let obj={
+            a:1,
+            b:2
+        }
     </script>
 </body>
 </html>
