@@ -9,7 +9,11 @@
   <h3>爱好:{{person.hobby[0]}}</h3> -->
   <h3>爱好:{{hobby}}</h3>
   <button @click="changeName">点我修改姓名</button>
-  <Test msg='我是vue子组件' age='18'/>
+  <Test msg='我是vue子组件' age='18'>
+    <span>
+      我是插槽
+    </span>
+  </Test>
 </div>
 </template>
 
@@ -38,16 +42,16 @@ export default {
     //     }
     //   }
     // })
-    let hobby=reactive(['抽烟','喝酒','烫头'])
-    // let person=reactive({
-    //   name:'张三',
-    //   age:18,
-    //   job:{
-    //     type:'前端工程师',
-    //     salary:'30k'
-    //   },
-    //   hobby:['抽烟','喝酒','烫头']
-    // })
+    // let hobby=reactive(['抽烟','喝酒','烫头'])
+    let person=reactive({
+      name:'张三',
+      age:18,
+      job:{
+        type:'前端工程师',
+        salary:'30k'
+      },
+      hobby:['抽烟','喝酒','烫头']
+    })
     //配置一个方法
     // function sayHello(){
     //   alert(`我加${name},我是${age}岁了!`)
