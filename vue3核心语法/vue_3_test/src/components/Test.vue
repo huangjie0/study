@@ -53,6 +53,10 @@ export default {
         // watch([sum,msg],(newval,oldval)=>{
         //     console.log('sum的值变化了',newval,oldval)
         // })
+        //情况三监视对象方法
+        watch(person,(newvalue,oldvalue)=>{
+            console.log('person变化了',newvalue,oldvalue)
+        })
         return {
             sum,
             msg,
