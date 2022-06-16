@@ -7,7 +7,7 @@
   <h3>工作种类:{{person.job.type}}</h3>
   <h3>工作薪水:{{person.job.salary}}</h3>
   <h3>爱好:{{person.hobby[0]}}</h3> -->
-  <h3>爱好:{{hobby}}</h3>
+  <h3>爱好:{{hobby[0]}}</h3>
   <button @click="changeName">点我修改姓名</button>
   <Test msg='我是vue子组件' age='18'>
     <span>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { reactive, ref } from '@vue/reactivity';
+import { reactive,ref} from '@vue/reactivity';
 //引入ref函数
 // import {reactive} from 'vue'
 import Test from '../src/components/Test'
@@ -42,16 +42,16 @@ export default {
     //     }
     //   }
     // })
-    // let hobby=reactive(['抽烟','喝酒','烫头'])
-    let person=reactive({
-      name:'张三',
-      age:18,
-      job:{
-        type:'前端工程师',
-        salary:'30k'
-      },
-      hobby:['抽烟','喝酒','烫头']
-    })
+    let hobby=reactive(['抽烟','喝酒','烫头'])
+    // let person=reactive({
+    //   name:'张三',
+    //   age:18,
+    //   job:{
+    //     type:'前端工程师',
+    //     salary:'30k'
+    //   },
+    //   hobby:['抽烟','喝酒','烫头']
+    // })
     //配置一个方法
     // function sayHello(){
     //   alert(`我加${name},我是${age}岁了!`)
