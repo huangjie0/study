@@ -9,11 +9,7 @@
   <h3>爱好:{{person.hobby[0]}}</h3> -->
   <h3>爱好:{{hobby[0]}}</h3>
   <button @click="changeName">点我修改姓名</button>
-  <Test msg='我是vue子组件' age='18'>
-    <span>
-      我是插槽
-    </span>
-  </Test>
+  <Test/>
 </div>
 </template>
 
@@ -70,7 +66,7 @@ export default {
     // return ()=>{                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     //   return h('h1','黄石')
     // }
-  }
+  },
 }
 </script>
 
