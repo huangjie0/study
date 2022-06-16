@@ -50,7 +50,7 @@
             //删除属性所调用的函数
             deleteProperty(target,propName){
                 console.log('有人删除了这个属性')
-                return  Reflect.deleteProperty(target,propName)
+                return Reflect.deleteProperty(target,propName)
             }
         })
         let obj={
