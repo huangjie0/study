@@ -9,13 +9,19 @@
   <h3>爱好:{{person.hobby[0]}}</h3>
   <button @click="changeName">点我修改姓名</button>
 </div>
+<Test msg='我是vue子组件' age='18'/>
 </template>
 
 <script>
 //引入ref函数
 import {reactive} from 'vue'
+import Test from '../src/components/Test'
 export default {
   name: 'App',
+  components:{
+    //注册组件
+    Test
+  },
   //配置数据
   setup() {
     //变成响应式

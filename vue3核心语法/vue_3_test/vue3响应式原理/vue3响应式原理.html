@@ -33,28 +33,35 @@
         // })
         //#endregion
         //使用window里面的代理进行对源数据进行监测
-        // const p1 = new Proxy(person,{
-        //     //有人读取get方法
-        //     get(target,propName){
-        //         console.log('有人读取p身上某个属性')
-        //         // console.log(a,b)
-        //         return target[propName]
-        //     },
-        //     //有人修改set值
-        //     set(target,propName,value){
-        //         // console.log(target,propName,value)
-        //      target[propName]=value
-        //     },
-        //     //删除属性所调用的函数
-        //     deleteProperty(target,propName){
-        //         console.log('有人删除了这个属性')
-        //         return  delete target[propName]
-        //     }
-        // })
+        const p1 = new Proxy(person,{
+            //有人读取get方法
+            get(target,propName){
+                console.log('有人读取p身上某个属性')
+                // console.log(a,b)
+                // 使用vue3中的反射进行读取
+                return Reflect.get(target,propName)
+            },
+            //有人修改set值
+            set(target,propName,value){
+                // console.log(target,propName,value)
+            //  target[propName]=value
+                Reflect.set(target,propName,value)
+            },
+            //删除属性所调用的函数
+            deleteProperty(target,propName){
+                console.log('有人删除了这个属性')
+                return  Reflect.deleteProperty(target,propName)
+            }
+        })
         let obj={
             a:1,
             b:2
         }
+        // Reflect.defineProperty(obj,'c',{
+        //     get(){
+        //         return 3
+        //     }
+        // })
     </script>
 </body>
 </html>
