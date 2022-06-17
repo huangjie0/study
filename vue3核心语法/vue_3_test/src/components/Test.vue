@@ -20,11 +20,16 @@
       <button @click="chanegAge()">
           增长年龄
       </button>
+      <h3>
+          点值，x为{{point.x}}，y为{{point.y}}
+      </h3>
   </div>
 </template>
 
 <script>
-import {reactive,ref,watchEffect,watch} from 'vue'
+import {reactive,ref,watchEffect,watch,
+onBeforeMount,onMounted,onBeforeUpdate,
+onUpdated,onBeforeUnmount} from 'vue'
 export default {
     name:'Test',
     setup() {
@@ -38,6 +43,21 @@ export default {
                     salary:20
                 }
             }
+        })
+        //当组件挂载时候所执行的函数
+        onMounted(()=>{
+            window.addEventListener('click',savePoint)
+        })
+
+        
+
+        function savePoint(event){
+            point.x = event.pageX
+            point.y = event.pageY
+        }
+        let point=reactive({
+            x:100,
+            y:200
         })
         //情况一，监视ref的一个响应式数据
         // watch(sum,(newval,oldval)=>{
@@ -74,7 +94,8 @@ export default {
             msg,
             person,
             changName,
-            chanegAge
+            chanegAge,
+            point
         }
     }
 }
