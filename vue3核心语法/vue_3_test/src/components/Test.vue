@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import {reactive,ref,watchEffect} from 'vue'
+import {reactive,ref,watchEffect,watch} from 'vue'
 export default {
     name:'Test',
     setup() {
@@ -59,9 +59,9 @@ export default {
         //     console.log('sum的值变化了',newval,oldval)
         // })
         //情况三监视对象方法
-        // watch(person,(newvalue,oldvalue)=>{
-        //     console.log('person变化了',newvalue,oldvalue)
-        // })
+        watch(person,(newvalue,oldvalue)=>{
+            console.log('person变化了',newvalue,oldvalue)
+        })
         //监听
         watchEffect(()=>{
             const x = sum.value
