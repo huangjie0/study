@@ -7,15 +7,54 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>
+        es6相关语法
+    </h1>
 </body>
 <script>
 //let var const
 console.log(sum) //undefined 声明提升
 var sum = 0;
-
+//变量覆盖
 var num1 = 12
 var num1 = 13
 console.log(num1)
+//num不能重复定义
+let num=1
+// let num=2
+console.log(num)
+
+//定义一个方法,var没有块级作用域
+function fn(){
+    for(var i=0;i<3;i++){
+        console.log(i)
+    }
+    console.log(i)
+}
+fn()
+//const声明之后必须要赋值，const定义之后不能被修改，支持块级作用域，是一个常量，一般来说是大写的,用于全局的
+// const demo=55
+const Demo=55
+console.log(Demo)
+
+let arr = [11,22,44,11,22]
+console.log(arr)
+var arr1 = Array.from(new Set(arr))
+var arr2 = [...new Set(arr)]
+console.log(arr2)
+
+// ---------------------------------------------------------------------------
+//创建一个promise对象
+
+let P = new Promise((resolve,reject)=>{
+    console.log(1)//同步
+    resolve();//异步
+    console.log(32)//同步
+})
+P.then(()=>{
+    console.log(4)//异步
+})
+console.log(8)//同步
 
 </script>
 </html>
