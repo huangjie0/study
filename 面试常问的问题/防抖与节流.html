@@ -16,8 +16,7 @@
 </head>
 <body>
     <input type="text" placeholder="请输入"/>
-    <div  class="div">
-    </div>
+    <div  class="div"></div>
 </body>
 <script>
     //定义一个函数
@@ -52,7 +51,7 @@
             }
         }
     }
-    
+
     //节流操作
     let div = document.querySelector('.div');
     div.addEventListener('touchmove',throttle(demo,3000))

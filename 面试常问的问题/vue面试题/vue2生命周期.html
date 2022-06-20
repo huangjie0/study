@@ -5,13 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../../vue框架/vue框架/vue.js"></script>
 </head>
 <body>
-    
+    <div id="div">{{name}}</div>
 </body>
 <script>
+    const vm =  new Vue({
+        el:"#div",
+        data(){
+            return {
+                name:'黄杰'
+            }
+        },
+        methods: {
+            changeName(){
+               alert('111111')
+            }
+        },
+        beforeCreate() {
+            console.log(this.$el,this.$data)
+        },
+        created() {
+            console.log(this.$el,this.$data)
+        },
+        beforeMount() {
+            console.log(this.$el,this.$data)
+        },
+        mounted() {
+            console.log(this.$el,this.$data)
+        },
+        beforeUpdate() {
+            console.log(this.$el,this.$data)
+        },
+        updated() {
+            console.log(this.$el,this.$data)
+        },
+        beforeDestroy() {
+            console.log(this.$el,this.$data)
+        },
+        destroyed() {
+            console.log(this.$el,this.$data)
+        }
+    })
     //生命周期
     // 8个周期，4对
     // beforeCreate,created,beforemounted,mounted,beforeupdate,updated,beforedestory,desoryed
+    //问题一：一旦进入页面，会加载哪些生命周期，会执行前4个周期,答案：beforeCreate,created,beforemounted,mounted
+    //问题二：在beforeCreate中el和data什么也没有，created中有data没有el,在beforemount有data没有el,mounted都有
+    //如果有keep-alive会多了两个生命周期，第一个是组件激活的周期activated和销毁周期deactivated
 </script>
 </html>
