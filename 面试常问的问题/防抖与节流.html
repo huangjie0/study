@@ -5,19 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .div{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <input type="text" placeholder="请输入"/>
+    <div  class="div">
+    </div>
 </body>
 <script>
     //定义一个函数
-    function fangdou(){
-        
+    function fangdou(fn,wait){
+        //初始化一个时间
+        let timeOut = null;
+        //使用闭包
+        return args=>{
+            //如果有清除时间
+            if (timeOut) clearTimeout(timeOut)
+            //如果没有，创建一个时间
+            timeOut = setTimeout(fn,wait)
+        }
+    }
+    //定义一个函数，是发请求的函数
+    function demo(){
+        console.log('发请求')
     }
     //防抖，将多次变成一次
     let input = document.getElementsByTagName('input')[0]
-    input.addEventListener('input',()=>{
-        console.log('发请求')
-    })
+    input.addEventListener('input',fangdou(demo,2000))
+
+    function throttle(event,time){
+        let timer = null;
+        return event,time=>{
+            if(!timer){
+                setTimeout(()=>{
+                    event()
+                    timer = null
+                },time)
+            }
+        }
+    }
+    //节流操作
+    let div = document.querySelector('.div');
+    div.addEventListener('touchmove',throttle(demo,3000))
 </script>
 </html>
