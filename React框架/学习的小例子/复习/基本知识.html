@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个类
+        class Person{
+            //构造器方法
+            constructor(name,age){
+                // this指向的是类的实例对象
+                this.name=name
+                this.age=age
+            }
+            //方法
+            say(){
+                console.log(`我叫${this.name},我的年龄是${this.age}`)
+            }
+        }
+        //创建一个学生类去继承个人类
+        class Student extends Person{
+            constructor(name,age,gender){
+                super(name,age)
+                this.gender=gender
+            }
+            say(){
+                console.log(`我叫${this.name},我的年龄是${this.age},我读的是${this.gender}`)
+            }
+            study(){
+                console.log('我很努力的学习')
+            }
+        }
+        //创建实例对象
+        const p = new Person('tom',18)
+        const p1 = new Person('marry',20)
+        console.log(p)
+        console.log(p1)
+        p.say()
+        p1.say()
+        p.say.call({a:1,b:5})
+        const s1= new Student('战三',15,'高一')
+        console.log(s1)
+        s1.say()
+        s1.study()
+    </script>
+</body>
+</html>
