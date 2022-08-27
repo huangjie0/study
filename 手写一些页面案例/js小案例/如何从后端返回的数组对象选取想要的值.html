@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//准备后端数据
+var data = [
+  {
+    "data": [
+      {
+        "business_type": "Robocar",
+        "count": 0,
+        "p_index": 0
+      },
+      {
+        "business_type": "TMUS",
+        "count": 0,
+        "p_index": 1
+      },
+      {
+        "business_type": "Devcar",
+        "count": 0,
+        "p_index": 2
+      },
+    ],
+    "time": "2022-05-17"
+  },
+  {
+    "data": [
+      {
+        "business_type": "Robocar",
+        "count": 0,
+        "p_index": 0
+      },
+      {
+        "business_type": "TMUS",
+        "count": 1,
+        "p_index": 1
+      },
+    ],
+    "time": "2022-05-16"
+  },
+  {
+    "data": [
+      {
+        "business_type": "Robocar",
+        "count": 0,
+        "p_index": 0
+      },
+      {
+        "business_type": "TMUS",
+        "count": 6,
+        "p_index": 1
+      },
+    ],
+    "time": "2022-05-15"
+  }
+];
+
+const formatHeat = (data) => {
+    var timeList = [];
+    var businessTypeList = [];
+    var valueList = [];
+    data.forEach((timeDataList, data3Index) => {
+      // 容错
+      const { data, time } = timeDataList || {};
+      time && timeList.push(time);
+ 
+      data.forEach(dataItem => {
+        // 只需要取一次
+        const { business_type = '', p_index, count } = dataItem;
+        if (data3Index === 0) {
+          business_type && businessTypeList.push(business_type);
+        }
+        valueList.push([data3Index, p_index, count]);
+      });
+    });
+    return [timeList, businessTypeList, valueList]
+}
+console.log(formatHeat(data))
+
+</script>
+</html>

@@ -1,0 +1,6 @@
+.box {
+  color: red;
+}
+.box:hover {
+  color: green;
+}
