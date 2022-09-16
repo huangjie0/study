@@ -11,14 +11,15 @@
 </body>
 <script>
     let p = new Promise((resolve, reject) => {
-        // resolve('ok');
+        setTimeout(()=>{
+            resolve('ok')
+        },2000)
     })
-    //指定多个回调
+    
     p.then(value=>{
-        console.log(value);
-    })
-    p.then(value=>{
-        alert(value)
+    console.log(value)
+    },reason=>{
+
     })
 </script>
 </html>
