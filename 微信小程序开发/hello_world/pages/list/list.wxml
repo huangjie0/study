@@ -1,6 +1,51 @@
 <!--pages/list/list.wxml-->
-<view class="container_1">
+<scroll-view class="container_1" scroll-y>
       <view>A</view>  
       <view>B</view>  
       <view>C</view>  
+</scroll-view>
+<swiper class="swiper-container" interval="3000" indicator-dots indicator-color="white" indicator-active-color="grey" autoplay circular>
+  <swiper-item>
+    <view class="item">A</view>
+  </swiper-item>
+  <swiper-item>
+    <view class="item">B</view>
+  </swiper-item>
+  <swiper-item>
+    <view class="item">C</view>
+  </swiper-item>
+</swiper>
+<view>
+  手机号支持长按选中
+  <text selectable>13855583120</text>
+  <rich-text nodes="<h1 style='color:red'>标题</h1>"></rich-text>
 </view>
+<button>
+  普通按钮
+</button>
+<button type="primary">
+主色调
+</button>
+<button type="warn">
+警告按钮
+</button>
+<button size="mini">
+  普通按钮
+</button>
+<button type="primary" size="mini">
+主色调
+</button>
+<button type="warn" size="mini">
+警告按钮
+</button>
+<button size="mini" plain>
+  普通按钮
+</button>
+<button type="primary" size="mini" plain>
+主色调
+</button>
+<button type="warn" size="mini" plain>
+警告按钮
+</button>
+<image></image>
+<image src="/img/1.jpg" class="img" mode="heightFix"></image>
