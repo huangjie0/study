@@ -1,2 +1,6 @@
 <!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+<view class="container_1">
+      <view>A</view>  
+      <view>B</view>  
+      <view>C</view>  
+</view>

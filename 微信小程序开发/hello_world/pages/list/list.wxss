@@ -1,1 +1,21 @@
 /* pages/list/list.wxss */
+.container_1 view{
+  width: 100PX;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+.container_1 view:nth-child(1){
+  background-color: green;
+}
+.container_1 view:nth-child(2){
+  background-color: blue;
+}
+.container_1 view:nth-child(3){
+  background-color: pink;
+}
+.container_1{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
