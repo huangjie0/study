@@ -4,12 +4,42 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    info:'hello world',
+    imgSrc:'http://www.itheima.com/images/logo.png',
+    randomNum:Math.random()*10,
+    randomNum1:Math.random().toFixed(2),
+    count:0,
+    count1:0,
+    msg:'你好',
+    type:1,
+    array:['小明','小红','小兰'],
+    userList:[
+      {id:1,name:'小虎'},
+      {id:2,name:'小张'},
+      {id:3,name:'小白'},
+      {id:4,name:'小咯'},
+    ]
+  },
+  btnTap2(e){
+    this.setData({
+      count1:this.data.count1 + e.target.dataset.info
+    })
+  },
+  inputhandler(e){
+    console.log(e.detail.value)
+  },
+  inputhandler_1(e){
+    this.setData({
+      msg:e.detail.value
+    })
+  },
+  onclick(e){
+    console.log(e.currentTarget)
+  },
+  contchang(){
+    this.setData({
+      count:this.data.count+1
+    })
   },
   // 事件处理函数
   bindViewTap() {

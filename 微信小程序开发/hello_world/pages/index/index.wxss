@@ -13,7 +13,12 @@
   margin: 20rpx;
   border-radius: 50%;
 }
-
+input{
+  border: 1px solid #eee;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+}
 .usermotto {
   margin-top: 200px;
 }
