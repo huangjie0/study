@@ -6,10 +6,25 @@
     "pages/logs/logs"
   ],
   "window":{
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#2b4b6b",
     "navigationBarTitleText": "黄杰",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#2b2b2b",
+    "onReachBottomDistance": 100
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "index"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "test"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
