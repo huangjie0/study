@@ -38,5 +38,4 @@ swiper image{
 }
 .img-box image{
   width: 45%;
-
 }
