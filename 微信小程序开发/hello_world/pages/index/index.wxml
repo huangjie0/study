@@ -31,6 +31,6 @@
 <view wx:for="{{array}}" wx:for-index='idx' wx:for-item='name' wx:key="idx">
   索引是：{{idx}}，item是{{name}}
 </view>
-<view wx:for="{{userList}}" wx:key="id">
+<view wx:for="{{userList}}" wx:key="id" class="username">
 {{item.name}}
 </view>

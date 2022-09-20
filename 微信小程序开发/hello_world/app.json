@@ -1,13 +1,14 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/test/test",
     "pages/list/list",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarBackgroundColor": "#2b4b6b",
+    "navigationBarTitleText": "黄杰",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",

@@ -1,4 +1,5 @@
 /**index.wxss**/
+@import '/common/common.wxss';
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -21,4 +22,7 @@ input{
 }
 .usermotto {
   margin-top: 200px;
+}
+view{
+  background-color: teal;
 }

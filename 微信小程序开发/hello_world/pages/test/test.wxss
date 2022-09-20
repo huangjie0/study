@@ -1,0 +1,4 @@
+/* pages/test/test.wxss */
+view{
+  color: wheat;
+}
