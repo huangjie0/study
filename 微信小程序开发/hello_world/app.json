@@ -1,28 +1,41 @@
 {
   "pages":[
+    "pages/home/home",
+    "pages/message/message",
+    "pages/contact/contact",
     "pages/index/index",
     "pages/test/test",
     "pages/list/list",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/info/info"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#2b4b6b",
     "navigationBarTitleText": "黄杰",
     "navigationBarTextStyle":"white",
-    "enablePullDownRefresh": true,
     "backgroundColor": "#2b2b2b",
     "onReachBottomDistance": 100
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "index"
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "/img/home.png",
+        "selectedIconPath": "/img/home-active.png"
       },
       {
-        "pagePath": "pages/test/test",
-        "text": "test"
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "/img/message.png",
+        "selectedIconPath": "/img/message-active.png"
+      },
+      {
+        "pagePath": "pages/contact/contact",
+        "text": "联系我们",
+        "iconPath": "/img/contact.png",
+        "selectedIconPath": "/img/contact-active.png"
       }
     ]
   },

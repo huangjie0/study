@@ -13,6 +13,12 @@ App({
       }
     })
   },
+  onShow(){
+    console.log('onshow')
+  },
+  onHide(){
+    console.log('onhide')
+  },
   globalData: {
     userInfo: null
   }
