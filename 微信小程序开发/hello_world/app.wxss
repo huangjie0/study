@@ -8,14 +8,14 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-view{
+/* view{
   padding: 10rpx;
   margin: 10rpx;
   background-color: lightpink;
-}
-view:nth-child(1){
+} */
+/* view:nth-child(1){
   background-color: pink;
-}
+} */
 .g-red-text{
   color: red;
 }

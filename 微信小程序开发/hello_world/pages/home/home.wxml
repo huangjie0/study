@@ -9,3 +9,5 @@
 <navigator url="/pages/info/info?name=huangjie&age=18">声明式导航跳转到info页面携带参数</navigator>
 <button bindtap="gotoinfo2">编程式导航跳转到info页面携带参数</button>
 <my-test1 max="9"></my-test1>
+<my-test3></my-test3>
+<my-test4></my-test4>

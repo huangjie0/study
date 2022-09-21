@@ -26,11 +26,17 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    showInfo(){
+      console.log(this.data)
+      console.log(this.properties)
+      console.log(this.data===this.properties)
+    },
     //点击事件处理函数
     addCount(){
       if(this.data.count >= this.properties.max) return
       this.setData({
-        count:this.data.count+1
+        count:this.data.count+1,
+        max:this.data.max+1
       })
       this._showCount()
     },

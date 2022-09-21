@@ -10,7 +10,9 @@
     "pages/info/info"
   ],
   "usingComponents": {
-    "my-test2":"/components/test/test"
+    "my-test2":"/components/test/test",
+    "my-test3":"/components/test2/test2",
+    "my-test4":"/components/test3/test3"
   },
   "window":{
     "backgroundTextStyle":"dark",
