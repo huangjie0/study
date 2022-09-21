@@ -9,6 +9,9 @@
     "pages/logs/logs",
     "pages/info/info"
   ],
+  "usingComponents": {
+    "my-test2":"/components/test/test"
+  },
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#2b4b6b",

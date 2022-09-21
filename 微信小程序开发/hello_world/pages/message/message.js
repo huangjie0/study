@@ -6,6 +6,8 @@ Page({
    */
   data: {
     count:0,
+    username:'zs',
+    name:'MAANSHAN'
   },
   addCount(){
     this.setData({

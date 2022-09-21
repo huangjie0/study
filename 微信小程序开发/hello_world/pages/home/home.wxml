@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<text class="g-red-text">pages/home/home.wxml</text>
 <button type="primary" bindtap="getInfo">发起get请求</button>
 <button type="warn" bindtap="postInfo">发起post请求</button>
 <navigator url="/pages/message/message" open-type="switchTab">导航到消息页面</navigator>
@@ -8,6 +8,4 @@
 <button bindtap="gotoinfo">跳转到info页面</button>
 <navigator url="/pages/info/info?name=huangjie&age=18">声明式导航跳转到info页面携带参数</navigator>
 <button bindtap="gotoinfo2">编程式导航跳转到info页面携带参数</button>
-<view class="box">
-
-</view>
+<my-test1 max="9"></my-test1>

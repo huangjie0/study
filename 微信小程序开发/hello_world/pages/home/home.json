@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-test1":"/components/test/test"
+  },
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 150
 }

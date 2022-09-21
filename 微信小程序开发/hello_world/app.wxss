@@ -16,3 +16,6 @@ view{
 view:nth-child(1){
   background-color: pink;
 }
+.g-red-text{
+  color: red;
+}
