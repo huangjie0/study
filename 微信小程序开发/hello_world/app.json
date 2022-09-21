@@ -9,13 +9,37 @@
     "pages/logs/logs",
     "pages/info/info"
   ],
+  "preloadRule": {
+    "pages/contact/contact":{
+      "packages": ["p1"],
+      "network": "wifi"
+    }
+  },
+  "subpackages": [{
+    "root": "pkgA",
+    "name": "p1",
+    "pages": [
+      "pages/cat/cat",
+      "pages/dog/dog"
+    ]
+  },{
+    "root": "pkgB",
+    "name": "p2",
+    "pages": [
+      "pages/apple/apple"
+    ],
+    "independent": true
+  }],
   "usingComponents": {
     "my-test2":"/components/test/test",
     "my-test3":"/components/test2/test2",
     "my-test4":"/components/test3/test3",
     "test4":"/components/test4/test4",
     "test5":"/components/test5/test5",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "my-numbers":"/components/numbers/numbers",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
   },
   "window":{
     "backgroundTextStyle":"dark",
@@ -26,6 +50,7 @@
     "onReachBottomDistance": 100
   },
   "tabBar": {
+    "custom": true,
     "list": [
       {
         "pagePath": "pages/home/home",
