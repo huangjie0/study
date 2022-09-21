@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    count:0
+  },
+  syncCount(e){
+    this.setData({
+      count:e.detail.value
+    })
+  },
+  async getInfo_1(){
+    const {data:res} = await wx.p.request({
+      method:'GET',
+      url:'https://www.escook.cn/api/get',
+      data:{
+        name:'zs',
+        age:20
+      }
+    })
+    console.log(res)
   },
   // 发送get请求
   getInfo(){
@@ -34,6 +50,13 @@ Page({
         console.log(res.data)
       }
     })
+  },
+  getChild(){
+    let child = this.selectComponent('.child')
+    child.setData({
+      count:child.properties.count+1
+    })
+    child.addCount()
   },
   // 通过编程式导航跳转到tab页面
   gotomessage(){

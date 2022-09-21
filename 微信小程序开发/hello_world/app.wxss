@@ -19,3 +19,7 @@
 .g-red-text{
   color: red;
 }
+page{
+  --button-danger-background-color:#C00000;
+  --button-danger-border-color:#D60000;
+}
