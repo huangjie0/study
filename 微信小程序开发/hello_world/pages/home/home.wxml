@@ -11,3 +11,7 @@
 <my-test1 max="9"></my-test1>
 <my-test3></my-test3>
 <my-test4></my-test4>
+<test4>
+  <view slot='before'>这是填充之前的插槽</view>
+  <view slot='after'>这是填充之后的插槽</view>
+</test4>

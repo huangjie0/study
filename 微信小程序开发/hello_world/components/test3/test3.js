@@ -1,5 +1,16 @@
 // components/test3/test3.js
 Component({
+  pageLifetimes:{
+    show(){
+      this._randomColor()
+    },
+    hide(){
+      console.log('hide')
+    },
+    resize(){
+      console.log('resize')
+    }
+  },
   lifetimes:{
     created(){
       console.log('created')
@@ -48,6 +59,15 @@ Component({
     changeB(){
       this.setData({
         '_rgb.b':this.data._rgb.b + 5 > 255 ? 255 :  this.data._rgb.b + 5
+      })
+    },
+    _randomColor(){
+      this.setData({
+        _rgb:{
+          r:Math.floor(Math.random()*256),
+          g:Math.floor(Math.random()*256),
+          b:Math.floor(Math.random()*256)
+        }
       })
     }
   },

@@ -12,7 +12,8 @@
   "usingComponents": {
     "my-test2":"/components/test/test",
     "my-test3":"/components/test2/test2",
-    "my-test4":"/components/test3/test3"
+    "my-test4":"/components/test3/test3",
+    "test4":"/components/test4/test4"
   },
   "window":{
     "backgroundTextStyle":"dark",
