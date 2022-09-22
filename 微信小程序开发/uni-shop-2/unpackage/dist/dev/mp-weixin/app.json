@@ -5,7 +5,14 @@
     "pages/Cart/Cart",
     "pages/Cate/Cate"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "subpkg",
+      "pages": [
+        "goods_detail/goods_detail"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "瓜子购物",

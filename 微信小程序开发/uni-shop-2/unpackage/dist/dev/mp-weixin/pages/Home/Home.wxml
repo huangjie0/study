@@ -1,1 +1,1 @@
-<view>Home</view>
+<view><swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}" circular="true"><block wx:for="{{swiperlist}}" wx:for-item="item" wx:for-index="index" wx:key="index"><swiper-item><navigator class="swiper-item" url="{{'/subpkg/goods_detail/goods_detail?goods_id='+item.goods_id}}"><image src="{{item.image_src}}"></image></navigator></swiper-item></block></swiper></view>
