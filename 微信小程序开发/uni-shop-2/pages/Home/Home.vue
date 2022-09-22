@@ -21,12 +21,14 @@
 				<!-- 楼层图片区域 -->
 				<view class="floor-img-box">
 					<!-- 左侧大盒子 -->
-					<view class="left-img-box">
-						<image mode="heightFix" :src="item.product_list[0].image_src" :style="{width:item.product_list[0].image_width + 'rpx'}"></image>
-					</view>
+					<navigator class="left-img-box" :url="item.product_list[0].url">
+						<image mode="widthFix" :src="item.product_list[0].image_src" :style="{width:item.product_list[0].image_width + 'rpx'}"></image>
+					</navigator>
 					<!-- 右侧盒子 -->
 					<view class="right-img-box">
-						
+						<navigator :url="item2.url" class="right-img-item" v-for="(item2,index2) in item.product_list" :key="index2" v-if="index2 !== 0">
+							<image :src="item2.image_src" :style="{width:item2.image_width + 'rpx'}" mode="widthFix"></image>
+						</navigator>
 					</view>
 				</view>
 			</view>
@@ -75,6 +77,12 @@
 			async getFloorList(){
 				const { data:res } = await uni.$http.get('/api/public/v1/home/floordata')
 				if(res.meta.status !== 200) return uni.$showMsg()
+				//数据进行处理
+				res.message.forEach(floor => {
+					floor.product_list.forEach(prod => {
+						prod.url = '/subpkg/goods_list/goods_list?' + prod.navigator_url.split('?')[1]
+					})
+				})
 				this.floorList = res.message
 			}
 		}
@@ -102,5 +110,14 @@ swiper{
 .floor-title{
 	width: 100%;
 	height: 60rpx;
+}
+.right-img-box{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.floor-img-box{
+	display: flex;
+	padding-left: 10rpx;
 }
 </style>
