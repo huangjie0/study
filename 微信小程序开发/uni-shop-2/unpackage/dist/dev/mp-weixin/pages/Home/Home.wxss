@@ -32,4 +32,17 @@ swiper image {
   width: 100%;
   height: 100%;
 }
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+}
+.nav-list .nav-img {
+  width: 128rpx;
+  height: 140rpx;
+}
+.floor-title {
+  width: 100%;
+  height: 60rpx;
+}
 

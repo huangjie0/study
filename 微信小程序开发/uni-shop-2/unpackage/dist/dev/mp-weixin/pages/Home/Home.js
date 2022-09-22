@@ -151,13 +151,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
       //轮播图的数据列表
       swiperlist: [],
-      navList: [] };
+      navList: [],
+      //楼层的数据列表
+      floorList: [] };
 
   },
   onLoad: function onLoad() {
@@ -165,8 +191,17 @@ var _default =
     this.getSwiperlist();
     //调用分类导航数据
     this.getNavList();
+    //调用获取楼层数据
+    this.getFloorList();
   },
   methods: {
+    navClickHandler: function navClickHandler(item) {
+      if (item.name == '分类') {
+        uni.switchTab({
+          url: '/pages/Cate/Cate' });
+
+      }
+    },
     getSwiperlist: function getSwiperlist() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _yield$uni$$http$get, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
                   uni.$http.get('/api/public/v1/home/swiperdata'));case 2:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;if (!(
                 res.meta.status !== 200)) {_context.next = 6;break;}return _context.abrupt("return", uni.$showMsg);case 6:
@@ -177,6 +212,11 @@ var _default =
                   uni.$http.get('/api/public/v1/home/catitems'));case 2:_yield$uni$$http$get2 = _context2.sent;res = _yield$uni$$http$get2.data;if (!(
                 res.meta.status !== 200)) {_context2.next = 6;break;}return _context2.abrupt("return", uni.$showMsg());case 6:
                 _this2.navList = res.message;case 7:case "end":return _context2.stop();}}}, _callee2);}))();
+    },
+    getFloorList: function getFloorList() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee3() {var _yield$uni$$http$get3, res;return _regenerator.default.wrap(function _callee3$(_context3) {while (1) {switch (_context3.prev = _context3.next) {case 0:_context3.next = 2;return (
+                  uni.$http.get('/api/public/v1/home/floordata'));case 2:_yield$uni$$http$get3 = _context3.sent;res = _yield$uni$$http$get3.data;if (!(
+                res.meta.status !== 200)) {_context3.next = 6;break;}return _context3.abrupt("return", uni.$showMsg());case 6:
+                _this3.floorList = res.message;case 7:case "end":return _context3.stop();}}}, _callee3);}))();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
