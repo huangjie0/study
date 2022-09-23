@@ -24,6 +24,25 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.uni-tag {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.history-box {
+  padding: 0 5px;
+}
+.history-box .history-title {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  align-items: center;
+  font-size: 13px;
+  border-bottom: 1px solid #efefefef;
+}
+.history-box .history-list {
+  display: flex;
+  flex-wrap: wrap;
+}
 .search-box {
   background-color: #C00000;
   position: -webkit-sticky;
