@@ -99,6 +99,12 @@ try {
   components = {
     uniSearchBar: function() {
       return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-search-bar/uni-search-bar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-search-bar/uni-search-bar")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-search-bar/uni-search-bar.vue */ 71))
+    },
+    uniIcons: function() {
+      return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons.vue */ 82))
+    },
+    uniTag: function() {
+      return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag */ "node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-tag/uni-tag.vue */ 97))
     }
   }
 } catch (e) {
@@ -163,6 +169,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -170,10 +198,17 @@ var _default =
       timer: null,
       kv: '',
       // 搜索结果
-      searchResult: [] };
+      searchResult: [],
+      //搜索记录
+      historyList: ['a', 'app', 'apple'] };
 
   },
   methods: {
+    gotoDetail: function gotoDetail(item) {
+      uni.navigateTo({
+        url: "/subpkg/goods_detail/goods_detail?goods_id=" + item.goods_id });
+
+    },
     input: function input(e) {var _this = this;
       clearTimeout(this.timer);
       this.timer = setTimeout(function () {
