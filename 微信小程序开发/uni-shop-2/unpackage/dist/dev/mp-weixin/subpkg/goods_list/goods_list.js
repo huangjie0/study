@@ -139,9 +139,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      //请求参数对象
+      queryObj: {
+        query: '',
+        cid: '',
+        pagenum: 1,
+        pagesize: 10 },
 
+      // 商品列表
+      goodsList: [],
+      total: 0 };
 
+  },
+  onLoad: function onLoad(options) {
+    this.queryObj.query = options.query || '';
+    this.queryObj.cid = options.cid || '';
+    this.getGoodsList();
   } };exports.default = _default;
 
 /***/ })
