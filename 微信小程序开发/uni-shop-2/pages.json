@@ -1,4 +1,11 @@
 {
+	"easycom": {
+			"autoscan": true,
+			"custom": {
+				// uni-ui 规则如下配置
+				"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+			}
+		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	    {
             "path" : "pages/Home/Home",
@@ -52,14 +59,22 @@
                 }
                 
                 }
+                ,{
+                    "path" : "search/search",
+                    "style" :                                                                                    
+                {
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],
 	"globalStyle": {
 		"backgroundTextStyle":"light",
-		"navigationBarBackgroundColor": "#FFFFFF",
+		"navigationBarBackgroundColor": "#C00000",
 		"navigationBarTitleText": "瓜子购物",
-		"navigationBarTextStyle":"black"
+		"navigationBarTextStyle":"white"
 	},
 	"uniIdRouter": {},
 	"tabBar": {

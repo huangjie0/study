@@ -24,40 +24,22 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-swiper {
-  height: 330rpx;
+.my-search-container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
 }
-swiper .swiper-item,
-swiper image {
+.my-search-container .my-search-box {
+  height: 36px;
+  background-color: #FFFFFF;
   width: 100%;
-  height: 100%;
-}
-.nav-list {
   display: flex;
-  justify-content: space-around;
-  margin: 15px 0;
+  justify-content: center;
+  align-items: center;
 }
-.nav-list .nav-img {
-  width: 128rpx;
-  height: 140rpx;
-}
-.floor-title {
-  width: 100%;
-  height: 60rpx;
-}
-.right-img-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.floor-img-box {
-  display: flex;
-  padding-left: 10rpx;
-}
-.search-box {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+.my-search-container .my-search-box .placeholder {
+  font-size: 15px;
+  margin-left: 5px;
 }
 

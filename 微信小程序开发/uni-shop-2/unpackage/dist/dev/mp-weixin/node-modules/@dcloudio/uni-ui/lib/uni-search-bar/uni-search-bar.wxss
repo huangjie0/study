@@ -24,40 +24,51 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-swiper {
-  height: 330rpx;
-}
-swiper .swiper-item,
-swiper image {
-  width: 100%;
-  height: 100%;
-}
-.nav-list {
+.uni-searchbar {
   display: flex;
-  justify-content: space-around;
-  margin: 15px 0;
+  flex-direction: row;
+  position: relative;
+  padding: 10px;
 }
-.nav-list .nav-img {
-  width: 128rpx;
-  height: 140rpx;
-}
-.floor-title {
-  width: 100%;
-  height: 60rpx;
-}
-.right-img-box {
+.uni-searchbar__box {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  flex: 1;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+  padding: 5px 8px 5px 0px;
 }
-.floor-img-box {
+.uni-searchbar__box-icon-search {
   display: flex;
-  padding-left: 10rpx;
+  flex-direction: row;
+  padding: 0 8px;
+  justify-content: center;
+  align-items: center;
+  color: #B3B3B3;
 }
-.search-box {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+.uni-searchbar__box-search-input {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+.uni-searchbar__box-icon-clear {
+  align-items: center;
+  line-height: 24px;
+  padding-left: 8px;
+}
+.uni-searchbar__text-placeholder {
+  font-size: 14px;
+  color: #B3B3B3;
+  margin-left: 5px;
+}
+.uni-searchbar__cancel {
+  padding-left: 10px;
+  line-height: 36px;
+  font-size: 14px;
+  color: #333333;
 }
 

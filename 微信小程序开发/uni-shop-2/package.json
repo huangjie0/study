@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dcloudio/uni-ui": "^1.4.22",
     "@escook/request-miniprogram": "^0.2.1"
   }
 }

@@ -98,7 +98,7 @@ var components
 try {
   components = {
     mySearch: function() {
-      return __webpack_require__.e(/*! import() | components/my-search/my-search */ "components/my-search/my-search").then(__webpack_require__.bind(null, /*! @/components/my-search/my-search.vue */ 59))
+      return __webpack_require__.e(/*! import() | components/my-search/my-search */ "components/my-search/my-search").then(__webpack_require__.bind(null, /*! @/components/my-search/my-search.vue */ 62))
     }
   }
 } catch (e) {
@@ -228,7 +228,7 @@ var _default =
   },
   onLoad: function onLoad() {
     var sysInfo = uni.getSystemInfoSync();
-    this.wh = sysInfo.windowHeight;
+    this.wh = sysInfo.windowHeight - 50;
     this.getCateList();
   },
   methods: {
@@ -249,6 +249,11 @@ var _default =
     gotoGoodslist: function gotoGoodslist(item3) {
       uni.navigateTo({
         url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id });
+
+    },
+    gotoSearch: function gotoSearch() {
+      uni.navigateTo({
+        url: "/subpkg/search/search" });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

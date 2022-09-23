@@ -10,15 +10,16 @@
       "root": "subpkg",
       "pages": [
         "goods_detail/goods_detail",
-        "goods_list/goods_list"
+        "goods_list/goods_list",
+        "search/search"
       ]
     }
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarBackgroundColor": "#C00000",
     "navigationBarTitleText": "瓜子购物",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "selectedColor": "#C00000",
