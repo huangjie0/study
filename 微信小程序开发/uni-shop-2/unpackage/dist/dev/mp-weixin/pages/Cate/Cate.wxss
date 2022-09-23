@@ -52,4 +52,29 @@
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
+.cate-lv2-title {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px 0;
+}
+.cate-lv3-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cate-lv3-list .cate-lv3-item {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cate-lv3-list .cate-lv3-item image {
+  width: 60px;
+  height: 60px;
+}
+.cate-lv3-list .cate-lv3-item text {
+  font-size: 12px;
+}
 

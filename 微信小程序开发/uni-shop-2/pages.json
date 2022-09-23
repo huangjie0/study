@@ -4,7 +4,6 @@
             "path" : "pages/Home/Home",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -13,7 +12,6 @@
             "path" : "pages/My/My",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -21,7 +19,6 @@
             "path" : "pages/Cart/Cart",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -29,7 +26,6 @@
             "path" : "pages/Cate/Cate",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -44,7 +40,6 @@
                     "path" : "goods_detail/goods_detail",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
                     "enablePullDownRefresh": false
                 }
                 
@@ -53,7 +48,6 @@
                     "path" : "goods_list/goods_list",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
                     "enablePullDownRefresh": false
                 }
                 
@@ -62,10 +56,10 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"backgroundTextStyle":"light",
+		"navigationBarBackgroundColor": "#FFFFFF",
 		"navigationBarTitleText": "瓜子购物",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle":"black"
 	},
 	"uniIdRouter": {},
 	"tabBar": {
