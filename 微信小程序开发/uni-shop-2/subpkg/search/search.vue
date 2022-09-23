@@ -16,11 +16,10 @@
 		<view class="history-box" v-if="searchResult.length == 0">
 			<view class="history-title">
 				<text>搜索历史</text>
-				<uni-icons type="trash" size="17"></uni-icons>
+				<uni-icons type="trash" size="17" @click="clean"></uni-icons>
 			</view>
 			<view class="history-list">
-				<uni-tag :text="item" type="success" v-for="(item,i) in historyList" :key="i">
-					
+				<uni-tag :text="item" type="success" v-for="(item,i) in historys" :key="i" @click="gotoGoodsList(item)">
 				</uni-tag>
 			</view>
 			
@@ -37,10 +36,22 @@
 				// 搜索结果
 				searchResult:[],
 				//搜索记录
-				historyList:['a','app','apple']
+				historyList:[]
 			};
 		},
+		onLoad(){
+			this.historyList = JSON.parse(uni.getStorageSync('kv') || '[]')
+		},
 		methods:{
+			gotoGoodsList(item){
+				uni.navigateTo({
+					url:'/subpkg/goods_list/goods_list?query=' + item
+				})
+			},
+			clean(){
+				this.historyList = []
+				uni.removeStorageSync('kv')
+			},
 			gotoDetail(item){
 				uni.navigateTo({
 					url:"/subpkg/goods_detail/goods_detail?goods_id=" + item.goods_id
@@ -61,6 +72,21 @@
 				 const { data: res} = await uni.$http.get('/api/public/v1/goods/qsearch',{query:this.kv})
 				 if(res.meta.status !== 200) return uni.$showMsg()
 				 this.searchResult = res.message
+				 this.saveSearchHistory()
+			},
+			saveSearchHistory(){
+			  this.historyList.push(this.kv)
+			  const S = new Set(this.historyList)
+			  S.delete(this.kv)
+			  S.add(this.kv)
+			  this.historyList = [...S]
+			  //本地存储
+			  uni.setStorageSync('kv',JSON.stringify(this.historyList))
+			}
+		},
+		computed:{
+			historys(){
+				return [...this.historyList.reverse()]
 			}
 		}
 	}

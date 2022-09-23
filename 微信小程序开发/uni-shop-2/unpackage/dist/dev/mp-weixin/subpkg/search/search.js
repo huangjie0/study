@@ -104,7 +104,7 @@ try {
       return Promise.all(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-icons/uni-icons.vue */ 82))
     },
     uniTag: function() {
-      return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag */ "node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-tag/uni-tag.vue */ 97))
+      return __webpack_require__.e(/*! import() | node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag */ "node-modules/@dcloudio/uni-ui/lib/uni-tag/uni-tag").then(__webpack_require__.bind(null, /*! @dcloudio/uni-ui/lib/uni-tag/uni-tag.vue */ 90))
     }
   }
 } catch (e) {
@@ -161,8 +161,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
 //
@@ -200,10 +199,22 @@ var _default =
       // 搜索结果
       searchResult: [],
       //搜索记录
-      historyList: ['a', 'app', 'apple'] };
+      historyList: [] };
 
   },
+  onLoad: function onLoad() {
+    this.historyList = JSON.parse(uni.getStorageSync('kv') || '[]');
+  },
   methods: {
+    gotoGoodsList: function gotoGoodsList(item) {
+      uni.navigateTo({
+        url: '/subpkg/goods_list/goods_list?query=' + item });
+
+    },
+    clean: function clean() {
+      this.historyList = [];
+      uni.removeStorageSync('kv');
+    },
     gotoDetail: function gotoDetail(item) {
       uni.navigateTo({
         url: "/subpkg/goods_detail/goods_detail?goods_id=" + item.goods_id });
@@ -223,7 +234,22 @@ var _default =
 
                   uni.$http.get('/api/public/v1/goods/qsearch', { query: _this2.kv }));case 5:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;if (!(
                 res.meta.status !== 200)) {_context.next = 9;break;}return _context.abrupt("return", uni.$showMsg());case 9:
-                _this2.searchResult = res.message;case 10:case "end":return _context.stop();}}}, _callee);}))();
+                _this2.searchResult = res.message;
+                _this2.saveSearchHistory();case 11:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    saveSearchHistory: function saveSearchHistory() {
+      this.historyList.push(this.kv);
+      var S = new Set(this.historyList);
+      S.delete(this.kv);
+      S.add(this.kv);
+      this.historyList = _toConsumableArray(S);
+      //本地存储
+      uni.setStorageSync('kv', JSON.stringify(this.historyList));
+    } },
+
+  computed: {
+    historys: function historys() {
+      return _toConsumableArray(this.historyList.reverse());
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
