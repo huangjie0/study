@@ -1,0 +1,1 @@
+<view class="my-search-container"><view class="my-search-box"><uni-icons vue-id="d033dda4-1" type="contact" size="30" bind:__l="__l"></uni-icons><text class="placeholder">搜索</text></view></view>
