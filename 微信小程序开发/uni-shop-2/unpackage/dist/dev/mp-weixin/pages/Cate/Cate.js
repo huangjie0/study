@@ -220,6 +220,11 @@ var _default =
       // 重新赋值
       this.cateLevel2 = this.cateList[i].children;
       this.scrolltop = this.scrolltop === 0 ? 1 : 0;
+    },
+    gotoGoodslist: function gotoGoodslist(item3) {
+      uni.navigateTo({
+        url: '/subpkg/goods_list/goods_list?cid=' + item3.cat_id });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
