@@ -10,15 +10,28 @@
 	export default {
 		data() {
 			return {
-				timer:null
+				timer:null,
+				kv:'',
+				// 搜索结果
+				searchResult:[]
 			};
 		},
 		methods:{
 			input(e){
 				clearTimeout(this.timer)
 				this.timer = setTimeout(()=>{
-					console.log(e)
+					this.kv = e
+					this.getSearchList()
 				},500)
+			},
+			async getSearchList(){
+				if(this.kv.length == 0){
+					this.searchResult = []
+					return
+				}
+				 const { data: res} = await uni.$http.get('/api/public/v1/goods/qsearch',{query:this.kv})
+				 if(res.meta.status !== 200) return uni.$showMsg()
+				 this.searchResult = res.message
 			}
 		}
 	}
