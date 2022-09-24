@@ -55,7 +55,9 @@
                     "path" : "goods_list/goods_list",
                     "style" :                                                                                    
                 {
-                    "enablePullDownRefresh": false
+                    "enablePullDownRefresh": true,
+					"onReachBottomDistance": 150,
+					"backgroundColor": "#F8F8F8"
                 }
                 
                 }
