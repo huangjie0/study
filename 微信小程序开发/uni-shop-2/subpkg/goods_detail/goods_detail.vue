@@ -25,7 +25,7 @@
 				</view>
 			</view>
 			<view class="yf">
-				快递：免运费
+				快递：免运费 --
 			</view>
 		</view>
 		<rich-text :nodes="goods_info.goods_introduce">
@@ -38,7 +38,8 @@
 </template>
 
 <script>
-	export default {
+	import {mapState} from 'vuex'
+ 	export default {
 		data() {
 			return {
 				goods_info:{
@@ -66,6 +67,9 @@
 					    }
 					    ]
 			};
+		},
+		computed:{
+			...mapState('m_cart',['cart'])
 		},
 		onLoad(options){
 			 this.getGoodsDetail(options.goods_id)

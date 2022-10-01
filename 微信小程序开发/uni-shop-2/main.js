@@ -1,10 +1,9 @@
 import App from './App'
-
 // #ifndef VUE3
 import Vue from 'vue'
-import store from 'store/store.js'
 //导入网络请求的包
 import {$http} from '@escook/request-miniprogram'
+import store from './store/index.js'
 uni.$http = $http
 //请求的根路径
 $http.baseUrl = 'https://api-ugo-web.itheima.net'
@@ -41,7 +40,8 @@ import { createSSRApp } from 'vue'
 export function createApp() {
   const app = createSSRApp(App)
   return {
-    app
+    app,
+	store
   }
 }
 // #endif

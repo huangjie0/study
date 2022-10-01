@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@dcloudio/uni-ui": "^1.4.22",
-    "@escook/request-miniprogram": "^0.2.1"
+    "@escook/request-miniprogram": "^0.2.1",
+    "vuex": "^4.0.2"
   }
 }
