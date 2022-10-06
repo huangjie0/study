@@ -3,7 +3,7 @@ import App from './App'
 import Vue from 'vue'
 //导入网络请求的包
 import {$http} from '@escook/request-miniprogram'
-import store from './store/index.js'
+import store from '@/store/index.js'
 uni.$http = $http
 //请求的根路径
 $http.baseUrl = 'https://api-ugo-web.itheima.net'

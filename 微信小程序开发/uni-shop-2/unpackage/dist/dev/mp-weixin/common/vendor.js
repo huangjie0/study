@@ -766,8 +766,8 @@ function populateParameters(result) {var _result$brand =
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "3.6.3",
-    uniRuntimeVersion: "3.6.3",
+    uniCompileVersion: "3.6.4",
+    uniRuntimeVersion: "3.6.4",
     uniPlatform: undefined || "mp-weixin",
     deviceBrand: deviceBrand,
     deviceModel: model,
@@ -1464,7 +1464,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2538,43 +2538,680 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 107:
-/*!*****************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/index.js ***!
-  \*****************************************************************************************************/
+/***/ 104:
+/*!*******************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-swipe-action-item/mpwxs.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 108));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 109));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 110));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
-{
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var mpMixins = {};
+var is_pc = null;
+
+
+
+
+
+
+
+
+mpMixins = {
+  data: function data() {
+    return {
+      is_show: 'none' };
+
+  },
+  watch: {
+    show: function show(newVal) {
+      this.is_show = this.show;
+    } },
+
+  created: function created() {
+    this.swipeaction = this.getSwipeAction();
+    if (this.swipeaction.children !== undefined) {
+      this.swipeaction.children.push(this);
+    }
+  },
+  mounted: function mounted() {
+    this.is_show = this.show;
+  },
+  methods: {
+    // wxs 中调用
+    closeSwipe: function closeSwipe(e) {
+      if (!this.autoClose) return;
+      this.swipeaction.closeOther(this);
+    },
+
+    change: function change(e) {
+      this.$emit('change', e.open);
+      if (this.is_show !== e.open) {
+        this.is_show = e.open;
+      }
+    },
+
+    appTouchStart: function appTouchStart(e) {
+      if (is_pc) return;var
+
+      clientX =
+      e.changedTouches[0].clientX;
+      this.clientX = clientX;
+      this.timestamp = new Date().getTime();
+    },
+    appTouchEnd: function appTouchEnd(e, index, item, position) {
+      if (is_pc) return;var
+
+      clientX =
+      e.changedTouches[0].clientX;
+      // fixed by xxxx 模拟点击事件，解决 ios 13 点击区域错位的问题
+      var diff = Math.abs(this.clientX - clientX);
+      var time = new Date().getTime() - this.timestamp;
+      if (diff < 40 && time < 300) {
+        this.$emit('click', {
+          content: item,
+          index: index,
+          position: position });
+
+      }
+    },
+    onClickForPC: function onClickForPC(index, item, position) {
+      if (!is_pc) return;
+
+
+
+
+
+
+
+    } } };var _default =
+
+
+
+
+mpMixins;exports.default = _default;
 
 /***/ }),
 
-/***/ 108:
-/*!****************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/en.json ***!
-  \****************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
+/***/ 105:
+/*!**********************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-swipe-action-item/bindingx.js ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var bindIngXMixins = {};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+bindIngXMixins;exports.default = _default;
 
 /***/ }),
 
-/***/ 109:
+/***/ 106:
 /*!*********************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/zh-Hans.json ***!
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-swipe-action-item/mpother.js ***!
   \*********************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var otherMixins = {};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+otherMixins;exports.default = _default;
 
 /***/ }),
 
@@ -2707,17 +3344,6 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 110:
-/*!*********************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/zh-Hant.json ***!
-  \*********************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
-
-/***/ }),
-
 /***/ 12:
 /*!*********************************************************************************************************!*\
   !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@escook/request-miniprogram/miniprogram_dist/index.js ***!
@@ -2803,6 +3429,57 @@ var $http = new Request();exports.$http = $http;
 
 /***/ }),
 
+/***/ 123:
+/*!****************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/index.js ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 124));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 125));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 126));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+{
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default };exports.default = _default;
+
+/***/ }),
+
+/***/ 124:
+/*!***************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/en.json ***!
+  \***************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-goods-nav.options.cart\":\"cart\",\"uni-goods-nav.buttonGroup.addToCart\":\"add to cart\",\"uni-goods-nav.buttonGroup.buyNow\":\"buy now\"}");
+
+/***/ }),
+
+/***/ 125:
+/*!********************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/zh-Hans.json ***!
+  \********************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-goods-nav.options.cart\":\"购物车\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入购物车\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即购买\"}");
+
+/***/ }),
+
+/***/ 126:
+/*!********************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/zh-Hant.json ***!
+  \********************************************************************************************************/
+/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-goods-nav.options.cart\":\"購物車\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入購物車\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即購買\"}");
+
+/***/ }),
+
 /***/ 13:
 /*!*****************************************************!*\
   !*** E:/项目/study/微信小程序开发/uni-shop-2/store/index.js ***!
@@ -2813,14 +3490,67 @@ var $http = new Request();exports.$http = $http;
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 4));
 var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 14));
-var _cart = _interopRequireDefault(__webpack_require__(/*! ./cart.js */ 15));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./cart.js */ 15));
+var _user = _interopRequireDefault(__webpack_require__(/*! ./user.js */ 155));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 _vue.default.use(_vuex.default);
 var store = new _vuex.default.Store({
   modules: {
-    'm_cart': _cart.default } });var _default =
+    'm_cart': _cart.default,
+    'm_user': _user.default } });var _default =
 
 
 store;exports.default = _default;
+
+/***/ }),
+
+/***/ 134:
+/*!*****************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/index.js ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 135));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 136));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 137));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+{
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default };exports.default = _default;
+
+/***/ }),
+
+/***/ 135:
+/*!****************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/en.json ***!
+  \****************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"Search enter content\"}");
+
+/***/ }),
+
+/***/ 136:
+/*!*********************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/zh-Hans.json ***!
+  \*********************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
+
+/***/ }),
+
+/***/ 137:
+/*!*********************************************************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-search-bar/i18n/zh-Hant.json ***!
+  \*********************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ }),
 
@@ -4089,13 +4819,89 @@ module.exports = index_cjs;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
   namespaced: true,
-  state: function state() {
-    cart: [];
-  },
-  mutations: {},
-  getters: {} };exports.default = _default;
+  state: function state() {return {
+      cart: JSON.parse(uni.getStorageSync('cart') || '[]') };},
+
+  mutations: {
+    addToCart: function addToCart(state, goods) {
+      var findResult = state.cart.find(function (x) {return x.goods_id === goods.goods_id;});
+      if (!findResult) {
+        state.cart.push(goods);
+      } else {
+        findResult.goods_count++;
+      }
+      this.commit('m_cart/saveToStorage');
+    },
+    saveToStorage: function saveToStorage(state) {
+      uni.setStorageSync('cart', JSON.stringify(state.cart));
+    },
+    updateGoodsState: function updateGoodsState(state, goods) {
+      var findResult = state.cart.find(function (x) {return x.goods_id == goods.goods_id;});
+      if (findResult) {
+        findResult.goods_state = goods.goods_state;
+        this.commit('m_cart/saveToStorage');
+      }
+    },
+    updateGoodsCount: function updateGoodsCount(state, goods) {
+      var findResult = state.cart.find(function (x) {return x.goods_id == goods.goods_id;});
+      if (findResult) {
+        findResult.goods_count = goods.goods_count;
+      }
+      // 对数据进行持久化操作
+      this.commit('m_cart/saveToStorage');
+    },
+    removeGoodsById: function removeGoodsById(state, goods_id) {
+      state.cart = state.cart.filter(function (x) {return x.goods_id !== goods_id;});
+      this.commit('m_cart/saveToStorage');
+    } },
+
+  getters: {
+    total: function total(state) {
+      var c = 0;
+      state.cart.forEach(function (x) {return (
+          c += x.goods_count);});
+
+      return c;
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 155:
+/*!****************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/store/user.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  //开启命名空间
+  namespaced: true,
+  state: function state() {return {
+      address: JSON.parse(uni.getStorageSync('address') || '{}') };},
+
+  //方法
+  mutations: {
+    //更新收获地址
+    updateAddress: function updateAddress(state, address) {
+      state.address = address;
+      this.commit('m_user/saveAddressToStorage');
+    },
+    //本地存储
+    saveAddressToStorage: function saveAddressToStorage(state) {
+      uni.setStorageSync('address', JSON.stringify(state.address));
+    } },
+
+  getters: {
+    //最新的收货地址
+    newaddress: function newaddress(state) {
+      if (JSON.stringify(state.address) == '{}') return '';
+      return state.address.provinceName + state.address.cityName + state.address.countyName + state.address.detailInfo;
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -4918,6 +5724,33 @@ if (hadRuntime) {
   })() || Function("return this")()
 );
 
+
+/***/ }),
+
+/***/ 25:
+/*!*************************************************************!*\
+  !*** E:/项目/study/微信小程序开发/uni-shop-2/mixins/tabbar-badge.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vuex = __webpack_require__(/*! vuex */ 14);function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var _default =
+{
+  computed: _objectSpread({},
+  (0, _vuex.mapGetters)('m_cart', ['total'])),
+
+  onShow: function onShow() {
+    this.setBadge();
+  },
+  methods: {
+    setBadge: function setBadge() {
+      uni.setTabBarBadge({
+        index: 2,
+        text: this.total + '' });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
@@ -10911,7 +11744,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -10932,14 +11765,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -11025,7 +11858,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"uni-shop-2","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -11450,7 +12283,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 81:
+/***/ 91:
 /*!*******************************************************************************************!*\
   !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-icons/icons.js ***!
   \*******************************************************************************************/
@@ -12624,57 +13457,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     "font_class": "cart",
     "unicode": "e631",
     "unicode_decimal": 58929 }] };exports.default = _default;
-
-/***/ }),
-
-/***/ 89:
-/*!****************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/index.js ***!
-  \****************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 90));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 91));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 92));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
-{
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default };exports.default = _default;
-
-/***/ }),
-
-/***/ 90:
-/*!***************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/en.json ***!
-  \***************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-goods-nav.options.cart\":\"cart\",\"uni-goods-nav.buttonGroup.addToCart\":\"add to cart\",\"uni-goods-nav.buttonGroup.buyNow\":\"buy now\"}");
-
-/***/ }),
-
-/***/ 91:
-/*!********************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/zh-Hans.json ***!
-  \********************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-goods-nav.options.cart\":\"购物车\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入购物车\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即购买\"}");
-
-/***/ }),
-
-/***/ 92:
-/*!********************************************************************************************************!*\
-  !*** E:/项目/study/微信小程序开发/uni-shop-2/node_modules/@dcloudio/uni-ui/lib/uni-goods-nav/i18n/zh-Hant.json ***!
-  \********************************************************************************************************/
-/*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-goods-nav.options.cart\":\"購物車\",\"uni-goods-nav.buttonGroup.addToCart\":\"加入購物車\",\"uni-goods-nav.buttonGroup.buyNow\":\"立即購買\"}");
 
 /***/ })
 

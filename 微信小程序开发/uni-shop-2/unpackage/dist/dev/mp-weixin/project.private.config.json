@@ -34,6 +34,13 @@
           "query": "goods_id=862",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "pages/Cart/Cart",
+          "pathName": "pages/Cart/Cart",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

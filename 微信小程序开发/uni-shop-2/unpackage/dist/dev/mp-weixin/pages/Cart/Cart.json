@@ -1,4 +1,10 @@
 {
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "my-address": "/components/my-address/my-address",
+    "uni-icons": "/node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons",
+    "uni-swipe-action": "/node-modules/@dcloudio/uni-ui/lib/uni-swipe-action/uni-swipe-action",
+    "uni-swipe-action-item": "/node-modules/@dcloudio/uni-ui/lib/uni-swipe-action-item/uni-swipe-action-item",
+    "my-goods": "/components/my-goods/my-goods"
+  }
 }
