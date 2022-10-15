@@ -24,6 +24,9 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.cart {
+  padding-bottom: 50px;
+}
 .cart-title {
   height: 40px;
   display: flex;

@@ -3,7 +3,7 @@
 		<view class="address-choose-box" v-if="JSON.stringify(address) === '{}'">
 			<button type="primary" size="mini" class="btnChooseAddress" @click="chooseAddress">请选择收获地址+</button>
 		</view>
-		<view class="address-info-box" v-else>
+		<view class="address-info-box" v-else @click="chooseAddress">
 			<view class="row1">
 				<view class="row1_left">
 					<view class="username">

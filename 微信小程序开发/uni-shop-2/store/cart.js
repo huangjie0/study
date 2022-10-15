@@ -43,6 +43,9 @@ export default {
 				c += x.goods_count
 			)
 			return c
+		},
+		checkedCount(state){
+			return state.cart.filter(x => x.goods_state).reduce((total,item) =>total+=item.goods_count,0)
 		}
 	}
 }
