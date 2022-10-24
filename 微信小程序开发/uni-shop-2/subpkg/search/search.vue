@@ -22,7 +22,6 @@
 				<uni-tag :text="item" type="success" v-for="(item,i) in historys" :key="i" @click="gotoGoodsList(item)">
 				</uni-tag>
 			</view>
-			
 		</view>
 	</view>
 </template>
