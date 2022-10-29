@@ -106,6 +106,7 @@ export default {
   data() {
     return {
       rolesList: [],
+      roleId:'',
       dialogVisible:false,
       rightsList:[],
       //默认勾选的节点数组
@@ -118,13 +119,16 @@ export default {
     };
   },
   methods: {
-    allotRights(){
+    async allotRights(){
         const keys = [...this.$refs.treeRef.getCheckedKeys(),...this.$refs.treeRef.getHalfCheckedKeys()]
-        console.log(keys)
         const idStr = keys.join(',')
-        this.$http.post(`roles/${ }/rights`,{
+        const {data:res} =await this.$http.post(`roles/${this.roleId}/rights`,{
             rids:idStr
         })
+        if(res.meta.status !== 200) return this.$message.error('分配权限失败')
+        this.$message.success('分配权限成功')
+        this.getRoles()
+        this.dialogVisible=false
     },
     setDialogClose(){
         this.defKeys = []
@@ -139,6 +143,7 @@ export default {
         })
     },
     async showSetRightDialog(role) {
+        this.roleId = role.id
         // 获取所有数据
         const {data:res}= await this.$http.get('rights/tree')
         if(res.meta.status !== 200) return this.$message.error('获取权限数据失败')
