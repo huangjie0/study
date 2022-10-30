@@ -13,6 +13,7 @@
     "element-ui": "^2.15.10",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
+    "vue-table-with-tree-grid": "^0.2.4",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

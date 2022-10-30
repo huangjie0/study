@@ -4,7 +4,10 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// 树状表格插件
+import ZkTable from 'vue-table-with-tree-grid'
 Vue.use(ElementUI)
+Vue.component('tree-table',ZkTable)
 //导入全局样式表
 import '@/assets/css/global.css'
 import axios from 'axios'
