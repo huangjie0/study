@@ -15,9 +15,11 @@
         <li>5</li>
         <li class="a">6</li>
         <li>7</li>
+        <span>我是span元素</span>
         <li id="box">8</li>
         <li>9</li>
         <li>10</li>
+        <button disabled="disabled"></button>
     </ul>
     <script src="./jquery-1.8.3.min.js"></script>
     <script>
@@ -30,6 +32,7 @@
         //结构选择器
         console.log($('li:nth-child(odd)'))
         console.log($('li:nth-child(even)'));
+        console.log($('button:disabled'))
     </script>
 </body>
 </html>

@@ -20,3 +20,11 @@ console.log($('span').parents());
 console.log($('span').siblings());
 //11.find(选择器)，满足后代所有满足要求的元素
 console.log($('ul').find('i'));
+console.log($('span').nextUntil())
+//不包含后面选择器
+console.log($('span').nextUntil('.box'))
+console.log($('span').prevUntil())
+console.log($('span').prevUntil('.box'))
+console.log($('span').children())
+console.log($('body').find('span'))
+console.log($('span').index())

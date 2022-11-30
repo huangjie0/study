@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+        ul{
+            background-color: blue;
+            width: 500px;
+            height: 600px;
+        }
+        ul>li{
+            background-color: chocolate;
+            width: 100px;
+            height: 30px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+    <ul>
+        <li>2</li>
+        <li>6</li>
+        <li>6</li>
+        <li>6</li>
+        <li>+</li>
+        <li>+</li>
+    </ul>
+</body>
+<script src="./jquery-1.8.3.min.js"></script>
+<script>
+    // $('div').on('moseout',function(){
+    //     console.log('我被点击了')
+    // })
+    //事件委托
+    $('ul').on('click','li',function(e){
+        console.log(e)
+    })
+</script>
+</html>
