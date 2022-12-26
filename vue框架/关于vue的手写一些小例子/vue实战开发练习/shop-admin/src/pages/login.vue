@@ -15,23 +15,23 @@
         <span>账号密码登录</span>
         <span class="line"></span>
       </div>
-      <el-form :model="form">
-        <el-form-item>
+      <el-form :model="form" :rules="rules" ref="formRef">
+        <el-form-item prop="username">
           <el-input v-model="form.username" placeholder="请输入用户名">
             <template #prefix>
                 <el-icon><UserFilled /></el-icon>
             </template>
           </el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input v-model="form.password" placeholder="请输入密码">
+        <el-form-item prop="password">
+          <el-input v-model="form.password" placeholder="请输入密码" type="password" show-password>
             <template #prefix>
                 <el-icon><Lock /></el-icon>
             </template>
         </el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" round color="#6366f1" @click="onSubmit"
+          <el-button type="primary" round color="#6366f1" @click="onSubmit" :loading="loading"
             >登录</el-button
           >
         </el-form-item>
@@ -40,15 +40,56 @@
   </el-row>
 </template>
 <script setup>
-import { reactive } from "vue";
+import { setToken } from '@/composables/auth.js'
+import {login,getinfo} from '@/api/manager.js'
+import { reactive ,ref} from "vue";
+import { toast } from "@/composables/util.js"
+import { useRouter } from "vue-router"
+import { useStore } from "vuex"
+const store = useStore()
+const router = useRouter()
 const form = reactive({
   username: "",
   password: "",
 });
 
 const onSubmit = () => {
-  console.log("submit!");
+  formRef.value.validate((value)=>{
+    if(!value) return false
+    loading.value = true
+    login(form.username,form.password).then((res)=>{
+        //提示用户成功
+        toast("登录成功")
+        //存储用户的token值和用户相关信息
+        setToken(res.token)
+        //获取用户相关信息
+        getinfo().then(res2=>{
+            store.commit("SET_USERINFO",res2)
+        })
+        //跳转到后台首页
+        router.push("/")
+    }).catch((err)=>{
+        ElNotification({
+            message: err.response.data.msg || "请求失败",
+            type: 'error',
+            duration:3000
+        })
+    }).finally(()=>{
+        loading.value = false
+    })
+  })
 };
+const loading = ref(false)
+const rules = {
+    username:[
+    { required: true, message: '用户名不能为空', trigger: 'blur' },
+    ],
+    password:[
+    { required: true, message: '密码不能为空', trigger: 'blur' },
+    ]
+}
+const formRef = ref(null)
+
 </script>
 <style>
 .el-form {
