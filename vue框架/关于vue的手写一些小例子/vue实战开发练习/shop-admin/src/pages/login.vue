@@ -40,9 +40,7 @@
   </el-row>
 </template>
 <script setup>
-import { setToken } from '@/composables/auth.js'
-import {login,getinfo} from '@/api/manager.js'
-import { reactive ,ref} from "vue";
+import { reactive ,ref,onMounted,onBeforeUnmount} from "vue";
 import { toast } from "@/composables/util.js"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"
@@ -52,33 +50,6 @@ const form = reactive({
   username: "",
   password: "",
 });
-
-const onSubmit = () => {
-  formRef.value.validate((value)=>{
-    if(!value) return false
-    loading.value = true
-    login(form.username,form.password).then((res)=>{
-        //提示用户成功
-        toast("登录成功")
-        //存储用户的token值和用户相关信息
-        setToken(res.token)
-        //获取用户相关信息
-        getinfo().then(res2=>{
-            store.commit("SET_USERINFO",res2)
-        })
-        //跳转到后台首页
-        router.push("/")
-    }).catch((err)=>{
-        ElNotification({
-            message: err.response.data.msg || "请求失败",
-            type: 'error',
-            duration:3000
-        })
-    }).finally(()=>{
-        loading.value = false
-    })
-  })
-};
 const loading = ref(false)
 const rules = {
     username:[
@@ -89,9 +60,33 @@ const rules = {
     ]
 }
 const formRef = ref(null)
+const onSubmit = () => {
+  formRef.value.validate((value)=>{
+    if(!value) return false
+    loading.value = true
+    store.dispatch('login',form).then(res=>{
+        toast("登录成功")
+        router.push("/")
+    }).finally(()=>{
+        loading.value = false
+    })
+  })
+};
+//监听回车事件方法
+function onKeyUp(e){
+    if(e.key == "Enter") onSubmit()
+}
+onMounted(()=>{
+    //添加键盘的监听
+document.addEventListener("keyup",onKeyUp)
+})
+onBeforeUnmount(()=>{
+    //移除事件
+    document.removeEventListener("keyup",onKeyUp)
+})
 
 </script>
-<style>
+<style scoped>
 .el-form {
   width: 250px;
 }
