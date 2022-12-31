@@ -4,7 +4,10 @@
       <el-icon class="logo-r"><Monitor /></el-icon>
       迪沙编程
     </span>
-    <el-icon class="icon-btn"><Fold /></el-icon>
+    <el-icon class="icon-btn" @click="$store.commit('handleAsideWidth')">
+      <Fold v-if="$store.state.asideWidth == '250px'" />
+      <Expand v-else/>
+    </el-icon>
     <el-tooltip effect="dark" content="刷新" placement="bottom">
       <el-icon class="icon-btn" @click="handleRefresh"
         ><RefreshRight
@@ -77,64 +80,31 @@
   </div>
 </template>
 <script setup>
-import { logout, updatepassword } from "@/api/manager.js";
 import FormDrawer from "@/components/FormDrawer.vue";
-import { useRouter } from "vue-router";
-import { showModal, toast } from "@/composables/util.js";
-import { useStore } from "vuex";
 import { useFullscreen } from "@vueuse/core";
-import { ref, reactive } from "vue";
-const formDrawerRef = ref(null);
+import { useRepassword,useLogout } from "@/composables/useManager.js"
 const { isFullscreen, toggle } = useFullscreen();
-const store = useStore();
-const router = useRouter();
-const form = reactive({
-  oldpassword: "",
-  repassword: "",
-  password: "",
-});
-const rules = {
-  oldpassword: [{ required: true, message: "旧密码不能为空", trigger: "blur" }],
-  password: [{ required: true, message: "新密码不能为空", trigger: "blur" }],
-  repassword: [
-    { required: true, message: "确认密码不能为空", trigger: "blur" },
-  ],
-};
-const formRef = ref(null);
-const onSubmit = () => {
-  formRef.value.validate((value) => {
-    if (!value) return false;
-    formDrawerRef.value.showLoading()
-    updatepassword(form)
-      .then((res) => {
-        toast("修改密码成功，请重新登录");
-        store.dispatch("logout");
-        //跳转到登录页面
-        router.push("/login");
-      })
-      .finally(() => {
-        formDrawerRef.value.hideLoading()
-      });
-  });
-};
-function handlelogout() {
-  showModal("是否要退出登录").then((res) => {
-    logout().finally(() => {
-      store.dispatch("logout");
-      //跳转到登录页面
-      router.push("/login");
-      //提示退出成功
-      toast("退出登录成功");
-    });
-  });
-}
+const {
+    formDrawerRef,
+    form,
+    formRef,
+    rules,
+    onSubmit,
+    openRePasswordForm
+} = useRepassword()
+
+const {
+  handlelogout
+} = useLogout()
+
+
 function handleCommand(command) {
   switch (command) {
     case "logout":
       handlelogout();
       break;
     case "rePassword":
-      formDrawerRef.value.open();
+    openRePasswordForm()
       break;
   }
 }
