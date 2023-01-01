@@ -20,13 +20,12 @@
 </template>
 <script setup>
 import * as echarts from "echarts";
-import { ref, onMounted } from "vue";
+import { ref, onMounted,onBeforeUnmount } from "vue";
+import { getStatistics3 } from "@/api/index.js";
 const current = ref("week");
 const myChart = null;
 onMounted(() => {
-  var chartDom = document.getElementById("chart");
-  var myChart = echarts.init(chartDom);
-  getData()
+  getData();
 });
 const options = [
   {
@@ -44,20 +43,22 @@ const options = [
 ];
 const handlerChoose = (type) => {
   current.value = type;
+  getData();
 };
 function getData() {
-  var option;
-  option = {
+  var chartDom = document.getElementById("chart");
+  var myChart = echarts.init(chartDom);
+  let option = {
     xAxis: {
       type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: [],
     },
     yAxis: {
       type: "value",
     },
     series: [
       {
-        data: [120, 200, 150, 80, 70, 110, 130],
+        data: [],
         type: "bar",
         showBackground: true,
         backgroundStyle: {
@@ -66,7 +67,16 @@ function getData() {
       },
     ],
   };
-
-  option && myChart.setOption(option);
+  myChart.showLoading()
+  getStatistics3(current.value).then((res) => {
+    option.xAxis.data = res.x;
+    option.series[0].data = res.y;
+    myChart.setOption(option);
+  }).finally(()=>{
+    myChart.hideLoading()
+  })
 }
+onBeforeUnmount(()=>{
+    if(myChart) echarts.dispose(myChart)
+})
 </script>
