@@ -9,6 +9,8 @@ import store from './store'
 import "@/permission"
 import "nprogress/nprogress.css"
 const app = createApp(App)
+import  permission from "@/directives/permission.js"
+app.use(permission)
 app.use(router)
 app.use(ElementPlus)
 app.use(store)

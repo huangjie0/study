@@ -47,7 +47,9 @@ const handlerChoose = (type) => {
 };
 function getData() {
   var chartDom = document.getElementById("chart");
-  var myChart = echarts.init(chartDom);
+  if(chartDom){
+    var myChart = echarts.init(chartDom);
+  }
   let option = {
     xAxis: {
       type: "category",
@@ -67,13 +69,19 @@ function getData() {
       },
     ],
   };
-  myChart.showLoading()
+  if(chartDom){
+    myChart.showLoading()
+  }
   getStatistics3(current.value).then((res) => {
     option.xAxis.data = res.x;
     option.series[0].data = res.y;
-    myChart.setOption(option);
+    if(chartDom){
+      myChart.setOption(option);
+    }
   }).finally(()=>{
-    myChart.hideLoading()
+    if(chartDom){
+      myChart.hideLoading()
+    }
   })
 }
 onBeforeUnmount(()=>{

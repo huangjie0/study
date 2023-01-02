@@ -20,7 +20,6 @@
             </el-col>
         </el-row>
     </el-card>
-    
 </template>
 <script setup>
 defineProps({

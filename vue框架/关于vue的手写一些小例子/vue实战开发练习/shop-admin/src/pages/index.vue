@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-row :gutter="20">
+        <el-row :gutter="20" v-permission="['getStatistics1,GET']">
             <el-col :span="6" :offset="0" v-for="(item,index) in panels" :key="index">
                 <el-card shadow="hover" class="card">
                     <template #header>
@@ -24,9 +24,9 @@
         <IndexNavs/>
         <el-row :gutter="20" style="margin-top: 20px;">
             <el-col :span="12" :offset="0">
-                <IndexChart/>
+                <IndexChart v-permission="['getStatistics3,GET']"/>
             </el-col>
-            <el-col :span="12" :offset="0">
+            <el-col :span="12" :offset="0" v-permission="['getStatistics2,GET']">
                 <IndexCard title="店铺及商品提示" tip="店铺及商品提示" :btns="goods"/>
                 <IndexCard title="交易提示" tip="需要立即处理的交易订单" :btns="order" style="margin-top: 30px;"/>
             </el-col>
