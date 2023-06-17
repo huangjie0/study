@@ -5,9 +5,9 @@
     "include": []
   },
   "setting": {
-    "urlCheck": false,
-    "es6": false,
-    "postcss": false,
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
     "minified": true,
     "newFeature": true,
     "bigPackageSizeSupport": true,
@@ -19,8 +19,8 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.26.1",
-  "appid": "touristappid",
-  "projectname": "uni-shop-2",
+  "appid": "wx5b9a06715c5fc468",
+  "projectname": "黑马优购",
   "condition": {
     "search": {
       "current": -1,

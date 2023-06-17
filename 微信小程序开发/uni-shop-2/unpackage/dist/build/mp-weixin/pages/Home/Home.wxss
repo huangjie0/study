@@ -1,0 +1,2 @@
+swiper{height:330rpx}swiper .swiper-item,
+swiper image{width:100%;height:100%}.nav-list{display:flex;justify-content:space-around;margin:15px 0}.nav-list .nav-img{width:128rpx;height:140rpx}.floor-title{width:100%;height:60rpx}.right-img-box{display:flex;flex-wrap:wrap;justify-content:space-around}.floor-img-box{display:flex;padding-left:10rpx}.search-box{position:-webkit-sticky;position:sticky;top:0;z-index:999}

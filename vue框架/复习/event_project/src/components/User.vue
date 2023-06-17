@@ -411,6 +411,7 @@ export default {
       if (res.meta.status !== 200)
         return this.$message.error("获取用户列表失败");
       this.userlist = res.data.users;
+      console.log(this.userlist)
       this.total = res.data.total;
     },
 
