@@ -10,6 +10,7 @@
 
 <body>
     <div id="test"></div>
+    <div id="test1"></div>
     <script type="text/javascript" src="../js/react.development.js">
     </script>
     <script type="text/javascript" src="../js/react-dom.development.js">
@@ -21,8 +22,6 @@
         class Person extends React.Component{
             constructor(props){
                 super(props)
-                console.log(props);
-
             }
             render(){
                 const { name,age,sex } = this.props
@@ -44,7 +43,8 @@
             }
         }
         ReactDOM.render(<Person name='黄杰' sex='女'/>,document.getElementById('test'))
-        function PersonItem(){
+        function PersonItem(props){
+            const  {name,age,sex} = props
             return (
                 <ul>
                     <li>姓名：{name}</li>    
@@ -53,6 +53,15 @@
                 </ul>
             )
         }
+        PersonItem.propTypes = {
+            name:PropTypes.string.isRequired,
+            sex:PropTypes.string.isRequired,
+            speak:PropTypes.func
+        }
+        PersonItem.defaultProps = {
+            age:60
+        }
+        ReactDOM.render(<PersonItem name='黄杰' sex='男' age={19}/>,document.getElementById('test1'))
     </script>
 </body>
 
