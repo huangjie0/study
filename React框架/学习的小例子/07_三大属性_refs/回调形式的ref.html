@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
             render(){
                 return (
                     <div>
-                        <input type="text" placeholder='点击按钮提示数据' ref={currentNode=>this.input1 = currentNode}/>
+                       {/** <input type="text" placeholder='点击按钮提示数据' ref={currentNode=>this.input1 = currentNode}/> */}
                         <button onClick={ this.showDate }>点我提示左侧数据</button>
                         <input type="text" placeholder='失去焦点提示数据' onBlur={this.showDate_1} ref='input2'/>
                     </div>
