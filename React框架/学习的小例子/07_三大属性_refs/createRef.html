@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js">
+    </script>
+    <script type="text/javascript" src="../js/react-dom.development.js">
+    </script>
+    <script type="text/javascript" src="../js/babel.min.js">
+    </script>
+    <script type="text/babel">
+        class Demo extends React.Component{
+            myRef = React.createRef()
+            myRef2 = React.createRef()
+            render(){
+                return (
+                    <div>
+                       <input type="text" placeholder='点击按钮提示数据' ref={this.myRef}/>
+                        <button onClick={ this.showDate }>点我提示左侧数据</button>
+                        <button onClick={ this.showDate2 }>点我提示右侧数据</button>
+                        <input type="text" placeholder='点击按钮提示数据' ref={this.myRef2}/>
+                    </div>
+                )
+            }
+            showDate=()=>{
+               console.log(this.myRef.current.value);
+            }
+            showDate2=()=>{
+               console.log(this.myRef2.current.value);
+            }
+        }
+        ReactDOM.render(<Demo/>,document.getElementById('test'))
+    </script>
+</body>
+
+</html>
