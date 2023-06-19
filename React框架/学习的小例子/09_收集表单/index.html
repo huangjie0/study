@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/javascript" src="../js/react.development.js">
+    </script>
+    <script type="text/javascript" src="../js/react-dom.development.js">
+    </script>
+    <script type="text/javascript" src="../js/babel.min.js">
+    </script>
+    <script type="text/babel">
+        class Login extends React.Component{
+            render(){
+                return (
+                    <form action='http://www.atguigu.com' onSubmit={this.submit }>
+                        用户名：<input type="text" name='username' ref={c => this.username = c}/><br/>
+                        密码：<input type="password" name ='password' ref={c => this.password = c}/>
+                        <button>登录</button>
+                    </form>
+                )
+            }
+            submit=(event)=>{
+                event.preventDefault()
+                const {username,password} = this
+                alert(username.value)
+                alert(password.value)
+            }
+        }
+        ReactDOM.render(<Login/>,document.getElementById('test'))
+    </script>
+</body>
+
+</html>
