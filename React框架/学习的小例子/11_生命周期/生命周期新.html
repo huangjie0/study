@@ -40,6 +40,9 @@
             UNSAFE_componentWillMount(){
                 console.log('componentWillMount');
             }
+            static getDerivedStateFromProps(props){
+                return props
+            }
             shouldComponentUpdate(){
                 console.log('shouldComponentUpdate');
                 return true
