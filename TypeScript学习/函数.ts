@@ -69,6 +69,19 @@ function sum3(a:number,...result:number[]):number{
 }
 console.log(sum2(1,3,4,5,6,7));
 
+//函数的重载，兼容重载写法
+function css(name:string):string;
+function css(age:number):number;
+function css(str:any):any{
+    if(typeof str == 'string'){
+        return str
+    }else{
+        return  str + '1111'
+    }
+}
+
+
+
 
 
 
