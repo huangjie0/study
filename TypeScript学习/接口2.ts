@@ -5,28 +5,57 @@
 // }
 // getInfo('哈哈哈')
 // 对json约束
-interface info{
-    name:string,
-    age:number
-}
+// interface info{
+//     name:string,
+//     age:number
+// }
 
 // function getInfo(info:{name:string}):void{
 //     console.log('hello Word');
 // }
 // getInfo({name:'张三'})
-function getInfo(name:info){
-    console.log(name.name);
-    console.log(name.age);
-}
-function getInfo1(info2:info){
-    console.log(info2.age);
-    console.log(info2.name);
-}
+// function getInfo(name:info){
+//     console.log(name.name);
+//     console.log(name.age);
+// }
+// function getInfo1(info2:info){
+//     console.log(info2.age);
+//     console.log(info2.name);
+// }
 //必须包含
-var info = {
-    name:'你好',
-    age:20,
-    label:'hh'
+// var info = {
+//     name:'你好',
+//     age:20,
+//     label:'hh'
+// }
+// getInfo(info)
+// getInfo1(info)
+
+//接口可选属性
+// interface info{
+//     firstName:string;
+//     lastName?:string
+// }
+// function getName(name:info){
+//     console.log(name);
+// }
+// getName({
+//     firstName:'黄杰'
+// })
+
+//函数接口
+interface jiami{
+    (key:string,value:string):string;
 }
-getInfo(info)
-getInfo1(info)
+var md5:jiami = function(key:string,value:string):string{
+    //模拟
+    return key + value
+}
+md5('name','zhangsan')
+
+
+
+
+
+
+ 
