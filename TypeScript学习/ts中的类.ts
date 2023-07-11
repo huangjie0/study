@@ -141,32 +141,64 @@
 // Person.print() 
 // console.log(Person.age);
 
-// 多态
-class Animal{
-    public name:string;
+//多态
+// class Animal{
+//     public name:string;
+//     constructor(name:string){
+//         this.name = name
+//     }
+//     eat(){
+//         console.log('吃的方法');
+//     }
+// }
+// class Dog extends Animal{
+//     constructor(name:string){
+//         super(name)
+//     }
+//     eat(){
+//         console.log(this.name + '吃粮食');
+//     }
+// }
+// class Cat extends Animal{
+//     constructor(name:string){
+//         super(name)
+//     }
+//     eat(){
+//         console.log(this.name + '猫粮');
+//     }
+// }
+
+//抽象方法，子类包含eat方法
+abstract class Animal{
+    public name:string
     constructor(name:string){
         this.name = name
     }
-    eat(){
-        console.log('吃的方法');
-    }
+    abstract eat():any
 }
+// var a = new Animal()
 class Dog extends Animal{
     constructor(name:string){
         super(name)
     }
     eat(){
         console.log(this.name + '吃粮食');
+        
     }
 }
+
 class Cat extends Animal{
     constructor(name:string){
         super(name)
     }
     eat(){
-        console.log(this.name + '猫粮');
+        console.log(this.name + '吃老鼠');
     }
 }
+var d = new Dog('小花')
+d.eat()
+var c = new Cat('猫')
+c.eat()
 
 
 
