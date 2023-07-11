@@ -120,26 +120,53 @@
 // console.log(wd.run());
 
 //静态属性静态方法
-class Person{
-    public name:string
-    static age = 18
-    static print(){
-        alert('静态方法')
-    }
+// class Person{
+//     public name:string
+//     static age = 18
+//     static print(){
+//         alert('静态方法')
+//     }
+//     constructor(name:string){
+//         this.name=name
+//     }
+//     run(){
+//         alert(`${this.name}在工作`)
+//     }
+//     work(){
+//         alert(`${this.name}在工作`)
+//     }
+// }
+// var p11 = new Person('张三')
+// p11.run()
+// Person.print() 
+// console.log(Person.age);
+
+// 多态
+class Animal{
+    public name:string;
     constructor(name:string){
-        this.name=name
+        this.name = name
     }
-    run(){
-        alert(`${this.name}在工作`)
-    }
-    work(){
-        alert(`${this.name}在工作`)
+    eat(){
+        console.log('吃的方法');
     }
 }
-var p11 = new Person('张三')
-p11.run()
-Person.print() 
-console.log(Person.age);
+class Dog extends Animal{
+    constructor(name:string){
+        super(name)
+    }
+    eat(){
+        console.log(this.name + '吃粮食');
+    }
+}
+class Cat extends Animal{
+    constructor(name:string){
+        super(name)
+    }
+    eat(){
+        console.log(this.name + '猫粮');
+    }
+}
 
 
 
