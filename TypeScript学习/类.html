@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // es5中的类
+    function Person(name,age){
+        this.name = '张三'
+        this.age = 20
+        this.run = function(){
+            alert(this.name + '在运动')
+        }
+    }
+    Person.prototype.work = function(){
+        alert(this.name + '在工作')
+    }
+    Person.prototype.sex = '男'
+    var p = new Person()
+    p.run()
+    // console.log(p.name);
+    //构造函数静态方法
+    Person.song = function(){
+        alert('静态方法')
+    }
+    Person.song()
+
+    // Es5里面的继承,原型链继承
+    function Web(){
+        Person.call(this) //对象冒充继承,可以继承属性和方法无法继承原型链的方法和属性
+    }
+    var w = new Web()
+    w.run()
+    //原型链属性继承
+    Web.prototype = new Person()
+    var w = new Web()
+    w.work()
+    var p = new Person('李四',20)
+    p.run()
+    function Web2(age,number){
+
+    }
+    Web2.prototype = new Person()
+    var w2 = new Web2('赵四',20)
+    var w3 = new Web2('王五',23)
+    w2.run()
+</script>
+</html>
