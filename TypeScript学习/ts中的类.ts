@@ -119,6 +119,33 @@
 // var wd = new web('李四');
 // console.log(wd.run());
 
+//静态属性静态方法
+class Person{
+    public name:string
+    static age = 18
+    static print(){
+        alert('静态方法')
+    }
+    constructor(name:string){
+        this.name=name
+    }
+    run(){
+        alert(`${this.name}在工作`)
+    }
+    work(){
+        alert(`${this.name}在工作`)
+    }
+}
+var p11 = new Person('张三')
+p11.run()
+Person.print() 
+console.log(Person.age);
+
+
+
+
+
+
 
 
 
