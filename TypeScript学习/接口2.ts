@@ -44,14 +44,45 @@
 // })
 
 //函数接口
-interface jiami{
-    (key:string,value:string):string;
+// interface jiami{
+//     (key:string,value:string):string;
+// }
+// var md5:jiami = function(key:string,value:string):string{
+//     //模拟
+//     return key + value
+// }
+// md5('name','zhangsan')
+
+// 可索引接口
+// interface UserArr{
+//     [index:number]:string
+// }
+// var arr2:UserArr = ['1','2','3']
+// interface UserObject{
+//     [index:string]:string
+// }
+// var arr2:UserObject={
+//     hello:'你好',
+//     name:'黄杰'
+// }
+
+//类类型接口
+interface Animal5{
+    name:string;
+    eat(str:string):void
 }
-var md5:jiami = function(key:string,value:string):string{
-    //模拟
-    return key + value
+class Dog1 implements Animal5{
+    name:string;
+    constructor(name:string){
+        this.name = name
+    }
+    eat(){
+        console.log(this.name+'吃粮食');
+    }
 }
-md5('name','zhangsan')
+var d = new Dog1('小黑');
+d.eat()
+
 
 
 
