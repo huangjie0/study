@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+    <div id="demo"></div>
+</body>
+<style>
+</style>
+<script>
+    //创建三维场景
+    const scene = new THREE.Scene()
+    //定义长方体（长宽高）
+    const geometry = new THREE.BoxGeometry( 100, 100, 100 );
+    //three材质
+    const material = new THREE.MeshBasicMaterial({
+        color:0xff00ff,
+        opacity:0.3, 
+        transparent:true, //开启透明度，默认关闭
+        wireframe:false   //线框，默认关闭
+    })
+    //网格模型
+    const mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+    //网格模型在三维空间的位置大小
+    mesh.position.set(0,10,0)
+    //给三维场景添加物体
+    scene.add(mesh)
+
+    // width和height用来设置Three.js输出的Canvas画布尺寸(像素px)
+    const width = 800; //宽度
+    const height = 500; //高度
+    // 45:视场角度, width / height:Canvas画布宽高比, 1:近裁截面, 3000：远裁截面
+    const camera = new THREE.PerspectiveCamera(45, width / height, 1, 3000);
+
+    //相机在Three.js三维坐标系中的位置
+    camera.position.set(200, 200, 200); 
+
+    //相机观察目标指向Threejs 3D空间中某个位置
+    camera.lookAt(0, 0, 0); //1. 坐标原点
+    camera.lookAt(mesh.position);//2. 指向mesh对应的位置
+
+    // 创建渲染器对象
+    const renderer = new THREE.WebGLRenderer();
+    const width1 = 800; //宽度
+    const height1 = 500; //高度
+    renderer.setSize(width1, height1); //设置画布（渲染区域）的尺寸(像素px)
+    renderer.render(scene, camera); //执行渲染操作
+
+    // 将画布插入到HTML元素中
+    document.getElementById('demo').appendChild(renderer.domElement);
+</script>
+</html>

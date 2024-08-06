@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // window.value = "你好o"
+    // var obj = {
+    //     value:"111",
+    //     getInfo:()=>{
+    //         console.log(this.value);
+    //     }
+    // }
+    // obj.getInfo()
+    // var b = 1
+    // function a(){
+    //     // 'use strict'
+    //     console.log(this.b);
+    // }
+    // // window.a()
+    // a()
+    // var arr = [1,3,132,23,44]
+    // try{
+    //     arr.forEach((item)=>{
+    //         if(item > 10) throw new Error("退出循环")
+    //         console.log(item);
+    //     })
+    // }catch(e){
+    //     console.log(e);
+    // }
+    // var obj = {
+    //     name:"黄杰",
+    //     sayHello:function(){
+    //         console.log('Hello' + this.name);
+    //     }
+    // }
+    // var obj2 = {
+    //     name:"张三"
+    // }
+
+    // obj.sayHello()
+
+    // obj.sayHello.call(obj2)
+    // obj.sayHello.apply(obj2)
+
+
+    let obj1 = {
+        name:"黄杰",
+        sayHello: function(r,p){
+            console.log('Hello' + this.name,r+' ' + this.name,p+' ' + this.name);
+        }
+    }
+
+    let obj2 = {
+        name:"胡歌"
+    }
+    obj1.sayHello()
+
+    obj1.sayHello.call(obj2,'乌拉','解决')
+
+    obj1.sayHello.apply(obj2,['乌拉','解决'])
+
+    let bind1 = obj1.sayHello.bind(obj1,'乌拉','解决')
+    bind1()
+
+    function Animal(){
+        this.eat = function(){
+            console.log("吃东西");
+        }
+    }
+
+    function Cat(){
+        Animal.call(this)
+    }
+
+
+    let cat = new Cat()
+    cat.eat()
+
+
+    //宏任务和微任务
+    //宏任务 -------> ajax 、 定时器 、dom事件监听 、 promise ....
+    //微任务 -------> process.nextTick (node.js)
+
+    //先执行主线程里面的任务，等任务执行完毕再去任务队列拿出执行，先进先出顺序
+
+    //防抖
+    function db(f,d){
+        var timer = null;
+        return function (){
+            if(timer) clearTimeout(timer)
+            setTimeout(()=>{
+                f.apply(this,arguments) //this与参数
+                timer = null;
+            },d)
+        } 
+    }
+
+    // new 经过了什么操作
+    // 1、创建一个空对象
+    // 2、设置其原型链
+    // 3、执行函数体
+    // 4、判断有无返回值
+
+
+    //实现冒泡排序
+    function sort(arr){
+        for(var i = 0;i<arr.length;i++){
+            for(var j = 0;j<arr.length - 1;j++){
+                if(arr[j] > arr[j+1]){
+                    var c = arr[j]
+                    arr[j] = arr[j+1]
+                    arr[j+1] = c
+                }
+            }
+        }
+        return arr.toString()
+    }
+
+    console.log(sort([1,12,5,0,11,16,15])); 
+
+    let arr = [1,2,3,4,5,6]
+    let str = arr.join('\n')
+    console.log(str);
+
+    let str1 = '1232323234'
+    let arr2 = str1.split('2')
+    console.log(arr2);
+
+    function clone(obj){
+        if(typeof obj == 'object'){
+            if(obj instanceof Array){
+                var result = []
+                for(var i = 0;i<obj.length;i++){
+                    result[i] = clone(obj[i])
+                }
+                return result;
+            }else{
+                var result = {}
+                for(var i in obj){
+                    result[i] = clone(obj[i]);
+                }
+                return result;
+            }
+        }else{
+            return obj;
+        }
+    }
+
+    var obj44 = [12,{ a:11,b:22 }, 5 ];
+    var obj45 = clone(obj44);
+    obj45[1].a+=5;
+    console.log(obj44);
+    console.log(obj45);
+
+   //数组去重
+   let arr0 = [1,2,2,3,4,4,5,56]
+   let arr32 = [...new Set(arr0)] 
+   console.log(arr32);
+
+    let result = []
+   for(var i = 0; i < arr0.length; i++){
+        for(var j = 0;j<result.length;j++){
+            if(arr0[i] === result[j]){
+                break;
+            }
+        }
+        if(j == result.length){
+            result.push(arr0[i])
+        }
+   }
+
+   console.log(result);
+
+   for(var i = 0;i<arr32.length;i++){
+    for(var j = i+1;j<arr32.length;j++){
+        if(arr32[i] == arr32[j]){
+            arr32.splice(j,1); j--;
+        }
+    }
+   }
+
+   let obj_1 = {
+        a:1,
+        b:{
+            c:{
+                d:[1,1,1]
+            }
+        },
+        f:'你好'
+   }
+
+
+    //深拷贝
+   function deepClone(obj){
+        var objClone = Array.isArray(obj) ? [] : {}
+        if(obj && typeof obj == 'object'){
+            for(key in obj){
+                if(obj.hasOwnProperty(key)){
+                    if(obj[key] && typeof obj[key] == 'object'){
+                        objClone[key] = deepClone(obj[key])
+                    }else{
+                        objClone[key] = obj[key];
+                    }
+                }
+            }
+        }
+        return objClone;
+   }
+
+
+   console.log(deepClone(obj_1));
+
+   function deepClone_2(obj){
+    return JSON.parse(JSON.stringify(obj))
+   }
+
+   console.log(deepClone_2(obj_1));
+
+   // _.cloneDeep() 深拷贝 _.clone()浅拷贝
+
+   const gh = { 
+    name:"黄杰",
+    age:123
+   }
+   const hjh = {...gh}
+   console.log(hjh);
+
+   const sobj = Object.assign({},obj_1);
+   console.log(sobj);
+
+   const array = [1,11,23,4334]
+   const array_132 = array.slice();
+
+   console.log(array_132);
+   function shallowClone(originObj){
+    let obj = {}
+    for(let key in originObj){
+        obj[key] = originObj[key]
+    }
+    return obj
+   }
+
+
+   //数组去重
+   let es6 = new Set([...array]) 
+
+   let arr_2 = [1,1,1,2,3,43,121,212,323,2]
+   let a = arr_2.filter((item,index)=>{
+    return arr_2.indexOf(item) === index
+   })
+   console.log(a);
+
+   //普通函数
+   function MathHandle(x,y){
+    this.x = x
+    this.y = y
+   }
+   MathHandle.prototype.add = function(){
+        return this.x + this.y
+   }
+
+   var m = new MathHandle(1,5);
+   console.log(m.add()); 
+
+
+//    class基本语法
+   class MathHandle_1{
+        constructor(x,y){
+            this.x = x;
+            this.y = y;
+        }
+        add(){
+            return this.x + this.y
+        }
+   }
+
+   let m1 = new MathHandle_1(1,77);
+   console.log(m1.add());
+   
+   //垃圾回收机制
+//    1、标记清除2、引用计数
+//可达对象和不可达对象
+
+//可达对象，当前代码运行的对象
+
+//不可达对象，不被引用对象
+//垃圾回收器标记不可达对象，将他从内存中清除
+
+// 任务队列
+//宏任务 （整体的script代码、settimeout、setInterval\IO）、 微任务 （process.nexttick\promise\）
+
+var data = '{"student":[{"name":"黄杰","age":"18"},{"name":"你好","age":"29"}]}'
+
+var data1 = JSON.parse(data)
+console.log(data1);
+
+var data2 = eval('(' + data + ')');
+console.log(data2);
+
+//同源策略 端口+域名+协议相同
+
+// 解决跨域
+// 1、jsonp
+// 2、cors:跨域资源共享
+// 3、方向代理 window + iframe
+
+
+// http与https区别
+// http:超文本传输协议，https更安全通过ssl加密进行传输
+// http端口是80,https端口是443
+//https需要申请证书，免费证书很少，要买
+//http连接很简单，无状态的，https是ssl+http协议进行加密传输
+
+// localStorage.setItem("UserInfo",JSON.stringify({
+//     name:"huangjie",
+//     age:10
+// }))
+
+// console.log(localStorage.getItem("UserInfo")); 
+
+// cookie用于客户端和服务端传输的值，大小为4kb,存储在客户端里面，session存储在服务端里面，有实效性，默认是浏览器关闭失效。
+// localStorage\sessionStorage大小为5mb,存储在浏览器里面，localStorage关闭会话浏览器窗口不会消失直到手动清除
+// sessionStorage具有会话性，随着浏览器会话页面关闭会主动消失
+
+
+console.log(a2);
+var a2 = 123;
+
+setTimeout(()=>{
+    console.log(111);
+    setTimeout(()=>{
+        console.log(2222);
+        setTimeout(()=>{
+            console.log(3333);
+        },1000)
+    },2000)
+},3000)
+
+let s = new Set([1,22,3,4,{name:"黄杰"}])
+console.log(s);
+s.add("5675675")
+console.log(s);
+console.log(s.size);
+
+//promise三种状态 fulfilled\pending\reject
+// promise三种方法 then() catch() finally()
+// Promise.all(promiseAllArray).then(()=>{
+
+// }).catch((e)=>e).finally(()=>{
+
+// })
+
+// Promise.race([])
+
+let obj_p = {}
+Object.defineProperty(obj_p,'fullName',{
+    get(){
+        return this.firstName + ' ' + this.lastName;
+    },
+    set(value){
+        throw new Error('Cannot set fullName directly');
+    },
+    //是否可以遍历
+    enumerable:true,
+    //是否可以被修改或者删除
+    configurable:true,
+    //是否可以被修改
+    writable:true
+})
+
+obj_p.firstName = "Tom"
+
+obj_p.lastName= "GGHGH";
+
+console.log(obj_p.fullName);
+//生命周期钩子函数
+//页面首次渲染调用的钩子函数
+//beforeCreate/Created/beforeMount/mounted
+
+//默认插槽
+// <slot></slot>
+//具名插槽
+// name="header" ----> <templete #header></templete>   
+//作用域插槽
+//:data='item'------->v-slot:default='scope' ----->#default="{user}"
+
+//.prevent  阻止默认行为 .stop阻止冒泡行为 .self:当元素发生在自己元素上会触发调用
+// v-model v-if v-else-if v-show v-for v-bind v-on:click 
+
+
+// directive 自定义指令
+
+//父子组件生命周期调用顺序
+//第一次加载（首次加载渲染）
+//父 beforeCreate created beforeMount 子 beforeCreate created beforeMount mounted 父 mounted
+
+//当修改时候调用顺序 父 berforeUpdate 子 beforeUpdate 子 updated 父 updated
+
+</script>
+</html>
