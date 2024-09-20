@@ -1,5 +1,0 @@
-<!--components/test/test.wxml-->
-<text class="g-red-text">components/test/test.wxml</text>
-<button bindtap="addCount">+{{count}}</button>
-<button bindtap="showInfo">data和props是否一样</button>
-<view>max的属性值是：{{max}}</view>

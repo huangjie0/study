@@ -1,1 +1,0 @@
-<view class="my-settle-container"><label class="radio"><radio color="#C00000" checked="true"></radio><text>全选</text></label><view class="amount-box">合计：<text class="amount">￥123.00</text></view><view class="btn-settle">{{'结算（'+checkedCount+'）'}}</view></view>

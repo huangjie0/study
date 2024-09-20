@@ -1,4 +1,0 @@
-/* components/test/test.wxss */
-.g-red-text{
-  font-weight: bold;
-}

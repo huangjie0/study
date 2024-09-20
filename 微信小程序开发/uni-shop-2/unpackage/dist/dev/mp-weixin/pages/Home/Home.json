@@ -1,6 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "my-search": "/components/my-search/my-search"
-  }
-}

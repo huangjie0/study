@@ -1,7 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "uni-icons": "/node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons",
-    "uni-goods-nav": "/node-modules/@dcloudio/uni-ui/lib/uni-goods-nav/uni-goods-nav"
-  }
-}
